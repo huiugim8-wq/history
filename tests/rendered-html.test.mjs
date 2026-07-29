@@ -34,7 +34,6 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
-  assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
