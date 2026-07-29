@@ -34,6 +34,7 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
+  assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
@@ -41,10 +42,13 @@ test("renders landmark structure and accessible project imagery", async () => {
   const response = await render();
   const html = await response.text();
 
-  assert.match(html, /<header class="site-header">/);
-  assert.match(html, /<nav aria-label="주요 메뉴">/);
+  assert.match(html, /<header class="top-banner">/);
+  assert.match(html, /<nav class="profile-links" aria-label="프로필 링크">/);
   assert.match(html, /<main id="top">/);
-  assert.match(html, /<section class="section project-section" id="project">/);
+  assert.match(
+    html,
+    /<section class="resume-section project-section" id="project">/,
+  );
   assert.match(
     html,
     /alt="GOPS의 NVDA 캔들 차트, 호가, 비교 차트가 배치된 투자 분석 화면"/,
