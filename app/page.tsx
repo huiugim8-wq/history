@@ -5,13 +5,7 @@ const workExperiences = [
     role: "12기 졸업",
     meta: "KRAFTON JUNGLE",
     summary:
-      "컴퓨터공학 기초부터 운영체제, 네트워크, 팀 프로젝트까지 밀도 높은 몰입 과정을 완주했습니다.",
-    detailTitle: "몰입하며 배운 것",
-    bullets: [
-      "낯선 문제를 작은 단위로 나누고 끝까지 해결하는 습관을 만들었습니다.",
-      "CS 기초를 코드와 프로젝트로 연결하며 제품 전체 흐름을 보는 시야를 넓혔습니다.",
-      "팀원과 설계 의도를 공유하고 빠르게 검증하는 협업 방식을 익혔습니다.",
-    ],
+      "CS 기초와 팀 프로젝트를 집중적으로 학습하며 문제를 끝까지 해결하는 개발 습관을 만들었습니다.",
     featured: true,
   },
   {
@@ -20,13 +14,7 @@ const workExperiences = [
     role: "자동차 부품 제조",
     meta: "2 YEARS",
     summary:
-      "자동차 부품 생산 현장에서 품질 기준을 지키며 생산과 운영의 흐름을 경험했습니다.",
-    detailTitle: "현장에서 배운 것",
-    bullets: [
-      "반복되는 업무에서도 정확성과 품질을 유지하는 실행력을 길렀습니다.",
-      "공정 전후의 영향을 살피며 문제를 전체 흐름 안에서 파악했습니다.",
-      "다양한 역할의 동료와 기준을 맞추고 결과를 만들어내는 협업을 경험했습니다.",
-    ],
+      "자동차 부품 생산 현장에서 품질 기준과 생산·운영 협업을 경험했습니다.",
   },
   {
     mark: "O",
@@ -34,13 +22,7 @@ const workExperiences = [
     role: "수건·목재 판매 창업",
     meta: "FOUNDER EXPERIENCE",
     summary:
-      "상품 기획부터 판매, 고객 응대와 운영까지 사업의 전 과정을 직접 실행했습니다.",
-    detailTitle: "고객과 제품을 연결한 경험",
-    bullets: [
-      "고객의 반응을 관찰해 상품 구성과 판매 방식을 빠르게 개선했습니다.",
-      "한정된 자원 안에서 우선순위를 정하고 결과를 만드는 법을 배웠습니다.",
-      "아이디어를 실제 고객이 사용하는 형태까지 연결하는 실행력을 키웠습니다.",
-    ],
+      "상품 기획부터 판매, 고객 응대와 운영까지 사업의 전 과정을 직접 맡았습니다.",
   },
 ];
 
@@ -138,12 +120,6 @@ export default function Home() {
 
                 <div className="resume-detail">
                   <p className="summary-box">{experience.summary}</p>
-                  <h4>{experience.detailTitle}</h4>
-                  <ul>
-                    {experience.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
                 </div>
               </article>
             ))}
