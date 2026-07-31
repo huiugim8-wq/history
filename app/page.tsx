@@ -2,14 +2,14 @@ const experienceItems = [
   {
     title: "㈜나현",
     role: "자동차 부품 제조",
-    meta: "2 YEARS",
+    period: "2024 — 2025.08",
     summary:
-      "자동차 부품 제조 현장에서 2년간 생산 작업과 품질 기준 준수를 담당했습니다.",
+      "자동차 부품 제조 현장에서 생산 작업과 품질 기준 준수를 담당했습니다.",
   },
   {
     title: "OTOS",
     role: "수건·목재 판매 창업",
-    meta: "FOUNDER EXPERIENCE",
+    period: "2023 — 2024 · 1년",
     link: {
       label: "와디즈 펀딩",
       href: "https://www.wadiz.kr/web/campaign/detail/198814",
@@ -28,7 +28,7 @@ const experienceItems = [
   {
     title: "대구대학교",
     role: "실내건축디자인학과",
-    meta: "EDUCATION",
+    period: "2017.03 — 2023.08",
     summary:
       "공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고 명확하게 전달하는 기반을 다졌습니다.",
   },
@@ -76,7 +76,8 @@ export default function Home() {
 
           <div className="profile-points">
             <p>
-              실내건축디자인·제조업·창업 경험에서 얻은 관찰력으로{" "}
+              실내건축디자인·제조업에서 얻은 관찰력과 와디즈·쿠팡 판매를{" "}
+              <strong>연 매출 약 1억 원</strong>까지 운영한 창업 경험을 바탕으로{" "}
               <strong>복잡한 문제를 구조화</strong>합니다.
             </p>
             <p>
@@ -95,8 +96,7 @@ export default function Home() {
             <p>
               수치 계산과 주문은 LLM에서 분리하고, 검증된 분석 결과만
               설명하도록 제한했습니다. 사용자 확인을 거친 주문은 Transactional
-              Outbox로 전달했으며, 와디즈·쿠팡 판매는{" "}
-              <strong>연 매출 약 1억 원</strong>까지 운영했습니다.
+              Outbox로 전달했습니다.
             </p>
           </div>
         </section>
@@ -114,13 +114,14 @@ export default function Home() {
                   <span aria-hidden="true">·</span>
                   <p>12기 졸업</p>
                 </div>
-                <span>KRAFTON JUNGLE</span>
+                <time className="experience-period">2026.03 — 2026.07</time>
+                <span className="experience-meta">KRAFTON JUNGLE</span>
               </div>
 
               <div className="resume-detail jungle-detail">
                 <div className="project-header">
                   <div className="project-title">
-                    <span>TEAM PROJECT</span>
+                    <span>TEAM PROJECT · 2026.03 — 2026.07</span>
                     <p>실시간 투자 정보 플랫폼</p>
                   </div>
                   <nav className="project-links" aria-label="프로젝트 관련 링크">
@@ -270,7 +271,9 @@ export default function Home() {
                       <span aria-hidden="true">·</span>
                       <p>{experience.role}</p>
                     </div>
-                    <span>{experience.meta}</span>
+                    <time className="experience-period">
+                      {experience.period}
+                    </time>
                   </div>
 
                   {experience.link ? (
