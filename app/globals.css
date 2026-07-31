@@ -12,6 +12,9 @@
   --code: #eef1f5;
   --max-width: 1040px;
   --text-measure: 860px;
+  --text-large: 17px;
+  --text-body: 15px;
+  --text-small: 12px;
 }
 
 * {
@@ -29,7 +32,7 @@ body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR",
     "Segoe UI", sans-serif;
-  font-size: 16px;
+  font-size: var(--text-body);
   line-height: 1.68;
   letter-spacing: -0.015em;
   word-break: keep-all;
@@ -60,7 +63,7 @@ code {
 .top-banner p {
   margin: 0;
   color: #38558f;
-  font-size: 16px;
+  font-size: var(--text-body);
   font-weight: 750;
   letter-spacing: -0.02em;
 }
@@ -72,13 +75,13 @@ footer {
 }
 
 .profile {
-  padding: 112px 0 116px;
+  padding: 96px 0 64px;
 }
 
 .profile-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 150px;
-  gap: 72px;
+  gap: 64px;
   align-items: center;
 }
 
@@ -104,14 +107,14 @@ footer {
 }
 
 .profile-links {
-  margin-top: 24px;
+  margin-top: 20px;
   display: flex;
   gap: 20px;
 }
 
 .profile-links a {
   color: var(--subtle);
-  font-size: 13px;
+  font-size: var(--text-small);
   font-weight: 650;
   transition: color 140ms ease;
 }
@@ -129,7 +132,7 @@ footer a:focus-visible {
 
 .profile-points {
   width: min(100%, var(--text-measure));
-  margin: 56px 0 0;
+  margin: 42px 0 0;
   padding: 0;
 }
 
@@ -141,26 +144,26 @@ footer a:focus-visible {
 .profile-context {
   max-width: 800px;
   color: #59616c;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.75;
 }
 
 .profile-principle {
   max-width: 820px;
-  margin-top: 18px !important;
+  margin-top: 14px !important;
   color: #303741;
-  font-size: 20px;
-  font-weight: 650;
-  line-height: 1.58;
+  font-size: var(--text-large);
+  font-weight: 550;
+  line-height: 1.65;
   letter-spacing: -0.025em;
 }
 
 .profile-evidence {
-  margin-top: 26px !important;
-  padding-top: 24px;
+  margin-top: 20px !important;
+  padding-top: 18px;
   border-top: 1px solid #e3e6ea;
   color: #505863;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.8;
 }
 
@@ -171,11 +174,11 @@ footer a:focus-visible {
 
 .resume-section {
   scroll-margin-top: 28px;
-  padding-bottom: 128px;
+  padding-bottom: 96px;
 }
 
 .section-title {
-  padding-bottom: 18px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -217,7 +220,7 @@ footer a:focus-visible {
 .resume-side p {
   margin: 0;
   color: #4a525d;
-  font-size: 15px;
+  font-size: var(--text-body);
   font-weight: 700;
 }
 
@@ -230,7 +233,7 @@ footer a:focus-visible {
   margin-top: 10px;
   color: #687281;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
+  font-size: var(--text-small);
   font-weight: 750;
   letter-spacing: 0.055em;
 }
@@ -238,7 +241,7 @@ footer a:focus-visible {
 .experience-meta {
   margin-top: 3px;
   color: var(--subtle);
-  font-size: 10px;
+  font-size: var(--text-small);
   font-weight: 750;
   letter-spacing: 0.08em;
 }
@@ -250,7 +253,7 @@ footer a:focus-visible {
   align-items: center;
   gap: 7px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: var(--text-small);
   font-weight: 750;
   transition: color 140ms ease;
 }
@@ -272,12 +275,12 @@ footer a:focus-visible {
   align-items: center;
   gap: 7px;
   color: var(--subtle);
-  font-size: 13px;
+  font-size: var(--text-small);
   font-weight: 650;
 }
 
 .side-link-placeholder small {
-  font-size: 9px;
+  font-size: var(--text-small);
   font-weight: 600;
 }
 
@@ -290,18 +293,18 @@ footer a:focus-visible {
 .resume-list .resume-detail {
   display: block;
   align-items: initial;
-  margin-top: 28px;
+  margin-top: 22px;
   padding-left: 0;
   border-left: 0;
 }
 
 .resume-list .resume-item {
   display: block;
-  padding: 42px 0 48px;
+  padding: 32px 0 38px;
 }
 
 .resume-list .jungle-item {
-  padding: 44px 0 56px;
+  padding: 34px 0 44px;
 }
 
 .jungle-entry-header {
@@ -320,7 +323,7 @@ footer a:focus-visible {
 
 .resume-list .resume-item + .resume-item {
   margin-top: 0;
-  padding-top: 42px;
+  padding-top: 32px;
 }
 
 .resume-list .resume-side {
@@ -328,7 +331,7 @@ footer a:focus-visible {
 }
 
 .resume-list .jungle-detail {
-  margin-top: 42px;
+  margin-top: 30px;
 }
 
 .experience-heading {
@@ -340,7 +343,7 @@ footer a:focus-visible {
 
 .experience-heading > span {
   color: var(--subtle);
-  font-size: 13px;
+  font-size: var(--text-small);
 }
 
 .experience-heading p {
@@ -353,7 +356,7 @@ footer a:focus-visible {
   padding: 0;
   background: transparent;
   color: #49515c;
-  font-size: 15.5px;
+  font-size: var(--text-body);
   font-weight: 550;
   line-height: 1.78;
   text-wrap: pretty;
@@ -382,7 +385,7 @@ footer a:focus-visible {
   border-left: 2px solid var(--accent);
   background: transparent;
   color: #2d3540;
-  font-size: 14px;
+  font-size: var(--text-body);
   font-weight: 650;
 }
 
@@ -416,7 +419,7 @@ footer a:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
 }
 
 .project-title p {
@@ -437,7 +440,7 @@ footer a:focus-visible {
   margin-bottom: 8px;
   color: var(--subtle);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 9px;
+  font-size: var(--text-small);
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -448,31 +451,31 @@ footer a:focus-visible {
 
 .project-header .side-link {
   color: var(--foreground);
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 
 .project-introduction {
   width: min(100%, 880px);
-  margin-top: 38px;
+  margin-top: 28px;
   color: #3f4650;
 }
 
 .project-introduction p {
   margin: 0;
-  font-size: 15.5px;
+  font-size: var(--text-body);
   line-height: 1.78;
   text-wrap: pretty;
 }
 
 .project-introduction p + p {
-  margin-top: 12px;
+  margin-top: 9px;
 }
 
 .project-introduction p:first-child {
   color: #2f363f;
-  font-size: 18px;
-  font-weight: 650;
-  line-height: 1.65;
+  font-size: var(--text-large);
+  font-weight: 600;
+  line-height: 1.7;
   letter-spacing: -0.025em;
 }
 
@@ -492,7 +495,7 @@ footer a:focus-visible {
 }
 
 .project-highlights {
-  margin-top: 46px;
+  margin-top: 34px;
   padding: 0;
   border-top: 1px solid #e3e6ea;
 }
@@ -501,7 +504,7 @@ footer a:focus-visible {
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
   gap: 24px;
-  padding: 32px 0;
+  padding: 26px 0;
   border-bottom: 1px solid #e8ebef;
 }
 
@@ -513,7 +516,7 @@ footer a:focus-visible {
   padding-top: 5px;
   color: var(--accent);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
+  font-size: var(--text-small);
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -530,7 +533,7 @@ footer a:focus-visible {
   max-width: 820px;
   margin: 0;
   color: #4a525d;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.78;
   text-wrap: pretty;
 }
@@ -541,7 +544,7 @@ footer a:focus-visible {
 }
 
 .highlight-tags {
-  margin-top: 13px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 0;
@@ -552,7 +555,7 @@ footer a:focus-visible {
   border: 0;
   background: transparent;
   color: #52627a;
-  font-size: 10px;
+  font-size: var(--text-small);
   line-height: 1.5;
 }
 
@@ -567,11 +570,11 @@ footer a:focus-visible {
   border-radius: 4px;
   background: var(--code);
   color: #43567c;
-  font-size: 0.86em;
+  font-size: var(--text-small);
 }
 
 .contact {
-  padding: 68px 0 104px;
+  padding: 52px 0 76px;
   border-top: 1px solid var(--line);
   text-align: left;
 }
@@ -579,7 +582,7 @@ footer a:focus-visible {
 .contact p {
   margin: 0 0 10px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: var(--text-body);
 }
 
 .contact a {
@@ -587,7 +590,7 @@ footer a:focus-visible {
   align-items: center;
   gap: 8px;
   color: var(--foreground);
-  font-size: 24px;
+  font-size: var(--text-large);
   font-weight: 850;
   transition: color 140ms ease;
 }
@@ -599,7 +602,7 @@ footer {
   justify-content: space-between;
   border-top: 1px solid #dfe3e8;
   color: var(--subtle);
-  font-size: 10px;
+  font-size: var(--text-small);
   font-weight: 750;
   letter-spacing: 0.08em;
 }
@@ -609,8 +612,10 @@ footer p {
 }
 
 @media (max-width: 680px) {
-  body {
-    font-size: 14px;
+  :root {
+    --text-large: 16px;
+    --text-body: 14px;
+    --text-small: 11px;
   }
 
   .top-banner {
@@ -620,7 +625,7 @@ footer p {
   }
 
   .top-banner p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
 
   main,
@@ -629,7 +634,7 @@ footer p {
   }
 
   .profile {
-    padding: 76px 0 84px;
+    padding: 68px 0 54px;
   }
 
   .profile-intro {
@@ -647,22 +652,16 @@ footer p {
 
   .profile-points {
     width: 100%;
-    margin-top: 42px;
-  }
-
-  .profile-context,
-  .profile-evidence {
-    font-size: 14px;
+    margin-top: 34px;
   }
 
   .profile-principle {
-    margin-top: 16px !important;
-    font-size: 18px;
+    margin-top: 12px !important;
   }
 
   .profile-evidence {
-    margin-top: 22px !important;
-    padding-top: 20px;
+    margin-top: 18px !important;
+    padding-top: 16px;
   }
 
   .resume-section {
@@ -698,30 +697,22 @@ footer p {
   }
 
   .project-introduction {
-    margin-top: 30px;
-  }
-
-  .project-introduction p:first-child {
-    font-size: 16px;
+    margin-top: 24px;
   }
 
   .project-highlights {
-    margin-top: 36px;
+    margin-top: 28px;
     padding: 0;
   }
 
   .project-highlight {
     grid-template-columns: 30px minmax(0, 1fr);
     gap: 12px;
-    padding: 26px 0;
+    padding: 22px 0;
   }
 
   .project-highlight h4 {
     font-size: 17px;
-  }
-
-  .project-highlight p {
-    font-size: 14px;
   }
 
   .resume-list {
@@ -736,11 +727,11 @@ footer p {
   .resume-list .resume-item {
     grid-template-columns: 1fr;
     gap: 14px;
-    padding: 28px 0 32px;
+    padding: 24px 0 28px;
   }
 
   .resume-list .resume-item + .resume-item {
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .resume-side {
@@ -770,10 +761,6 @@ footer p {
     font-size: 20px;
   }
 
-  .resume-side p {
-    font-size: 14px;
-  }
-
   .experience-header {
     flex-direction: column;
     gap: 10px;
@@ -794,22 +781,18 @@ footer p {
   }
 
   .resume-list .resume-detail {
-    margin-top: 20px;
+    margin-top: 16px;
     padding: 0;
     border-top: 0;
     border-left: 0;
   }
 
   .resume-list .jungle-detail {
-    margin-top: 32px;
+    margin-top: 26px;
   }
 
   .contact {
-    padding: 54px 0 78px;
-  }
-
-  .contact a {
-    font-size: 19px;
+    padding: 46px 0 66px;
   }
 }
 
