@@ -160,6 +160,7 @@ export default function Home() {
                   </p>
                 </div>
 
+                <p className="project-contribution-label">주요 구현</p>
                 <div
                   className="project-highlights"
                   aria-label="프로젝트 핵심 역량"

@@ -474,6 +474,14 @@ footer a:focus-visible {
   letter-spacing: -0.025em;
 }
 
+.project-contribution-label {
+  margin: 38px 0 0;
+  color: var(--accent);
+  font-size: var(--text-small);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 .project-detail {
   min-width: 0;
 }
@@ -490,7 +498,7 @@ footer a:focus-visible {
 }
 
 .project-highlights {
-  margin-top: 34px;
+  margin-top: 10px;
   padding: 0;
   border-top: 1px solid #e3e6ea;
 }
@@ -694,8 +702,12 @@ footer p {
   }
 
   .project-highlights {
-    margin-top: 28px;
+    margin-top: 10px;
     padding: 0;
+  }
+
+  .project-contribution-label {
+    margin-top: 30px;
   }
 
   .project-highlight {
