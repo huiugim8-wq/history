@@ -1,47 +1,41 @@
-const workExperiences = [
+const experienceItems = [
   {
-    mark: "12",
-    title: "크래프톤 정글",
-    role: "12기 졸업",
-    meta: "KRAFTON JUNGLE",
-    summary:
-      "CS 기초와 팀 프로젝트를 집중적으로 학습하며 문제를 끝까지 해결하는 개발 습관을 만들었습니다.",
-    featured: true,
-  },
-  {
-    mark: "NH",
     title: "㈜나현",
     role: "자동차 부품 제조",
     meta: "2 YEARS",
     summary:
-      "자동차 부품 생산 현장에서 품질 기준과 생산·운영 협업을 경험했습니다.",
+      "자동차 부품 제조 현장에서 2년간 생산 작업과 품질 기준 준수를 담당했습니다.",
   },
   {
-    mark: "O",
     title: "OTOS",
     role: "수건·목재 판매 창업",
     meta: "FOUNDER EXPERIENCE",
+    summary: (
+      <>
+        <a
+          className="experience-link"
+          href="https://www.wadiz.kr/web/campaign/detail/198814"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="OTOS 와디즈 펀딩 프로젝트 열기"
+        >
+          와디즈 펀딩 <span aria-hidden="true">↗</span>
+        </a>
+        과 쿠팡 목재 판매를 직접 기획·운영하며,{" "}
+        <strong>
+          ‘무엇을 팔까’보다 고객의 어떤 문제를 풀어야 하는지
+        </strong>{" "}
+        먼저 정의하고 시장 반응과 수익성으로 사업 가능성을 검증해{" "}
+        <strong>연 매출 약 1억 원</strong>을 달성했습니다.
+      </>
+    ),
+  },
+  {
+    title: "대구대학교",
+    role: "실내건축디자인학과",
+    meta: "EDUCATION",
     summary:
-      "상품 기획부터 판매, 고객 응대와 운영까지 사업의 전 과정을 직접 맡았습니다.",
-  },
-];
-
-const skills = [
-  {
-    label: "Frontend",
-    items: ["TypeScript", "React", "Vite", "Canvas"],
-  },
-  {
-    label: "Backend · AI",
-    items: ["Python", "FastAPI", "WebSocket", "LangGraph"],
-  },
-  {
-    label: "Data",
-    items: ["Kafka", "Redis", "ClickHouse", "PostgreSQL", "S3"],
-  },
-  {
-    label: "Infra",
-    items: ["Docker", "AWS", "EKS", "GitHub Actions"],
+      "공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고 명확하게 전달하는 기반을 다졌습니다.",
   },
 ];
 
@@ -52,69 +46,228 @@ function ExternalArrow() {
 export default function Home() {
   return (
     <>
-      <header className="top-banner">
+      <header className="top-banner" id="top">
         <p>사용자가 끝까지 쓰는 AI 서비스를 만드는 개발자</p>
       </header>
 
-      <main id="top">
+      <main>
         <section className="profile" aria-labelledby="profile-title">
-          <p className="profile-kicker">AI PRODUCT ENGINEER · FULL-STACK</p>
-          <h1 id="profile-title">
-            안녕하세요,
-            <br />
-            AI 제품 엔지니어 <strong>김희준</strong>입니다.
-          </h1>
+          <div className="profile-intro">
+            <div>
+              <h1 id="profile-title">
+                안녕하세요,
+                <br />
+                AI 제품 엔지니어 <strong>김희준</strong>입니다.
+              </h1>
 
-          <nav className="profile-links" aria-label="프로필 링크">
-            <a href="mailto:huiugim8@gmail.com">Email</a>
-            <a
-              href="https://github.com/KFJG-Team1/gops"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Github
-            </a>
-          </nav>
+              <nav className="profile-links" aria-label="프로필 링크">
+                <a href="mailto:huiugim8@gmail.com">Email</a>
+                <a
+                  href="https://github.com/KFJG-Team1/gops"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github
+                </a>
+              </nav>
+            </div>
+
+            <img
+              className="profile-photo"
+              src="/profile-id.png"
+              alt="정장을 입은 김희준의 증명사진"
+            />
+          </div>
 
           <ul className="profile-points">
             <li>
-              사용자의 문제를 이해하고, 빠르게 시도해{" "}
-              <strong>실제로 작동하는 제품</strong>으로 연결합니다.
+              모호한 요구를 작은 문제로 분해하고, 빠른 프로토타입과 피드백으로{" "}
+              <strong>해결 방향을 검증</strong>합니다.
             </li>
             <li>
-              화면부터 API, 실시간 데이터, 저장소와 배포까지{" "}
-              <strong>제품 전체 흐름</strong>을 설계합니다.
+              Python·API·데이터베이스를 연결해{" "}
+              <strong>AI 워크플로우</strong>를 구현하고 배포·운영까지
+              책임집니다.
             </li>
             <li>
-              실내건축디자인·제조업·창업 경험에서 얻은 관찰력으로{" "}
-              <strong>복잡한 문제를 구조화</strong>합니다.
+              LLM의 답변 품질을 평가와 모니터링으로 검증하고, 실패 원인을 찾아{" "}
+              <strong>성능을 개선</strong>합니다.
             </li>
             <li>
-              <strong>크래프톤 정글 12기 졸업</strong> 후에도 낯선 문제를
-              끝까지 해결하며 꾸준히 성장하고 있습니다.
+              한 번의 구현에 그치지 않고, 여러 팀이 함께 사용할 수 있는{" "}
+              <strong>재사용 가능한 구조</strong>로 일반화합니다.
             </li>
           </ul>
         </section>
 
-        <section className="resume-section" id="experience">
+        <section className="resume-section work-section" id="experience">
           <div className="section-title">
-            <h2>Work Experience</h2>
+            <h2>Work &amp; Experience</h2>
           </div>
 
           <div className="resume-list">
-            {workExperiences.map((experience) => (
-              <article
-                className={`resume-item ${
-                  experience.featured ? "resume-item-featured" : ""
-                }`}
-                key={experience.title}
-              >
-                <div className="resume-side">
-                  <div className="company-mark" aria-hidden="true">
-                    {experience.mark}
+            <article className="resume-item jungle-item" id="project">
+              <div className="resume-side">
+                <div className="experience-heading">
+                  <h3>크래프톤 정글</h3>
+                  <span aria-hidden="true">·</span>
+                  <p>12기 졸업</p>
+                </div>
+                <span>KRAFTON JUNGLE</span>
+              </div>
+
+              <div className="resume-detail jungle-detail">
+                <div className="project-header">
+                  <div className="project-title">
+                    <span>TEAM PROJECT</span>
+                    <p>실시간 투자 정보 플랫폼</p>
                   </div>
-                  <h3>{experience.title}</h3>
-                  <p>{experience.role}</p>
+                  <nav className="project-links" aria-label="프로젝트 관련 링크">
+                    <a
+                      className="side-link"
+                      href="https://github.com/KFJG-Team1/gops"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="프로젝트 GitHub 저장소 열기"
+                    >
+                      Github <ExternalArrow />
+                    </a>
+                    <span className="side-link-placeholder">
+                      Blog <small>준비 중</small>
+                    </span>
+                    <span className="side-link-placeholder">
+                      YouTube <small>준비 중</small>
+                    </span>
+                  </nav>
+                </div>
+
+                <div className="project-introduction">
+                  <p>
+                    시장 탐색부터 AI 분석·주문·거래 복기까지 하나의 사용자
+                    맥락으로 연결한 개인 맞춤형 주식 트레이딩 플랫폼입니다.
+                  </p>
+                  <p>
+                    24시간 분량 약 9천만 건의 시장 데이터를 Kafka 이벤트
+                    드리븐 구조로 처리하고, 실시간·과거·재생 경로가 같은 데이터
+                    계약을 사용하도록 설계했습니다.
+                  </p>
+                  <p>
+                    분석 시점의 근거만 사용하는 AI와 멱등 처리·Transactional
+                    Outbox·정합성 확인을 적용한 주문 흐름을 구성했습니다.
+                  </p>
+                </div>
+
+                <div
+                  className="project-highlights"
+                  aria-label="프로젝트 핵심 역량"
+                >
+                  <section className="project-highlight">
+                    <span>01</span>
+                    <div>
+                      <h4>이벤트 드리븐 MSA</h4>
+                      <p>
+                        시장 데이터·주문·AI 서비스를 독립된 경계로 나누고 Kafka
+                        이벤트로 연결했습니다. LIVE·과거 조회·SIM은 같은 공통
+                        데이터 계약(canonical contract)을 사용해 결과가 달라지는
+                        문제를 해결했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="이벤트 드리븐 MSA 관련 키워드"
+                      >
+                        {["Kafka", "MSA", "Canonical Contract"].map(
+                          (keyword) => (
+                            <code key={keyword}>{keyword}</code>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>02</span>
+                    <div>
+                      <h4>9,327만 건의 실시간 틱 데이터 처리</h4>
+                      <p>
+                        502개 종목에서 체결 4,030만 건과 호가 5,297만 건, 총{" "}
+                        <strong>93,275,117개 이벤트</strong>를
+                        수집·검증했습니다. 같은 이벤트가 다시 들어와도 결과가
+                        바뀌지 않도록 offset 기반 멱등 처리와 저장 완료 후 커밋을
+                        적용했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="실시간 틱 데이터 처리 관련 키워드"
+                      >
+                        {["ClickHouse", "Idempotency", "Replay"].map(
+                          (keyword) => (
+                            <code key={keyword}>{keyword}</code>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>03</span>
+                    <div>
+                      <h4>AI를 안전하게 운영하는 경계</h4>
+                      <p>
+                        AI가 주문을 직접 실행하지 못하도록 경계를 두고, 개인정보
+                        마스킹과 최소 권한을 적용했습니다. 외부 AI 서비스 장애
+                        시에는 핵심 기능만 제공하도록 하고, 평가·모니터링 규칙을
+                        코드와 문서로 남겼습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="AI 운영 위험 통제 관련 키워드"
+                      >
+                        {[
+                          "AI Guardrails",
+                          "Least Privilege",
+                          "Monitoring",
+                        ].map((keyword) => (
+                          <code key={keyword}>{keyword}</code>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>04</span>
+                    <div>
+                      <h4>성능과 비용을 함께 고려한 인프라</h4>
+                      <p>
+                        EKS 상시 자원을 32 vCPU·124GiB에서 20 vCPU·92GiB로
+                        조정해 <strong>월 약 511달러</strong>를 절감했습니다.
+                        비용을 줄인 뒤에도 백업과 롤백이 정상 동작하는지
+                        검증했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="인프라 비용 최적화 관련 키워드"
+                      >
+                        {[
+                          "AWS · EKS",
+                          "Cost Optimization",
+                          "Backup · Rollback",
+                        ].map((keyword) => (
+                          <code key={keyword}>{keyword}</code>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </article>
+            {experienceItems.map((experience) => (
+              <article className="resume-item" key={experience.title}>
+                <div className="resume-side">
+                  <div className="experience-heading">
+                    <h3>{experience.title}</h3>
+                    <span aria-hidden="true">·</span>
+                    <p>{experience.role}</p>
+                  </div>
                   <span>{experience.meta}</span>
                 </div>
 
@@ -124,147 +277,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </section>
-
-        <section className="resume-section project-section" id="project">
-          <div className="section-title">
-            <h2>Team Project</h2>
-          </div>
-
-          <article className="resume-item project-item">
-            <div className="resume-side">
-              <div className="company-mark project-mark" aria-hidden="true">
-                G
-              </div>
-              <h3>GOPS</h3>
-              <p>실시간 투자 정보 플랫폼</p>
-              <span>FEATURED PROJECT</span>
-              <a
-                className="side-link"
-                href="https://github.com/KFJG-Team1/gops"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GOPS GitHub 저장소 열기"
-              >
-                Github <ExternalArrow />
-              </a>
-            </div>
-
-            <div className="resume-detail project-detail">
-              <blockquote>
-                종목을 찾는 사람에게 기준을,
-                <br />
-                시장을 읽는 사람에게 방향을.
-              </blockquote>
-
-              <div className="tech-tags" aria-label="GOPS 사용 기술">
-                {[
-                  "React",
-                  "TypeScript",
-                  "FastAPI",
-                  "WebSocket",
-                  "Kafka",
-                  "Redis",
-                  "ClickHouse",
-                  "PostgreSQL",
-                  "Docker",
-                  "AWS · EKS",
-                ].map((tech) => (
-                  <code key={tech}>{tech}</code>
-                ))}
-              </div>
-
-              <p className="contribution">
-                역할 : Frontend · Backend · Data Pipeline · Infra
-              </p>
-
-              <h4>목표</h4>
-              <ul>
-                <li>
-                  실시간 시세, 캔들 차트, 주문 흐름과 AI 분석을 하나의
-                  워크스페이스로 연결했습니다.
-                </li>
-                <li>
-                  사용자가 복잡한 시장 정보를 한 화면에서 이해하고 행동할 수
-                  있도록 구성했습니다.
-                </li>
-              </ul>
-
-              <h4>주요 역할</h4>
-              <ul>
-                <li>
-                  <code>React · TypeScript</code> 화면과{" "}
-                  <code>FastAPI · WebSocket</code> API를 연결해 실시간 차트와
-                  주문 흐름을 구현했습니다.
-                </li>
-                <li>
-                  <code>Kafka</code> 파이프라인을{" "}
-                  <code>Redis · ClickHouse · PostgreSQL · S3</code>의 역할에
-                  맞게 분리했습니다.
-                </li>
-                <li>
-                  역할 기반 AI 에이전트와 과거 데이터 시뮬레이터,{" "}
-                  <code>Docker · AWS · EKS</code> 배포 구조를 설계했습니다.
-                </li>
-              </ul>
-
-              <h4>제품을 만들며 배운 점</h4>
-              <ul>
-                <li>
-                  기능 하나보다 데이터가 들어와 사용자에게 전달되는 전체 흐름을
-                  먼저 설계하는 것이 중요했습니다.
-                </li>
-                <li>
-                  복잡한 정보를 잘 나누고 각 기술의 역할을 명확하게 정할수록
-                  제품을 안정적으로 개선할 수 있었습니다.
-                </li>
-              </ul>
-
-              <figure className="project-image">
-                <img
-                  src="/gops-workspace.png"
-                  alt="GOPS의 NVDA 캔들 차트, 호가, 비교 차트가 배치된 투자 분석 화면"
-                />
-                <figcaption>GOPS · REAL-TIME INVESTMENT WORKSPACE</figcaption>
-              </figure>
-            </div>
-          </article>
-        </section>
-
-        <section className="resume-section" id="skills">
-          <div className="section-title">
-            <h2>Skills</h2>
-          </div>
-
-          <div className="skill-table">
-            {skills.map((skill) => (
-              <div className="skill-row" key={skill.label}>
-                <h3>{skill.label}</h3>
-                <div>
-                  {skill.items.map((item) => (
-                    <code key={item}>{item}</code>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="resume-section education-section" id="education">
-          <div className="section-title">
-            <h2>Education</h2>
-          </div>
-
-          <article className="education-item">
-            <p>대구대학교</p>
-            <div>
-              <h3>실내건축디자인학과</h3>
-              <span>
-                공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고
-                명확하게 전달하는 기반을 다졌습니다.
-              </span>
-            </div>
-          </article>
         </section>
 
         <section className="contact" id="contact">
