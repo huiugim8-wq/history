@@ -126,7 +126,7 @@ footer a:focus-visible {
 
 .profile-points {
   width: min(100%, 900px);
-  margin: 36px auto 0;
+  margin: 36px 0 0;
   padding: 0;
   color: #3f4650;
   font-size: 14px;
