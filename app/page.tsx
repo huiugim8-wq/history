@@ -10,18 +10,13 @@ const experienceItems = [
     title: "OTOS",
     role: "수건·목재 판매 창업",
     meta: "FOUNDER EXPERIENCE",
+    link: {
+      label: "와디즈 펀딩",
+      href: "https://www.wadiz.kr/web/campaign/detail/198814",
+    },
     summary: (
       <>
-        <a
-          className="experience-link"
-          href="https://www.wadiz.kr/web/campaign/detail/198814"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="OTOS 와디즈 펀딩 프로젝트 열기"
-        >
-          와디즈 펀딩 <span aria-hidden="true">↗</span>
-        </a>
-        과 쿠팡 목재 판매를 직접 기획·운영하며,{" "}
+        와디즈 펀딩과 쿠팡 목재 판매를 직접 기획·운영하며,{" "}
         <strong>
           ‘무엇을 팔까’보다 고객의 어떤 문제를 풀어야 하는지
         </strong>{" "}
@@ -262,13 +257,27 @@ export default function Home() {
             </article>
             {experienceItems.map((experience) => (
               <article className="resume-item" key={experience.title}>
-                <div className="resume-side">
-                  <div className="experience-heading">
-                    <h3>{experience.title}</h3>
-                    <span aria-hidden="true">·</span>
-                    <p>{experience.role}</p>
+                <div className="experience-header">
+                  <div className="resume-side">
+                    <div className="experience-heading">
+                      <h3>{experience.title}</h3>
+                      <span aria-hidden="true">·</span>
+                      <p>{experience.role}</p>
+                    </div>
+                    <span>{experience.meta}</span>
                   </div>
-                  <span>{experience.meta}</span>
+
+                  {experience.link ? (
+                    <a
+                      className="side-link experience-header-link"
+                      href={experience.link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${experience.title} ${experience.link.label} 프로젝트 열기`}
+                    >
+                      {experience.link.label} <ExternalArrow />
+                    </a>
+                  ) : null}
                 </div>
 
                 <div className="resume-detail">

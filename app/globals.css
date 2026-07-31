@@ -304,23 +304,16 @@ footer a:focus-visible {
   font-weight: 800;
 }
 
-.experience-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--foreground);
-  font-weight: 800;
-  text-decoration: none;
-  border-bottom: 1px solid #c8d1df;
-  transition:
-    color 140ms ease,
-    border-color 140ms ease;
+.experience-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.experience-link:hover,
-.experience-link:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
+.experience-header-link {
+  flex: 0 0 auto;
+  margin-top: 1px;
 }
 
 .project-detail blockquote {
@@ -654,6 +647,15 @@ footer p {
 
   .resume-list .resume-side {
     display: block;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .experience-header-link {
+    margin-top: 0;
   }
 
   .side-link {
