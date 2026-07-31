@@ -168,36 +168,6 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>01</span>
                     <div>
-                      <h4>배포 중단을 해결한 Docker·Kubernetes 환경</h4>
-                      <p>
-                        React 앱과 TypeScript 차트 엔진을 Docker 멀티 스테이지
-                        빌드로 이미지화하고 Nginx로 제공했습니다. EKS에서
-                        프론트엔드·API·WebSocket 경로와 컨테이너 상태 검사를
-                        구성했습니다. 클러스터 자원 부족으로 새로운 Pod가
-                        실행되지 않아 배포가 멈추자, 자원 요청량과 Rolling
-                        Update 정책을 조정해 서비스 중단 없이 배포가 완료되도록
-                        개선했습니다.
-                      </p>
-                      <div
-                        className="highlight-tags"
-                        aria-label="프론트엔드 배포 관련 키워드"
-                      >
-                        {[
-                          "Docker",
-                          "Nginx",
-                          "EKS",
-                          "Rolling Update",
-                          "Health Check",
-                        ].map((keyword) => (
-                          <code key={keyword}>{keyword}</code>
-                        ))}
-                      </div>
-                    </div>
-                  </section>
-
-                  <section className="project-highlight">
-                    <span>02</span>
-                    <div>
                       <h4>REST·WebSocket 흐름을 결합한 React 패널 구조</h4>
                       <p>
                         검색·차트·기업 분석·주문을 독립된 React 패널
@@ -225,7 +195,7 @@ export default function Home() {
                   </section>
 
                   <section className="project-highlight">
-                    <span>03</span>
+                    <span>02</span>
                     <div>
                       <h4>후보 생성과 검증을 분리한 차트 분석 알고리즘</h4>
                       <p>
@@ -253,7 +223,7 @@ export default function Home() {
                   </section>
 
                   <section className="project-highlight">
-                    <span>04</span>
+                    <span>03</span>
                     <div>
                       <h4>분석 시점을 고정하고 근거를 추적하는 AI 분석 UI</h4>
                       <p>
@@ -273,6 +243,36 @@ export default function Home() {
                           "Evidence Trace",
                           "Deterministic Analysis",
                           "AI Guardrails",
+                        ].map((keyword) => (
+                          <code key={keyword}>{keyword}</code>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>04</span>
+                    <div>
+                      <h4>배포 중단을 해결한 Docker·Kubernetes 환경</h4>
+                      <p>
+                        React 앱과 TypeScript 차트 엔진을 Docker 멀티 스테이지
+                        빌드로 이미지화하고 Nginx로 제공했습니다. EKS에서
+                        프론트엔드·API·WebSocket 경로와 컨테이너 상태 검사를
+                        구성했습니다. 클러스터 자원 부족으로 새로운 Pod가
+                        실행되지 않아 배포가 멈추자, 자원 요청량과 Rolling
+                        Update 정책을 조정해 서비스 중단 없이 배포가 완료되도록
+                        개선했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="프론트엔드 배포 관련 키워드"
+                      >
+                        {[
+                          "Docker",
+                          "Nginx",
+                          "EKS",
+                          "Rolling Update",
+                          "Health Check",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}
