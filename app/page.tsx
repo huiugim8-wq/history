@@ -149,13 +149,9 @@ export default function Home() {
                     이어지는 개인 맞춤형 주식 트레이딩 플랫폼입니다.
                   </p>
                   <p>
-                    React 화면과 TypeScript 차트 엔진의 책임을 분리하고, 캔들
-                    상태·분석 결과·사용자 조작이 독립적으로 확장되도록
-                    구성했습니다.
-                  </p>
-                  <p>
-                    분석 엔진이 계산한 피벗·후보선·검증 근거를 차트에서 직접
-                    확인할 수 있게 만들고, Docker와 EKS를 이용해 배포했습니다.
+                    React 화면과 TypeScript 차트 엔진의 책임을 분리하고, 분석
+                    시점에 고정한 시장·재무·뉴스 근거와 차트 분석 결과를
+                    사용자가 직접 확인할 수 있도록 구현했습니다.
                   </p>
                 </div>
 
@@ -238,6 +234,35 @@ export default function Home() {
                           "Clustering",
                           "Linear Regression",
                           "Candidate Scoring",
+                        ].map((keyword) => (
+                          <code key={keyword}>{keyword}</code>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>04</span>
+                    <div>
+                      <h4>분석 근거까지 탐색하는 차트·기업 분석 UI</h4>
+                      <p>
+                        분석 요청 시점의 시장·재무·뉴스 데이터를 Snapshot으로
+                        고정해 여러 패널이 동일한 근거를 사용하도록 구성했습니다.
+                        분석 엔진은 캔들에서 피벗을 추출하고 접촉·반응·오차를
+                        평가해 지지·저항·추세 후보를 선별합니다. React에서는
+                        피벗·후보선·검증 결과를 독립된 차트 레이어로 변환해
+                        사용자가 분석 결과와 근거를 함께 탐색할 수 있도록
+                        구현했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="차트·기업 분석 UI 관련 키워드"
+                      >
+                        {[
+                          "React",
+                          "TypeScript",
+                          "Point-in-Time Snapshot",
+                          "Chart Geometry",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}

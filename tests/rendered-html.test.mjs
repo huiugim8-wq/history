@@ -76,6 +76,9 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /근거를 검증해 작도하는 차트 분석/);
   assert.match(html, /Pivot Detection/);
   assert.match(html, /Linear Regression/);
+  assert.match(html, /분석 근거까지 탐색하는 차트·기업 분석 UI/);
+  assert.match(html, /Point-in-Time Snapshot/);
+  assert.match(html, /독립된 차트 레이어/);
   assert.doesNotMatch(html, /성능과 비용을 함께 고려한 인프라/);
   assert.doesNotMatch(html, /class="company-mark project-mark"/);
   assert.doesNotMatch(html, /Experience &amp; Education/);
