@@ -69,6 +69,10 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /class="project-header"/);
   assert.doesNotMatch(html, /<h3>GOPS<\/h3>/);
   assert.match(html, /실시간 투자 정보 플랫폼/);
+  assert.match(
+    html,
+    /24시간 동안 수집된 약 9천만 건의 시장 이벤트를 Kafka 이벤트 드리븐 구조로 처리/,
+  );
   assert.match(html, /Docker·Kubernetes 기반 프론트엔드 배포/);
   assert.match(html, /Rolling Update/);
   assert.match(html, /React와 분리한 TypeScript 차트 엔진/);
