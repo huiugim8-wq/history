@@ -11,7 +11,6 @@
   --accent: #4d6fbd;
   --code: #eef1f5;
   --max-width: 1040px;
-  --text-measure: 860px;
   --text-large: 17px;
   --text-body: 15px;
   --text-small: 12px;
@@ -131,7 +130,7 @@ footer a:focus-visible {
 }
 
 .profile-points {
-  width: min(100%, var(--text-measure));
+  width: 100%;
   margin: 42px 0 0;
   padding: 0;
 }
@@ -142,14 +141,12 @@ footer a:focus-visible {
 }
 
 .profile-context {
-  max-width: 800px;
   color: #59616c;
   font-size: var(--text-body);
   line-height: 1.75;
 }
 
 .profile-principle {
-  max-width: 820px;
   margin-top: 14px !important;
   color: #303741;
   font-size: var(--text-large);
@@ -351,7 +348,7 @@ footer a:focus-visible {
 }
 
 .resume-list .summary-box {
-  width: min(100%, 880px);
+  width: 100%;
   margin: 0;
   padding: 0;
   background: transparent;
@@ -455,7 +452,7 @@ footer a:focus-visible {
 }
 
 .project-introduction {
-  width: min(100%, 880px);
+  width: 100%;
   margin-top: 28px;
   color: #3f4650;
 }
@@ -530,7 +527,6 @@ footer a:focus-visible {
 }
 
 .project-highlight p {
-  max-width: 820px;
   margin: 0;
   color: #4a525d;
   font-size: var(--text-body);
