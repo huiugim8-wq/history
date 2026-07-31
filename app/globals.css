@@ -244,25 +244,24 @@ footer a:focus-visible {
 }
 
 .resume-list .resume-detail {
-  display: flex;
-  align-items: center;
+  display: block;
+  align-items: initial;
+  margin-top: 28px;
+  padding-left: 24px;
 }
 
 .resume-list .resume-item {
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 20px;
-  padding: 20px 0;
-  align-items: center;
+  display: block;
+  padding: 30px 0 42px;
 }
 
 .resume-list .jungle-item {
-  display: block;
   padding: 30px 0 42px;
 }
 
 .resume-list .resume-item + .resume-item {
   margin-top: 0;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .resume-list .resume-side {
@@ -270,10 +269,7 @@ footer a:focus-visible {
 }
 
 .resume-list .jungle-detail {
-  display: block;
-  align-items: initial;
   margin-top: 28px;
-  padding-left: 24px;
 }
 
 .experience-heading {
@@ -671,14 +667,14 @@ footer p {
   }
 
   .resume-list .resume-detail {
-    padding-top: 12px;
-  }
-
-  .resume-list .jungle-detail {
     margin-top: 22px;
     padding: 0 0 0 16px;
     border-top: 0;
     border-left: 1px solid var(--line);
+  }
+
+  .resume-list .jungle-detail {
+    margin-top: 22px;
   }
 
   .contact {
