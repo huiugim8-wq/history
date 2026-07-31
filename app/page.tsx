@@ -145,17 +145,17 @@ export default function Home() {
 
                 <div className="project-introduction">
                   <p>
-                    시장 탐색부터 AI 분석·주문·거래 복기까지 하나의 사용자
-                    맥락으로 연결한 개인 맞춤형 주식 트레이딩 플랫폼입니다.
+                    시장 탐색부터 AI 분석·주문·거래 복기까지 한 화면에서
+                    이어지는 개인 맞춤형 주식 트레이딩 플랫폼입니다.
                   </p>
                   <p>
-                    24시간 분량 약 9천만 건의 시장 데이터를 Kafka 이벤트
-                    드리븐 구조로 처리하고, 실시간·과거·재생 경로가 같은 데이터
-                    계약을 사용하도록 설계했습니다.
+                    React 화면과 TypeScript 차트 엔진의 책임을 분리하고, 캔들
+                    상태·분석 결과·사용자 조작이 독립적으로 확장되도록
+                    구성했습니다.
                   </p>
                   <p>
-                    분석 시점의 근거만 사용하는 AI와 멱등 처리·Transactional
-                    Outbox·정합성 확인을 적용한 주문 흐름을 구성했습니다.
+                    분석 엔진이 계산한 피벗·후보선·검증 근거를 차트에서 직접
+                    확인할 수 있게 만들고, Docker와 EKS를 이용해 배포했습니다.
                   </p>
                 </div>
 
@@ -166,68 +166,24 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>01</span>
                     <div>
-                      <h4>이벤트 드리븐 MSA</h4>
+                      <h4>Docker·Kubernetes 기반 프론트엔드 배포</h4>
                       <p>
-                        시장 데이터·주문·AI 서비스를 독립된 경계로 나누고 Kafka
-                        이벤트로 연결했습니다. LIVE·과거 조회·SIM은 같은 공통
-                        데이터 계약(canonical contract)을 사용해 결과가 달라지는
-                        문제를 해결했습니다.
+                        React 앱과 TypeScript 차트 엔진을 Docker 멀티 스테이지
+                        빌드로 이미지화하고 Nginx로 제공했습니다. EKS에서
+                        프론트엔드·API·WebSocket 경로와 상태 검사를 구성했으며,
+                        배포 중 자원 부족으로 업데이트가 멈추는 문제는 컨테이너
+                        자원과 Rolling Update 설정을 조정해 해결했습니다.
                       </p>
                       <div
                         className="highlight-tags"
-                        aria-label="이벤트 드리븐 MSA 관련 키워드"
-                      >
-                        {["Kafka", "MSA", "Canonical Contract"].map(
-                          (keyword) => (
-                            <code key={keyword}>{keyword}</code>
-                          ),
-                        )}
-                      </div>
-                    </div>
-                  </section>
-
-                  <section className="project-highlight">
-                    <span>02</span>
-                    <div>
-                      <h4>9,327만 건의 실시간 틱 데이터 처리</h4>
-                      <p>
-                        502개 종목에서 체결 4,030만 건과 호가 5,297만 건, 총{" "}
-                        <strong>93,275,117개 이벤트</strong>를
-                        수집·검증했습니다. 같은 이벤트가 다시 들어와도 결과가
-                        바뀌지 않도록 offset 기반 멱등 처리와 저장 완료 후 커밋을
-                        적용했습니다.
-                      </p>
-                      <div
-                        className="highlight-tags"
-                        aria-label="실시간 틱 데이터 처리 관련 키워드"
-                      >
-                        {["ClickHouse", "Idempotency", "Replay"].map(
-                          (keyword) => (
-                            <code key={keyword}>{keyword}</code>
-                          ),
-                        )}
-                      </div>
-                    </div>
-                  </section>
-
-                  <section className="project-highlight">
-                    <span>03</span>
-                    <div>
-                      <h4>AI를 안전하게 운영하는 경계</h4>
-                      <p>
-                        AI가 주문을 직접 실행하지 못하도록 경계를 두고, 개인정보
-                        마스킹과 최소 권한을 적용했습니다. 외부 AI 서비스 장애
-                        시에는 핵심 기능만 제공하도록 하고, 평가·모니터링 규칙을
-                        코드와 문서로 남겼습니다.
-                      </p>
-                      <div
-                        className="highlight-tags"
-                        aria-label="AI 운영 위험 통제 관련 키워드"
+                        aria-label="프론트엔드 배포 관련 키워드"
                       >
                         {[
-                          "AI Guardrails",
-                          "Least Privilege",
-                          "Monitoring",
+                          "Docker",
+                          "Nginx",
+                          "EKS",
+                          "Rolling Update",
+                          "Health Check",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}
@@ -236,23 +192,52 @@ export default function Home() {
                   </section>
 
                   <section className="project-highlight">
-                    <span>04</span>
+                    <span>02</span>
                     <div>
-                      <h4>성능과 비용을 함께 고려한 인프라</h4>
+                      <h4>React와 분리한 TypeScript 차트 엔진</h4>
                       <p>
-                        EKS 상시 자원을 32 vCPU·124GiB에서 20 vCPU·92GiB로
-                        조정해 <strong>월 약 511달러</strong>를 절감했습니다.
-                        비용을 줄인 뒤에도 백업과 롤백이 정상 동작하는지
-                        검증했습니다.
+                        React는 검색·분석·주문 패널과 사용자 상호작용을 담당하고,
+                        TypeScript 차트 엔진은 캔들 상태·화면 좌표·보조지표·작도
+                        결과를 관리하도록 분리했습니다. 기능별 패널을 독립
+                        컴포넌트로 구성해 하나의 작업 화면에서 조합하고 확장할 수
+                        있도록 설계했습니다.
                       </p>
                       <div
                         className="highlight-tags"
-                        aria-label="인프라 비용 최적화 관련 키워드"
+                        aria-label="React 차트 엔진 관련 키워드"
                       >
                         {[
-                          "AWS · EKS",
-                          "Cost Optimization",
-                          "Backup · Rollback",
+                          "React",
+                          "TypeScript",
+                          "Component Architecture",
+                          "Chart Engine",
+                        ].map((keyword) => (
+                          <code key={keyword}>{keyword}</code>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span>03</span>
+                    <div>
+                      <h4>근거를 검증해 작도하는 차트 분석</h4>
+                      <p>
+                        캔들의 가격 반전과 변동성을 기준으로 의미 있는 피벗을
+                        추출하고, 지지·저항·추세·패턴 후보를 만들었습니다. 접촉
+                        횟수·가격 반응·선과의 오차·최근성·돌파 여부를 평가해
+                        기준을 통과한 후보와 판단 근거를 차트에 함께
+                        표시했습니다.
+                      </p>
+                      <div
+                        className="highlight-tags"
+                        aria-label="차트 분석 알고리즘 관련 키워드"
+                      >
+                        {[
+                          "Pivot Detection",
+                          "Clustering",
+                          "Linear Regression",
+                          "Candidate Scoring",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}
