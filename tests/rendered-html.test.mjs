@@ -35,6 +35,7 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /huiugim8@gmail\.com/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
   assert.match(html, /AI 엔지니어 <strong>김희준<\/strong>입니다/);
+  assert.match(html, /해결해야 할 문제와 성공 기준/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
