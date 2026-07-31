@@ -10,7 +10,7 @@
   --line: #d9dde3;
   --accent: #4d6fbd;
   --code: #eef1f5;
-  --max-width: 840px;
+  --max-width: 980px;
 }
 
 * {
@@ -30,6 +30,7 @@ body {
     "Segoe UI", sans-serif;
   font-size: 15px;
   line-height: 1.72;
+  letter-spacing: -0.015em;
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
 }
@@ -65,7 +66,7 @@ code {
 
 main,
 footer {
-  width: min(calc(100% - 40px), var(--max-width));
+  width: min(calc(100% - 56px), var(--max-width));
   margin-inline: auto;
 }
 
@@ -195,9 +196,22 @@ footer a:focus-visible {
   font-weight: 650;
 }
 
-.resume-side > span {
+.experience-period,
+.experience-meta {
   display: block;
-  margin-top: 2px;
+}
+
+.experience-period {
+  margin-top: 8px;
+  color: #52627a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.experience-meta {
+  margin-top: 3px;
   color: var(--subtle);
   font-size: 10px;
   font-weight: 750;
@@ -251,8 +265,9 @@ footer a:focus-visible {
 .resume-list .resume-detail {
   display: block;
   align-items: initial;
-  margin-top: 28px;
-  padding-left: 24px;
+  margin-top: 24px;
+  padding-left: 0;
+  border-left: 0;
 }
 
 .resume-list .resume-item {
@@ -262,6 +277,20 @@ footer a:focus-visible {
 
 .resume-list .jungle-item {
   padding: 30px 0 42px;
+}
+
+.jungle-entry-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.jungle-logo {
+  width: 188px;
+  height: auto;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .resume-list .resume-item + .resume-item {
@@ -274,7 +303,7 @@ footer a:focus-visible {
 }
 
 .resume-list .jungle-detail {
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .experience-heading {
@@ -299,9 +328,9 @@ footer a:focus-visible {
   padding: 0;
   background: transparent;
   color: #49515c;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 550;
-  line-height: 1.55;
+  line-height: 1.7;
 }
 
 .resume-list .summary-box strong {
@@ -402,8 +431,8 @@ footer a:focus-visible {
 
 .project-introduction p {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .project-introduction p + p {
@@ -460,7 +489,7 @@ footer a:focus-visible {
 .project-highlight p {
   margin: 0;
   color: #4a525d;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
 }
 
@@ -654,6 +683,16 @@ footer p {
     display: block;
   }
 
+  .jungle-entry-header {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 18px;
+  }
+
+  .jungle-logo {
+    width: 152px;
+  }
+
   .experience-header {
     flex-direction: column;
     gap: 10px;
@@ -675,9 +714,9 @@ footer p {
 
   .resume-list .resume-detail {
     margin-top: 22px;
-    padding: 0 0 0 16px;
+    padding: 0;
     border-top: 0;
-    border-left: 1px solid var(--line);
+    border-left: 0;
   }
 
   .resume-list .jungle-detail {

@@ -52,7 +52,7 @@ export default function Home() {
               <h1 id="profile-title">
                 안녕하세요,
                 <br />
-                AI 제품 엔지니어 <strong>김희준</strong>입니다.
+                AI 엔지니어 <strong>김희준</strong>입니다.
               </h1>
 
               <nav className="profile-links" aria-label="프로필 링크">
@@ -102,13 +102,21 @@ export default function Home() {
 
           <div className="resume-list">
             <article className="resume-item jungle-item" id="project">
-              <div className="resume-side">
-                <div className="experience-heading">
-                  <h3>크래프톤 정글</h3>
-                  <span aria-hidden="true">·</span>
-                  <p>12기 졸업</p>
+              <div className="jungle-entry-header">
+                <div className="resume-side">
+                  <div className="experience-heading">
+                    <h3>크래프톤 정글</h3>
+                    <span aria-hidden="true">·</span>
+                    <p>12기 졸업</p>
+                  </div>
+                  <time className="experience-period">2026.03 — 2026.07</time>
                 </div>
-                <time className="experience-period">2026.03 — 2026.07</time>
+
+                <img
+                  className="jungle-logo"
+                  src="/jungle-by-krafton.png"
+                  alt="Jungle by KRAFTON"
+                />
               </div>
 
               <div className="resume-detail jungle-detail">

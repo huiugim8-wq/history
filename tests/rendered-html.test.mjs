@@ -34,6 +34,7 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
+  assert.match(html, /AI 엔지니어 <strong>김희준<\/strong>입니다/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
@@ -52,9 +53,18 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /Work &amp; Experience/);
   assert.match(
     html,
-    /크래프톤 정글[\s\S]*12기 졸업[\s\S]*TEAM PROJECT[\s\S]*실시간 투자 정보 플랫폼/,
+    /크래프톤 정글[\s\S]*12기 졸업[\s\S]*실시간 투자 정보 플랫폼/,
   );
+  assert.doesNotMatch(html, /TEAM PROJECT/);
+  assert.doesNotMatch(html, />KRAFTON JUNGLE</);
+  assert.match(html, /㈜나현[\s\S]*2024 — 2025\.08/);
+  assert.match(html, /OTOS[\s\S]*2023 — 2024 · 1년/);
+  assert.match(html, /대구대학교[\s\S]*2017\.03 — 2023\.08/);
   assert.match(html, /<article class="resume-item jungle-item" id="project">/);
+  assert.match(
+    html,
+    /<img class="jungle-logo" src="\/jungle-by-krafton\.png" alt="Jungle by KRAFTON"\/>/,
+  );
   assert.match(html, /class="project-header"/);
   assert.doesNotMatch(html, /<h3>GOPS<\/h3>/);
   assert.match(html, /실시간 투자 정보 플랫폼/);
