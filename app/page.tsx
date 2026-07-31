@@ -75,17 +75,17 @@ export default function Home() {
           </div>
 
           <div className="profile-points">
-            <p>
+            <p className="profile-context">
               실내건축디자인·제조업·창업을 거치며, 현장과 사용자의 문제를
               관찰하고 <strong>복잡한 정보를 구조화</strong>하는 방식을
               익혔습니다.
             </p>
-            <p>
+            <p className="profile-principle">
               이 관점은 개발에서도 이어져, 요구사항을 기능 목록으로만
               받아들이지 않고 <strong>해결해야 할 문제와 성공 기준</strong>을
               먼저 구체화합니다.
             </p>
-            <p>
+            <p className="profile-evidence">
               24시간 기준 약 9천만 건의 시장 데이터를 다루며 Kafka 이벤트
               분리, Redis TTL·REST 보완, 멱등 키와 저장 후 offset 커밋을
               적용했습니다. 그 결과 저장·분석 장애가 실시간 수집으로 전파되지
