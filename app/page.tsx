@@ -76,27 +76,21 @@ export default function Home() {
 
           <div className="profile-points">
             <p>
-              실내건축디자인·제조업에서 얻은 관찰력과 와디즈·쿠팡 판매를{" "}
-              <strong>연 매출 약 1억 원</strong>까지 운영한 창업 경험을 바탕으로{" "}
-              <strong>복잡한 문제를 구조화</strong>합니다.
+              실내건축디자인·제조업·창업을 거치며, 현장과 사용자의 문제를
+              관찰하고 <strong>복잡한 정보를 구조화</strong>하는 방식을
+              익혔습니다.
             </p>
             <p>
-              크래프톤 정글 12기에서{" "}
-              <strong>24시간 기준 약 9천만 건</strong>의 시장 데이터를 다루는 AI
-              주식 트레이딩 플랫폼을 개발했습니다. Kafka 이벤트 드리븐 구조로
-              수집·저장·분석을 분리하고 Redis·ClickHouse·S3를 역할별로
-              구성했습니다.
+              이 관점은 개발에서도 이어져, 요구된 기능을 구현하기 전에 데이터
+              흐름에서 발생할 <strong>병목과 장애 지점</strong>을 먼저
+              정의합니다.
             </p>
             <p>
-              S3 조회 지연을 줄이기 위해 최신 데이터는 Redis에 TTL로 유지하고,
-              과거 구간은 REST로 보완했습니다. 저장 성공 후{" "}
-              <strong>offset 커밋과 멱등 키</strong>를 적용해 재전달된 이벤트의
-              중복 반영을 막았습니다.
-            </p>
-            <p>
-              수치 계산과 주문은 LLM에서 분리하고, 검증된 분석 결과만
-              설명하도록 제한했습니다. 사용자 확인을 거친 주문은 Transactional
-              Outbox로 전달했습니다.
+              24시간 기준 약 9천만 건의 시장 데이터를 다루며 Kafka 이벤트
+              분리, Redis TTL·REST 보완, 멱등 키와 저장 후 offset 커밋을
+              적용했습니다. 그 결과 저장·분석 장애가 실시간 수집으로 전파되지
+              않고, <strong>재전달된 이벤트가 중복 반영되지 않는</strong>{" "}
+              파이프라인을 구성했습니다.
             </p>
           </div>
         </section>
@@ -115,13 +109,11 @@ export default function Home() {
                   <p>12기 졸업</p>
                 </div>
                 <time className="experience-period">2026.03 — 2026.07</time>
-                <span className="experience-meta">KRAFTON JUNGLE</span>
               </div>
 
               <div className="resume-detail jungle-detail">
                 <div className="project-header">
                   <div className="project-title">
-                    <span>TEAM PROJECT · 2026.03 — 2026.07</span>
                     <p>실시간 투자 정보 플랫폼</p>
                   </div>
                   <nav className="project-links" aria-label="프로젝트 관련 링크">
