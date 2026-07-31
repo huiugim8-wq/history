@@ -167,13 +167,15 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>01</span>
                     <div>
-                      <h4>Docker·Kubernetes 기반 프론트엔드 배포</h4>
+                      <h4>배포 중단을 해결한 Docker·Kubernetes 환경</h4>
                       <p>
                         React 앱과 TypeScript 차트 엔진을 Docker 멀티 스테이지
                         빌드로 이미지화하고 Nginx로 제공했습니다. EKS에서
-                        프론트엔드·API·WebSocket 경로와 상태 검사를 구성했으며,
-                        배포 중 자원 부족으로 업데이트가 멈추는 문제는 컨테이너
-                        자원과 Rolling Update 설정을 조정해 해결했습니다.
+                        프론트엔드·API·WebSocket 경로와 컨테이너 상태 검사를
+                        구성했습니다. 클러스터 자원 부족으로 새로운 Pod가
+                        실행되지 않아 배포가 멈추자, 자원 요청량과 Rolling
+                        Update 정책을 조정해 서비스 중단 없이 배포가 완료되도록
+                        개선했습니다.
                       </p>
                       <div
                         className="highlight-tags"
@@ -195,22 +197,24 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>02</span>
                     <div>
-                      <h4>React와 분리한 TypeScript 차트 엔진</h4>
+                      <h4>REST·WebSocket 흐름을 결합한 React 패널 구조</h4>
                       <p>
-                        React는 검색·분석·주문 패널과 사용자 상호작용을 담당하고,
-                        TypeScript 차트 엔진은 캔들 상태·화면 좌표·보조지표·작도
-                        결과를 관리하도록 분리했습니다. 기능별 패널을 독립
-                        컴포넌트로 구성해 하나의 작업 화면에서 조합하고 확장할 수
-                        있도록 설계했습니다.
+                        검색·차트·기업 분석·주문을 독립된 React 패널
+                        컴포넌트로 구성하고, 공통 레지스트리에서 패널의 생성과
+                        배치를 관리했습니다. 최초 조회와 과거 구간은 REST API로
+                        보완하고 이후 데이터는 WebSocket으로 구독했습니다.
+                        TypeScript 차트 엔진이 시간 기준으로 캔들을 병합해
+                        중복 없이 연속된 차트를 유지하도록 구성했습니다.
                       </p>
                       <div
                         className="highlight-tags"
-                        aria-label="React 차트 엔진 관련 키워드"
+                        aria-label="React 패널과 데이터 흐름 관련 키워드"
                       >
                         {[
                           "React",
-                          "TypeScript",
                           "Component Architecture",
+                          "REST Backfill",
+                          "WebSocket",
                           "Chart Engine",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
@@ -222,13 +226,14 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>03</span>
                     <div>
-                      <h4>근거를 검증해 작도하는 차트 분석</h4>
+                      <h4>후보 생성과 검증을 분리한 차트 분석 알고리즘</h4>
                       <p>
                         캔들의 가격 반전과 변동성을 기준으로 의미 있는 피벗을
-                        추출하고, 지지·저항·추세·패턴 후보를 만들었습니다. 접촉
-                        횟수·가격 반응·선과의 오차·최근성·돌파 여부를 평가해
-                        기준을 통과한 후보와 판단 근거를 차트에 함께
-                        표시했습니다.
+                        추출했습니다. 피벗을 가격대로 군집화해 지지·저항 후보를
+                        만들고, 피벗 쌍과 선형회귀로 추세·패턴 후보를
+                        계산했습니다. 접촉 횟수·가격 반응·선과의 오차·최근성·돌파
+                        여부를 점수화해 기준을 통과한 후보만 분석 결과로
+                        사용했습니다.
                       </p>
                       <div
                         className="highlight-tags"
@@ -249,25 +254,24 @@ export default function Home() {
                   <section className="project-highlight">
                     <span>04</span>
                     <div>
-                      <h4>분석 근거까지 탐색하는 차트·기업 분석 UI</h4>
+                      <h4>분석 시점을 고정하고 근거를 추적하는 AI 분석 UI</h4>
                       <p>
                         분석 요청 시점의 시장·재무·뉴스 데이터를 Snapshot으로
-                        고정해 여러 패널이 동일한 근거를 사용하도록 구성했습니다.
-                        분석 엔진은 캔들에서 피벗을 추출하고 접촉·반응·오차를
-                        평가해 지지·저항·추세 후보를 선별합니다. React에서는
-                        피벗·후보선·검증 결과를 독립된 차트 레이어로 변환해
-                        사용자가 분석 결과와 근거를 함께 탐색할 수 있도록
-                        구현했습니다.
+                        고정해 기업 분석과 차트 패널이 동일한 시점의 근거를
+                        사용하도록 구성했습니다. 수치 계산과 후보 판정은 재현
+                        가능한 분석 로직이 담당하고, LLM은 조회·계산된 근거를
+                        설명하도록 역할을 분리했습니다. React 패널에서는 분석
+                        결과와 사용된 근거를 함께 확인할 수 있도록 구현했습니다.
                       </p>
                       <div
                         className="highlight-tags"
                         aria-label="차트·기업 분석 UI 관련 키워드"
                       >
                         {[
-                          "React",
-                          "TypeScript",
                           "Point-in-Time Snapshot",
-                          "Chart Geometry",
+                          "Evidence Trace",
+                          "Deterministic Analysis",
+                          "AI Guardrails",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}
