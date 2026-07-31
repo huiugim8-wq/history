@@ -74,25 +74,35 @@ export default function Home() {
             />
           </div>
 
-          <ul className="profile-points">
-            <li>
-              모호한 요구를 작은 문제로 분해하고, 빠른 프로토타입과 피드백으로{" "}
-              <strong>해결 방향을 검증</strong>합니다.
-            </li>
-            <li>
-              Python·API·데이터베이스를 연결해{" "}
-              <strong>AI 워크플로우</strong>를 구현하고 배포·운영까지
-              책임집니다.
-            </li>
-            <li>
-              실내건축디자인·제조업·창업 경험에서 얻은 관찰력으로{" "}
-              <strong>복잡한 문제를 구조화</strong>합니다.
-            </li>
-            <li>
-              평가·모니터링으로 AI 품질을 개선하고, 반복되는 해결책은{" "}
-              <strong>재사용 가능한 구조</strong>로 일반화합니다.
-            </li>
-          </ul>
+          <div className="profile-points">
+            <p>
+              실내건축디자인·자동차 부품 제조·창업 경험을 거치며, 현상을
+              빠르게 판단하기보다 업무와 사용자 흐름을 관찰해{" "}
+              <strong>복잡한 문제를 구조화</strong>하는 방식을 익혔습니다.
+            </p>
+            <p>
+              크래프톤 정글 12기에서 컴퓨터공학 기초와 팀 개발을 학습하고,{" "}
+              <strong>24시간 기준 약 9천만 건</strong>의 시장 데이터를 처리하는
+              AI 주식 트레이딩 플랫폼을 개발했습니다. Kafka 이벤트 드리븐
+              구조로 수집·저장·분석을 분리하고, Redis·ClickHouse·S3를
+              조회·분석·복구 목적에 맞게 구성했습니다.
+            </p>
+            <p>
+              기술 자체보다{" "}
+              <strong>운영에서 발생하는 지연·중복·장애</strong>를 줄이는 선택을
+              중요하게 생각합니다. 최신 데이터는 Redis에 제한적으로 유지하고
+              과거 데이터는 REST로 보완했으며, 저장 성공 후 offset 커밋과 멱등
+              처리로 이벤트 재전달 시 중복 반영을 제어했습니다.
+            </p>
+            <p>
+              AI는 계산과 주문을 직접 수행하지 않고 검증된 데이터만 설명하도록
+              경계를 나눴으며, 사용자 확인을 거친 주문은 Transactional Outbox로
+              전달했습니다. 와디즈 펀딩과 쿠팡 판매를 직접 운영해 연 매출 약
+              1억 원을 만든 경험처럼, 기능 구현을{" "}
+              <strong>사용자 가치와 제품 성과</strong>까지 연결하는 개발자를
+              지향합니다.
+            </p>
+          </div>
         </section>
 
         <section className="resume-section work-section" id="experience">
