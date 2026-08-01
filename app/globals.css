@@ -538,16 +538,17 @@ footer a:focus-visible {
 .project-role-tags {
   margin-top: 8px;
   margin-left: 26px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: auto;
+  width: calc(100% - 26px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .project-role-tags span {
-  width: 128px;
-  height: 40px;
-  padding: 0 12px;
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  padding: 0 8px;
   border: 1px solid #cbd2da;
   border-radius: 4px;
   display: inline-flex;
@@ -645,16 +646,19 @@ footer a:focus-visible {
 }
 
 .highlight-tags {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: 8px;
 }
 
 .highlight-tags code {
-  min-height: 40px;
-  padding: 0 14px;
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 8px;
   border: 1px solid #cfd4da;
   border-radius: 4px;
   background: #f8f9fa;
@@ -663,7 +667,7 @@ footer a:focus-visible {
   justify-content: center;
   color: #4a525d;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -882,16 +886,21 @@ footer p {
     margin-left: 23px;
     gap: 8px;
     width: calc(100% - 23px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-role-tags span {
-    width: calc(50% - 4px);
+    width: 100%;
+  }
+
+  .highlight-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .highlight-tags code {
-    min-height: 38px;
-    padding-inline: 12px;
-    font-size: 13px;
+    min-height: 32px;
+    padding-inline: 7px;
+    font-size: 12px;
   }
 
   .pintos-experience {
