@@ -126,7 +126,7 @@ export default function Home() {
               <div className="resume-detail jungle-detail">
                 <div className="project-header">
                   <div className="project-title">
-                    <p>실시간 투자 정보 플랫폼</p>
+                    <h4>실시간 투자 정보 플랫폼</h4>
                   </div>
                   <nav className="project-links" aria-label="프로젝트 관련 링크">
                     <a
@@ -164,7 +164,7 @@ export default function Home() {
                 <section className="project-team" aria-labelledby="team-title">
                   <div className="project-team-heading">
                     <span aria-hidden="true">•</span>
-                    <h4 id="team-title">팀 프로젝트 5인</h4>
+                    <h5 id="team-title">팀 프로젝트 5인</h5>
                   </div>
                   <div className="project-role-tags" aria-label="프로젝트 역할 구성">
                     {["Frontend", "Infrastructure", "Backend", "AI"].map(
@@ -187,9 +187,9 @@ export default function Home() {
                   <section className="project-highlight">
                     <span aria-hidden="true">•</span>
                     <div>
-                      <h4>
+                      <h5>
                         공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계
-                      </h4>
+                      </h5>
                       <div className="project-achievements">
                         <p>
                           43종의 패널이 공통 프레임을 재사용하도록 설계하고,
@@ -218,9 +218,9 @@ export default function Home() {
                   <section className="project-highlight">
                     <span aria-hidden="true">•</span>
                     <div>
-                      <h4>
+                      <h5>
                         REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
-                      </h4>
+                      </h5>
                       <div className="project-achievements">
                         <p>
                           기존 데이터 범위 밖의 누락 구간만 REST로 조회하고 이후
@@ -257,9 +257,9 @@ export default function Home() {
                   <section className="project-highlight">
                     <span aria-hidden="true">•</span>
                     <div>
-                      <h4>
+                      <h5>
                         후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘
-                      </h4>
+                      </h5>
                       <div className="project-achievements">
                         <p>
                           피벗 군집과 선형회귀로 후보선을 생성하고

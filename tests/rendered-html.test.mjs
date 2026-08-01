@@ -75,6 +75,10 @@ test("renders landmark structure and project experience details", async () => {
     html,
     /크래프톤 정글[\s\S]*12기 졸업[\s\S]*실시간 투자 정보 플랫폼/,
   );
+  assert.match(
+    html,
+    /<h2>Work &amp; Experience<\/h2>[\s\S]*<h3>크래프톤 정글<\/h3>[\s\S]*<h4>실시간 투자 정보 플랫폼<\/h4>[\s\S]*<h5 id="team-title">팀 프로젝트 5인<\/h5>/,
+  );
   assert.doesNotMatch(html, /TEAM PROJECT/);
   assert.doesNotMatch(html, />KRAFTON JUNGLE</);
   assert.match(html, /㈜나현[\s\S]*2024 — 2025\.08/);
