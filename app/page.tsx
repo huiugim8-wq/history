@@ -220,22 +220,16 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
+                        REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          기존 데이터 범위 밖의 누락 구간만 REST로 조회하고 이후
-                          시장 이벤트는 WebSocket으로 반영해,{" "}
-                          <strong>전체 구간을 다시 요청하지 않고</strong> 실시간
-                          차트를 유지했습니다.
+                          24시간 9,327만 건(평균 초당 약 1,080건)을 REST
+                          API·WebSocket으로 구간 조회·실시간 반영했습니다.
                         </p>
                         <p>
-                          정적 차트와 포인터·가이드 UI를 2개의 Canvas로 분리해,
-                          포인터 이동 시{" "}
-                          <strong>
-                            정적 차트의 재렌더링 없이 오버레이 Canvas만 갱신
-                          </strong>
-                          하도록 구현했습니다.
+                          정적 차트와 포인터 UI를 2-Layer Canvas로 분리해 이동
+                          시 <strong>오버레이만 갱신</strong>했습니다.
                         </p>
                       </div>
                       <div
@@ -259,23 +253,19 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘
+                        피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript
+                        알고리즘
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          피벗 군집과 선형회귀로 후보선을 생성하고
-                          접촉·가격 반응·오차·돌파를 평가해,{" "}
-                          <strong>기준을 통과한 후보만 차트에 표시</strong>
-                          했습니다.
+                          피벗 군집·선형회귀로 지지·저항 후보선을 생성하고,
+                          접촉·반응·오차·돌파 점수로{" "}
+                          <strong>유효한 선만 선별</strong>했습니다.
                         </p>
                         <p>
-                          후보 생성과 검증을 분리해 동일한 데이터와 조건에서
-                          같은 분석 결과를 재현하고, 선택된 선과 평가 근거를
-                          별도 차트 레이어에 표시해{" "}
-                          <strong>
-                            사용자가 선정 이유를 확인
-                          </strong>
-                          할 수 있도록 구성했습니다.
+                          선택된 선과 검증 근거를 별도 차트 레이어에 표시해{" "}
+                          <strong>동일 조건의 결과와 선정 이유를 재현</strong>
+                          했습니다.
                         </p>
                       </div>
                       <div

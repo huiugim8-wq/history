@@ -19,6 +19,7 @@
   --type-section-title: 34px;
   --type-entity-title: 24px;
   --type-project-title: 21px;
+  --type-featured-project-title: 26px;
   --type-detail-title: 17px;
   --type-role: 14px;
 }
@@ -466,6 +467,12 @@ footer a:focus-visible {
   text-wrap: balance;
 }
 
+.jungle-detail .project-title h4 {
+  font-size: var(--type-featured-project-title);
+  font-weight: 800;
+  line-height: 1.28;
+}
+
 .project-title > span {
   display: block;
   margin-bottom: 8px;
@@ -759,6 +766,7 @@ footer p {
     --type-section-title: 28px;
     --type-entity-title: 22px;
     --type-project-title: 19px;
+    --type-featured-project-title: 22px;
     --type-detail-title: 16px;
     --type-role: 13px;
   }

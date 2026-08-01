@@ -120,14 +120,14 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /차트 분석 알고리즘 키워드/);
   assert.match(
     html,
-    /REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진/,
+    /REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진/,
   );
   assert.match(
     html,
-    /기존 데이터 범위 밖의 누락 구간만 REST로 조회하고 이후[\s\S]*WebSocket으로 반영/,
+    /24시간 9,327만 건\(평균 초당 약 1,080건\)/,
   );
-  assert.match(html, /전체 구간을 다시 요청하지 않고/);
-  assert.match(html, /정적 차트의 재렌더링 없이 오버레이 Canvas만 갱신/);
+  assert.match(html, /REST[\s\S]*API·WebSocket으로 구간 조회·실시간 반영/);
+  assert.match(html, /2-Layer Canvas로 분리해 이동[\s\S]*오버레이만 갱신/);
   assert.match(html, /TypeScript CSR/);
   assert.match(html, /REST API/);
   assert.match(html, /Canvas 2D/);
@@ -135,22 +135,21 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /상세 글 준비 중/);
   assert.match(
     html,
-    /후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
+    /피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript[\s\S]*알고리즘/,
   );
-  assert.match(html, /피벗 군집과 선형회귀로 후보선을 생성/);
-  assert.match(html, /기준을 통과한 후보만 차트에 표시/);
+  assert.match(html, /피벗 군집·선형회귀로 지지·저항 후보선을 생성하고/);
+  assert.match(html, /유효한 선만 선별/);
   assert.match(
     html,
-    /동일한 데이터와 조건에서[\s\S]*같은 분석 결과를 재현/,
+    /동일 조건의 결과와 선정 이유를 재현/,
   );
   assert.match(html, /별도 차트 레이어/);
-  assert.match(html, /사용자가 선정 이유를 확인/);
   assert.match(html, /Data Structures/);
   assert.match(html, /Clustering/);
   assert.match(html, /Linear Regression/);
   assert.match(
     html,
-    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
+    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
   assert.match(html, /PROJECT 2[\s\S]*React 가상 DOM 실행 환경/);
