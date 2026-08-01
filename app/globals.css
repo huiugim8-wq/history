@@ -511,7 +511,9 @@ footer a:focus-visible {
 }
 
 .project-team {
-  margin-top: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e3e6ea;
 }
 
 .project-team-heading {
@@ -521,11 +523,23 @@ footer a:focus-visible {
   align-items: start;
 }
 
-.project-team-heading > span {
+.project-team-heading > span,
+.project-highlight > span {
+  height: calc(var(--type-detail-title) * 1.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--foreground);
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1.1;
+  font-size: 0;
+}
+
+.project-team-heading > span::before,
+.project-highlight > span::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
 }
 
 .project-team-heading h5 {
@@ -594,22 +608,11 @@ footer a:focus-visible {
   grid-template-columns: 20px minmax(0, 1fr);
   gap: 6px;
   padding: 18px 0;
-  border-bottom: 1px solid #e8ebef;
-}
-
-.project-highlight:first-child {
-  padding-top: 0;
-  border-top: 0;
+  border-top: 1px solid #e3e6ea;
 }
 
 .project-highlight > span {
-  padding-top: 0;
-  color: var(--foreground);
-  font-family: inherit;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: 0;
+  margin-top: 0;
 }
 
 .project-highlight h5 {
@@ -881,10 +884,6 @@ footer p {
     grid-template-columns: 18px minmax(0, 1fr);
     gap: 5px;
     padding: 16px 0;
-  }
-
-  .project-highlight > span {
-    font-size: 21px;
   }
 
   .project-highlight h5 {
