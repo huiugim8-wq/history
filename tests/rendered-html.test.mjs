@@ -34,8 +34,14 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
-  assert.match(html, /AI 엔지니어 <strong>김희준<\/strong>입니다/);
-  assert.match(html, /해결해야 할 문제와 성공 기준/);
+  assert.match(html, /<p>프론트엔드 개발자<\/p>/);
+  assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
+  assert.doesNotMatch(html, /안녕하세요/);
+  assert.match(html, /복잡한 문제를 화면의 구조로 풀어내는/);
+  assert.match(html, /사용자 흐름을 먼저 정의/);
+  assert.match(html, /24시간 약 9천만 건의 시장 데이터/);
+  assert.match(html, /일관된 사용자 경험과 기능별 확장성/);
+  assert.doesNotMatch(html, /개인의 성장이 팀의 실행력으로 이어지는/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
@@ -72,23 +78,33 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /class="project-contribution-label">주요 구현<\/p>/);
   assert.match(
     html,
-    /24시간 동안 수집된 약 9천만 건의 시장 이벤트를 Kafka 이벤트 드리븐 구조로 처리/,
+    /24시간 기준 약 9천만 건의 시장 이벤트를 처리하는 Kafka 환경/,
   );
-  assert.match(html, /REST·WebSocket 흐름을 결합한 React 패널 구조/);
-  assert.match(html, /Component Architecture/);
-  assert.match(html, /REST Backfill/);
-  assert.match(html, /후보 생성과 검증을 분리한 차트 분석 알고리즘/);
-  assert.match(html, /Pivot Detection/);
+  assert.match(html, /React UI와 TypeScript 차트 엔진을 담당/);
+  assert.match(html, /Agent 명령으로 조합되는 React 패널 컴포넌트 설계/);
+  assert.match(html, /TypeScript Registry와 연결해 화면을 조합/);
+  assert.match(html, /Component Composition/);
+  assert.match(html, /Runtime Validation/);
+  assert.match(html, /Agent-driven UI/);
+  assert.match(html, /CSR 기반 차트 엔진의 데이터 시각화와 UX 최적화/);
+  assert.match(html, /필요한 구간만 REST API로 조회/);
+  assert.match(html, /이후 변화는 WebSocket으로 반영/);
+  assert.match(html, /두 경로를 시간 기준으로 병합/);
+  assert.match(html, /TypeScript CSR/);
+  assert.match(html, /REST API/);
+  assert.match(html, /Canvas 2D/);
+  assert.match(html, /Web Accessibility/);
+  assert.doesNotMatch(html, /상세 글 준비 중/);
+  assert.match(html, /후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/);
+  assert.match(html, /검증된 지지·저항·추세·패턴과 판단 근거/);
+  assert.match(html, /Data Structures/);
   assert.match(html, /Linear Regression/);
-  assert.match(html, /분석 시점을 고정하고 근거를 추적하는 AI 분석 UI/);
-  assert.match(html, /Point-in-Time Snapshot/);
-  assert.match(html, /Deterministic Analysis/);
-  assert.match(html, /배포 중단을 해결한 Docker·Kubernetes 환경/);
-  assert.match(html, /Rolling Update/);
   assert.match(
     html,
-    /<span>01<\/span>[\s\S]*REST·WebSocket 흐름을 결합한 React 패널 구조[\s\S]*<span>02<\/span>[\s\S]*후보 생성과 검증을 분리한 차트 분석 알고리즘[\s\S]*<span>03<\/span>[\s\S]*분석 시점을 고정하고 근거를 추적하는 AI 분석 UI[\s\S]*<span>04<\/span>[\s\S]*배포 중단을 해결한 Docker·Kubernetes 환경/,
+    /<span>01<\/span>[\s\S]*Agent 명령으로 조합되는 React 패널 컴포넌트 설계[\s\S]*<span>02<\/span>[\s\S]*CSR 기반 차트 엔진의 데이터 시각화와 UX 최적화[\s\S]*<span>03<\/span>[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
   );
+  assert.doesNotMatch(html, /<span>04<\/span>/);
+  assert.doesNotMatch(html, /배포 중단을 해결한 Docker·Kubernetes 환경/);
   assert.doesNotMatch(html, /성능과 비용을 함께 고려한 인프라/);
   assert.doesNotMatch(html, /class="company-mark project-mark"/);
   assert.doesNotMatch(html, /Experience &amp; Education/);
