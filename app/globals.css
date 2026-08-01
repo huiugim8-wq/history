@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e8e8e8;
+  --paper: #ffffff;
   --surface: #f7f8fa;
   --surface-strong: #f3f5f8;
   --foreground: #1f2328;
@@ -11,7 +12,7 @@
   --accent: #008f5a;
   --accent-soft: #e7f8f0;
   --code: #edf7f2;
-  --max-width: 1040px;
+  --max-width: 1276px;
   --text-large: 17px;
   --text-body: 15px;
   --text-small: 12px;
@@ -39,6 +40,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.resume-sheet {
+  width: min(1440px, calc(100% - 112px));
+  min-height: 100vh;
+  margin: 72px auto 0;
+  padding: 136px 0 0;
+  background: var(--paper);
+}
+
 ::selection {
   background: #c9f3df;
   color: #06462f;
@@ -59,12 +68,12 @@ code {
 }
 
 .top-banner-inner {
-  width: min(calc(100% - 64px), var(--max-width));
+  width: min(calc(100% - 96px), var(--max-width));
   min-height: 190px;
   margin-inline: auto;
-  padding: 28px 0 24px;
+  padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 112px;
+  grid-template-columns: minmax(0, 1fr) 138px;
   gap: 56px;
   align-items: start;
 }
@@ -89,16 +98,16 @@ code {
 
 main,
 footer {
-  width: min(calc(100% - 64px), var(--max-width));
+  width: min(calc(100% - 96px), var(--max-width));
   margin-inline: auto;
 }
 
 .profile {
-  padding: 18px 0 56px;
+  padding: 17px 0 32px;
 }
 
 .profile-photo {
-  width: 112px;
+  width: 138px;
   aspect-ratio: 3 / 4;
   display: block;
   object-fit: cover;
@@ -131,7 +140,7 @@ footer a:focus-visible {
 }
 
 .profile-points {
-  width: min(100%, 1060px);
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -197,14 +206,18 @@ footer a:focus-visible {
   text-wrap: balance;
 }
 
+.work-section {
+  display: block;
+}
+
 .resume-list {
-  margin-top: 0;
+  margin-top: 34px;
 }
 
 .resume-item {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: 212px minmax(0, 1fr);
+  gap: 30px;
 }
 
 .resume-item + .resume-item {
@@ -294,39 +307,31 @@ footer a:focus-visible {
 
 .resume-detail {
   min-width: 0;
-  padding-left: 17px;
-  border-left: 1px solid var(--line);
+  padding-left: 0;
+  border-left: 0;
 }
 
 .resume-list .resume-detail {
   display: block;
-  align-items: initial;
-  margin-top: 22px;
+  margin-top: 0;
   padding-left: 0;
   border-left: 0;
 }
 
 .resume-list .resume-item {
-  display: block;
-  padding: 32px 0 38px;
+  display: grid;
+  padding: 0 0 48px;
 }
 
 .resume-list .jungle-item {
-  padding: 34px 0 44px;
-}
-
-.jungle-entry-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  padding: 0 0 54px;
 }
 
 .jungle-logo {
+  margin-top: 16px;
   width: 174px;
   height: auto;
   display: block;
-  flex: 0 0 auto;
 }
 
 .resume-list .resume-item + .resume-item {
@@ -338,20 +343,16 @@ footer a:focus-visible {
   display: block;
 }
 
-.resume-list .jungle-detail {
-  margin-top: 30px;
-}
-
 .experience-heading {
   display: flex;
-  align-items: baseline;
-  gap: 9px;
-  white-space: nowrap;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 7px;
+  white-space: normal;
 }
 
 .experience-heading > span {
-  color: var(--subtle);
-  font-size: var(--text-small);
+  display: none;
 }
 
 .experience-heading p {
@@ -378,6 +379,7 @@ footer a:focus-visible {
 .experience-header {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
   justify-content: space-between;
   gap: 24px;
 }
@@ -433,8 +435,8 @@ footer a:focus-visible {
 .project-title p {
   width: fit-content;
   margin: 0;
-  padding: 2px 0 4px;
-  border-bottom: 2px solid var(--accent);
+  padding: 0;
+  border-bottom: 0;
   background: transparent;
   color: var(--foreground);
   font-size: 22px;
@@ -465,7 +467,7 @@ footer a:focus-visible {
 
 .project-introduction {
   width: 100%;
-  margin-top: 28px;
+  margin-top: 14px;
   color: #3f4650;
 }
 
@@ -481,10 +483,10 @@ footer a:focus-visible {
 }
 
 .project-introduction p:first-child {
-  color: #2f363f;
-  font-size: var(--text-large);
-  font-weight: 600;
-  line-height: 1.7;
+  color: #2d343d;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.65;
   letter-spacing: -0.025em;
 }
 
@@ -504,35 +506,37 @@ footer a:focus-visible {
 }
 
 .project-highlights {
-  margin-top: 38px;
+  margin-top: 26px;
   padding: 0;
-  border-top: 1px solid #e3e6ea;
+  border-top: 0;
 }
 
 .project-highlight {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 6px;
   padding: 26px 0;
   border-bottom: 1px solid #e8ebef;
 }
 
 .project-highlight:first-child {
+  padding-top: 0;
   border-top: 0;
 }
 
 .project-highlight > span {
-  padding-top: 5px;
-  color: var(--accent);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: var(--text-small);
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  padding-top: 0;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0;
 }
 
 .project-highlight h4 {
-  margin: 0 0 10px;
-  font-size: 20px;
+  margin: 0 0 8px;
+  font-size: 18px;
   line-height: 1.35;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -666,6 +670,12 @@ footer p {
     --text-small: 11px;
   }
 
+  .resume-sheet {
+    width: 100%;
+    margin: 0;
+    padding-top: 24px;
+  }
+
   .top-banner {
     min-height: 176px;
     text-align: left;
@@ -728,6 +738,10 @@ footer p {
     font-size: 28px;
   }
 
+  .work-section {
+    display: block;
+  }
+
   .project-item {
     margin-top: 36px;
   }
@@ -762,9 +776,13 @@ footer p {
   }
 
   .project-highlight {
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 5px;
     padding: 22px 0;
+  }
+
+  .project-highlight > span {
+    font-size: 21px;
   }
 
   .project-highlight h4 {
@@ -781,7 +799,7 @@ footer p {
   }
 
   .resume-list {
-    margin-top: 0;
+    margin-top: 24px;
   }
 
   .resume-item {
@@ -795,6 +813,10 @@ footer p {
     padding: 24px 0 28px;
   }
 
+  .resume-list .jungle-item {
+    padding-top: 0;
+  }
+
   .resume-list .resume-item + .resume-item {
     padding-top: 24px;
   }
@@ -805,12 +827,6 @@ footer p {
 
   .resume-list .resume-side {
     display: block;
-  }
-
-  .jungle-entry-header {
-    align-items: flex-start;
-    flex-direction: column-reverse;
-    gap: 22px;
   }
 
   .jungle-logo {
@@ -853,7 +869,7 @@ footer p {
   }
 
   .resume-list .jungle-detail {
-    margin-top: 26px;
+    margin-top: 0;
   }
 
   .contact {
@@ -900,6 +916,12 @@ footer p {
 
   body {
     background: #ffffff;
+  }
+
+  .resume-sheet {
+    width: 100%;
+    margin: 0;
+    padding-top: 0;
   }
 
   .profile {

@@ -40,7 +40,7 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.doesNotMatch(html, /안녕하세요/);
   assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
   assert.match(html, /체험단을 운영하며[\s\S]*피드백을 실행 가능한 형태로 구체화/);
-  assert.match(html, /하루 약 9천만 건의 주식 틱 이벤트/);
+  assert.match(html, /비전공자로서 7개월 만에 9천만 건의 주식 틱 이벤트/);
   assert.match(html, /과거 데이터는 REST로[\s\S]*최신 데이터는 WebSocket/);
   assert.match(html, /정적·실시간 요소를 두 개의 Canvas/);
   assert.match(html, /백엔드 구조까지 이해하며[\s\S]*원활하게 협업/);
@@ -81,19 +81,9 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.doesNotMatch(html, /주요 구현/);
   assert.match(
     html,
-    /사용자가 시장을 탐색하고, 차트를 분석하고, 주문한 뒤 거래를[\s\S]*복기하는 과정/,
+    /AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래[\s\S]*복기까지 하나의 흐름으로 연결하는 주식 트레이딩[\s\S]*플랫폼/,
   );
-  assert.match(
-    html,
-    /인프라·프론트엔드·백엔드·AI 각 1명으로 구성된 4인 팀/,
-  );
-  assert.match(html, /프론트엔드를 담당/);
-  assert.match(html, /React 기반 UI와[\s\S]*TypeScript 차트 엔진/);
-  assert.match(
-    html,
-    /백엔드 데이터 파이프라인은 Kafka를 통해 24시간 기준 약[\s\S]*9천만 건/,
-  );
-  assert.match(html, /Docker와[\s\S]*Kubernetes 환경에서 배포·운영/);
+  assert.doesNotMatch(html, /하나의 작업 화면에서 수행할 수 있도록 만든/);
   assert.match(
     html,
     /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계/,
@@ -140,9 +130,9 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /Linear Regression/);
   assert.match(
     html,
-    /<span>01<\/span>[\s\S]*공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*<span>02<\/span>[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*<span>03<\/span>[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
+    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
   );
-  assert.doesNotMatch(html, /<span>04<\/span>/);
+  assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
   assert.match(html, /Pintos 시스템 콜 구현과 실행 흐름 추적/);
   assert.match(html, /read·write·open·close 시스템 콜을 구현/);
   assert.match(html, /레지스터와 interrupt frame/);

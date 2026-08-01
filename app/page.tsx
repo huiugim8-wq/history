@@ -40,7 +40,7 @@ function ExternalArrow() {
 
 export default function Home() {
   return (
-    <>
+    <div className="resume-sheet">
       <header className="top-banner" id="top">
         <div className="top-banner-inner">
           <div className="top-banner-copy">
@@ -79,11 +79,11 @@ export default function Home() {
               사용자의 문제를 기준으로 해결책을 찾는 태도로 이어졌습니다.
             </p>
             <p className="profile-context">
-              비전공자로 개발을 시작한 지 7개월 만에 하루 약 9천만 건의 주식 틱
-              이벤트를 처리하는 환경에서 React 조회 패널과 TypeScript 차트
-              엔진을 구현했으며, 과거 데이터는 REST로, 최신 데이터는
-              WebSocket으로 반영하고 정적·실시간 요소를 두 개의 Canvas로 분리해
-              필요한 부분만 다시 그리도록 설계했습니다.
+              비전공자로서 7개월 만에 9천만 건의 주식 틱 이벤트를 처리하는
+              환경에서 React 조회 패널과 TypeScript 차트 엔진을 구현했으며, 과거
+              데이터는 REST로, 최신 데이터는 WebSocket으로 반영하고 정적·실시간
+              요소를 두 개의 Canvas로 분리해 필요한 부분만 다시 그리도록
+              설계했습니다.
             </p>
             <p className="profile-context">
               개발 영역을 프론트엔드에 한정하지 않고, 백엔드 구조까지 이해하며
@@ -99,15 +99,12 @@ export default function Home() {
 
           <div className="resume-list">
             <article className="resume-item jungle-item" id="project">
-              <div className="jungle-entry-header">
-                <div className="resume-side">
-                  <div className="experience-heading">
-                    <h3>크래프톤 정글</h3>
-                    <span aria-hidden="true">·</span>
-                    <p>12기 졸업</p>
-                  </div>
-                  <time className="experience-period">2026.03 — 2026.07</time>
+              <div className="resume-side jungle-side">
+                <div className="experience-heading">
+                  <h3>크래프톤 정글</h3>
+                  <p>12기 졸업</p>
                 </div>
+                <time className="experience-period">2026.03 — 2026.07</time>
 
                 <img
                   className="jungle-logo"
@@ -129,7 +126,7 @@ export default function Home() {
                       rel="noreferrer"
                       aria-label="프로젝트 GitHub 저장소 열기"
                     >
-                      Github <ExternalArrow />
+                      Github
                     </a>
                     <span className="side-link-placeholder">
                       Blog <small>준비 중</small>
@@ -141,26 +138,16 @@ export default function Home() {
                       rel="noreferrer"
                       aria-label="프로젝트 YouTube 영상 열기"
                     >
-                      YouTube <ExternalArrow />
+                      YouTube
                     </a>
                   </nav>
                 </div>
 
                 <div className="project-introduction">
                   <p>
-                    사용자가 시장을 탐색하고, 차트를 분석하고, 주문한 뒤 거래를
-                    복기하는 과정을 하나의 작업 화면에서 수행할 수 있도록 만든
-                    AI 주식 트레이딩 플랫폼입니다.
-                  </p>
-                  <p>
-                    인프라·프론트엔드·백엔드·AI 각 1명으로 구성된 4인 팀에서
-                    프론트엔드를 담당했습니다. 담당 영역은 React 기반 UI와
-                    TypeScript 차트 엔진입니다.
-                  </p>
-                  <p>
-                    백엔드 데이터 파이프라인은 Kafka를 통해 24시간 기준 약
-                    9천만 건의 시장 이벤트를 처리하며, 프로젝트는 Docker와
-                    Kubernetes 환경에서 배포·운영되었습니다.
+                    AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래
+                    복기까지 하나의 흐름으로 연결하는 주식 트레이딩
+                    플랫폼입니다.
                   </p>
                 </div>
 
@@ -169,23 +156,18 @@ export default function Home() {
                   aria-label="프로젝트 핵심 역량"
                 >
                   <section className="project-highlight">
-                    <span>01</span>
+                    <span aria-hidden="true">•</span>
                     <div>
                       <h4>
                         공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계
                       </h4>
                       <div className="project-achievements">
                         <p>
-                          사용자가 시장 탐색·차트 분석·주문·거래 복기에 필요한
-                          패널을 선택·이동·크기 조절해 작업 화면을 구성할 수
-                          있도록, <strong>43종의 패널</strong>이 공통 프레임을
-                          재사용하게 설계했습니다.
-                        </p>
-                        <p>
-                          컴포넌트·최소 크기·기본 배치·우선순위를{" "}
-                          <strong>TypeScript Registry 한곳에서 관리</strong>
-                          하고, Layout Agent 명령을 검증한 뒤{" "}
-                          <strong>등록된 패널로만 변환</strong>했습니다.
+                          <strong>43종의 패널</strong>이 공통 프레임을 재사용하도록
+                          설계하고, 크기·배치·우선순위를{" "}
+                          <strong>TypeScript Registry 한곳에서 관리</strong>해
+                          Layout Agent 명령도{" "}
+                          <strong>등록된 패널로만 변환</strong>되게 했습니다.
                         </p>
                       </div>
                       <div
@@ -206,7 +188,7 @@ export default function Home() {
                   </section>
 
                   <section className="project-highlight">
-                    <span>02</span>
+                    <span aria-hidden="true">•</span>
                     <div>
                       <h4>
                         REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
@@ -245,7 +227,7 @@ export default function Home() {
                   </section>
 
                   <section className="project-highlight">
-                    <span>03</span>
+                    <span aria-hidden="true">•</span>
                     <div>
                       <h4>
                         후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘
@@ -367,6 +349,6 @@ export default function Home() {
         <p>© 2026 KIM HEEJUN</p>
         <a href="#top">Back to top ↑</a>
       </footer>
-    </>
+    </div>
   );
 }
