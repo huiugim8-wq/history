@@ -301,54 +301,92 @@ export default function Home() {
                   className="supporting-project"
                   aria-labelledby="mini-react-title"
                 >
-                  <div className="supporting-project-header">
+                  <div className="project-header">
                     <div className="project-title">
                       <span>PROJECT 2</span>
-                      <h4 id="mini-react-title">React Virtual DOM Runtime</h4>
+                      <h4 id="mini-react-title">React 가상 DOM 실행 환경</h4>
                     </div>
                     <a
                       className="side-link"
                       href="https://github.com/huiugim8-wq/mini-react2"
                       target="_blank"
                       rel="noreferrer"
-                      aria-label="React Virtual DOM Runtime GitHub 저장소 열기"
+                      aria-label="React 가상 DOM 실행 환경 GitHub 저장소 열기"
                     >
                       Github <ExternalArrow />
                     </a>
                   </div>
-                  <p className="supporting-project-summary">
-                    React의 렌더링 흐름을 이해하기 위해 함수형 컴포넌트,
-                    Hooks와 Virtual DOM 런타임을 프레임워크 없이 구현했습니다.
-                  </p>
-                  <ul className="project-bullet-list">
-                    <li>
-                      <strong>Virtual DOM 동기화:</strong> 상태 변경 시 이전·다음
-                      VDOM을 비교하고, 변경된 속성·텍스트·자식 노드만 Patch로
-                      실제 DOM에 반영
-                    </li>
-                    <li>
-                      <strong>Keyed Reconciliation:</strong> key로 리스트 항목의
-                      동일성을 유지하고 이동 Patch를 계산해, 1,025개 카드의
-                      정렬·필터·가상 스크롤에서 노드가 섞이는 문제 해결
-                    </li>
-                    <li>
-                      <strong>Hooks &amp; Batching:</strong> useState·useEffect·
-                      useMemo의 슬롯과 생명주기를 구현하고, 같은 실행 구간의
-                      연속 상태 변경을 microtask 한 번의 업데이트로 병합
-                    </li>
-                    <li>
-                      <strong>Fiber 비교:</strong> 동기식
-                      render→diff→patch→commit의 한계를 확인하고, Fiber의 작업
-                      분할·우선순위 스케줄링과의 차이를 문서화
-                    </li>
-                  </ul>
+                  <div className="project-introduction">
+                    <p>
+                      React의 렌더링 흐름을 이해하기 위해 함수형 컴포넌트,
+                      Hooks와 가상 DOM 실행 환경을 프레임워크 없이
+                      구현했습니다.
+                    </p>
+                  </div>
+                  <div
+                    className="project-highlights"
+                    aria-label="React 가상 DOM 실행 환경 핵심 구현"
+                  >
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>가상 DOM 동기화</h5>
+                        <div className="project-achievements">
+                          <p>
+                            상태 변경 시 이전·다음 VDOM을 비교하고, 변경된
+                            속성·텍스트·자식 노드만 Patch로 실제 DOM에
+                            반영했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>Keyed Reconciliation</h5>
+                        <div className="project-achievements">
+                          <p>
+                            key로 리스트 항목의 동일성을 유지하고 이동 Patch를
+                            계산해, 1,025개 카드의 정렬·필터·가상 스크롤에서
+                            노드가 섞이는 문제를 해결했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>Hooks &amp; Batching</h5>
+                        <div className="project-achievements">
+                          <p>
+                            useState·useEffect·useMemo의 슬롯과 생명주기를
+                            구현하고, 같은 실행 구간의 연속 상태 변경을
+                            microtask 한 번의 업데이트로 병합했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>Fiber 비교</h5>
+                        <div className="project-achievements">
+                          <p>
+                            동기식 render→diff→patch→commit의 한계를 확인하고,
+                            Fiber의 작업 분할·우선순위 스케줄링과의 차이를
+                            문서화했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
                   <p className="project-verification">
                     Hook 슬롯·Diff·Patch·리스트 재정렬·생명주기를 검증한{" "}
                     <strong>78개 테스트를 모두 통과</strong>했습니다.
                   </p>
                   <div
                     className="highlight-tags"
-                    aria-label="React Virtual DOM Runtime 키워드"
+                    aria-label="React 가상 DOM 실행 환경 키워드"
                   >
                     {[
                       "JavaScript",

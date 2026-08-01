@@ -181,7 +181,7 @@ footer a:focus-visible {
 .profile-context {
   max-width: none;
   color: #3f4752;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.62;
   letter-spacing: -0.015em;
@@ -690,73 +690,18 @@ footer a:focus-visible {
   margin-top: 28px;
 }
 
-.supporting-project-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.supporting-project-header .side-link {
-  flex: 0 0 auto;
-  margin-top: 22px;
-  color: var(--foreground);
-  font-size: 14px;
-}
-
-.supporting-project h4 {
-  margin: 0 0 10px;
-  font-size: var(--type-project-title);
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.035em;
-}
-
-.supporting-project p {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: var(--text-body);
-  font-weight: 400;
-  line-height: 1.72;
-  text-wrap: pretty;
-}
-
-.supporting-project p + p {
-  margin-top: 5px;
-}
-
-.supporting-project p code {
-  color: #333a43;
-  font-size: 0.94em;
-  font-weight: 650;
-}
-
-.supporting-project-summary {
-  max-width: 760px;
-  margin-top: 12px !important;
-  font-weight: 600 !important;
-}
-
-.project-bullet-list {
-  margin: 14px 0 0 !important;
-  padding-left: 20px !important;
-  color: var(--text-secondary);
-  font-size: var(--text-body);
-  line-height: 1.72;
-}
-
-.project-bullet-list li + li {
-  margin-top: 7px;
-}
-
-.project-bullet-list strong,
 .project-verification strong {
   color: var(--foreground);
   font-weight: 700;
 }
 
 .project-verification {
-  margin-top: 14px !important;
+  margin: 14px 0 0;
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.72;
+  text-wrap: pretty;
 }
 
 .resume-detail li code {
@@ -962,20 +907,6 @@ footer p {
   .supporting-project {
     margin-top: 28px;
     padding-top: 24px;
-  }
-
-  .supporting-project h4 {
-    font-size: var(--type-project-title);
-  }
-
-  .supporting-project-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .supporting-project-header .side-link {
-    margin-top: 0;
   }
 
   .resume-list {

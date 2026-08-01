@@ -153,12 +153,13 @@ test("renders landmark structure and project experience details", async () => {
     /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
-  assert.match(html, /PROJECT 2[\s\S]*React Virtual DOM Runtime/);
+  assert.match(html, /PROJECT 2[\s\S]*React 가상 DOM 실행 환경/);
+  assert.match(html, /aria-label="React 가상 DOM 실행 환경 핵심 구현"/);
   assert.match(
     html,
     /href="https:\/\/github\.com\/huiugim8-wq\/mini-react2"/,
   );
-  assert.match(html, /Virtual DOM 동기화/);
+  assert.match(html, /가상 DOM 동기화/);
   assert.match(html, /Keyed Reconciliation/);
   assert.match(html, /1,025개 카드/);
   assert.match(html, /microtask 한 번의 업데이트로 병합/);
