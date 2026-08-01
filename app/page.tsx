@@ -284,6 +284,39 @@ export default function Home() {
                   </section>
 
                 </div>
+
+                <section
+                  className="pintos-experience"
+                  aria-labelledby="pintos-title"
+                >
+                  <h4 id="pintos-title">
+                    Pintos 시스템 콜 구현과 실행 흐름 추적
+                  </h4>
+                  <div className="project-achievements">
+                    <p>
+                      Pintos에서 read·write·open·close 시스템 콜을 구현하고,
+                      사용자 프로그램의 인자가 레지스터와 interrupt frame을
+                      거쳐 커널 함수로 전달되는 흐름을 추적했습니다.
+                    </p>
+                    <p>
+                      <code>syscall-entry.S</code>와 GDB로 사용자 모드에서 커널
+                      모드로 전환되는 지점을 어셈블리와 레지스터 수준에서
+                      확인하고, 프론트엔드의 HTTP GET 요청이 백엔드의 소켓
+                      I/O와 운영체제 시스템 콜로 이어지는 구조를 이해했습니다.
+                    </p>
+                  </div>
+                  <div className="highlight-tags" aria-label="Pintos 키워드">
+                    {[
+                      "Pintos",
+                      "C",
+                      "System Call",
+                      "x86-64 Assembly",
+                      "GDB",
+                    ].map((keyword) => (
+                      <code key={keyword}>{keyword}</code>
+                    ))}
+                  </div>
+                </section>
               </div>
             </article>
             {experienceItems.map((experience) => (

@@ -142,6 +142,17 @@ test("renders landmark structure and accessible project imagery", async () => {
     /<span>01<\/span>[\s\S]*공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*<span>02<\/span>[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*<span>03<\/span>[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
   );
   assert.doesNotMatch(html, /<span>04<\/span>/);
+  assert.match(html, /Pintos 시스템 콜 구현과 실행 흐름 추적/);
+  assert.match(html, /read·write·open·close 시스템 콜을 구현/);
+  assert.match(html, /레지스터와 interrupt frame/);
+  assert.match(html, /syscall-entry\.S/);
+  assert.match(html, /사용자 모드에서 커널[\s\S]*모드로 전환/);
+  assert.match(
+    html,
+    /프론트엔드의 HTTP GET 요청이 백엔드의 소켓[\s\S]*I\/O와 운영체제 시스템 콜/,
+  );
+  assert.match(html, /x86-64 Assembly/);
+  assert.match(html, /aria-label="Pintos 키워드"/);
   assert.doesNotMatch(html, /배포 중단을 해결한 Docker·Kubernetes 환경/);
   assert.doesNotMatch(html, /성능과 비용을 함께 고려한 인프라/);
   assert.doesNotMatch(html, /class="company-mark project-mark"/);

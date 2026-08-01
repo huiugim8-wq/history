@@ -580,6 +580,37 @@ footer a:focus-visible {
   line-height: 1.25;
 }
 
+.pintos-experience {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #e3e6ea;
+}
+
+.pintos-experience h4 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+.pintos-experience p {
+  margin: 0;
+  color: #4a525d;
+  font-size: var(--text-body);
+  line-height: 1.78;
+  text-wrap: pretty;
+}
+
+.pintos-experience p + p {
+  margin-top: 5px;
+}
+
+.pintos-experience p code {
+  color: #333a43;
+  font-size: 0.94em;
+  font-weight: 650;
+}
+
 .resume-detail li code {
   padding: 1px 5px;
   border-radius: 4px;
@@ -735,6 +766,15 @@ footer p {
   }
 
   .project-highlight h4 {
+    font-size: 17px;
+  }
+
+  .pintos-experience {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+
+  .pintos-experience h4 {
     font-size: 17px;
   }
 
