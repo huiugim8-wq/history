@@ -1,3 +1,8 @@
+import SelectableTags from "./selectable-tags";
+
+const projectNotionUrl =
+  "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
+
 const experienceItems = [
   {
     title: "㈜나현",
@@ -26,14 +31,15 @@ const experienceItems = [
       </>
     ),
   },
-  {
-    title: "대구대학교",
-    role: "실내건축디자인학과",
-    period: "2017.03 — 2023.08",
-    summary:
-      "공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고 명확하게 전달하는 기반을 다졌습니다.",
-  },
 ];
+
+const educationItem = {
+  title: "대구대학교",
+  role: "실내건축디자인학과",
+  period: "2017.03 — 2023.08",
+  summary:
+    "공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고 명확하게 전달하는 기반을 다졌습니다.",
+};
 
 function ExternalArrow() {
   return <span aria-hidden="true">↗</span>;
@@ -139,9 +145,15 @@ export default function Home() {
                     >
                       Github <ExternalArrow />
                     </a>
-                    <span className="side-link-placeholder">
-                      Blog <small>준비 중</small>
-                    </span>
+                    <a
+                      className="side-link notion-link"
+                      href={projectNotionUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="프로젝트 Notion 상세 문서 열기"
+                    >
+                      Notion <ExternalArrow />
+                    </a>
                     <a
                       className="side-link"
                       href="https://www.youtube.com/watch?v=8P4wiwDrvxs"
@@ -189,7 +201,15 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계
+                        <a
+                          className="project-highlight-link"
+                          href={projectNotionUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계{" "}
+                          <ExternalArrow />
+                        </a>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -199,20 +219,16 @@ export default function Home() {
                           했습니다.
                         </p>
                       </div>
-                      <div
-                        className="highlight-tags"
-                        aria-label="React 패널 구조 키워드"
-                      >
-                        {[
+                      <SelectableTags
+                        ariaLabel="React 패널 구조 키워드"
+                        labels={[
                           "React",
                           "TypeScript",
                           "Component Composition",
                           "Runtime Validation",
                           "Agent-driven UI",
-                        ].map((keyword) => (
-                          <code key={keyword}>{keyword}</code>
-                        ))}
-                      </div>
+                        ]}
+                      />
                     </div>
                   </section>
 
@@ -220,7 +236,15 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
+                        <a
+                          className="project-highlight-link"
+                          href={projectNotionUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진{" "}
+                          <ExternalArrow />
+                        </a>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -232,20 +256,16 @@ export default function Home() {
                           시 <strong>오버레이만 갱신</strong>했습니다.
                         </p>
                       </div>
-                      <div
-                        className="highlight-tags"
-                        aria-label="차트 엔진 키워드"
-                      >
-                        {[
+                      <SelectableTags
+                        ariaLabel="차트 엔진 키워드"
+                        labels={[
                           "TypeScript CSR",
                           "REST API",
                           "WebSocket",
                           "Canvas 2D",
                           "requestAnimationFrame",
-                        ].map((keyword) => (
-                          <code key={keyword}>{keyword}</code>
-                        ))}
-                      </div>
+                        ]}
+                      />
                     </div>
                   </section>
 
@@ -253,8 +273,15 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript
-                        알고리즘
+                        <a
+                          className="project-highlight-link"
+                          href={projectNotionUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript
+                          알고리즘 <ExternalArrow />
+                        </a>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -268,20 +295,16 @@ export default function Home() {
                           했습니다.
                         </p>
                       </div>
-                      <div
-                        className="highlight-tags"
-                        aria-label="차트 분석 알고리즘 키워드"
-                      >
-                        {[
+                      <SelectableTags
+                        ariaLabel="차트 분석 알고리즘 키워드"
+                        labels={[
                           "TypeScript",
                           "Data Structures",
                           "Clustering",
                           "Linear Regression",
                           "Candidate Scoring",
-                        ].map((keyword) => (
-                          <code key={keyword}>{keyword}</code>
-                        ))}
-                      </div>
+                        ]}
+                      />
                     </div>
                   </section>
 
@@ -294,38 +317,52 @@ export default function Home() {
                   <div className="project-header">
                     <div className="project-title">
                       <span>PROJECT 2</span>
-                      <h4 id="mini-react-title">React 가상 DOM 실행 환경</h4>
+                      <h4 id="mini-react-title">
+                        mini-react — React 가상 DOM 실행 환경
+                      </h4>
                     </div>
                     <a
                       className="side-link"
-                      href="https://github.com/huiugim8-wq/mini-react2"
+                      href="https://github.com/woonyong-kr/mini-react2"
                       target="_blank"
                       rel="noreferrer"
-                      aria-label="React 가상 DOM 실행 환경 GitHub 저장소 열기"
+                      aria-label="mini-react GitHub 저장소 열기"
                     >
                       Github <ExternalArrow />
                     </a>
                   </div>
                   <div className="project-introduction">
                     <p>
-                      React의 렌더링 흐름을 이해하기 위해 함수형 컴포넌트,
-                      Hooks와 가상 DOM 실행 환경을 프레임워크 없이
-                      구현했습니다.
+                      React API를 흉내 내는 데 그치지 않고, 상태 변경이 실제 DOM
+                      업데이트로 이어지는 전 과정을 직접 설계했습니다. 구현한
+                      런타임은 1,025개 카드의 검색·정렬·가상 스크롤이 동작하는
+                      SPA에 적용해 검증했습니다.
                     </p>
                   </div>
                   <div
                     className="project-highlights"
-                    aria-label="React 가상 DOM 실행 환경 핵심 구현"
+                    aria-label="mini-react 핵심 구현"
                   >
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>가상 DOM 동기화</h5>
+                        <h5>
+                          <a
+                            className="project-highlight-link"
+                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/renderer-dom/patch.js"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            전체 DOM을 다시 그리지 않고, 바뀐 부분만 갱신했습니다{" "}
+                            <ExternalArrow />
+                          </a>
+                        </h5>
                         <div className="project-achievements">
                           <p>
-                            상태 변경 시 이전·다음 VDOM을 비교하고, 변경된
-                            속성·텍스트·자식 노드만 Patch로 실제 DOM에
-                            반영했습니다.
+                            렌더 단계에서는 이전·다음 UI 트리를 비교해 변경
+                            목록을 만들고, 적용 단계에서 속성·텍스트·자식 노드만
+                            수정했습니다. 계산과 DOM 조작을 분리해 문제가 생긴
+                            단계를 추적하고 테스트할 수 있게 했습니다.
                           </p>
                         </div>
                       </div>
@@ -333,12 +370,32 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>Keyed Reconciliation</h5>
+                        <h5>
+                          <a
+                            className="project-highlight-link"
+                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/reconciler/diffChildren.js"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            정렬·필터 후에도 카드 정보가 섞이지 않게 했습니다{" "}
+                            <ExternalArrow />
+                          </a>
+                        </h5>
                         <div className="project-achievements">
                           <p>
-                            key로 리스트 항목의 동일성을 유지하고 이동 Patch를
-                            계산해, 1,025개 카드의 정렬·필터·가상 스크롤에서
-                            노드가 섞이는 문제를 해결했습니다.
+                            index 기준 비교에서 카드와 DOM의 대응이 어긋나는
+                            원인을 key 기반 동일성 문제로 좁혔습니다. 이동이
+                            필요한 노드만 재배치해 1,025개 카드의 정렬·필터·
+                            <a
+                              className="project-evidence-link"
+                              href="https://github.com/woonyong-kr/mini-react2/blob/main/src/app/pages/CollectionPage.js"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              가상 스크롤
+                            </a>
+                            에서도 이미지와 타입 정보가 올바른 카드에 남도록
+                            했습니다.
                           </p>
                         </div>
                       </div>
@@ -346,12 +403,24 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>Hooks &amp; Batching</h5>
+                        <h5>
+                          <a
+                            className="project-highlight-link"
+                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/app/components/CardTile.js"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            마우스를 움직일 때마다 전체 UI를 다시 그리지 않았습니다{" "}
+                            <ExternalArrow />
+                          </a>
+                        </h5>
                         <div className="project-achievements">
                           <p>
-                            useState·useEffect·useMemo의 슬롯과 생명주기를
-                            구현하고, 같은 실행 구간의 연속 상태 변경을
-                            microtask 한 번의 업데이트로 병합했습니다.
+                            검색·필터처럼 UI 구조가 바뀌는 작업은 가상 DOM이
+                            처리하고, 카드 기울기·홀로그램처럼 초당 여러 번
+                            발생하는 효과는 CSS 변수만 갱신했습니다. 상태
+                            렌더링과 시각 효과를 분리해 불필요한 비교 작업을
+                            피했습니다.
                           </p>
                         </div>
                       </div>
@@ -359,36 +428,77 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>Fiber 비교</h5>
+                        <h5>
+                          <a
+                            className="project-highlight-link"
+                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/runtime/scheduleUpdate.js"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            상태는 보존하고, 연속 업데이트는 한 번으로 합쳤습니다{" "}
+                            <ExternalArrow />
+                          </a>
+                        </h5>
                         <div className="project-achievements">
                           <p>
-                            동기식 render→diff→patch→commit의 한계를 확인하고,
-                            Fiber의 작업 분할·우선순위 스케줄링과의 차이를
-                            문서화했습니다.
+                            <a
+                              className="project-evidence-link"
+                              href="https://github.com/woonyong-kr/mini-react2/tree/main/src/core/runtime/hooks"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Hook 호출 순서에 따라 state·effect·memo 값을 유지
+                            </a>
+                            하고 effect의 정리 시점을 관리했습니다. 연속 상태
+                            변경은 microtask에 모아 한 번만 렌더링하되, 즉시
+                            반영이 필요할 때는 sync 전략을 선택할 수 있게
+                            했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>
+                          <a
+                            className="project-highlight-link"
+                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/engine/inspect.js"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            최적화 효과를 감이 아니라 숫자로 확인했습니다{" "}
+                            <ExternalArrow />
+                          </a>
+                        </h5>
+                        <div className="project-achievements">
+                          <p>
+                            Render/Patch Inspector에서 비교 전략별 생성 Patch
+                            수를 확인해 어떤 방식이 DOM 작업을 줄이는지
+                            검증했습니다. Hook·Diff/Patch·가상 스크롤을 포함한
+                            78개 테스트를 모두 통과했습니다.
                           </p>
                         </div>
                       </div>
                     </section>
                   </div>
-                  <p className="project-verification">
-                    Hook 슬롯·Diff·Patch·리스트 재정렬·생명주기를 검증한{" "}
-                    <strong>78개 테스트를 모두 통과</strong>했습니다.
-                  </p>
-                  <div
-                    className="highlight-tags"
-                    aria-label="React 가상 DOM 실행 환경 키워드"
+                  <ul
+                    className="project-proof-points"
+                    aria-label="mini-react 검증 결과"
                   >
-                    {[
-                      "JavaScript",
-                      "Virtual DOM",
-                      "Diff & Patch",
-                      "Hooks",
-                      "Microtask Batching",
-                      "Fiber Comparison",
-                    ].map((keyword) => (
-                      <code key={keyword}>{keyword}</code>
-                    ))}
-                  </div>
+                    <li>
+                      <strong>1,025개</strong>
+                      <span>카드 목록으로 검증</span>
+                    </li>
+                    <li>
+                      <strong>78 / 78</strong>
+                      <span>단위·기능 테스트 통과</span>
+                    </li>
+                    <li>
+                      <strong>3개</strong>
+                      <span>비교 전략별 Patch 계측</span>
+                    </li>
+                  </ul>
                 </section>
 
               </div>
@@ -436,6 +546,32 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section
+          className="resume-section education-section"
+          id="education"
+          aria-labelledby="education-title"
+        >
+          <div className="section-title">
+            <h2 id="education-title">Education</h2>
+          </div>
+
+          <div className="resume-list">
+            <article className="resume-item">
+              <div className="resume-side">
+                <div className="experience-heading">
+                  <h3>{educationItem.title}</h3>
+                  <p>{educationItem.role}</p>
+                </div>
+                <time className="experience-period">{educationItem.period}</time>
+              </div>
+
+              <div className="resume-detail">
+                <p className="summary-box">{educationItem.summary}</p>
+              </div>
+            </article>
           </div>
         </section>
 

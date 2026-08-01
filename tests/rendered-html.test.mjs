@@ -89,7 +89,16 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /OTOS[\s\S]*2023 — 2024/);
   assert.doesNotMatch(html, /2023 — 2024 · 1년/);
   assert.match(html, /와디즈 스피마코튼 펀딩 1,206% 달성/);
-  assert.match(html, /대구대학교[\s\S]*2017\.03 — 2023\.08/);
+  assert.match(
+    html,
+    /<section class="resume-section education-section" id="education" aria-labelledby="education-title">/,
+  );
+  assert.match(
+    html,
+    /<h2 id="education-title">Education<\/h2>[\s\S]*대구대학교[\s\S]*실내건축디자인학과[\s\S]*2017\.03 — 2023\.08/,
+  );
+  assert.ok(html.indexOf("Work &amp; Experience") < html.indexOf("Education"));
+  assert.ok(html.indexOf("Education") < html.indexOf("대구대학교"));
   assert.match(html, /<article class="resume-item jungle-item" id="project">/);
   assert.doesNotMatch(html, /class="jungle-logo"/);
   assert.match(html, /class="project-header"/);
@@ -114,6 +123,11 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /Component Composition/);
   assert.match(html, /Runtime Validation/);
   assert.match(html, /Agent-driven UI/);
+  assert.match(
+    html,
+    /type="button" class="highlight-tag" aria-pressed="false">React<\/button>/,
+  );
+  assert.match(html, /class="project-highlight-link"/);
   assert.doesNotMatch(html, />사용 기술</);
   assert.match(html, /React 패널 구조 키워드/);
   assert.match(html, /차트 엔진 키워드/);
@@ -152,26 +166,51 @@ test("renders landmark structure and project experience details", async () => {
     /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
-  assert.match(html, /PROJECT 2[\s\S]*React 가상 DOM 실행 환경/);
-  assert.match(html, /aria-label="React 가상 DOM 실행 환경 핵심 구현"/);
+  assert.match(html, /PROJECT 2[\s\S]*mini-react — React 가상 DOM 실행 환경/);
+  assert.match(html, /aria-label="mini-react 핵심 구현"/);
   assert.match(
     html,
-    /href="https:\/\/github\.com\/huiugim8-wq\/mini-react2"/,
+    /href="https:\/\/github\.com\/woonyong-kr\/mini-react2"/,
   );
-  assert.match(html, /가상 DOM 동기화/);
-  assert.match(html, /Keyed Reconciliation/);
+  assert.match(
+    html,
+    /상태 변경이 실제 DOM[\s\S]*업데이트로 이어지는 전 과정을 직접 설계/,
+  );
+  assert.match(
+    html,
+    /전체 DOM을 다시 그리지 않고, 바뀐 부분만 갱신했습니다/,
+  );
+  assert.match(
+    html,
+    /계산과 DOM 조작을 분리해 문제가 생긴[\s\S]*단계를 추적하고 테스트/,
+  );
+  assert.match(html, /정렬·필터 후에도 카드 정보가 섞이지 않게 했습니다/);
   assert.match(html, /1,025개 카드/);
-  assert.match(html, /microtask 한 번의 업데이트로 병합/);
-  assert.match(html, /Fiber의 작업[\s\S]*분할·우선순위 스케줄링/);
+  assert.match(html, /CollectionPage\.js/);
+  assert.match(
+    html,
+    /마우스를 움직일 때마다 전체 UI를 다시 그리지 않았습니다/,
+  );
+  assert.match(html, /카드 기울기·홀로그램[\s\S]*CSS 변수만 갱신/);
+  assert.match(html, /상태는 보존하고, 연속 업데이트는 한 번으로 합쳤습니다/);
+  assert.match(html, /microtask에 모아 한 번만 렌더링/);
+  assert.match(html, /즉시[\s\S]*반영이 필요할 때는 sync 전략/);
+  assert.match(html, /최적화 효과를 감이 아니라 숫자로 확인했습니다/);
   assert.match(html, /78개 테스트를 모두 통과/);
-  assert.match(html, /Fiber Comparison/);
+  assert.match(html, /class="project-proof-points"/);
+  assert.match(html, /1,025개[\s\S]*78 \/ 78[\s\S]*3개/);
+  assert.doesNotMatch(html, /Fiber 비교|Fiber Comparison/);
   assert.doesNotMatch(html, /Redis/);
   assert.doesNotMatch(html, /PROJECT 3|Pintos|syscall-entry\.S|x86-64 Assembly/);
   assert.doesNotMatch(html, /배포 중단을 해결한 Docker·Kubernetes 환경/);
   assert.doesNotMatch(html, /성능과 비용을 함께 고려한 인프라/);
   assert.doesNotMatch(html, /class="company-mark project-mark"/);
   assert.doesNotMatch(html, /Experience &amp; Education/);
-  assert.match(html, /Blog/);
+  const notionUrl =
+    "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
+  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 4);
+  assert.match(html, /Notion/);
+  assert.doesNotMatch(html, /Blog|준비 중/);
   assert.match(html, /YouTube/);
   assert.match(
     html,
@@ -183,7 +222,6 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /FEATURED PROJECT/);
   assert.doesNotMatch(html, /담당 · Frontend/);
   assert.doesNotMatch(html, /<h2>Skills<\/h2>/);
-  assert.doesNotMatch(html, /<h2>Education<\/h2>/);
   assert.doesNotMatch(html, /class="project-image"/);
   assert.doesNotMatch(html, /gops-workspace\.png/);
   assert.match(html, /<footer>/);
