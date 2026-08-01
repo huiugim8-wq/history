@@ -103,6 +103,10 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /Component Composition/);
   assert.match(html, /Runtime Validation/);
   assert.match(html, /Agent-driven UI/);
+  assert.doesNotMatch(html, />사용 기술</);
+  assert.match(html, /React 패널 구조 키워드/);
+  assert.match(html, /차트 엔진 키워드/);
+  assert.match(html, /차트 분석 알고리즘 키워드/);
   assert.match(
     html,
     /REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진/,

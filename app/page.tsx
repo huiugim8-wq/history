@@ -189,7 +189,7 @@ export default function Home() {
                       </div>
                       <div
                         className="highlight-tags"
-                        aria-label="TypeScript 패널 구조 관련 키워드"
+                        aria-label="React 패널 구조 키워드"
                       >
                         {[
                           "React",
@@ -228,7 +228,7 @@ export default function Home() {
                       </div>
                       <div
                         className="highlight-tags"
-                        aria-label="React 차트 데이터 흐름과 접근성 관련 키워드"
+                        aria-label="차트 엔진 키워드"
                       >
                         {[
                           "TypeScript CSR",
@@ -268,7 +268,7 @@ export default function Home() {
                       </div>
                       <div
                         className="highlight-tags"
-                        aria-label="차트 분석 알고리즘 관련 키워드"
+                        aria-label="차트 분석 알고리즘 키워드"
                       >
                         {[
                           "TypeScript",
