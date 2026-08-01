@@ -106,65 +106,37 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /실시간 투자 정보 플랫폼/);
   assert.match(html, /PROJECT 1/);
   assert.doesNotMatch(html, /주요 구현/);
-  assert.match(
-    html,
-    /AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래[\s\S]*복기까지 하나의 흐름으로 연결하는 주식 트레이딩[\s\S]*플랫폼/,
-  );
+  assert.match(html, /AI 시장 탐색·차트 분석·주문·거래 복기/);
   assert.doesNotMatch(html, /하나의 작업 화면에서 수행할 수 있도록 만든/);
-  assert.match(
-    html,
-    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계/,
-  );
   assert.match(html, /팀 프로젝트 5인/);
   assert.match(html, /Frontend[\s\S]*Infrastructure[\s\S]*Backend[\s\S]*AI/);
-  assert.match(html, /43종의 패널이 공통 프레임을 재사용하도록 설계/);
-  assert.match(html, /TypeScript Registry 한곳에서[\s\S]*관리하여/);
-  assert.match(html, /등록된 패널로만 변환/);
-  assert.match(html, /Component Composition/);
-  assert.match(html, /Runtime Validation/);
-  assert.match(html, /Agent-driven UI/);
+  assert.match(html, /class="project-keyword-list"/);
+  assert.match(
+    html,
+    /React 패널 아키텍처[\s\S]*43종 공통 프레임 · TypeScript Registry · 런타임 검증/,
+  );
+  assert.match(
+    html,
+    /실시간 차트 엔진[\s\S]*REST 구간 조회 · WebSocket 반영 · 2-Layer Canvas[\s\S]*오버레이 갱신/,
+  );
+  assert.match(
+    html,
+    /차트 분석 알고리즘[\s\S]*피벗 군집 · 선형회귀 · 후보선 점수화 · 선정 근거 재현/,
+  );
+  assert.doesNotMatch(html, /class="project-keyword-link"/);
   assert.match(
     html,
     /type="button" class="highlight-tag" aria-pressed="false">React<\/button>/,
   );
-  assert.match(html, /class="project-highlight-link"/);
+  assert.doesNotMatch(html, /class="project-highlight-link"/);
+  assert.doesNotMatch(html, /class="project-evidence-link"/);
   assert.doesNotMatch(html, />사용 기술</);
-  assert.match(html, /React 패널 구조 키워드/);
-  assert.match(html, /차트 엔진 키워드/);
-  assert.match(html, /차트 분석 알고리즘 키워드/);
-  assert.match(
-    html,
-    /REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진/,
-  );
-  assert.match(
-    html,
-    /24시간 9,327만 건\(평균 초당 약 1,080건\)/,
-  );
-  assert.match(html, /REST[\s\S]*API·WebSocket으로 구간 조회·실시간 반영/);
-  assert.match(html, /2-Layer Canvas로 분리해 이동[\s\S]*오버레이만 갱신/);
-  assert.match(html, /TypeScript CSR/);
-  assert.match(html, /REST API/);
+  assert.match(html, /실시간 투자 정보 플랫폼 핵심 키워드/);
   assert.match(html, /Canvas 2D/);
-  assert.match(html, /requestAnimationFrame/);
-  assert.doesNotMatch(html, /상세 글 준비 중/);
-  assert.match(
-    html,
-    /피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript[\s\S]*알고리즘/,
-  );
-  assert.match(html, /피벗 군집·선형회귀로 지지·저항 후보선을 생성하고/);
-  assert.match(html, /유효한 선만 선별/);
-  assert.match(
-    html,
-    /동일 조건의 결과와 선정 이유를 재현/,
-  );
-  assert.match(html, /별도 차트 레이어/);
-  assert.match(html, /Data Structures/);
-  assert.match(html, /Clustering/);
-  assert.match(html, /Linear Regression/);
-  assert.match(
-    html,
-    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript/,
-  );
+  assert.match(html, /Data Visualization/);
+  assert.match(html, /Algorithm/);
+  assert.doesNotMatch(html, /data-accent-link="true"/);
+  assert.doesNotMatch(html, /project-highlight-link__accent/);
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
   assert.match(html, /PROJECT 2[\s\S]*mini-react — React 가상 DOM 실행 환경/);
   assert.match(html, /aria-label="mini-react 핵심 구현"/);
@@ -174,31 +146,24 @@ test("renders landmark structure and project experience details", async () => {
   );
   assert.match(
     html,
-    /상태 변경이 실제 DOM[\s\S]*업데이트로 이어지는 전 과정을 직접 설계/,
+    /함수형 컴포넌트 · Hooks · VDOM Diff\/Patch를 직접 구현하고[\s\S]*1,025개 카드 SPA로 검증/,
   );
   assert.match(
     html,
-    /전체 DOM을 다시 그리지 않고, 바뀐 부분만 갱신했습니다/,
+    /VDOM Diff · Patch[\s\S]*변경된 속성 · 텍스트 · 자식 노드만 실제 DOM에 반영/,
   );
   assert.match(
     html,
-    /계산과 DOM 조작을 분리해 문제가 생긴[\s\S]*단계를 추적하고 테스트/,
+    /Keyed Diff · Virtual Scroll[\s\S]*정렬 · 필터 후에도 1,025개 카드의 노드 동일성 유지/,
   );
-  assert.match(html, /정렬·필터 후에도 카드 정보가 섞이지 않게 했습니다/);
-  assert.match(html, /1,025개 카드/);
-  assert.match(html, /CollectionPage\.js/);
   assert.match(
     html,
-    /마우스를 움직일 때마다 전체 UI를 다시 그리지 않았습니다/,
+    /Hooks · Batching · Inspector[\s\S]*상태 생명주기 · 연속 업데이트 병합 · Patch 수 계측/,
   );
-  assert.match(html, /카드 기울기·홀로그램[\s\S]*CSS 변수만 갱신/);
-  assert.match(html, /상태는 보존하고, 연속 업데이트는 한 번으로 합쳤습니다/);
-  assert.match(html, /microtask에 모아 한 번만 렌더링/);
-  assert.match(html, /즉시[\s\S]*반영이 필요할 때는 sync 전략/);
-  assert.match(html, /최적화 효과를 감이 아니라 숫자로 확인했습니다/);
-  assert.match(html, /78개 테스트를 모두 통과/);
-  assert.match(html, /class="project-proof-points"/);
-  assert.match(html, /1,025개[\s\S]*78 \/ 78[\s\S]*3개/);
+  assert.match(html, /mini-react 핵심 키워드/);
+  assert.match(html, /Microtask Batching/);
+  assert.match(html, /Patch Inspector/);
+  assert.doesNotMatch(html, /class="project-proof-points"/);
   assert.doesNotMatch(html, /Fiber 비교|Fiber Comparison/);
   assert.doesNotMatch(html, /Redis/);
   assert.doesNotMatch(html, /PROJECT 3|Pintos|syscall-entry\.S|x86-64 Assembly/);
@@ -208,7 +173,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /Experience &amp; Education/);
   const notionUrl =
     "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
-  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 4);
+  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 1);
   assert.match(html, /Notion/);
   assert.doesNotMatch(html, /Blog|준비 중/);
   assert.match(html, /YouTube/);
