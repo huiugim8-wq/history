@@ -50,7 +50,7 @@ export default function Home() {
             <nav className="profile-links" aria-label="프로필 링크">
               <a href="mailto:huiugim8@gmail.com">Email</a>
               <a
-                href="https://github.com/KFJG-Team1/gops"
+                href="https://github.com/huiugim8-wq"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -71,15 +71,22 @@ export default function Home() {
         <section className="profile" aria-labelledby="profile-title">
           <div className="profile-points">
             <h2 className="profile-statement">
-              “실내건축디자인과 창업에서 익힌 관찰력으로 복잡한 문제를 화면의
-              구조로 풀어내는 프론트엔드 개발자”
+              “화면 너머의 구조까지 이해하는 프론트엔드 개발자”
             </h2>
             <p className="profile-context">
-              저는 사용자 흐름을 먼저 정의하고, 화면과 데이터의 책임이 분명한
-              설계를 지향합니다. 단순히 기능을 나열하는 것을 넘어, 24시간 약
-              9천만 건의 시장 데이터를 다루는 환경에서 실시간·과거 데이터를
-              하나의 차트 경험으로 연결하고 React 화면과 TypeScript 차트
-              엔진을 분리해 일관된 사용자 경험과 기능별 확장성을 확보했습니다.
+              <strong>실내건축디자인과 창업 경험</strong>에서 익힌 관찰력을
+              바탕으로, 사용자가 보는 화면뿐 아니라 데이터가 전달되는 과정까지
+              고려한 설계를 지향합니다.
+            </p>
+            <p className="profile-context">
+              React 패널 UI와 TypeScript 차트 엔진을 구현하고, REST·WebSocket
+              데이터 흐름을 화면 상태와 연결했습니다. 백엔드 구조를 이해한 뒤
+              프론트엔드가 담당할 데이터의 경계와 책임을 설계했습니다.
+            </p>
+            <p className="profile-context">
+              익숙한 구현을 반복하기보다 필요한 기술을 배우고 직접 검증하며,
+              제품 전체의 흐름 속에서 더 나은 사용자 경험을 만드는 개발자로
+              성장하고 있습니다.
             </p>
           </div>
         </section>
@@ -140,16 +147,22 @@ export default function Home() {
 
                 <div className="project-introduction">
                   <p>
-                    시장 탐색·차트 분석·주문·거래 복기를 하나의 작업 화면에
-                    연결한 AI 주식 트레이딩 플랫폼입니다.
+                    사용자가 시장을 탐색하고, 차트를 분석하고, 주문한 뒤 거래를
+                    복기하는 과정을 하나의 작업 화면에서 수행할 수 있도록 만든
+                    AI 주식 트레이딩 플랫폼입니다.
                   </p>
                   <p>
-                    24시간 기준 약 9천만 건의 시장 이벤트를 처리하는 Kafka
-                    환경에서 React UI와 TypeScript 차트 엔진을 담당했습니다.
+                    인프라·프론트엔드·백엔드·AI 각 1명으로 구성된 4인 팀에서
+                    프론트엔드를 담당했습니다. 담당 영역은 React 기반 UI와
+                    TypeScript 차트 엔진입니다.
+                  </p>
+                  <p>
+                    백엔드 데이터 파이프라인은 Kafka를 통해 24시간 기준 약
+                    9천만 건의 시장 이벤트를 처리하며, 프로젝트는 Docker와
+                    Kubernetes 환경에서 배포·운영되었습니다.
                   </p>
                 </div>
 
-                <p className="project-contribution-label">주요 구현</p>
                 <div
                   className="project-highlights"
                   aria-label="프로젝트 핵심 역량"
@@ -158,20 +171,22 @@ export default function Home() {
                     <span>01</span>
                     <div>
                       <h4>
-                        Agent 명령으로 조합되는 React 패널 컴포넌트 설계
+                        공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계
                       </h4>
-                      <ul className="project-achievements">
-                        <li>
-                          차트·뉴스·기업 분석·주문을 독립된 기능 컴포넌트로
-                          분리하고, 공통 프레임이 선택·이동·크기 조절을
-                          담당하도록 설계했습니다.
-                        </li>
-                        <li>
-                          Layout Agent의 패널 종류·동작·우선순위를 런타임에서
-                          검증하고 TypeScript Registry와 연결해 화면을
-                          조합했습니다.
-                        </li>
-                      </ul>
+                      <div className="project-achievements">
+                        <p>
+                          사용자가 시장 탐색·차트 분석·주문·거래 복기에 필요한
+                          패널을 선택·이동·크기 조절해 작업 화면을 구성할 수
+                          있도록, <strong>43종의 패널</strong>이 공통 프레임을
+                          재사용하게 설계했습니다.
+                        </p>
+                        <p>
+                          컴포넌트·최소 크기·기본 배치·우선순위를{" "}
+                          <strong>TypeScript Registry 한곳에서 관리</strong>
+                          하고, Layout Agent 명령을 검증한 뒤{" "}
+                          <strong>등록된 패널로만 변환</strong>했습니다.
+                        </p>
+                      </div>
                       <div
                         className="highlight-tags"
                         aria-label="TypeScript 패널 구조 관련 키워드"
@@ -193,20 +208,24 @@ export default function Home() {
                     <span>02</span>
                     <div>
                       <h4>
-                        CSR 기반 차트 엔진의 데이터 시각화와 UX 최적화
+                        REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진
                       </h4>
-                      <ul className="project-achievements">
-                        <li>
-                          초기·과거 데이터는 필요한 구간만 REST API로 조회하고
-                          이후 변화는 WebSocket으로 반영해 중복 요청을 줄이고
-                          차트의 연속성을 유지했습니다.
-                        </li>
-                        <li>
-                          브라우저 TypeScript 엔진에서 두 경로를 시간 기준으로
-                          병합하고 Canvas 2D 레이어와 렌더링 주기를 분리해
-                          성능과 접근성을 함께 고려했습니다.
-                        </li>
-                      </ul>
+                      <div className="project-achievements">
+                        <p>
+                          기존 데이터 범위 밖의 누락 구간만 REST로 조회하고 이후
+                          시장 이벤트는 WebSocket으로 반영해,{" "}
+                          <strong>전체 구간을 다시 요청하지 않고</strong> 실시간
+                          차트를 유지했습니다.
+                        </p>
+                        <p>
+                          정적 차트와 포인터·가이드 UI를 2개의 Canvas로 분리해,
+                          포인터 이동 시{" "}
+                          <strong>
+                            정적 차트의 재렌더링 없이 오버레이 Canvas만 갱신
+                          </strong>
+                          하도록 구현했습니다.
+                        </p>
+                      </div>
                       <div
                         className="highlight-tags"
                         aria-label="React 차트 데이터 흐름과 접근성 관련 키워드"
@@ -216,7 +235,7 @@ export default function Home() {
                           "REST API",
                           "WebSocket",
                           "Canvas 2D",
-                          "Web Accessibility",
+                          "requestAnimationFrame",
                         ].map((keyword) => (
                           <code key={keyword}>{keyword}</code>
                         ))}
@@ -230,16 +249,23 @@ export default function Home() {
                       <h4>
                         후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘
                       </h4>
-                      <ul className="project-achievements">
-                        <li>
-                          캔들 데이터에서 피벗을 추출하고 군집화·선형회귀로
-                          후보선을 생성했습니다.
-                        </li>
-                        <li>
-                          접촉·반응·오차·돌파를 점수화해 검증된
-                          지지·저항·추세·패턴과 판단 근거를 차트에 표시했습니다.
-                        </li>
-                      </ul>
+                      <div className="project-achievements">
+                        <p>
+                          피벗 군집과 선형회귀로 후보선을 생성하고
+                          접촉·가격 반응·오차·돌파를 평가해,{" "}
+                          <strong>기준을 통과한 후보만 차트에 표시</strong>
+                          했습니다.
+                        </p>
+                        <p>
+                          후보 생성과 검증을 분리해 동일한 데이터와 조건에서
+                          같은 분석 결과를 재현하고, 선택된 선과 평가 근거를
+                          별도 차트 레이어에 표시해{" "}
+                          <strong>
+                            사용자가 선정 이유를 확인
+                          </strong>
+                          할 수 있도록 구성했습니다.
+                        </p>
+                      </div>
                       <div
                         className="highlight-tags"
                         aria-label="차트 분석 알고리즘 관련 키워드"
@@ -247,6 +273,7 @@ export default function Home() {
                         {[
                           "TypeScript",
                           "Data Structures",
+                          "Clustering",
                           "Linear Regression",
                           "Candidate Scoring",
                         ].map((keyword) => (
