@@ -511,7 +511,7 @@ footer a:focus-visible {
 }
 
 .project-team {
-  margin-top: 13px;
+  margin-top: 10px;
 }
 
 .project-team-heading {
@@ -536,7 +536,7 @@ footer a:focus-visible {
 }
 
 .project-role-tags {
-  margin-top: 8px;
+  margin-top: 6px;
   margin-left: 26px;
   width: calc(100% - 26px);
   display: grid;
@@ -592,7 +592,7 @@ footer a:focus-visible {
   display: grid;
   grid-template-columns: 20px minmax(0, 1fr);
   gap: 6px;
-  padding: 26px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #e8ebef;
 }
 
@@ -647,9 +647,9 @@ footer a:focus-visible {
 
 .highlight-tags {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 8px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: 8px;
 }
@@ -657,17 +657,17 @@ footer a:focus-visible {
 .highlight-tags code {
   width: 100%;
   min-width: 0;
-  min-height: 32px;
-  padding: 0 6px;
-  border: 1px solid #cfd4da;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #cbd2da;
   border-radius: 4px;
-  background: #f8f9fa;
+  background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #4a525d;
+  color: #57606b;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -871,7 +871,7 @@ footer p {
   .project-highlight {
     grid-template-columns: 18px minmax(0, 1fr);
     gap: 5px;
-    padding: 22px 0;
+    padding: 16px 0;
   }
 
   .project-highlight > span {
@@ -898,8 +898,12 @@ footer p {
   }
 
   .highlight-tags code {
-    min-height: 32px;
+    height: 32px;
     padding-inline: 7px;
+    font-size: 12px;
+  }
+
+  .project-role-tags span {
     font-size: 12px;
   }
 
