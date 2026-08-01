@@ -9,7 +9,7 @@ const experienceItems = [
   {
     title: "OTOS",
     role: "수건·목재 판매 창업",
-    period: "2023 — 2024 · 1년",
+    period: "2023 — 2024",
     projectTitle: "와디즈 스피마코튼 펀딩 1,206% 달성",
     link: {
       label: "와디즈 펀딩",
@@ -126,6 +126,7 @@ export default function Home() {
               <div className="resume-detail jungle-detail">
                 <div className="project-header">
                   <div className="project-title">
+                    <span>PROJECT 1</span>
                     <h4>실시간 투자 정보 플랫폼</h4>
                   </div>
                   <nav className="project-links" aria-label="프로젝트 관련 링크">
@@ -297,37 +298,71 @@ export default function Home() {
                 </div>
 
                 <section
-                  className="pintos-experience"
-                  aria-labelledby="pintos-title"
+                  className="supporting-project"
+                  aria-labelledby="mini-react-title"
                 >
-                  <h4 id="pintos-title">
-                    Pintos 시스템 콜 구현과 실행 흐름 추적
-                  </h4>
-                  <div className="project-achievements">
-                    <p>
-                      Pintos에서 read·write·open·close 시스템 콜을 구현하고,
-                      사용자 프로그램의 인자가 레지스터와 interrupt frame을
-                      거쳐 커널 함수로 전달되는 흐름을 추적했습니다.
-                    </p>
-                    <p>
-                      <code>syscall-entry.S</code>와 GDB로 사용자 모드에서 커널
-                      모드로 전환되는 지점을 어셈블리와 레지스터 수준에서
-                      확인하고, 프론트엔드의 HTTP GET 요청이 백엔드의 소켓
-                      I/O와 운영체제 시스템 콜로 이어지는 구조를 이해했습니다.
-                    </p>
+                  <div className="supporting-project-header">
+                    <div className="project-title">
+                      <span>PROJECT 2</span>
+                      <h4 id="mini-react-title">React Virtual DOM Runtime</h4>
+                    </div>
+                    <a
+                      className="side-link"
+                      href="https://github.com/huiugim8-wq/mini-react2"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="React Virtual DOM Runtime GitHub 저장소 열기"
+                    >
+                      Github <ExternalArrow />
+                    </a>
                   </div>
-                  <div className="highlight-tags" aria-label="Pintos 키워드">
+                  <p className="supporting-project-summary">
+                    React의 렌더링 흐름을 이해하기 위해 함수형 컴포넌트,
+                    Hooks와 Virtual DOM 런타임을 프레임워크 없이 구현했습니다.
+                  </p>
+                  <ul className="project-bullet-list">
+                    <li>
+                      <strong>Virtual DOM 동기화:</strong> 상태 변경 시 이전·다음
+                      VDOM을 비교하고, 변경된 속성·텍스트·자식 노드만 Patch로
+                      실제 DOM에 반영
+                    </li>
+                    <li>
+                      <strong>Keyed Reconciliation:</strong> key로 리스트 항목의
+                      동일성을 유지하고 이동 Patch를 계산해, 1,025개 카드의
+                      정렬·필터·가상 스크롤에서 노드가 섞이는 문제 해결
+                    </li>
+                    <li>
+                      <strong>Hooks &amp; Batching:</strong> useState·useEffect·
+                      useMemo의 슬롯과 생명주기를 구현하고, 같은 실행 구간의
+                      연속 상태 변경을 microtask 한 번의 업데이트로 병합
+                    </li>
+                    <li>
+                      <strong>Fiber 비교:</strong> 동기식
+                      render→diff→patch→commit의 한계를 확인하고, Fiber의 작업
+                      분할·우선순위 스케줄링과의 차이를 문서화
+                    </li>
+                  </ul>
+                  <p className="project-verification">
+                    Hook 슬롯·Diff·Patch·리스트 재정렬·생명주기를 검증한{" "}
+                    <strong>78개 테스트를 모두 통과</strong>했습니다.
+                  </p>
+                  <div
+                    className="highlight-tags"
+                    aria-label="React Virtual DOM Runtime 키워드"
+                  >
                     {[
-                      "Pintos",
-                      "C",
-                      "System Call",
-                      "x86-64 Assembly",
-                      "GDB",
+                      "JavaScript",
+                      "Virtual DOM",
+                      "Diff & Patch",
+                      "Hooks",
+                      "Microtask Batching",
+                      "Fiber Comparison",
                     ].map((keyword) => (
                       <code key={keyword}>{keyword}</code>
                     ))}
                   </div>
                 </section>
+
               </div>
             </article>
             {experienceItems.map((experience) => (
@@ -343,24 +378,30 @@ export default function Home() {
                       {experience.period}
                     </time>
                   </div>
-
-                  {experience.link ? (
-                    <a
-                      className="side-link experience-header-link"
-                      href={experience.link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${experience.title} ${experience.link.label} 프로젝트 열기`}
-                    >
-                      {experience.link.label} <ExternalArrow />
-                    </a>
-                  ) : null}
                 </div>
 
                 <div className="resume-detail">
                   {experience.projectTitle ? (
-                    <div className="project-title experience-project-title">
-                      <h4>{experience.projectTitle}</h4>
+                    <div className="project-header experience-project-header">
+                      <div className="project-title">
+                        <h4>{experience.projectTitle}</h4>
+                      </div>
+                      {experience.link ? (
+                        <nav
+                          className="project-links"
+                          aria-label={`${experience.title} 프로젝트 관련 링크`}
+                        >
+                          <a
+                            className="side-link"
+                            href={experience.link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${experience.title} ${experience.link.label} 프로젝트 열기`}
+                          >
+                            {experience.link.label} <ExternalArrow />
+                          </a>
+                        </nav>
+                      ) : null}
                     </div>
                   ) : null}
                   <p className="summary-box">{experience.summary}</p>

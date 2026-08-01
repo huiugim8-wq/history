@@ -5,6 +5,7 @@
   --surface: #f7f8fa;
   --surface-strong: #f3f5f8;
   --foreground: #1f2328;
+  --text-secondary: #4a525d;
   --muted: #5c6470;
   --subtle: #8a929d;
   --line: #d9dde3;
@@ -217,7 +218,7 @@ footer a:focus-visible {
 .section-title h2 {
   margin: 0;
   font-size: var(--type-section-title);
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.05em;
   text-wrap: balance;
@@ -257,9 +258,9 @@ footer a:focus-visible {
 
 .resume-side p {
   margin: 0;
-  color: #4a525d;
+  color: var(--text-secondary);
   font-size: var(--type-role);
-  font-weight: 650;
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -273,7 +274,7 @@ footer a:focus-visible {
   color: #687281;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: var(--text-small);
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.055em;
 }
 
@@ -291,9 +292,9 @@ footer a:focus-visible {
   display: flex;
   align-items: center;
   gap: 7px;
-  color: var(--muted);
-  font-size: var(--text-small);
-  font-weight: 750;
+  color: var(--foreground);
+  font-size: var(--type-role);
+  font-weight: 700;
   transition: color 140ms ease;
 }
 
@@ -322,12 +323,12 @@ footer a:focus-visible {
   align-items: center;
   gap: 7px;
   color: var(--subtle);
-  font-size: var(--text-small);
-  font-weight: 650;
+  font-size: var(--type-role);
+  font-weight: 600;
 }
 
 .side-link-placeholder small {
-  font-size: var(--text-small);
+  font-size: inherit;
   font-weight: 600;
 }
 
@@ -383,16 +384,20 @@ footer a:focus-visible {
   margin: 0;
   padding: 0;
   background: transparent;
-  color: #49515c;
+  color: var(--text-secondary);
   font-size: var(--text-body);
-  font-weight: 500;
-  line-height: 1.78;
+  font-weight: 400;
+  line-height: 1.72;
   text-wrap: pretty;
 }
 
 .resume-list .summary-box strong {
   color: var(--foreground);
-  font-weight: 800;
+  font-weight: 700;
+}
+
+.experience-project-header + .summary-box {
+  margin-top: 14px;
 }
 
 .experience-header {
@@ -401,11 +406,6 @@ footer a:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   gap: 24px;
-}
-
-.experience-header-link {
-  flex: 0 0 auto;
-  margin-top: 1px;
 }
 
 .project-detail blockquote {
@@ -472,7 +472,7 @@ footer a:focus-visible {
   color: var(--subtle);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: var(--text-small);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
 }
 
@@ -488,7 +488,7 @@ footer a:focus-visible {
 .project-introduction {
   width: 100%;
   margin-top: 14px;
-  color: #3f4650;
+  color: var(--text-secondary);
 }
 
 .project-introduction p {
@@ -503,11 +503,11 @@ footer a:focus-visible {
 }
 
 .project-introduction p:first-child {
-  color: #2d343d;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.65;
-  letter-spacing: -0.025em;
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: 1.72;
+  letter-spacing: -0.015em;
 }
 
 .project-team {
@@ -545,7 +545,7 @@ footer a:focus-visible {
 .project-team-heading h5 {
   margin: 0;
   font-size: var(--type-detail-title);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.45;
 }
 
@@ -570,7 +570,7 @@ footer a:focus-visible {
   justify-content: center;
   color: #57606b;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -618,7 +618,7 @@ footer a:focus-visible {
 .project-highlight h5 {
   margin: 0 0 8px;
   font-size: var(--type-detail-title);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -626,17 +626,19 @@ footer a:focus-visible {
 
 .project-highlight p {
   margin: 0;
-  color: #4a525d;
+  color: var(--text-secondary);
   font-size: var(--text-body);
-  line-height: 1.78;
+  font-weight: 400;
+  line-height: 1.72;
   text-wrap: pretty;
 }
 
 .project-achievements {
   margin: 0;
   padding: 0;
-  color: #4a525d;
+  color: var(--text-secondary);
   font-size: var(--text-body);
+  font-weight: 400;
   line-height: 1.72;
 }
 
@@ -646,7 +648,7 @@ footer a:focus-visible {
 
 .project-highlight strong {
   color: #1f2937;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .highlight-tags {
@@ -672,42 +674,89 @@ footer a:focus-visible {
   color: #57606b;
   font-family: inherit;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
   flex: 0 0 auto;
 }
 
-.pintos-experience {
+.supporting-project {
   margin-top: 32px;
   padding-top: 28px;
   border-top: 1px solid #e3e6ea;
 }
 
-.pintos-experience h4 {
+.supporting-project + .supporting-project {
+  margin-top: 28px;
+}
+
+.supporting-project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.supporting-project-header .side-link {
+  flex: 0 0 auto;
+  margin-top: 22px;
+  color: var(--foreground);
+  font-size: 14px;
+}
+
+.supporting-project h4 {
   margin: 0 0 10px;
   font-size: var(--type-project-title);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.035em;
 }
 
-.pintos-experience p {
+.supporting-project p {
   margin: 0;
-  color: #4a525d;
+  color: var(--text-secondary);
   font-size: var(--text-body);
-  line-height: 1.78;
+  font-weight: 400;
+  line-height: 1.72;
   text-wrap: pretty;
 }
 
-.pintos-experience p + p {
+.supporting-project p + p {
   margin-top: 5px;
 }
 
-.pintos-experience p code {
+.supporting-project p code {
   color: #333a43;
   font-size: 0.94em;
   font-weight: 650;
+}
+
+.supporting-project-summary {
+  max-width: 760px;
+  margin-top: 12px !important;
+  font-weight: 600 !important;
+}
+
+.project-bullet-list {
+  margin: 14px 0 0 !important;
+  padding-left: 20px !important;
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  line-height: 1.72;
+}
+
+.project-bullet-list li + li {
+  margin-top: 7px;
+}
+
+.project-bullet-list strong,
+.project-verification strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.project-verification {
+  margin-top: 14px !important;
 }
 
 .resume-detail li code {
@@ -910,13 +959,23 @@ footer p {
     font-size: 12px;
   }
 
-  .pintos-experience {
+  .supporting-project {
     margin-top: 28px;
     padding-top: 24px;
   }
 
-  .pintos-experience h4 {
+  .supporting-project h4 {
     font-size: var(--type-project-title);
+  }
+
+  .supporting-project-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .supporting-project-header .side-link {
+    margin-top: 0;
   }
 
   .resume-list {
@@ -962,10 +1021,6 @@ footer p {
   .experience-header {
     flex-direction: column;
     gap: 10px;
-  }
-
-  .experience-header-link {
-    margin-top: 0;
   }
 
   .side-link {

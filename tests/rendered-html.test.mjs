@@ -86,7 +86,8 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /TEAM PROJECT/);
   assert.doesNotMatch(html, />KRAFTON JUNGLE</);
   assert.match(html, /㈜나현[\s\S]*2024 — 2025\.08/);
-  assert.match(html, /OTOS[\s\S]*2023 — 2024 · 1년/);
+  assert.match(html, /OTOS[\s\S]*2023 — 2024/);
+  assert.doesNotMatch(html, /2023 — 2024 · 1년/);
   assert.match(html, /와디즈 스피마코튼 펀딩 1,206% 달성/);
   assert.match(html, /대구대학교[\s\S]*2017\.03 — 2023\.08/);
   assert.match(html, /<article class="resume-item jungle-item" id="project">/);
@@ -94,6 +95,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /class="project-header"/);
   assert.doesNotMatch(html, /<h3>GOPS<\/h3>/);
   assert.match(html, /실시간 투자 정보 플랫폼/);
+  assert.match(html, /PROJECT 1/);
   assert.doesNotMatch(html, /주요 구현/);
   assert.match(
     html,
@@ -151,17 +153,20 @@ test("renders landmark structure and project experience details", async () => {
     /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*후보 생성과 검증을 분리한 TypeScript 차트 분석 알고리즘/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
-  assert.match(html, /Pintos 시스템 콜 구현과 실행 흐름 추적/);
-  assert.match(html, /read·write·open·close 시스템 콜을 구현/);
-  assert.match(html, /레지스터와 interrupt frame/);
-  assert.match(html, /syscall-entry\.S/);
-  assert.match(html, /사용자 모드에서 커널[\s\S]*모드로 전환/);
+  assert.match(html, /PROJECT 2[\s\S]*React Virtual DOM Runtime/);
   assert.match(
     html,
-    /프론트엔드의 HTTP GET 요청이 백엔드의 소켓[\s\S]*I\/O와 운영체제 시스템 콜/,
+    /href="https:\/\/github\.com\/huiugim8-wq\/mini-react2"/,
   );
-  assert.match(html, /x86-64 Assembly/);
-  assert.match(html, /aria-label="Pintos 키워드"/);
+  assert.match(html, /Virtual DOM 동기화/);
+  assert.match(html, /Keyed Reconciliation/);
+  assert.match(html, /1,025개 카드/);
+  assert.match(html, /microtask 한 번의 업데이트로 병합/);
+  assert.match(html, /Fiber의 작업[\s\S]*분할·우선순위 스케줄링/);
+  assert.match(html, /78개 테스트를 모두 통과/);
+  assert.match(html, /Fiber Comparison/);
+  assert.doesNotMatch(html, /Redis/);
+  assert.doesNotMatch(html, /PROJECT 3|Pintos|syscall-entry\.S|x86-64 Assembly/);
   assert.doesNotMatch(html, /배포 중단을 해결한 Docker·Kubernetes 환경/);
   assert.doesNotMatch(html, /성능과 비용을 함께 고려한 인프라/);
   assert.doesNotMatch(html, /class="company-mark project-mark"/);
