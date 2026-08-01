@@ -136,7 +136,7 @@ export default function Home() {
                       rel="noreferrer"
                       aria-label="프로젝트 GitHub 저장소 열기"
                     >
-                      Github
+                      Github <ExternalArrow />
                     </a>
                     <span className="side-link-placeholder">
                       Blog <small>준비 중</small>
@@ -148,7 +148,7 @@ export default function Home() {
                       rel="noreferrer"
                       aria-label="프로젝트 YouTube 영상 열기"
                     >
-                      YouTube
+                      YouTube <ExternalArrow />
                     </a>
                   </nav>
                 </div>

@@ -183,14 +183,15 @@ footer a:focus-visible {
 .profile-context {
   max-width: none;
   color: #3f4752;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.75;
-  letter-spacing: -0.02em;
+  line-height: 1.62;
+  letter-spacing: -0.015em;
+  text-wrap: wrap;
 }
 
 .profile-context + .profile-context {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .profile-evidence {
@@ -302,12 +303,20 @@ footer a:focus-visible {
   margin-top: 0;
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 32px;
   white-space: nowrap;
 }
 
 .project-links .side-link {
   margin-top: 0;
+  gap: 6px;
+}
+
+.project-links .side-link > span {
+  display: inline-block;
+  font-size: 0.84em;
+  line-height: 1;
+  transform: translateY(-1px);
 }
 
 .side-link-placeholder {
@@ -529,21 +538,28 @@ footer a:focus-visible {
 
 .project-role-tags {
   margin-top: 8px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 9px;
-  width: min(100%, 421px);
+  margin-left: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: auto;
 }
 
 .project-role-tags span {
-  padding: 4px 12px;
+  width: 128px;
+  height: 40px;
+  padding: 0 12px;
   border: 1px solid #cbd2da;
   border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #57606b;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1;
   text-align: center;
+  white-space: nowrap;
 }
 
 .project-role-tags .is-primary {
@@ -629,22 +645,28 @@ footer a:focus-visible {
 }
 
 .highlight-tags {
-  margin-top: 13px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .highlight-tags code {
-  padding: 4px 8px;
+  min-height: 40px;
+  padding: 0 14px;
   border: 1px solid #cfd4da;
   border-radius: 4px;
   background: #f8f9fa;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #4a525d;
-  font-size: var(--text-small);
-  font-weight: 650;
-  line-height: 1.25;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .pintos-experience {
@@ -857,8 +879,19 @@ footer p {
   }
 
   .project-role-tags {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: min(100%, 320px);
+    margin-left: 23px;
+    gap: 8px;
+    width: calc(100% - 23px);
+  }
+
+  .project-role-tags span {
+    width: calc(50% - 4px);
+  }
+
+  .highlight-tags code {
+    min-height: 38px;
+    padding-inline: 12px;
+    font-size: 13px;
   }
 
   .pintos-experience {
@@ -899,10 +932,6 @@ footer p {
 
   .resume-list .resume-side {
     display: block;
-  }
-
-  .jungle-logo {
-    width: 146px;
   }
 
   .experience-heading {
