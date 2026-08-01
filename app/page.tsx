@@ -71,22 +71,23 @@ export default function Home() {
         <section className="profile" aria-labelledby="profile-title">
           <div className="profile-points">
             <h2 className="profile-statement">
-              “화면 너머의 구조까지 이해하는 프론트엔드 개발자”
+              소통을 바탕으로 구현하는 프론트엔드 개발자
             </h2>
             <p className="profile-context">
-              <strong>실내건축디자인과 창업 경험</strong>에서 익힌 관찰력을
-              바탕으로, 사용자가 보는 화면뿐 아니라 데이터가 전달되는 과정까지
-              고려한 설계를 지향합니다.
+              실내건축디자인을 전공하고 창업 과정에서 체험단을 운영하며 사용자의
+              피드백을 실행 가능한 형태로 구체화해 왔고, 이 경험은 개발에서도
+              사용자의 문제를 기준으로 해결책을 찾는 태도로 이어졌습니다.
             </p>
             <p className="profile-context">
-              React 패널 UI와 TypeScript 차트 엔진을 구현하고, REST·WebSocket
-              데이터를 화면 상태에 연결했습니다. 백엔드와 프론트엔드의 데이터
-              책임도 구분했습니다.
+              비전공자로 개발을 시작한 지 7개월 만에 하루 약 9천만 건의 주식 틱
+              이벤트를 처리하는 환경에서 React 조회 패널과 TypeScript 차트
+              엔진을 구현했으며, 과거 데이터는 REST로, 최신 데이터는
+              WebSocket으로 반영하고 정적·실시간 요소를 두 개의 Canvas로 분리해
+              필요한 부분만 다시 그리도록 설계했습니다.
             </p>
             <p className="profile-context">
-              익숙한 구현을 반복하기보다 필요한 기술을 배우고 직접 검증하며,
-              제품 전체의 흐름 속에서 더 나은 사용자 경험을 만드는 개발자로
-              성장하고 있습니다.
+              개발 영역을 프론트엔드에 한정하지 않고, 백엔드 구조까지 이해하며
+              원활하게 협업하는 개발자를 지향합니다.
             </p>
           </div>
         </section>

@@ -38,11 +38,12 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /<p>프론트엔드 개발자<\/p>/);
   assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
   assert.doesNotMatch(html, /안녕하세요/);
-  assert.match(html, /화면 너머의 구조까지 이해하는/);
-  assert.match(html, /실내건축디자인과 창업 경험/);
-  assert.match(html, /REST·WebSocket[\s\S]*데이터를 화면 상태에 연결/);
-  assert.match(html, /백엔드와 프론트엔드의 데이터[\s\S]*책임도 구분/);
-  assert.match(html, /필요한 기술을 배우고 직접 검증/);
+  assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
+  assert.match(html, /체험단을 운영하며[\s\S]*피드백을 실행 가능한 형태로 구체화/);
+  assert.match(html, /하루 약 9천만 건의 주식 틱 이벤트/);
+  assert.match(html, /과거 데이터는 REST로[\s\S]*최신 데이터는 WebSocket/);
+  assert.match(html, /정적·실시간 요소를 두 개의 Canvas/);
+  assert.match(html, /백엔드 구조까지 이해하며[\s\S]*원활하게 협업/);
   assert.doesNotMatch(html, /개인의 성장이 팀의 실행력으로 이어지는/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
