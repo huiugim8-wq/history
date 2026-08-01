@@ -539,16 +539,16 @@ footer a:focus-visible {
   margin-top: 6px;
   margin-left: 26px;
   width: calc(100% - 26px);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .project-role-tags span {
-  width: 100%;
+  width: auto;
   min-width: 0;
   height: 32px;
-  padding: 0 8px;
+  padding: 0 14px;
   border: 1px solid #cbd2da;
   border-radius: 4px;
   display: inline-flex;
@@ -560,6 +560,7 @@ footer a:focus-visible {
   line-height: 1;
   text-align: center;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .project-role-tags .is-primary {
@@ -887,11 +888,10 @@ footer p {
     margin-left: 23px;
     gap: 8px;
     width: calc(100% - 23px);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-role-tags span {
-    width: 100%;
+    padding-inline: 10px;
   }
 
   .highlight-tags code {
