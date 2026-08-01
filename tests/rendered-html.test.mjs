@@ -40,8 +40,8 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.doesNotMatch(html, /안녕하세요/);
   assert.match(html, /화면 너머의 구조까지 이해하는/);
   assert.match(html, /실내건축디자인과 창업 경험/);
-  assert.match(html, /REST·WebSocket 데이터 흐름/);
-  assert.match(html, /백엔드 구조를 이해한 뒤/);
+  assert.match(html, /REST·WebSocket[\s\S]*데이터를 화면 상태에 연결/);
+  assert.match(html, /백엔드와 프론트엔드의 데이터[\s\S]*책임도 구분/);
   assert.match(html, /필요한 기술을 배우고 직접 검증/);
   assert.doesNotMatch(html, /개인의 성장이 팀의 실행력으로 이어지는/);
   assert.match(html, /og\.png/);

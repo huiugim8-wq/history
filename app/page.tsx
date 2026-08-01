@@ -80,8 +80,8 @@ export default function Home() {
             </p>
             <p className="profile-context">
               React 패널 UI와 TypeScript 차트 엔진을 구현하고, REST·WebSocket
-              데이터 흐름을 화면 상태와 연결했습니다. 백엔드 구조를 이해한 뒤
-              프론트엔드가 담당할 데이터의 경계와 책임을 설계했습니다.
+              데이터를 화면 상태에 연결했습니다. 백엔드와 프론트엔드의 데이터
+              책임도 구분했습니다.
             </p>
             <p className="profile-context">
               익숙한 구현을 반복하기보다 필요한 기술을 배우고 직접 검증하며,
