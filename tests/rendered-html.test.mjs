@@ -33,28 +33,38 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /크래프톤 정글 12기 (?:수료|졸업)/);
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
-  assert.match(html, /github\.com\/huiugim8-wq/);
+  assert.match(html, /github\.com\/huiugim8/);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
+  assert.match(html, /010 8201 6811/);
   assert.match(html, /<p>프론트엔드 개발자<\/p>/);
   assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
   assert.doesNotMatch(html, /안녕하세요/);
   assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
-  assert.match(html, /체험단을 운영하며[\s\S]*피드백을 실행 가능한 형태로 구체화/);
-  assert.match(html, /비전공자로서 7개월 만에 9천만 건의 주식 틱 이벤트/);
+  assert.match(
+    html,
+    /실내건축디자인을 전공\/ 창업 과정[\s\S]*체험단을 진행하며[\s\S]*피드백을 실행 가능한 형태로 구체화/,
+  );
+  assert.match(
+    html,
+    /비전공자로서 7개월 만에[\s\S]*9천만 건의 주식 틱 이벤트/,
+  );
   assert.match(html, /과거 데이터는 REST로[\s\S]*최신 데이터는 WebSocket/);
   assert.match(html, /정적·실시간 요소를 두 개의 Canvas/);
-  assert.match(html, /백엔드 구조까지 이해하며[\s\S]*원활하게 협업/);
+  assert.match(
+    html,
+    /백엔드 구조까지 이해하며[\s\S]*원활하게[\s\S]*협업하는 개발자/,
+  );
   assert.doesNotMatch(html, /개인의 성장이 팀의 실행력으로 이어지는/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
-test("renders landmark structure and accessible project imagery", async () => {
+test("renders landmark structure and project experience details", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.match(html, /<header class="top-banner" id="top">/);
-  assert.match(html, /<nav class="profile-links" aria-label="프로필 링크">/);
+  assert.match(html, /<address class="profile-contact" aria-label="연락처">/);
   assert.match(html, /<main>/);
   assert.match(
     html,
@@ -71,10 +81,7 @@ test("renders landmark structure and accessible project imagery", async () => {
   assert.match(html, /OTOS[\s\S]*2023 — 2024 · 1년/);
   assert.match(html, /대구대학교[\s\S]*2017\.03 — 2023\.08/);
   assert.match(html, /<article class="resume-item jungle-item" id="project">/);
-  assert.match(
-    html,
-    /<img class="jungle-logo" src="\/jungle-by-krafton\.png" alt="Jungle by KRAFTON"\/>/,
-  );
+  assert.doesNotMatch(html, /class="jungle-logo"/);
   assert.match(html, /class="project-header"/);
   assert.doesNotMatch(html, /<h3>GOPS<\/h3>/);
   assert.match(html, /실시간 투자 정보 플랫폼/);
@@ -88,9 +95,11 @@ test("renders landmark structure and accessible project imagery", async () => {
     html,
     /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계/,
   );
-  assert.match(html, /<strong>43종의 패널<\/strong>/);
-  assert.match(html, /<strong>TypeScript Registry 한곳에서 관리<\/strong>/);
-  assert.match(html, /<strong>등록된 패널로만 변환<\/strong>/);
+  assert.match(html, /팀 프로젝트 5인/);
+  assert.match(html, /Frontend[\s\S]*Infrastructure[\s\S]*Backend[\s\S]*AI/);
+  assert.match(html, /43종의 패널이 공통 프레임을 재사용하도록 설계/);
+  assert.match(html, /TypeScript Registry 한곳에서[\s\S]*관리하여/);
+  assert.match(html, /등록된 패널로만 변환/);
   assert.match(html, /Component Composition/);
   assert.match(html, /Runtime Validation/);
   assert.match(html, /Agent-driven UI/);

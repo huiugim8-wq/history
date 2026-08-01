@@ -12,7 +12,7 @@
   --accent: #008f5a;
   --accent-soft: #e7f8f0;
   --code: #edf7f2;
-  --max-width: 1276px;
+  --max-width: 1202px;
   --text-large: 17px;
   --text-body: 15px;
   --text-small: 12px;
@@ -41,10 +41,10 @@ body {
 }
 
 .resume-sheet {
-  width: min(1440px, calc(100% - 112px));
+  width: min(1440px, 100%);
   min-height: 100vh;
-  margin: 72px auto 0;
-  padding: 136px 0 0;
+  margin: 10px auto 0;
+  padding: 128px 0 0;
   background: var(--paper);
 }
 
@@ -63,17 +63,17 @@ code {
 }
 
 .top-banner {
-  min-height: 190px;
+  min-height: 182px;
   background: transparent;
 }
 
 .top-banner-inner {
   width: min(calc(100% - 96px), var(--max-width));
-  min-height: 190px;
+  min-height: 182px;
   margin-inline: auto;
   padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 138px;
+  grid-template-columns: minmax(0, 1fr) 132px;
   gap: 56px;
   align-items: start;
 }
@@ -81,16 +81,16 @@ code {
 .top-banner-copy > p {
   margin: 0;
   color: var(--accent);
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(20px, 2.2vw, 27px);
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.045em;
 }
 
 .top-banner h1 {
-  margin: 7px 0 0;
+  margin: 4px 0 0;
   color: var(--foreground);
-  font-size: clamp(42px, 4.6vw, 50px);
+  font-size: clamp(48px, 5.2vw, 58px);
   font-weight: 760;
   line-height: 1;
   letter-spacing: -0.065em;
@@ -103,11 +103,11 @@ footer {
 }
 
 .profile {
-  padding: 17px 0 32px;
+  padding: 18px 0 28px;
 }
 
 .profile-photo {
-  width: 138px;
+  width: 132px;
   aspect-ratio: 3 / 4;
   display: block;
   object-fit: cover;
@@ -115,21 +115,33 @@ footer {
   border: 0;
 }
 
-.profile-links {
-  margin-top: 18px;
+.profile-contact {
+  margin-top: 16px;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 38px;
+  font-style: normal;
 }
 
-.profile-links a {
-  color: var(--subtle);
-  font-size: var(--text-small);
-  font-weight: 650;
+.contact-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: #555b63;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
   transition: color 140ms ease;
 }
 
-.profile-links a:hover,
-.profile-links a:focus-visible,
+.contact-item strong {
+  color: var(--foreground);
+  font-weight: 800;
+}
+
+.contact-item:hover,
+.contact-item:focus-visible,
 .side-link:hover,
 .side-link:focus-visible,
 .contact a:hover,
@@ -152,19 +164,26 @@ footer a:focus-visible {
 
 .profile-statement {
   max-width: none;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   color: var(--foreground);
-  font-size: clamp(22px, 2.1vw, 26px);
-  font-weight: 750;
-  line-height: 1.48;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.35;
   letter-spacing: -0.035em;
   text-wrap: pretty;
+}
+
+.profile-statement-text {
+  text-decoration-line: underline;
+  text-decoration-color: #3d434a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
 
 .profile-context {
   max-width: none;
   color: #3f4752;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.75;
   letter-spacing: -0.02em;
@@ -184,7 +203,7 @@ footer a:focus-visible {
 
 .profile-points strong {
   color: var(--foreground);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .resume-section {
@@ -199,7 +218,7 @@ footer a:focus-visible {
 
 .section-title h2 {
   margin: 0;
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 850;
   line-height: 1.2;
   letter-spacing: -0.05em;
@@ -216,7 +235,7 @@ footer a:focus-visible {
 
 .resume-item {
   display: grid;
-  grid-template-columns: 212px minmax(0, 1fr);
+  grid-template-columns: 202px minmax(0, 1fr);
   gap: 30px;
 }
 
@@ -232,7 +251,7 @@ footer a:focus-visible {
 
 .resume-side h3 {
   margin: 0;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.04em;
@@ -283,7 +302,7 @@ footer a:focus-visible {
   margin-top: 0;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 38px;
   white-space: nowrap;
 }
 
@@ -325,13 +344,6 @@ footer a:focus-visible {
 
 .resume-list .jungle-item {
   padding: 0 0 54px;
-}
-
-.jungle-logo {
-  margin-top: 16px;
-  width: 174px;
-  height: auto;
-  display: block;
 }
 
 .resume-list .resume-item + .resume-item {
@@ -439,8 +451,8 @@ footer a:focus-visible {
   border-bottom: 0;
   background: transparent;
   color: var(--foreground);
-  font-size: 22px;
-  font-weight: 750;
+  font-size: 24px;
+  font-weight: 800;
   line-height: 1.4;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -462,7 +474,7 @@ footer a:focus-visible {
 
 .project-header .side-link {
   color: var(--foreground);
-  font-size: var(--text-small);
+  font-size: 14px;
 }
 
 .project-introduction {
@@ -485,9 +497,58 @@ footer a:focus-visible {
 .project-introduction p:first-child {
   color: #2d343d;
   font-size: 16px;
-  font-weight: 750;
+  font-weight: 800;
   line-height: 1.65;
   letter-spacing: -0.025em;
+}
+
+.project-team {
+  margin-top: 13px;
+}
+
+.project-team-heading {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 6px;
+  align-items: start;
+}
+
+.project-team-heading > span {
+  color: var(--foreground);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.project-team-heading h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.project-role-tags {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  width: min(100%, 421px);
+}
+
+.project-role-tags span {
+  padding: 4px 12px;
+  border: 1px solid #cbd2da;
+  border-radius: 4px;
+  color: #57606b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.project-role-tags .is-primary {
+  border-color: #00c887;
+  color: #00a96f;
 }
 
 .project-detail {
@@ -506,7 +567,7 @@ footer a:focus-visible {
 }
 
 .project-highlights {
-  margin-top: 26px;
+  margin-top: 16px;
   padding: 0;
   border-top: 0;
 }
@@ -545,7 +606,7 @@ footer a:focus-visible {
 .project-highlight p {
   margin: 0;
   color: #4a525d;
-  font-size: var(--text-body);
+  font-size: 16px;
   line-height: 1.78;
   text-wrap: pretty;
 }
@@ -711,8 +772,14 @@ footer p {
     width: 82px;
   }
 
-  .profile-links {
-    margin-top: 17px;
+  .profile-contact {
+    margin-top: 14px;
+    gap: 8px 18px;
+  }
+
+  .contact-item {
+    gap: 7px;
+    font-size: 13px;
   }
 
   .profile-points {
@@ -787,6 +854,11 @@ footer p {
 
   .project-highlight h4 {
     font-size: 17px;
+  }
+
+  .project-role-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 320px);
   }
 
   .pintos-experience {

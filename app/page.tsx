@@ -47,16 +47,25 @@ export default function Home() {
             <p>프론트엔드 개발자</p>
             <h1 id="profile-title">김희준</h1>
 
-            <nav className="profile-links" aria-label="프로필 링크">
-              <a href="mailto:huiugim8@gmail.com">Email</a>
+            <address className="profile-contact" aria-label="연락처">
+              <a className="contact-item" href="tel:01082016811">
+                <strong>Phone</strong>
+                <span>010 8201 6811</span>
+              </a>
+              <a className="contact-item" href="mailto:huiugim8@gmail.com">
+                <strong>Email</strong>
+                <span>huiugim8@gmail.com</span>
+              </a>
               <a
-                href="https://github.com/huiugim8-wq"
+                className="contact-item"
+                href="https://github.com/huiugim8"
                 target="_blank"
                 rel="noreferrer"
               >
-                Github
+                <strong>Github</strong>
+                <span>github.com/huiugim8</span>
               </a>
-            </nav>
+            </address>
           </div>
 
           <img
@@ -71,23 +80,30 @@ export default function Home() {
         <section className="profile" aria-labelledby="profile-title">
           <div className="profile-points">
             <h2 className="profile-statement">
-              소통을 바탕으로 구현하는 프론트엔드 개발자
+              <span aria-hidden="true">“</span>{" "}
+              <span className="profile-statement-text">
+                소통을 바탕으로 구현하는 프론트엔드 개발자
+              </span>{" "}
+              <span aria-hidden="true">”</span>
             </h2>
             <p className="profile-context">
-              실내건축디자인을 전공하고 창업 과정에서 체험단을 운영하며 사용자의
-              피드백을 실행 가능한 형태로 구체화해 왔고, 이 경험은 개발에서도
-              사용자의 문제를 기준으로 해결책을 찾는 태도로 이어졌습니다.
+              <strong>실내건축디자인을 전공/ 창업 과정</strong>에서 체험단을
+              진행하며 사용자의 피드백을 실행 가능한 형태로 구체화해 왔고, 이
+              경험은 개발에서도 사용자 문제를 기준으로 해결책을 찾는 태도로
+              이어졌습니다.
             </p>
             <p className="profile-context">
-              비전공자로서 7개월 만에 9천만 건의 주식 틱 이벤트를 처리하는
-              환경에서 React 조회 패널과 TypeScript 차트 엔진을 구현했으며, 과거
-              데이터는 REST로, 최신 데이터는 WebSocket으로 반영하고 정적·실시간
-              요소를 두 개의 Canvas로 분리해 필요한 부분만 다시 그리도록
-              설계했습니다.
+              비전공자로서 7개월 만에{" "}
+              <strong>9천만 건의 주식 틱 이벤트</strong>를 처리하는 환경에서{" "}
+              <strong>React 조회 패널과 TypeScript 주식차트 엔진</strong>을
+              구현했으며, 과거 데이터는 REST로, 최신 데이터는 WebSocket으로
+              반영하고 정적·실시간 요소를 두 개의 Canvas로 분리해 필요한 부분만
+              다시 그리도록 설계했습니다.
             </p>
             <p className="profile-context">
-              개발 영역을 프론트엔드에 한정하지 않고, 백엔드 구조까지 이해하며
-              원활하게 협업하는 개발자를 지향합니다.
+              개발 영역을 <strong>프론트엔드</strong>에 한정하지 않고, 백엔드
+              구조까지 이해하며 원활하게{" "}
+              <strong>협업하는 개발자</strong>를 지향합니다.
             </p>
           </div>
         </section>
@@ -105,12 +121,6 @@ export default function Home() {
                   <p>12기 졸업</p>
                 </div>
                 <time className="experience-period">2026.03 — 2026.07</time>
-
-                <img
-                  className="jungle-logo"
-                  src="/jungle-by-krafton.png"
-                  alt="Jungle by KRAFTON"
-                />
               </div>
 
               <div className="resume-detail jungle-detail">
@@ -151,6 +161,25 @@ export default function Home() {
                   </p>
                 </div>
 
+                <section className="project-team" aria-labelledby="team-title">
+                  <div className="project-team-heading">
+                    <span aria-hidden="true">•</span>
+                    <h4 id="team-title">팀 프로젝트 5인</h4>
+                  </div>
+                  <div className="project-role-tags" aria-label="프로젝트 역할 구성">
+                    {["Frontend", "Infrastructure", "Backend", "AI"].map(
+                      (role) => (
+                        <span
+                          className={role === "Frontend" ? "is-primary" : ""}
+                          key={role}
+                        >
+                          {role}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </section>
+
                 <div
                   className="project-highlights"
                   aria-label="프로젝트 핵심 역량"
@@ -163,11 +192,10 @@ export default function Home() {
                       </h4>
                       <div className="project-achievements">
                         <p>
-                          <strong>43종의 패널</strong>이 공통 프레임을 재사용하도록
-                          설계하고, 크기·배치·우선순위를{" "}
-                          <strong>TypeScript Registry 한곳에서 관리</strong>해
-                          Layout Agent 명령도{" "}
-                          <strong>등록된 패널로만 변환</strong>되게 했습니다.
+                          43종의 패널이 공통 프레임을 재사용하도록 설계하고,
+                          크기·배치·우선순위를 TypeScript Registry 한곳에서
+                          관리하여 Layout Agent 명령도 등록된 패널로만 변환되게
+                          했습니다.
                         </p>
                       </div>
                       <div
