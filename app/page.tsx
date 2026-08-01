@@ -10,6 +10,7 @@ const experienceItems = [
     title: "OTOS",
     role: "수건·목재 판매 창업",
     period: "2023 — 2024 · 1년",
+    projectTitle: "와디즈 스피마코튼 펀딩 1,206% 달성",
     link: {
       label: "와디즈 펀딩",
       href: "https://www.wadiz.kr/web/campaign/detail/198814",
@@ -58,12 +59,11 @@ export default function Home() {
               </a>
               <a
                 className="contact-item"
-                href="https://github.com/huiugim8"
+                href="https://github.com/huiugim8-wq"
                 target="_blank"
                 rel="noreferrer"
               >
                 <strong>Github</strong>
-                <span>github.com/huiugim8</span>
               </a>
             </address>
           </div>
@@ -358,6 +358,11 @@ export default function Home() {
                 </div>
 
                 <div className="resume-detail">
+                  {experience.projectTitle ? (
+                    <div className="project-title experience-project-title">
+                      <h4>{experience.projectTitle}</h4>
+                    </div>
+                  ) : null}
                   <p className="summary-box">{experience.summary}</p>
                 </div>
               </article>

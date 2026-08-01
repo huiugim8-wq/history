@@ -33,7 +33,11 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /크래프톤 정글 12기 (?:수료|졸업)/);
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
-  assert.match(html, /github\.com\/huiugim8/);
+  assert.match(
+    html,
+    /href="https:\/\/github\.com\/huiugim8-wq"[\s\S]*?<strong>Github<\/strong><\/a>/,
+  );
+  assert.doesNotMatch(html, />github\.com\/huiugim8-wq</);
   assert.match(html, /github\.com\/KFJG-Team1\/gops/);
   assert.match(html, /010 8201 6811/);
   assert.match(html, /<p>프론트엔드 개발자<\/p>/);
@@ -83,6 +87,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, />KRAFTON JUNGLE</);
   assert.match(html, /㈜나현[\s\S]*2024 — 2025\.08/);
   assert.match(html, /OTOS[\s\S]*2023 — 2024 · 1년/);
+  assert.match(html, /와디즈 스피마코튼 펀딩 1,206% 달성/);
   assert.match(html, /대구대학교[\s\S]*2017\.03 — 2023\.08/);
   assert.match(html, /<article class="resume-item jungle-item" id="project">/);
   assert.doesNotMatch(html, /class="jungle-logo"/);
