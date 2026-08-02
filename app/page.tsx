@@ -250,18 +250,21 @@ export default function Home() {
                           className="project-inline-link"
                           href="/blog/two-layer-canvas"
                         >
-                          차트 라이브러리 없이 직접 구현한 커스텀 주식차트{" "}
+                          대량의 실시간 데이터를 위한 커스텀 주식 차트 구현{" "}
                           <ExternalArrow />
                         </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          차트 라이브러리를 사용하지 않고 TypeScript와 Canvas
-                          2D로 주식 차트를 직접 구현했습니다. WebSocket으로{" "}
-                          <strong>평균 초당 약 1,080건</strong>의 실시간 이벤트를
-                          반영하고, 과거 데이터는 REST API로 조회했습니다. 틱
-                          데이터를 캔들·거래량·지지·저항선으로 겹쳐 표시하기 위해
-                          Base Canvas와 Overlay Canvas를 분리했습니다.
+                          WebSocket 기반으로 실시간 데이터(
+                          <strong>평균 초당 약 1,080건</strong>)를 처리하는 주식
+                          차트를 개발했습니다. 실시간 데이터뿐만 아니라 과거
+                          데이터도 REST API로 지원합니다.
+                        </p>
+                        <p>
+                          틱 데이터를 다양한 차트 형태로 오버레이해 시각화하기
+                          위해 차트 라이브러리를 사용하지 않고 주식 차트를 직접
+                          구현했으며, 멀티 레이어 Canvas를 사용했습니다.
                         </p>
                       </div>
                       <SelectableTags
@@ -285,18 +288,11 @@ export default function Home() {
                           className="project-inline-link"
                           href="/blog/react-panel-registry"
                         >
-                          43종의 React 공용 컴포넌트 설계·구현{" "}
+                          팀원이 사용할 수 있도록 43종의 React 공용 컴포넌트를
+                          설계·구현{" "}
                           <ExternalArrow />
                         </Link>
                       </h5>
-                      <div className="project-achievements">
-                        <p>
-                          팀원이 시장 탐색·차트·뉴스·주문 패널을 같은 방식으로
-                          조합할 수 있도록 공통 프레임과 기능 패널을
-                          분리했습니다. 43종 패널의 컴포넌트·최소 크기·기본
-                          배치·우선순위를 TypeScript Registry에서 관리했습니다.
-                        </p>
-                      </div>
                       <SelectableTags
                         ariaLabel="React 공용 컴포넌트 키워드"
                         labels={[
@@ -318,16 +314,14 @@ export default function Home() {
                           className="project-inline-link"
                           href="/blog/chart-analysis"
                         >
-                          지지·저항선 분석 알고리즘 개발 및 시각화{" "}
+                          지지·저항선을 위한 알고리즘 개발 및 시각화{" "}
                           <ExternalArrow />
                         </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          피벗 군집과 선형회귀 모델로 지지·저항 후보선을
-                          계산하고, 접촉·가격 반응·오차·돌파 점수로{" "}
-                          <strong>유효한 선만 선택</strong>했습니다. 선택된 선과
-                          판단 근거를 별도 차트 레이어에 함께 표시했습니다.
+                          지지·저항선을 시각화하기 위해 머신러닝(선형회귀, 피벗)
+                          모델을 학습한 후 차트에 시각화했습니다.
                         </p>
                       </div>
                       <SelectableTags
