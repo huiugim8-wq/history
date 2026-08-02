@@ -155,8 +155,12 @@ code {
   margin-inline: auto;
 }
 
+.cover-letter-site .content-hero {
+  padding: 40px 0 20px;
+}
+
 .cover-letter-intro {
-  padding-top: 36px;
+  padding-top: 8px;
 }
 
 .cover-letter-section {
@@ -212,8 +216,12 @@ code {
 }
 
 @media (max-width: 720px) {
+  .cover-letter-site .content-hero {
+    padding: 28px 0 16px;
+  }
+
   .cover-letter-intro {
-    padding-top: 30px;
+    padding-top: 4px;
   }
 
   .cover-letter-section {
@@ -3868,6 +3876,14 @@ footer p {
     width: 170mm;
     max-width: 100%;
     margin-inline: auto;
+  }
+
+  .cover-letter-site .content-hero {
+    padding: 0 0 5mm;
+  }
+
+  .cover-letter-intro {
+    padding-top: 0;
   }
 
   .cover-letter-section-heading {

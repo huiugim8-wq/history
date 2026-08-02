@@ -3,9 +3,9 @@ import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 
 type ContentShellProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
-  description: string;
+  description?: string;
   className?: string;
   actions?: ReactNode;
   children: ReactNode;
@@ -28,9 +28,11 @@ export default function ContentShell({
       <main className="content-main">
         <header className="content-hero">
           <div>
-            <p className="content-eyebrow">{eyebrow}</p>
+            {eyebrow ? <p className="content-eyebrow">{eyebrow}</p> : null}
             <h1>{title}</h1>
-            <p className="content-description">{description}</p>
+            {description ? (
+              <p className="content-description">{description}</p>
+            ) : null}
           </div>
           {actions ? <div className="content-actions">{actions}</div> : null}
         </header>

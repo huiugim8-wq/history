@@ -93,7 +93,10 @@ test("renders the cover letter as a standalone printable page", async () => {
   const html = await htmlFor("/cover-letter/");
 
   assert.match(html, /<title>자기소개서 \| 김희준<\/title>/);
-  assert.match(html, /APPLICATION ESSAY/);
+  assert.doesNotMatch(
+    html,
+    /APPLICATION ESSAY|사용자 중심의 관점으로 문제를 정의하고, 기술과 소통으로 해결하는 과정입니다\./,
+  );
   assert.match(html, /class="content-site cover-letter-site"/);
   assert.match(
     html,
