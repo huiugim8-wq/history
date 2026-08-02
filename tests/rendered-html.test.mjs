@@ -96,9 +96,16 @@ test("renders the cover letter as a standalone printable page", async () => {
   assert.match(html, /APPLICATION ESSAY/);
   assert.match(
     html,
-    /id="cover-letter-introduction">서론<\/h2>[\s\S]*id="cover-letter-project">프로젝트<\/h2>[\s\S]*id="cover-letter-conclusion">결론<\/h2>/,
+    /id="cover-letter-user">[\s\S]*실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의[\s\S]*밑바탕이 됐습니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-technology">[\s\S]*필요한 기술을 빠르게 익혀 구현합니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-collaboration">[\s\S]*소통을 통해 문제를 빠르게 파악하고 해결합니다[\s\S]*<\/h2>/,
   );
-  assert.match(html, /결국 사업은 실패했습니다/);
+  assert.doesNotMatch(html, />결론<\/h2>/);
+  assert.match(html, /9천만 건의 틱 데이터를 다루는 커스텀 주식 차트 엔진/);
+  assert.match(html, /평균 초당 약 1,080건/);
+  assert.match(html, /멀티 레이어 Canvas/);
+  assert.match(
+    html,
+    /생산 라인장으로 근무하며 20명의 현장 인력[\s\S]*외주업체[\s\S]*납품업체/,
+  );
   assert.match(
     html,
     /프론트엔드는 데이터의 상태 변화와 사용자 상호작용을 연결해[\s\S]*사용자 경험으로 구체화하는 영역/,
@@ -255,7 +262,15 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   );
   assert.match(
     css,
-    /\.portfolio-page \.content-hero h1\s*\{[^}]*font-size:\s*25px/s,
+    /\.content-hero h1\s*\{[^}]*font-size:\s*var\(--type-section-title\)/s,
+  );
+  assert.match(
+    css,
+    /\.article-section-heading h2\s*\{[^}]*font-size:\s*var\(--type-entity-title\)/s,
+  );
+  assert.match(
+    css,
+    /\.case-study-overview-head h2\s*\{[^}]*font-size:\s*var\(--type-featured-project-title\)/s,
   );
   assert.match(css, /break-inside:\s*avoid/);
 });
