@@ -131,19 +131,19 @@ test("renders landmark structure and project experience details", async () => {
   assert.equal(html.match(/class="project-inline-link"/g)?.length, 4);
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>React 컴포넌트 설계<\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>React 컴포넌트 설계[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>REST API·WebSocket<\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>REST API·WebSocket[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 차트 엔진<\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 차트 엔진[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>TypeScript 알고리즘<\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>TypeScript 알고리즘[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.doesNotMatch(html, />사용 기술</);
   assert.match(html, /React 패널 구조 키워드/);

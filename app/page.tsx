@@ -208,7 +208,7 @@ export default function Home() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          React 컴포넌트 설계
+                          React 컴포넌트 설계 <ExternalArrow />
                         </a>
                       </h5>
                       <div className="project-achievements">
@@ -242,7 +242,7 @@ export default function Home() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          REST API·WebSocket
+                          REST API·WebSocket <ExternalArrow />
                         </a>
                         과{" "}
                         <a
@@ -251,7 +251,7 @@ export default function Home() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          2-Layer Canvas를 적용한 차트 엔진
+                          2-Layer Canvas를 적용한 차트 엔진 <ExternalArrow />
                         </a>
                       </h5>
                       <div className="project-achievements">
@@ -288,7 +288,7 @@ export default function Home() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          TypeScript 알고리즘
+                          TypeScript 알고리즘 <ExternalArrow />
                         </a>
                       </h5>
                       <div className="project-achievements">
