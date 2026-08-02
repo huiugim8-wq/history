@@ -154,7 +154,7 @@ code {
 
 .cover-letter-site .content-hero,
 .cover-letter-page {
-  width: min(100%, 800px);
+  width: min(100%, 940px);
   margin-inline: auto;
 }
 
@@ -175,20 +175,22 @@ code {
 }
 
 .cover-letter-section-heading {
-  max-width: 840px;
+  width: 100%;
+  max-width: none;
   margin-bottom: 16px;
 }
 
 .cover-letter-section-heading h2 {
   margin: 0;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
-  line-height: 1.5;
-  letter-spacing: -0.035em;
+  line-height: 1.45;
+  letter-spacing: -0.04em;
 }
 
 .cover-letter-copy {
-  max-width: 840px;
+  width: 100%;
+  max-width: none;
   min-width: 0;
 }
 
@@ -3880,14 +3882,16 @@ footer p {
   }
 
   .cover-letter-section {
-    padding: 9mm 0;
+    padding: 7mm 0 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .cover-letter-site .content-hero,
   .cover-letter-page {
-    width: 170mm;
-    max-width: 100%;
-    margin-inline: auto;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .cover-letter-site .content-hero {
@@ -3900,6 +3904,14 @@ footer p {
 
   .cover-letter-section-heading {
     position: static;
+    margin-bottom: 4mm;
+  }
+
+  .cover-letter-section-heading h2 {
+    font-size: 15pt;
+    line-height: 1.35;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
   }
 
   .cover-letter-copy p {
