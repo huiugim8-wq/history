@@ -1,20 +1,6 @@
+import Link from "next/link";
+import PrintButton from "./print-button";
 import SelectableTags from "./selectable-tags";
-import CoverLetterDialog from "./cover-letter-dialog";
-
-const portfolioNotionUrl =
-  "https://app.notion.com/p/Kim-hee-jun-3b00463ff9f080559a7cc2e06e89a9f3?source=copy_link";
-const projectNotionUrl =
-  "https://app.notion.com/p/1-3b00463ff9f08088b714d546253bca16?source=copy_link";
-const reactPanelNotionUrl =
-  "https://app.notion.com/p/React-43-3b00463ff9f080589486feb57d7ef0b3?source=copy_link";
-const restWebSocketNotionUrl =
-  "https://app.notion.com/p/REST-API-WebSocket-3b00463ff9f080369e46cb05e433bf82?source=copy_link";
-const canvasNotionUrl =
-  "https://app.notion.com/p/2-Layer-Canvas-3b00463ff9f08007a1bfe7c8b61d3e3f?source=copy_link";
-const chartAlgorithmNotionUrl =
-  "https://app.notion.com/p/TypeScript-3b00463ff9f080f1addef3b4c978e029?source=copy_link";
-const reactRuntimeNotionUrl =
-  "https://app.notion.com/p/1-3b00463ff9f080209e20dc502967677e?source=copy_link";
 
 const experienceItems = [
   {
@@ -92,21 +78,18 @@ export default function Home() {
       <header className="top-banner" id="top">
         <div className="top-banner-inner">
           <nav className="site-nav" aria-label="주요 메뉴">
-            <CoverLetterDialog />
-            <a className="site-nav-link" href="#experience">
-              경력
-            </a>
-            <a className="site-nav-link" href="#education">
-              학력
-            </a>
-            <a
-              className="site-nav-link"
-              href={portfolioNotionUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link className="site-nav-link" href="/">
+              이력서
+            </Link>
+            <Link className="site-nav-link" href="/cover-letter">
+              자기소개서
+            </Link>
+            <Link className="site-nav-link" href="/portfolio">
               포트폴리오
-            </a>
+            </Link>
+            <Link className="site-nav-link" href="/blog">
+              블로그
+            </Link>
             <a
               className="site-nav-link"
               href="https://github.com/huiugim8-wq"
@@ -115,6 +98,7 @@ export default function Home() {
             >
               GitHub
             </a>
+            <PrintButton />
           </nav>
 
           <div className="top-banner-copy">
@@ -208,15 +192,13 @@ export default function Home() {
                     >
                       Github <ExternalArrow />
                     </a>
-                    <a
-                      className="side-link notion-link"
-                      href={projectNotionUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="프로젝트 Notion 상세 문서 열기"
+                    <Link
+                      className="side-link"
+                      href="/portfolio/trading-platform"
+                      aria-label="실시간 투자 정보 플랫폼 상세 페이지 열기"
                     >
-                      Notion <ExternalArrow />
-                    </a>
+                      프로젝트 상세 <ExternalArrow />
+                    </Link>
                     <a
                       className="side-link"
                       href="https://www.youtube.com/watch?v=8P4wiwDrvxs"
@@ -265,14 +247,12 @@ export default function Home() {
                     <div>
                       <h5>
                         공통 프레임과 기능 패널을 분리한{" "}
-                        <a
+                        <Link
                           className="project-inline-link"
-                          href={reactPanelNotionUrl}
-                          target="_blank"
-                          rel="noreferrer"
+                          href="/blog/react-panel-registry"
                         >
                           React 컴포넌트 설계 <ExternalArrow />
-                        </a>
+                        </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -299,23 +279,19 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        <a
+                        <Link
                           className="project-inline-link"
-                          href={restWebSocketNotionUrl}
-                          target="_blank"
-                          rel="noreferrer"
+                          href="/blog/rest-websocket"
                         >
                           REST API·WebSocket <ExternalArrow />
-                        </a>
+                        </Link>
                         {" "}과{" "}
-                        <a
+                        <Link
                           className="project-inline-link"
-                          href={canvasNotionUrl}
-                          target="_blank"
-                          rel="noreferrer"
+                          href="/blog/two-layer-canvas"
                         >
                           2-Layer Canvas를 적용한 주식차트 <ExternalArrow />
-                        </a>
+                        </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -343,14 +319,12 @@ export default function Home() {
                     <div>
                       <h5>
                         피벗 군집·선형회귀로 지지·저항선을 생성한{" "}
-                        <a
+                        <Link
                           className="project-inline-link"
-                          href={chartAlgorithmNotionUrl}
-                          target="_blank"
-                          rel="noreferrer"
+                          href="/blog/chart-analysis"
                         >
                           TypeScript 알고리즘 <ExternalArrow />
-                        </a>
+                        </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
@@ -399,15 +373,13 @@ export default function Home() {
                       >
                         Github <ExternalArrow />
                       </a>
-                      <a
-                        className="side-link notion-link"
-                        href={reactRuntimeNotionUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="React 가상 DOM 실행 환경 Notion 상세 문서 열기"
+                      <Link
+                        className="side-link"
+                        href="/portfolio/react-runtime"
+                        aria-label="React 가상 DOM 실행 환경 상세 페이지 열기"
                       >
-                        Notion <ExternalArrow />
-                      </a>
+                        프로젝트 상세 <ExternalArrow />
+                      </Link>
                     </nav>
                   </div>
                   <div className="project-introduction">
