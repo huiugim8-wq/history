@@ -47,8 +47,8 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /href="\/portfolio"[^>]*>포트폴리오<\/a>/);
   assert.match(html, /href="\/blog"[^>]*>블로그<\/a>/);
   assert.match(html, /href="\/portfolio\/trading-platform"/);
-  assert.match(html, /href="\/portfolio\/react-runtime"/);
-  assert.match(html, /미니 리액트\(버추얼 돔\) 구현/);
+  assert.doesNotMatch(html, /href="\/portfolio\/react-runtime"/);
+  assert.doesNotMatch(html, /미니 리액트\(버추얼 돔\) 구현/);
   assert.match(html, /href="\/blog\/react-panel-registry"/);
   assert.match(html, /href="\/blog\/two-layer-canvas"/);
   assert.match(html, /href="\/blog\/chart-analysis"/);
