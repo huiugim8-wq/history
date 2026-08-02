@@ -1,17 +1,35 @@
 import SelectableTags from "./selectable-tags";
+import CoverLetterDialog from "./cover-letter-dialog";
 
+const portfolioNotionUrl =
+  "https://app.notion.com/p/Kim-hee-jun-3b00463ff9f080559a7cc2e06e89a9f3?source=copy_link";
 const projectNotionUrl =
-  "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
+  "https://app.notion.com/p/1-3b00463ff9f08088b714d546253bca16?source=copy_link";
+const reactPanelNotionUrl =
+  "https://app.notion.com/p/React-43-3b00463ff9f080589486feb57d7ef0b3?source=copy_link";
+const restWebSocketNotionUrl =
+  "https://app.notion.com/p/REST-API-WebSocket-3b00463ff9f080369e46cb05e433bf82?source=copy_link";
+const canvasNotionUrl =
+  "https://app.notion.com/p/2-Layer-Canvas-3b00463ff9f08007a1bfe7c8b61d3e3f?source=copy_link";
+const chartAlgorithmNotionUrl =
+  "https://app.notion.com/p/TypeScript-3b00463ff9f080f1addef3b4c978e029?source=copy_link";
 const reactRuntimeNotionUrl =
-  "https://app.notion.com/p/React-DOM-3b00463ff9f080559a7cc2e06e89a9f3";
+  "https://app.notion.com/p/1-3b00463ff9f080209e20dc502967677e?source=copy_link";
 
 const experienceItems = [
   {
     title: "㈜나현",
-    role: "자동차 부품 제조",
+    role: "생산관리",
+    position: "과장 · 생산 라인장",
     period: "2024 — 2025.08",
-    summary:
-      "자동차 부품 제조 현장에서 생산 작업과 품질 기준 준수를 담당했습니다.",
+    summary: (
+      <>
+        현대·기아자동차 부품 제조 현장의 생산 운영과 약{" "}
+        <strong>20명의 현장 인력을 관리</strong>했습니다. 생산계획에 따라
+        공정을 운영하고 작업 인력을 배치했으며, 품질기준 준수와 안정적인
+        생산환경 유지를 담당했습니다.
+      </>
+    ),
   },
   {
     title: "OTOS",
@@ -39,8 +57,29 @@ const educationItem = {
   title: "대구대학교",
   role: "실내건축디자인학과",
   period: "2017.03 — 2023.08",
-  summary:
-    "공간 설계와 시각적 구성 훈련을 통해 복잡한 정보를 구조화하고 명확하게 전달하는 기반을 다졌습니다.",
+  summary: [
+    {
+      id: "design",
+      content:
+        "공간 설계와 시각적 구성에 대한 체계적인 훈련을 통해 복잡한 정보를 효과적으로 구조화하고 명확하게 전달하는 역량을 길렀습니다.",
+    },
+    {
+      id: "leadership",
+      content: (
+        <>
+          실내인테리어 공모전 동아리 ‘러스틱’을 결성하고{" "}
+          <strong>
+            동아리장을 맡아 프로젝트 기획과 구성원 간 협업을 주도했습니다.
+          </strong>
+        </>
+      ),
+    },
+  ],
+  awards: [
+    "인테리어앤데코 공모전 수상",
+    "DGID 공모전 수상",
+    "학과 공로상 수상",
+  ],
 };
 
 function ExternalArrow() {
@@ -52,6 +91,32 @@ export default function Home() {
     <div className="resume-sheet">
       <header className="top-banner" id="top">
         <div className="top-banner-inner">
+          <nav className="site-nav" aria-label="주요 메뉴">
+            <CoverLetterDialog />
+            <a className="site-nav-link" href="#experience">
+              경력
+            </a>
+            <a className="site-nav-link" href="#education">
+              학력
+            </a>
+            <a
+              className="site-nav-link"
+              href={portfolioNotionUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              포트폴리오
+            </a>
+            <a
+              className="site-nav-link"
+              href="https://github.com/huiugim8-wq"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </nav>
+
           <div className="top-banner-copy">
             <p>프론트엔드 개발자</p>
             <h1 id="profile-title">김희준</h1>
@@ -65,14 +130,6 @@ export default function Home() {
                 <strong>Email</strong>
                 <span>huiugim8@gmail.com</span>
               </a>
-              <a
-                className="contact-item"
-                href="https://github.com/huiugim8-wq"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <strong>Github</strong>
-              </a>
             </address>
           </div>
 
@@ -85,7 +142,11 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="profile" aria-labelledby="profile-title">
+        <section
+          className="profile"
+          id="about"
+          aria-labelledby="profile-title"
+        >
           <div className="profile-points">
             <h2 className="profile-statement">
               <span aria-hidden="true">“</span>{" "}
@@ -140,7 +201,7 @@ export default function Home() {
                   <nav className="project-links" aria-label="프로젝트 관련 링크">
                     <a
                       className="side-link"
-                      href="https://github.com/KFJG-Team1/gops"
+                      href="https://github.com/huiugim8-wq/gops-stock-trading-platform"
                       target="_blank"
                       rel="noreferrer"
                       aria-label="프로젝트 GitHub 저장소 열기"
@@ -206,7 +267,7 @@ export default function Home() {
                         공통 프레임과 기능 패널을 분리한{" "}
                         <a
                           className="project-inline-link"
-                          href={projectNotionUrl}
+                          href={reactPanelNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -240,16 +301,16 @@ export default function Home() {
                       <h5>
                         <a
                           className="project-inline-link"
-                          href={projectNotionUrl}
+                          href={restWebSocketNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
                           REST API·WebSocket <ExternalArrow />
                         </a>
-                        과{" "}
+                        {" "}과{" "}
                         <a
                           className="project-inline-link"
-                          href={projectNotionUrl}
+                          href={canvasNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -259,9 +320,7 @@ export default function Home() {
                       <div className="project-achievements">
                         <p>
                           24시간 9,327만 건(평균 초당 약 1,080건)을 REST
-                          API·WebSocket으로 구간 조회·실시간 반영했습니다.
-                        </p>
-                        <p>
+                          API·WebSocket으로 구간 조회·실시간 반영했습니다.{" "}
                           정적 차트와 포인터 UI를 2-Layer Canvas로 분리해 이동
                           시 <strong>오버레이만 갱신</strong>했습니다.
                         </p>
@@ -286,7 +345,7 @@ export default function Home() {
                         피벗 군집·선형회귀로 지지·저항선을 생성한{" "}
                         <a
                           className="project-inline-link"
-                          href={projectNotionUrl}
+                          href={chartAlgorithmNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -297,9 +356,7 @@ export default function Home() {
                         <p>
                           피벗 군집·선형회귀로 지지·저항 후보선을 생성하고,
                           접촉·반응·오차·돌파 점수로{" "}
-                          <strong>유효한 선만 선별</strong>했습니다.
-                        </p>
-                        <p>
+                          <strong>유효한 선만 선별</strong>했습니다.{" "}
                           선택된 선과 검증 근거를 별도 차트 레이어에 표시해{" "}
                           <strong>동일 조건의 결과와 선정 이유를 재현</strong>
                           했습니다.
@@ -335,7 +392,7 @@ export default function Home() {
                     >
                       <a
                         className="side-link"
-                        href="https://github.com/woonyong-kr/mini-react2"
+                        href="https://github.com/huiugim8-wq/react-virtual-dom"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="React 가상 DOM 실행 환경 GitHub 저장소 열기"
@@ -436,6 +493,11 @@ export default function Home() {
                       <h3>{experience.title}</h3>
                       <span aria-hidden="true">·</span>
                       <p>{experience.role}</p>
+                      {"position" in experience && experience.position ? (
+                        <p className="experience-position">
+                          {experience.position}
+                        </p>
+                      ) : null}
                     </div>
                     <time className="experience-period">
                       {experience.period}
@@ -494,7 +556,18 @@ export default function Home() {
               </div>
 
               <div className="resume-detail">
-                <p className="summary-box">{educationItem.summary}</p>
+                <div className="education-copy">
+                  {educationItem.summary.map((paragraph) => (
+                    <p className="summary-box" key={paragraph.id}>
+                      {paragraph.content}
+                    </p>
+                  ))}
+                </div>
+                <ul className="education-awards" aria-label="수상 경력">
+                  {educationItem.awards.map((award) => (
+                    <li key={award}>{award}</li>
+                  ))}
+                </ul>
               </div>
             </article>
           </div>

@@ -34,15 +34,51 @@ test("server-renders the finished Kim Heejun portfolio", async () => {
   assert.match(html, /크래프톤 정글 12기 (?:수료|졸업)/);
   assert.match(html, /GOPS/);
   assert.match(html, /huiugim8@gmail\.com/);
+  const contactHtml =
+    html.match(/<address class="profile-contact" aria-label="연락처">[\s\S]*?<\/address>/)?.[0] ?? "";
+  assert.doesNotMatch(contactHtml, /Github|GitHub/);
+  assert.doesNotMatch(html, />github\.com\/huiugim8-wq</);
   assert.match(
     html,
-    /href="https:\/\/github\.com\/huiugim8-wq"[\s\S]*?<strong>Github<\/strong><\/a>/,
+    /github\.com\/huiugim8-wq\/gops-stock-trading-platform/,
   );
-  assert.doesNotMatch(html, />github\.com\/huiugim8-wq</);
-  assert.match(html, /github\.com\/KFJG-Team1\/gops/);
+  assert.doesNotMatch(html, /github\.com\/KFJG-Team1\/gops/);
+  assert.doesNotMatch(html, /github\.com\/woonyong-kr\/mini-react2/);
   assert.match(html, /010 8201 6811/);
   assert.match(html, /<p>프론트엔드 개발자<\/p>/);
   assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
+  assert.match(html, /<nav class="site-nav" aria-label="주요 메뉴">/);
+  assert.match(
+    html,
+    /<button type="button" class="site-nav-link site-nav-button" aria-haspopup="dialog" aria-controls="cover-letter-dialog">자기소개서<\/button>/,
+  );
+  assert.match(
+    html,
+    /<dialog class="cover-letter-dialog" id="cover-letter-dialog" aria-labelledby="cover-letter-title">/,
+  );
+  assert.match(
+    html,
+    /id="cover-letter-introduction">서론<\/h3>[\s\S]*id="cover-letter-project">프로젝트<\/h3>[\s\S]*id="cover-letter-conclusion">결론<\/h3>/,
+  );
+  assert.match(
+    html,
+    /6개월이 끝났을 때 단순히 많은 것을 배운 인턴이 아니라[\s\S]*해결책까지 남긴/,
+  );
+  assert.match(html, /href="#experience">경력<\/a>/);
+  assert.match(html, /href="#education">학력<\/a>/);
+  assert.match(
+    html,
+    /href="https:\/\/app\.notion\.com\/p\/Kim-hee-jun-3b00463ff9f080559a7cc2e06e89a9f3\?source=copy_link"[\s\S]*?>포트폴리오<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/github\.com\/huiugim8-wq"[\s\S]*?>GitHub<\/a>/,
+  );
+  assert.doesNotMatch(html, /블로그/);
+  assert.match(
+    html,
+    /<section class="profile" id="about" aria-labelledby="profile-title">/,
+  );
   assert.doesNotMatch(html, /안녕하세요/);
   assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
   assert.match(
@@ -87,6 +123,19 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /TEAM PROJECT/);
   assert.doesNotMatch(html, />KRAFTON JUNGLE</);
   assert.match(html, /㈜나현[\s\S]*2024 — 2025\.08/);
+  assert.match(html, /생산관리[\s\S]*과장 · 생산 라인장/);
+  assert.match(
+    html,
+    /현대·기아자동차 부품 제조 현장의 생산 운영[\s\S]*약[\s\S]*20명의 현장 인력/,
+  );
+  assert.match(
+    html,
+    /<strong>20명의 현장 인력을 관리<\/strong>/,
+  );
+  assert.match(
+    html,
+    /생산계획에 따라 공정을 운영하고 작업 인력을 배치[\s\S]*안정적인 생산환경 유지/,
+  );
   assert.match(html, /OTOS[\s\S]*2023 — 2024/);
   assert.doesNotMatch(html, /2023 — 2024 · 1년/);
   assert.match(html, /와디즈 스피마코튼 펀딩 1,206% 달성/);
@@ -97,6 +146,22 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(
     html,
     /<h2 id="education-title">Education<\/h2>[\s\S]*대구대학교[\s\S]*실내건축디자인학과[\s\S]*2017\.03 — 2023\.08/,
+  );
+  assert.match(
+    html,
+    /공간 설계와 시각적 구성에 대한 체계적인 훈련[\s\S]*명확하게 전달하는 역량/,
+  );
+  assert.match(
+    html,
+    /실내인테리어 공모전 동아리 ‘러스틱’을 결성[\s\S]*구성원 간 협업을 주도/,
+  );
+  assert.match(
+    html,
+    /<strong>동아리장을 맡아 프로젝트 기획과 구성원 간 협업을 주도했습니다\.<\/strong>/,
+  );
+  assert.match(
+    html,
+    /aria-label="수상 경력"[\s\S]*인테리어앤데코 공모전 수상[\s\S]*DGID 공모전 수상[\s\S]*학과 공로상 수상/,
   );
   assert.ok(html.indexOf("Work &amp; Experience") < html.indexOf("Education"));
   assert.ok(html.indexOf("Education") < html.indexOf("대구대학교"));
@@ -136,19 +201,19 @@ test("renders landmark structure and project experience details", async () => {
   assert.equal(html.match(/class="project-inline-link"/g)?.length, 4);
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>React 컴포넌트 설계[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/React-43-3b00463ff9f080589486feb57d7ef0b3\?source=copy_link"[\s\S]*?>React 컴포넌트 설계[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>REST API·WebSocket[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/REST-API-WebSocket-3b00463ff9f080369e46cb05e433bf82\?source=copy_link"[\s\S]*?>REST API·WebSocket[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 주식차트[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/2-Layer-Canvas-3b00463ff9f08007a1bfe7c8b61d3e3f\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 주식차트[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>TypeScript 알고리즘[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/TypeScript-3b00463ff9f080f1addef3b4c978e029\?source=copy_link"[\s\S]*?>TypeScript 알고리즘[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.doesNotMatch(html, />사용 기술</);
   assert.match(html, /React 패널 구조 키워드/);
@@ -187,17 +252,20 @@ test("renders landmark structure and project experience details", async () => {
     html,
     /공통 프레임과 기능 패널을 분리한[\s\S]*React 컴포넌트 설계[\s\S]*REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 주식차트[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한[\s\S]*TypeScript/,
   );
-  assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
+  assert.doesNotMatch(
+    html,
+    /class="project-highlight"><span>0[1-4]<\/span>/,
+  );
   assert.match(html, /PROJECT 2[\s\S]*React 가상 DOM 실행 환경/);
   assert.doesNotMatch(html, /mini-react —/);
   assert.match(html, /aria-label="React 가상 DOM 실행 환경 핵심 구현"/);
   assert.match(
     html,
-    /href="https:\/\/github\.com\/woonyong-kr\/mini-react2"/,
+    /href="https:\/\/github\.com\/huiugim8-wq\/react-virtual-dom"/,
   );
   assert.match(
     html,
-    /href="https:\/\/app\.notion\.com\/p\/React-DOM-3b00463ff9f080559a7cc2e06e89a9f3"/,
+    /href="https:\/\/app\.notion\.com\/p\/1-3b00463ff9f080209e20dc502967677e\?source=copy_link"/,
   );
   assert.match(html, /Github[\s\S]*Notion/);
   assert.match(
@@ -225,10 +293,10 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /class="company-mark project-mark"/);
   assert.doesNotMatch(html, /Experience &amp; Education/);
   const notionUrl =
-    "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
-  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 5);
+    "https://app.notion.com/p/1-3b00463ff9f08088b714d546253bca16?source=copy_link";
+  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 1);
   assert.match(html, /Notion/);
-  assert.doesNotMatch(html, /Blog|준비 중/);
+  assert.doesNotMatch(html, /Blog|블로그|준비 중/);
   assert.match(html, /YouTube/);
   assert.match(
     html,
@@ -245,15 +313,32 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /<footer>/);
 });
 
-test("keeps secondary project titles on the same typography scale", async () => {
+test("keeps project titles and section headings on the requested typography scale", async () => {
   const css = await readFile(
     new URL("../app/globals.css", import.meta.url),
     "utf8",
   );
 
-  assert.match(css, /--type-project-title:\s*21px/);
+  assert.match(css, /--type-section-title:\s*40px/);
+  assert.match(css, /--type-featured-project-title:\s*26px/);
   assert.match(
     css,
-    /\.jungle-detail \.supporting-project \.project-title h4\s*\{[^}]*font-size:\s*var\(--type-project-title\)/s,
+    /\.jungle-detail \.supporting-project \.project-title h4\s*\{[^}]*font-size:\s*var\(--type-featured-project-title\)/s,
+  );
+  assert.match(
+    css,
+    /\.experience-project-header \.project-title h4\s*\{[^}]*font-size:\s*var\(--type-featured-project-title\)/s,
+  );
+  assert.match(
+    css,
+    /\.experience-project-header \+ \.summary-box\s*\{[^}]*font-size:\s*var\(--text-large\)/s,
+  );
+  assert.match(
+    css,
+    /\.profile-statement\s*\{[^}]*font-size:\s*var\(--type-section-title\)[^}]*font-weight:\s*800/s,
+  );
+  assert.match(
+    css,
+    /\.profile-context\s*\{[^}]*font-size:\s*17px[^}]*font-weight:\s*650[^}]*line-height:\s*1\.68/s,
   );
 });
