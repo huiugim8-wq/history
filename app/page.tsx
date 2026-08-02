@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import PrintButton from "./print-button";
 import SelectableTags from "./selectable-tags";
 import { publicAssetPath } from "./site-paths";
 
@@ -97,7 +96,6 @@ export default function Home() {
             >
               GitHub
             </a>
-            <PrintButton />
           </nav>
 
           <div className="top-banner-copy">

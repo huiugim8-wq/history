@@ -48,6 +48,8 @@ body {
 }
 
 .resume-sheet {
+  --resume-content-width: clamp(860px, 68vw, var(--max-width));
+
   width: 100%;
   min-height: 100vh;
   margin: 0;
@@ -272,6 +274,14 @@ main,
 footer {
   width: min(calc(100% - 64px), var(--max-width));
   margin-inline: auto;
+}
+
+@media (min-width: 681px) {
+  .resume-sheet .top-banner-inner,
+  .resume-sheet > main,
+  .resume-sheet > footer {
+    width: min(calc(100% - 64px), var(--resume-content-width));
+  }
 }
 
 .profile {

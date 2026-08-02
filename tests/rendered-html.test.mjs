@@ -84,7 +84,7 @@ test("renders the resume with page navigation and internal detail links", async 
     html,
     /크래프톤 정글[\s\S]*팀 프로젝트[\s\S]*팀원[\s\S]*5인[\s\S]*기간[\s\S]*2026\.03 — 2026\.07[\s\S]*담당[\s\S]*프론트엔드/,
   );
-  assert.match(html, /PDF로 저장/);
+  assert.doesNotMatch(html, /PDF로 저장|print-button/);
   assert.doesNotMatch(html, /app\.notion\.com|>Notion</);
   assert.doesNotMatch(html, /<dialog|aria-haspopup="dialog"/);
 });
@@ -232,7 +232,7 @@ test("keeps public images under the GitHub Pages base path", async () => {
   assert.match(sitePaths, /`\$\{basePath\}\$\{path\}`/);
 });
 
-test("keeps PDF and responsive presentation rules", async () => {
+test("removes the resume PDF control and keeps responsive presentation rules", async () => {
   const css = await readFile(
     new URL("../app/globals.css", import.meta.url),
     "utf8",
@@ -245,6 +245,10 @@ test("keeps PDF and responsive presentation rules", async () => {
   assert.match(css, /\.content-index/);
   assert.match(css, /\.article-section/);
   assert.match(css, /--max-width:\s*1040px/);
+  assert.match(
+    css,
+    /--resume-content-width:\s*clamp\(860px,\s*68vw,\s*var\(--max-width\)\)/,
+  );
   assert.match(
     css,
     /\.portfolio-profile-photo\s*\{[^}]*aspect-ratio:\s*3\s*\/\s*4/s,
