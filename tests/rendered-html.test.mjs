@@ -113,7 +113,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /하나의 작업 화면에서 수행할 수 있도록 만든/);
   assert.match(
     html,
-    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계/,
+    /공통 프레임과 기능 패널을 분리한[\s\S]*React 컴포넌트 설계/,
   );
   assert.match(html, /팀 프로젝트 5인/);
   assert.match(html, /Frontend[\s\S]*Infrastructure[\s\S]*Backend[\s\S]*AI/);
@@ -128,13 +128,30 @@ test("renders landmark structure and project experience details", async () => {
     /type="button" class="highlight-tag" aria-pressed="false">React<\/button>/,
   );
   assert.match(html, /class="project-highlight-link"/);
+  assert.equal(html.match(/class="project-inline-link"/g)?.length, 4);
+  assert.match(
+    html,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>React 컴포넌트 설계<\/a>/,
+  );
+  assert.match(
+    html,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>REST API·WebSocket<\/a>/,
+  );
+  assert.match(
+    html,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 차트 엔진<\/a>/,
+  );
+  assert.match(
+    html,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>TypeScript 알고리즘<\/a>/,
+  );
   assert.doesNotMatch(html, />사용 기술</);
   assert.match(html, /React 패널 구조 키워드/);
   assert.match(html, /차트 엔진 키워드/);
   assert.match(html, /차트 분석 알고리즘 키워드/);
   assert.match(
     html,
-    /REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진/,
+    /REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 차트 엔진/,
   );
   assert.match(
     html,
@@ -149,7 +166,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /상세 글 준비 중/);
   assert.match(
     html,
-    /피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript[\s\S]*알고리즘/,
+    /피벗 군집·선형회귀로 지지·저항선을 생성한[\s\S]*TypeScript 알고리즘/,
   );
   assert.match(html, /피벗 군집·선형회귀로 지지·저항 후보선을 생성하고/);
   assert.match(html, /유효한 선만 선별/);
@@ -163,7 +180,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /Linear Regression/);
   assert.match(
     html,
-    /공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계[\s\S]*REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript/,
+    /공통 프레임과 기능 패널을 분리한[\s\S]*React 컴포넌트 설계[\s\S]*REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한[\s\S]*TypeScript/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
   assert.match(html, /PROJECT 2[\s\S]*mini-react — React 가상 DOM 실행 환경/);
@@ -208,7 +225,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /Experience &amp; Education/);
   const notionUrl =
     "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
-  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 4);
+  assert.equal(html.split(`href="${notionUrl}"`).length - 1, 5);
   assert.match(html, /Notion/);
   assert.doesNotMatch(html, /Blog|준비 중/);
   assert.match(html, /YouTube/);

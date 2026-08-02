@@ -201,14 +201,14 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
+                        공통 프레임과 기능 패널을 분리한{" "}
                         <a
-                          className="project-highlight-link"
+                          className="project-inline-link"
                           href={projectNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계{" "}
-                          <ExternalArrow />
+                          React 컴포넌트 설계
                         </a>
                       </h5>
                       <div className="project-achievements">
@@ -237,13 +237,21 @@ export default function Home() {
                     <div>
                       <h5>
                         <a
-                          className="project-highlight-link"
+                          className="project-inline-link"
                           href={projectNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          REST API·WebSocket과 2-Layer Canvas를 적용한 차트 엔진{" "}
-                          <ExternalArrow />
+                          REST API·WebSocket
+                        </a>
+                        과{" "}
+                        <a
+                          className="project-inline-link"
+                          href={projectNotionUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          2-Layer Canvas를 적용한 차트 엔진
                         </a>
                       </h5>
                       <div className="project-achievements">
@@ -273,14 +281,14 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
+                        피벗 군집·선형회귀로 지지·저항선을 생성한{" "}
                         <a
-                          className="project-highlight-link"
+                          className="project-inline-link"
                           href={projectNotionUrl}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          피벗 군집·선형회귀로 지지·저항선을 생성한 TypeScript
-                          알고리즘 <ExternalArrow />
+                          TypeScript 알고리즘
                         </a>
                       </h5>
                       <div className="project-achievements">
