@@ -2,6 +2,8 @@ import SelectableTags from "./selectable-tags";
 
 const projectNotionUrl =
   "https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link";
+const reactRuntimeNotionUrl =
+  "https://app.notion.com/p/React-DOM-3b00463ff9f080559a7cc2e06e89a9f3";
 
 const experienceItems = [
   {
@@ -166,7 +168,7 @@ export default function Home() {
                   </nav>
                 </div>
 
-                <div className="project-introduction">
+                <div className="project-introduction project-introduction--single-line">
                   <p>
                     AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래
                     복기까지 하나의 흐름으로 연결하는 주식 트레이딩
@@ -251,7 +253,7 @@ export default function Home() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          2-Layer Canvas를 적용한 차트 엔진 <ExternalArrow />
+                          2-Layer Canvas를 적용한 주식차트 <ExternalArrow />
                         </a>
                       </h5>
                       <div className="project-achievements">
@@ -325,52 +327,50 @@ export default function Home() {
                   <div className="project-header">
                     <div className="project-title">
                       <span>PROJECT 2</span>
-                      <h4 id="mini-react-title">
-                        mini-react — React 가상 DOM 실행 환경
-                      </h4>
+                      <h4 id="mini-react-title">React 가상 DOM 실행 환경</h4>
                     </div>
-                    <a
-                      className="side-link"
-                      href="https://github.com/woonyong-kr/mini-react2"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="mini-react GitHub 저장소 열기"
+                    <nav
+                      className="project-links"
+                      aria-label="React 가상 DOM 실행 환경 관련 링크"
                     >
-                      Github <ExternalArrow />
-                    </a>
+                      <a
+                        className="side-link"
+                        href="https://github.com/woonyong-kr/mini-react2"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="React 가상 DOM 실행 환경 GitHub 저장소 열기"
+                      >
+                        Github <ExternalArrow />
+                      </a>
+                      <a
+                        className="side-link notion-link"
+                        href={reactRuntimeNotionUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="React 가상 DOM 실행 환경 Notion 상세 문서 열기"
+                      >
+                        Notion <ExternalArrow />
+                      </a>
+                    </nav>
                   </div>
                   <div className="project-introduction">
                     <p>
-                      React API를 흉내 내는 데 그치지 않고, 상태 변경이 실제 DOM
-                      업데이트로 이어지는 전 과정을 직접 설계했습니다. 구현한
-                      런타임은 1,025개 카드의 검색·정렬·가상 스크롤이 동작하는
-                      SPA에 적용해 검증했습니다.
+                      함수형 컴포넌트·Hooks·Virtual DOM·Diff/Patch를
+                      프레임워크 없이 구현한 React 실행 환경입니다.
                     </p>
                   </div>
                   <div
                     className="project-highlights"
-                    aria-label="mini-react 핵심 구현"
+                    aria-label="React 가상 DOM 실행 환경 핵심 구현"
                   >
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>
-                          <a
-                            className="project-highlight-link"
-                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/renderer-dom/patch.js"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            전체 DOM을 다시 그리지 않고, 바뀐 부분만 갱신했습니다{" "}
-                            <ExternalArrow />
-                          </a>
-                        </h5>
+                        <h5>Diff &amp; Patch · 변경된 DOM만 갱신</h5>
                         <div className="project-achievements">
                           <p>
-                            렌더 단계에서는 이전·다음 UI 트리를 비교해 변경
-                            목록을 만들고, 적용 단계에서 속성·텍스트·자식 노드만
-                            수정했습니다. 계산과 DOM 조작을 분리해 문제가 생긴
-                            단계를 추적하고 테스트할 수 있게 했습니다.
+                            이전·다음 VDOM을 비교하고 속성·텍스트·자식 노드의
+                            변경만 실제 DOM에 반영했습니다.
                           </p>
                         </div>
                       </div>
@@ -378,31 +378,11 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>
-                          <a
-                            className="project-highlight-link"
-                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/reconciler/diffChildren.js"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            정렬·필터 후에도 카드 정보가 섞이지 않게 했습니다{" "}
-                            <ExternalArrow />
-                          </a>
-                        </h5>
+                        <h5>Keyed Reconciliation · 목록 상태 유지</h5>
                         <div className="project-achievements">
                           <p>
-                            index 기준 비교에서 카드와 DOM의 대응이 어긋나는
-                            원인을 key 기반 동일성 문제로 좁혔습니다. 이동이
-                            필요한 노드만 재배치해 1,025개 카드의 정렬·필터·
-                            <a
-                              className="project-evidence-link"
-                              href="https://github.com/woonyong-kr/mini-react2/blob/main/src/app/pages/CollectionPage.js"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              가상 스크롤
-                            </a>
-                            에서도 이미지와 타입 정보가 올바른 카드에 남도록
+                            key 기반 동일성과 이동 Patch로 1,025개 카드의
+                            정렬·필터·가상 스크롤에서도 상태가 섞이지 않게
                             했습니다.
                           </p>
                         </div>
@@ -411,24 +391,12 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>
-                          <a
-                            className="project-highlight-link"
-                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/app/components/CardTile.js"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            마우스를 움직일 때마다 전체 UI를 다시 그리지 않았습니다{" "}
-                            <ExternalArrow />
-                          </a>
-                        </h5>
+                        <h5>Hooks &amp; Batching · 상태 보존과 업데이트 병합</h5>
                         <div className="project-achievements">
                           <p>
-                            검색·필터처럼 UI 구조가 바뀌는 작업은 가상 DOM이
-                            처리하고, 카드 기울기·홀로그램처럼 초당 여러 번
-                            발생하는 효과는 CSS 변수만 갱신했습니다. 상태
-                            렌더링과 시각 효과를 분리해 불필요한 비교 작업을
-                            피했습니다.
+                            useState·useEffect·useMemo의 값과 생명주기를
+                            유지하고, 연속 상태 변경을 microtask 단위로
+                            묶었습니다.
                           </p>
                         </div>
                       </div>
@@ -436,77 +404,26 @@ export default function Home() {
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
                       <div>
-                        <h5>
-                          <a
-                            className="project-highlight-link"
-                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/runtime/scheduleUpdate.js"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            상태는 보존하고, 연속 업데이트는 한 번으로 합쳤습니다{" "}
-                            <ExternalArrow />
-                          </a>
-                        </h5>
+                        <h5>78개 테스트 · 렌더링 흐름 검증</h5>
                         <div className="project-achievements">
                           <p>
-                            <a
-                              className="project-evidence-link"
-                              href="https://github.com/woonyong-kr/mini-react2/tree/main/src/core/runtime/hooks"
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              Hook 호출 순서에 따라 state·effect·memo 값을 유지
-                            </a>
-                            하고 effect의 정리 시점을 관리했습니다. 연속 상태
-                            변경은 microtask에 모아 한 번만 렌더링하되, 즉시
-                            반영이 필요할 때는 sync 전략을 선택할 수 있게
-                            했습니다.
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-                    <section className="project-highlight">
-                      <span aria-hidden="true">•</span>
-                      <div>
-                        <h5>
-                          <a
-                            className="project-highlight-link"
-                            href="https://github.com/woonyong-kr/mini-react2/blob/main/src/core/engine/inspect.js"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            최적화 효과를 감이 아니라 숫자로 확인했습니다{" "}
-                            <ExternalArrow />
-                          </a>
-                        </h5>
-                        <div className="project-achievements">
-                          <p>
-                            Render/Patch Inspector에서 비교 전략별 생성 Patch
-                            수를 확인해 어떤 방식이 DOM 작업을 줄이는지
-                            검증했습니다. Hook·Diff/Patch·가상 스크롤을 포함한
-                            78개 테스트를 모두 통과했습니다.
+                            Hook·Diff/Patch·리스트 재정렬·생명주기 테스트 78개를
+                            모두 통과했습니다.
                           </p>
                         </div>
                       </div>
                     </section>
                   </div>
-                  <ul
-                    className="project-proof-points"
-                    aria-label="mini-react 검증 결과"
-                  >
-                    <li>
-                      <strong>1,025개</strong>
-                      <span>카드 목록으로 검증</span>
-                    </li>
-                    <li>
-                      <strong>78 / 78</strong>
-                      <span>단위·기능 테스트 통과</span>
-                    </li>
-                    <li>
-                      <strong>3개</strong>
-                      <span>비교 전략별 Patch 계측</span>
-                    </li>
-                  </ul>
+                  <SelectableTags
+                    ariaLabel="React 가상 DOM 실행 환경 키워드"
+                    labels={[
+                      "JavaScript",
+                      "Virtual DOM",
+                      "Diff & Patch",
+                      "Hooks",
+                      "Microtask Batching",
+                    ]}
+                  />
                 </section>
 
               </div>

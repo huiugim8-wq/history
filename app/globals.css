@@ -15,13 +15,13 @@
   --code: #edf7f2;
   --max-width: 1040px;
   --text-large: 17px;
-  --text-body: 15px;
+  --text-body: 16px;
   --text-small: 12px;
   --type-section-title: 34px;
   --type-entity-title: 24px;
   --type-project-title: 21px;
   --type-featured-project-title: 26px;
-  --type-detail-title: 17px;
+  --type-detail-title: 18px;
   --type-role: 14px;
 }
 
@@ -149,8 +149,6 @@ footer {
 
 .contact-item:hover,
 .contact-item:focus-visible,
-.side-link:hover,
-.side-link:focus-visible,
 .contact a:hover,
 .contact a:focus-visible,
 footer a:hover,
@@ -219,23 +217,11 @@ footer a:focus-visible {
 
 .section-title h2 {
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
   font-size: var(--type-section-title);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.05em;
   text-wrap: balance;
-}
-
-.section-title h2::after {
-  width: 34px;
-  height: 4px;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: var(--accent-bright);
-  content: "";
 }
 
 .work-section {
@@ -327,7 +313,7 @@ footer a:focus-visible {
 
 .project-links .side-link > span {
   display: inline-block;
-  color: var(--accent);
+  color: currentColor;
   font-size: 0.84em;
   line-height: 1;
   transform: translateY(-1px);
@@ -487,6 +473,12 @@ footer a:focus-visible {
   line-height: 1.28;
 }
 
+.jungle-detail .supporting-project .project-title h4 {
+  font-size: var(--type-project-title);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .project-title > span {
   display: block;
   margin-bottom: 8px;
@@ -507,23 +499,31 @@ footer a:focus-visible {
 
 .project-header .side-link {
   color: var(--foreground);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 750;
 }
 
 .project-header .notion-link {
-  color: var(--accent);
+  color: var(--foreground);
+}
+
+.side-link:hover,
+.side-link:focus-visible {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .project-introduction {
-  width: 100%;
-  margin-top: 14px;
-  color: var(--text-secondary);
+  width: min(100%, 760px);
+  margin-top: 18px;
+  color: #343c46;
 }
 
 .project-introduction p {
   margin: 0;
   font-size: var(--text-body);
-  line-height: 1.78;
+  line-height: 1.74;
   text-wrap: pretty;
 }
 
@@ -532,16 +532,28 @@ footer a:focus-visible {
 }
 
 .project-introduction p:first-child {
-  color: var(--text-secondary);
-  font-size: var(--text-body);
-  font-weight: 600;
-  line-height: 1.72;
-  letter-spacing: -0.015em;
+  color: #343c46;
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.68;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.project-introduction--single-line {
+  width: 100%;
+}
+
+.project-introduction--single-line p:first-child {
+  font-size: 15px;
+  letter-spacing: -0.025em;
+  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .project-team {
-  margin-top: 14px;
-  padding-top: 14px;
+  margin-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid #e3e6ea;
 }
 
@@ -564,7 +576,7 @@ footer a:focus-visible {
 
 .jungle-detail .project-team-heading > span,
 .jungle-detail .project-highlight > span {
-  color: var(--accent-bright);
+  color: var(--accent);
 }
 
 .project-team-heading > span::before,
@@ -612,10 +624,10 @@ footer a:focus-visible {
 }
 
 .project-role-tags .is-primary {
-  border-color: var(--foreground);
-  background: var(--foreground);
-  box-shadow: inset 3px 0 0 var(--accent-bright);
-  color: #ffffff;
+  border-color: var(--accent-bright);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .project-detail {
@@ -634,7 +646,7 @@ footer a:focus-visible {
 }
 
 .project-highlights {
-  margin-top: 16px;
+  margin-top: 18px;
   padding: 0;
   border-top: 0;
 }
@@ -798,14 +810,16 @@ footer a:focus-visible {
 }
 
 .highlight-tag[aria-pressed="true"] {
-  border-color: var(--foreground);
-  background: var(--foreground);
-  box-shadow: inset 3px 0 0 var(--accent-bright);
-  color: #ffffff;
+  border-color: var(--accent-bright);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .highlight-tag[aria-pressed="true"]:hover {
-  background: #2a2f35;
+  border-color: var(--accent);
+  background: #d8f5e7;
+  color: var(--accent);
 }
 
 .highlight-tag:active {
@@ -820,56 +834,6 @@ footer a:focus-visible {
 
 .supporting-project + .supporting-project {
   margin-top: 28px;
-}
-
-.project-verification strong {
-  color: var(--foreground);
-  font-weight: 700;
-}
-
-.project-verification {
-  margin: 14px 0 0;
-  color: var(--text-secondary);
-  font-size: var(--text-body);
-  font-weight: 400;
-  line-height: 1.72;
-  text-wrap: pretty;
-}
-
-.project-proof-points {
-  margin: 18px 0 0 !important;
-  padding: 0 !important;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  list-style: none;
-}
-
-.project-proof-points li {
-  min-height: 76px;
-  margin: 0 !important;
-  padding: 14px 16px;
-  border: 1px solid #d8dde3;
-  border-radius: 6px;
-  background: #fafbfc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-}
-
-.project-proof-points strong {
-  color: var(--foreground);
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.project-proof-points span {
-  color: var(--text-secondary);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.45;
 }
 
 .resume-detail li code {
@@ -1035,11 +999,23 @@ footer p {
   }
 
   .project-introduction {
-    margin-top: 24px;
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .project-introduction p:first-child {
+    font-size: 16px;
+    line-height: 1.72;
+    text-wrap: pretty;
+  }
+
+  .project-introduction--single-line p:first-child {
+    text-wrap: pretty;
+    white-space: normal;
   }
 
   .project-highlights {
-    margin-top: 30px;
+    margin-top: 22px;
     padding: 0;
   }
 
@@ -1076,14 +1052,6 @@ footer p {
   .supporting-project {
     margin-top: 28px;
     padding-top: 24px;
-  }
-
-  .project-proof-points {
-    grid-template-columns: 1fr;
-  }
-
-  .project-proof-points li {
-    min-height: 68px;
   }
 
   .resume-list {

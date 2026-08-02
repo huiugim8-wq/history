@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -110,6 +111,10 @@ test("renders landmark structure and project experience details", async () => {
     html,
     /AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래[\s\S]*복기까지 하나의 흐름으로 연결하는 주식 트레이딩[\s\S]*플랫폼/,
   );
+  assert.match(
+    html,
+    /class="project-introduction project-introduction--single-line"/,
+  );
   assert.doesNotMatch(html, /하나의 작업 화면에서 수행할 수 있도록 만든/);
   assert.match(
     html,
@@ -127,7 +132,7 @@ test("renders landmark structure and project experience details", async () => {
     html,
     /type="button" class="highlight-tag" aria-pressed="false">React<\/button>/,
   );
-  assert.match(html, /class="project-highlight-link"/);
+  assert.doesNotMatch(html, /class="project-highlight-link"/);
   assert.equal(html.match(/class="project-inline-link"/g)?.length, 4);
   assert.match(
     html,
@@ -139,7 +144,7 @@ test("renders landmark structure and project experience details", async () => {
   );
   assert.match(
     html,
-    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 차트 엔진[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
+    /class="project-inline-link" href="https:\/\/app\.notion\.com\/p\/3aa0463ff9f08065b16bd4cbbc87d321\?source=copy_link"[\s\S]*?>2-Layer Canvas를 적용한 주식차트[\s\S]*?<span aria-hidden="true">↗<\/span><\/a>/,
   );
   assert.match(
     html,
@@ -151,7 +156,7 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /차트 분석 알고리즘 키워드/);
   assert.match(
     html,
-    /REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 차트 엔진/,
+    /REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 주식차트/,
   );
   assert.match(
     html,
@@ -180,42 +185,38 @@ test("renders landmark structure and project experience details", async () => {
   assert.match(html, /Linear Regression/);
   assert.match(
     html,
-    /공통 프레임과 기능 패널을 분리한[\s\S]*React 컴포넌트 설계[\s\S]*REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 차트 엔진[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한[\s\S]*TypeScript/,
+    /공통 프레임과 기능 패널을 분리한[\s\S]*React 컴포넌트 설계[\s\S]*REST API·WebSocket[\s\S]*2-Layer Canvas를 적용한 주식차트[\s\S]*피벗 군집·선형회귀로 지지·저항선을 생성한[\s\S]*TypeScript/,
   );
   assert.doesNotMatch(html, /<span>0[1-4]<\/span>/);
-  assert.match(html, /PROJECT 2[\s\S]*mini-react — React 가상 DOM 실행 환경/);
-  assert.match(html, /aria-label="mini-react 핵심 구현"/);
+  assert.match(html, /PROJECT 2[\s\S]*React 가상 DOM 실행 환경/);
+  assert.doesNotMatch(html, /mini-react —/);
+  assert.match(html, /aria-label="React 가상 DOM 실행 환경 핵심 구현"/);
   assert.match(
     html,
     /href="https:\/\/github\.com\/woonyong-kr\/mini-react2"/,
   );
   assert.match(
     html,
-    /상태 변경이 실제 DOM[\s\S]*업데이트로 이어지는 전 과정을 직접 설계/,
+    /href="https:\/\/app\.notion\.com\/p\/React-DOM-3b00463ff9f080559a7cc2e06e89a9f3"/,
   );
+  assert.match(html, /Github[\s\S]*Notion/);
   assert.match(
     html,
-    /전체 DOM을 다시 그리지 않고, 바뀐 부분만 갱신했습니다/,
+    /함수형 컴포넌트·Hooks·Virtual DOM·Diff\/Patch를[\s\S]*프레임워크 없이 구현한 React 실행 환경/,
   );
-  assert.match(
-    html,
-    /계산과 DOM 조작을 분리해 문제가 생긴[\s\S]*단계를 추적하고 테스트/,
-  );
-  assert.match(html, /정렬·필터 후에도 카드 정보가 섞이지 않게 했습니다/);
+  assert.match(html, /Diff &amp; Patch · 변경된 DOM만 갱신/);
+  assert.match(html, /속성·텍스트·자식 노드의[\s\S]*변경만 실제 DOM에 반영/);
+  assert.match(html, /Keyed Reconciliation · 목록 상태 유지/);
   assert.match(html, /1,025개 카드/);
-  assert.match(html, /CollectionPage\.js/);
-  assert.match(
-    html,
-    /마우스를 움직일 때마다 전체 UI를 다시 그리지 않았습니다/,
-  );
-  assert.match(html, /카드 기울기·홀로그램[\s\S]*CSS 변수만 갱신/);
-  assert.match(html, /상태는 보존하고, 연속 업데이트는 한 번으로 합쳤습니다/);
-  assert.match(html, /microtask에 모아 한 번만 렌더링/);
-  assert.match(html, /즉시[\s\S]*반영이 필요할 때는 sync 전략/);
-  assert.match(html, /최적화 효과를 감이 아니라 숫자로 확인했습니다/);
-  assert.match(html, /78개 테스트를 모두 통과/);
-  assert.match(html, /class="project-proof-points"/);
-  assert.match(html, /1,025개[\s\S]*78 \/ 78[\s\S]*3개/);
+  assert.match(html, /Hooks &amp; Batching · 상태 보존과 업데이트 병합/);
+  assert.match(html, /연속 상태 변경을 microtask 단위로[\s\S]*묶었습니다/);
+  assert.match(html, /78개 테스트 · 렌더링 흐름 검증/);
+  assert.match(html, /생명주기 테스트 78개를[\s\S]*모두 통과/);
+  assert.doesNotMatch(html, /class="project-verification"/);
+  assert.match(html, /React 가상 DOM 실행 환경 키워드/);
+  assert.match(html, /Microtask Batching/);
+  assert.doesNotMatch(html, /mini-react2\/blob|mini-react2\/tree/);
+  assert.doesNotMatch(html, /class="project-proof-points"/);
   assert.doesNotMatch(html, /Fiber 비교|Fiber Comparison/);
   assert.doesNotMatch(html, /Redis/);
   assert.doesNotMatch(html, /PROJECT 3|Pintos|syscall-entry\.S|x86-64 Assembly/);
@@ -242,4 +243,17 @@ test("renders landmark structure and project experience details", async () => {
   assert.doesNotMatch(html, /class="project-image"/);
   assert.doesNotMatch(html, /gops-workspace\.png/);
   assert.match(html, /<footer>/);
+});
+
+test("keeps secondary project titles on the same typography scale", async () => {
+  const css = await readFile(
+    new URL("../app/globals.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /--type-project-title:\s*21px/);
+  assert.match(
+    css,
+    /\.jungle-detail \.supporting-project \.project-title h4\s*\{[^}]*font-size:\s*var\(--type-project-title\)/s,
+  );
 });
