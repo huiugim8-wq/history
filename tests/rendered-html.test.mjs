@@ -259,7 +259,13 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   assert.match(css, /--max-width:\s*1040px/);
   assert.match(
     css,
-    /--resume-content-width:\s*clamp\(860px,\s*68vw,\s*var\(--max-width\)\)/,
+    /--page-content-width:\s*clamp\(860px,\s*68vw,\s*var\(--max-width\)\)/,
+  );
+  assert.match(css, /--page-inline-space:\s*64px/);
+  assert.match(css, /--page-inline-space:\s*40px/);
+  assert.match(
+    css,
+    /\.technical-article\s*\{[^}]*width:\s*100%[^}]*max-width:\s*none[^}]*margin-inline:\s*0/s,
   );
   assert.match(
     css,

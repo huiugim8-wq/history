@@ -14,6 +14,8 @@
   --accent-soft: #e7f8f0;
   --code: #edf7f2;
   --max-width: 1040px;
+  --page-content-width: clamp(860px, 68vw, var(--max-width));
+  --page-inline-space: 64px;
   --text-large: 17px;
   --text-body: 16px;
   --text-small: 12px;
@@ -48,8 +50,6 @@ body {
 }
 
 .resume-sheet {
-  --resume-content-width: clamp(860px, 68vw, var(--max-width));
-
   width: 100%;
   min-height: 100vh;
   margin: 0;
@@ -77,7 +77,10 @@ code {
 }
 
 .top-banner-inner {
-  width: min(calc(100% - 64px), var(--max-width));
+  width: min(
+    calc(100% - var(--page-inline-space)),
+    var(--page-content-width)
+  );
   min-height: 246px;
   margin-inline: auto;
   padding: 24px 0 28px;
@@ -257,16 +260,11 @@ code {
 
 main,
 footer {
-  width: min(calc(100% - 64px), var(--max-width));
+  width: min(
+    calc(100% - var(--page-inline-space)),
+    var(--page-content-width)
+  );
   margin-inline: auto;
-}
-
-@media (min-width: 681px) {
-  .resume-sheet .top-banner-inner,
-  .resume-sheet > main,
-  .resume-sheet > footer {
-    width: min(calc(100% - 64px), var(--resume-content-width));
-  }
 }
 
 .profile {
@@ -1165,7 +1163,6 @@ footer p {
   }
 
   .top-banner-inner {
-    width: min(calc(100% - 36px), var(--max-width));
     min-height: auto;
     padding: 24px 0;
     grid-template-columns: minmax(0, 1fr) 82px;
@@ -1189,11 +1186,6 @@ footer p {
   .top-banner h1 {
     margin-top: 5px;
     font-size: 38px;
-  }
-
-  main,
-  footer {
-    width: min(calc(100% - 36px), var(--max-width));
   }
 
   .profile {
@@ -1415,7 +1407,10 @@ footer p {
 }
 
 .page-site-header-inner {
-  width: min(calc(100% - 64px), var(--max-width));
+  width: min(
+    calc(100% - var(--page-inline-space)),
+    var(--page-content-width)
+  );
   min-height: 76px;
   margin-inline: auto;
   display: flex;
@@ -1612,8 +1607,9 @@ footer p {
 }
 
 .technical-article {
-  max-width: 880px;
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
   border-top: 1px solid var(--line);
 }
 
@@ -3386,8 +3382,11 @@ footer p {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --page-inline-space: 40px;
+  }
+
   .page-site-header-inner {
-    width: min(calc(100% - 40px), var(--max-width));
     padding: 18px 0;
     align-items: flex-start;
     flex-direction: column;
