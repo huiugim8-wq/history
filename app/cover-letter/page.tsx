@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 export default function CoverLetterPage() {
   return (
     <ContentShell
-      eyebrow="APPLICATION ESSAY"
       title="자기소개서"
-      description="사용자 중심의 관점으로 문제를 정의하고, 기술과 소통으로 해결하는 과정입니다."
       className="cover-letter-site"
       actions={<PrintButton />}
     >
