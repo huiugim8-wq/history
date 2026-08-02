@@ -199,31 +199,7 @@ export default function PortfolioPage() {
           </section>
         </ArticleSection>
 
-        <ArticleSection number="04" title="Education & Awards">
-          <div className="portfolio-role-heading">
-            <div>
-              <span>2017.03 — 2023.08</span>
-              <h3>대구대학교 · 실내건축디자인학과</h3>
-            </div>
-          </div>
-          <p>
-            공간 설계와 시각적 구성에 대한 체계적인 훈련을 통해 복잡한 정보를
-            효과적으로 구조화하고 명확하게 전달하는 역량을 길렀습니다.
-          </p>
-          <p>
-            실내인테리어 공모전 동아리 ‘러스틱’을 결성하고{" "}
-            <strong>
-              동아리장을 맡아 프로젝트 기획과 구성원 간 협업을 주도했습니다.
-            </strong>
-          </p>
-          <ul>
-            <li>인테리어앤데코 공모전 수상</li>
-            <li>DGID 공모전 수상</li>
-            <li>학과 공로상 수상</li>
-          </ul>
-        </ArticleSection>
-
-        <ArticleSection number="05" title="Skills">
+        <ArticleSection number="04" title="Skills">
           <div className="portfolio-skill-list">
             {skills.map((skill) => (
               <section key={skill.title}>
@@ -234,7 +210,7 @@ export default function PortfolioPage() {
           </div>
         </ArticleSection>
 
-        <ArticleSection number="06" title="연락처">
+        <ArticleSection number="05" title="연락처">
           <p>함께 만들 이야기가 있다면 편하게 연락해 주세요.</p>
           <div className="portfolio-contact-links">
             <a href="mailto:huiugim8@gmail.com">huiugim8@gmail.com ↗</a>

@@ -141,10 +141,9 @@ test("renders a focused portfolio without work-history or card grids", async () 
     portfolio,
     /class="[^"]*(?:content-card|content-card-tags|portfolio-skills-grid)/,
   );
-  assert.match(portfolio, /대구대학교 · 실내건축디자인학과/);
-  assert.match(
+  assert.doesNotMatch(
     portfolio,
-    /인테리어앤데코 공모전 수상[\s\S]*DGID 공모전 수상[\s\S]*학과 공로상 수상/,
+    /Education &amp; Awards|대구대학교 · 실내건축디자인학과|인테리어앤데코 공모전 수상|DGID 공모전 수상|학과 공로상 수상/,
   );
   assert.match(portfolio, />Skills</);
   assert.match(
