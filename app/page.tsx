@@ -137,11 +137,12 @@ export default function Home() {
               <span aria-hidden="true">”</span>
             </h2>
             <p className="profile-context">
-              창업 과정에서{" "}
-              <strong>체험단의 피드백을 개선안으로 발전</strong>시키고,
-              실내건축디자인을 통해 <strong>사용자 중심의 관점</strong>을
-              익혔습니다. 이 경험은 프론트엔드에서도 문제의 원인을 찾고 해결
-              방향을 정하는 기준으로 이어집니다.
+              <strong>
+                창업 과정에서 체험단의 피드백을 구체적인 개선으로 발전시킨
+                경험과 실내건축디자인에서 익힌 사용자 중심의 관점
+              </strong>
+              {"은 "}프론트엔드에서도 문제의 원인을 찾고 해결 방향을 정하는
+              기준으로 이어집니다.
             </p>
             <p className="profile-context">
               비전공자로 개발을 시작했지만,{" "}
