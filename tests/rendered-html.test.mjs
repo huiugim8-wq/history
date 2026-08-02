@@ -48,6 +48,7 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /href="\/blog"[^>]*>블로그<\/a>/);
   assert.match(html, /href="\/portfolio\/trading-platform"/);
   assert.match(html, /href="\/portfolio\/react-runtime"/);
+  assert.match(html, /미니 리액트\(버추얼 돔\) 구현/);
   assert.match(html, /href="\/blog\/react-panel-registry"/);
   assert.match(html, /href="\/blog\/two-layer-canvas"/);
   assert.match(html, /href="\/blog\/chart-analysis"/);
@@ -104,7 +105,7 @@ test("renders portfolio and blog indexes with migrated Notion content", async ()
 
   assert.match(portfolio, /문제를 구조로 바꾼 프로젝트/);
   assert.match(portfolio, /실시간 투자 정보 플랫폼/);
-  assert.match(portfolio, /React 가상 DOM 실행 환경/);
+  assert.match(portfolio, /미니 리액트\(버추얼 돔\) 구현/);
   assert.match(blog, /구현보다 먼저 고민한 것들/);
   assert.match(blog, /React 공통 프레임 · 43종 기능 패널 설계/);
   assert.match(blog, /REST API · WebSocket 실시간 데이터 흐름/);

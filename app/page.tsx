@@ -345,25 +345,27 @@ export default function Home() {
                   <div className="project-header">
                     <div className="project-title">
                       <span>PROJECT 2</span>
-                      <h4 id="mini-react-title">React 가상 DOM 실행 환경</h4>
+                      <h4 id="mini-react-title">
+                        미니 리액트(버추얼 돔) 구현
+                      </h4>
                     </div>
                     <nav
                       className="project-links"
-                      aria-label="React 가상 DOM 실행 환경 관련 링크"
+                      aria-label="미니 리액트(버추얼 돔) 구현 관련 링크"
                     >
                       <a
                         className="side-link"
                         href="https://github.com/huiugim8-wq/react-virtual-dom"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label="React 가상 DOM 실행 환경 GitHub 저장소 열기"
+                        aria-label="미니 리액트(버추얼 돔) 구현 GitHub 저장소 열기"
                       >
                         Github <ExternalArrow />
                       </a>
                       <Link
                         className="side-link"
                         href="/portfolio/react-runtime"
-                        aria-label="React 가상 DOM 실행 환경 상세 페이지 열기"
+                        aria-label="미니 리액트(버추얼 돔) 구현 상세 페이지 열기"
                       >
                         프로젝트 상세 <ExternalArrow />
                       </Link>
@@ -377,7 +379,7 @@ export default function Home() {
                   </div>
                   <div
                     className="project-highlights"
-                    aria-label="React 가상 DOM 실행 환경 핵심 구현"
+                    aria-label="미니 리액트(버추얼 돔) 구현 핵심 구현"
                   >
                     <section className="project-highlight">
                       <span aria-hidden="true">•</span>
@@ -431,7 +433,7 @@ export default function Home() {
                     </section>
                   </div>
                   <SelectableTags
-                    ariaLabel="React 가상 DOM 실행 환경 키워드"
+                    ariaLabel="미니 리액트(버추얼 돔) 구현 키워드"
                     labels={[
                       "JavaScript",
                       "Virtual DOM",

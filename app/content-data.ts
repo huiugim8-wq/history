@@ -18,7 +18,7 @@ export const portfolioProjects = [
   {
     href: "/portfolio/react-runtime",
     eyebrow: "PROJECT 02 · INDIVIDUAL",
-    title: "React 가상 DOM 실행 환경",
+    title: "미니 리액트(버추얼 돔) 구현",
     description:
       "함수형 컴포넌트, Hooks, Virtual DOM과 Diff/Patch를 프레임워크 없이 구현하며 React의 렌더링 원리를 확인한 프로젝트입니다.",
     meta: "JavaScript · 78 tests passed",

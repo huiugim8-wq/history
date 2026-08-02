@@ -8,7 +8,7 @@ import {
 import ContentShell from "../../content-shell";
 
 export const metadata: Metadata = {
-  title: "React 가상 DOM 실행 환경 | 김희준",
+  title: "미니 리액트(버추얼 돔) 구현 | 김희준",
   description:
     "Virtual DOM, Diff/Patch, Hooks와 batching을 직접 구현하며 React 렌더링 원리를 확인한 프로젝트입니다.",
 };
@@ -17,7 +17,7 @@ export default function ReactRuntimePage() {
   return (
     <ContentShell
       eyebrow="PROJECT 02 · INDIVIDUAL"
-      title="React 가상 DOM 실행 환경"
+      title="미니 리액트(버추얼 돔) 구현"
       description="React를 사용하는 것만으로는 복잡한 렌더링 문제를 정확히 이해하기 어렵다고 판단해 실행 환경을 직접 구현했습니다."
       actions={
         <ExternalTextLink href="https://github.com/huiugim8-wq/react-virtual-dom">
