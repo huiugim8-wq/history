@@ -199,6 +199,14 @@ code {
   text-wrap: pretty;
 }
 
+.cover-letter-intro > p:first-child {
+  color: var(--foreground);
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+
 .cover-letter-copy p + p {
   margin-top: 18px;
 }
@@ -239,6 +247,11 @@ code {
   .cover-letter-copy p {
     font-size: 15px;
     line-height: 1.8;
+  }
+
+  .cover-letter-intro > p:first-child {
+    font-size: 17px;
+    line-height: 1.68;
   }
 
   .cover-letter-key-message,
@@ -3893,6 +3906,11 @@ footer p {
   .cover-letter-copy p {
     font-size: 9.5pt;
     line-height: 1.72;
+  }
+
+  .cover-letter-intro > p:first-child {
+    font-size: 11.5pt;
+    line-height: 1.6;
   }
 
   .cover-letter-copy p + p {
