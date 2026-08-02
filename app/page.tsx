@@ -140,23 +140,27 @@ export default function Home() {
               <span aria-hidden="true">”</span>
             </h2>
             <p className="profile-context">
-              <strong>실내건축디자인을 전공/ 창업 과정</strong>에서 체험단을
-              진행하며 사용자의 피드백을 실행 가능한 형태로 구체화해 왔고, 이
-              경험은 개발에서도 사용자 문제를 기준으로 해결책을 찾는 태도로
-              이어졌습니다.
+              <strong>
+                창업 과정에서 체험단의 피드백을 구체적인 개선으로 발전시킨
+                경험과 실내건축디자인에서 익힌 사용자 중심의 관점은,
+                프론트엔드로 커리어를 전환한 지금도 문제를 바라보는 저의
+                밑바탕이 되고 있습니다.
+              </strong>
             </p>
             <p className="profile-context">
-              비전공자로서 7개월 만에{" "}
-              <strong>9천만 건의 주식 틱 이벤트</strong>를 처리하는 환경에서{" "}
-              <strong>React 조회 패널과 TypeScript 주식차트 엔진</strong>을
-              구현했으며, 과거 데이터는 REST로, 최신 데이터는 WebSocket으로
-              반영하고 정적·실시간 요소를 두 개의 Canvas로 분리해 필요한 부분만
-              다시 그리도록 설계했습니다.
+              <strong>
+                비전공자로 개발을 시작해 9천만 건의 틱 데이터를 다루는 주식
+                차트를 구현했습니다.
+              </strong>{" "}
+              <strong>5주라는 짧은 기간 안에</strong> 필요한 기술을 빠르게 익혀
+              실제 구현에 적용하며 성장하고 있습니다.
             </p>
             <p className="profile-context">
-              개발 영역을 <strong>프론트엔드</strong>에 한정하지 않고, 백엔드
-              구조까지 이해하며 원활하게{" "}
-              <strong>협업하는 개발자</strong>를 지향합니다.
+              프론트엔드를 중심으로 역량을 쌓으며,{" "}
+              <strong>
+                백엔드에 대한 소양과 역량도 갖춘 풀스택 개발자가 되기 위해 매일
+                노력하고 있습니다.
+              </strong>
             </p>
           </div>
         </section>
