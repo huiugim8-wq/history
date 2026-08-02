@@ -7,16 +7,16 @@ export const siteNavigation = [
 export const portfolioProjects = [
   {
     href: "/portfolio/trading-platform",
-    eyebrow: "PROJECT 01 · TEAM",
+    eyebrow: "크래프톤 정글 · 5인 팀 · 프론트엔드",
     title: "실시간 투자 정보 플랫폼",
     description:
-      "43종 React 패널과 TypeScript 주식차트 엔진으로 시장 탐색·분석·주문·거래 복기를 하나의 작업 공간에 연결했습니다.",
+      "외부 차트 API가 지원하지 않는 틱 데이터 오버레이를 위해, 약 9천만 건 규모의 데이터를 다루는 TypeScript 차트 엔진을 직접 구현했습니다.",
     meta: "5주 · 5인 팀 · 프론트엔드",
-    tags: ["Panel Registry", "TypeScript", "WebSocket", "Canvas 2D"],
+    tags: ["Custom Chart Engine", "90M Tick Data", "Tick Overlay", "TypeScript"],
   },
   {
     href: "/portfolio/react-runtime",
-    eyebrow: "PROJECT 02 · INDIVIDUAL EXTENSION",
+    eyebrow: "개인 프로젝트 · JavaScript",
     title: "Vanilla JS React Runtime",
     description:
       "Virtual DOM과 Hooks를 직접 구현한 뒤 동기식 Diff 구조를 Fiber Reconciler와 협력형 스케줄러로 확장한 프로젝트입니다.",
@@ -47,7 +47,7 @@ export const portfolioDeepDives = [
     number: "03",
     title: "2-Layer Canvas 차트 엔진",
     description:
-      "변경 빈도가 다른 정적 차트와 포인터 UI를 두 개의 Canvas로 분리해 필요한 레이어만 갱신한 과정입니다.",
+      "외부 차트 API가 지원하지 않는 틱 오버레이를 직접 구현하고, 약 9천만 건 규모의 데이터에서 필요한 구간만 그리도록 렌더링 경계를 나눈 과정입니다.",
     tags: ["Canvas 2D", "requestAnimationFrame", "Rendering"],
   },
   {

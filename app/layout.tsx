@@ -3,6 +3,7 @@ import "./globals.css";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://huiugim8-wq.github.io/history";
+const ogImageUrl = new URL("og.png", `${siteUrl.replace(/\/$/, "")}/`).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: "/og.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "김희준 AI Product Engineer 포트폴리오",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     title: "김희준 | Front-End Engineer",
     description:
       "크래프톤 정글 12기 졸업 · 사용자 경험을 기술 구조로 구현하는 프론트엔드 개발자 김희준",
-    images: ["/og.png"],
+    images: [ogImageUrl],
   },
 };
 

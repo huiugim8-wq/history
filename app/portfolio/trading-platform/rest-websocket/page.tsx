@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RestWebSocketPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · DEEP DIVE 02"
+      eyebrow="실시간 투자 정보 플랫폼 · 구현 기록 02"
       title="REST API · WebSocket 실시간 데이터 흐름"
       description="과거 데이터는 REST API로, 최신 시장 이벤트는 WebSocket으로 처리해 조회와 실시간 갱신의 책임을 분리했습니다."
       actions={

@@ -8,11 +8,12 @@ import {
   TagList,
 } from "../../article-components";
 import ContentShell from "../../content-shell";
+import { publicAssetPath } from "../../site-paths";
 
 export const metadata: Metadata = {
   title: "실시간 투자 정보 플랫폼 | 김희준",
   description:
-    "43종 React 패널, REST API와 WebSocket, 2-Layer Canvas, TypeScript 분석 알고리즘을 구현하고 검증한 실시간 투자 정보 플랫폼 프론트엔드 사례입니다.",
+    "외부 차트 API가 지원하지 않는 틱 오버레이를 위해 약 9천만 건 규모의 데이터를 다루는 TypeScript 차트 엔진을 직접 구현한 프론트엔드 프로젝트입니다.",
 };
 
 const projectMetrics = [
@@ -47,17 +48,17 @@ const productFlow = [
 
 const workspaces = [
   {
-    src: "/gops/case-panel-portfolio.png",
+    src: publicAssetPath("/gops/case-panel-portfolio.png"),
     title: "자산 현황",
     description: "계좌·보유 종목·손익을 한 화면에서 확인",
   },
   {
-    src: "/gops/case-recommendation.png",
+    src: publicAssetPath("/gops/case-recommendation.png"),
     title: "시장 탐색",
     description: "추천 기준·차트·뉴스와 시장 지수를 함께 비교",
   },
   {
-    src: "/gops/case-panel-review.png",
+    src: publicAssetPath("/gops/case-panel-review.png"),
     title: "거래 복기",
     description: "진입 전후 차트와 판단에 사용한 정보를 다시 확인",
   },
@@ -112,9 +113,9 @@ const validationRows = [
 export default function TradingPlatformPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · FRONTEND CASE STUDY"
+      eyebrow="크래프톤 정글 · 프론트엔드"
       title="실시간 투자 정보 플랫폼"
-      description="AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래 복기까지 하나의 흐름으로 연결하는 주식 트레이딩 플랫폼입니다."
+      description="외부 차트 API가 지원하지 않는 틱 데이터 오버레이를 위해, 약 9천만 건 규모의 데이터를 다루는 차트 엔진을 직접 구현했습니다."
       actions={
         <>
           <ExternalTextLink href="https://github.com/huiugim8-wq/gops-stock-trading-platform">
@@ -149,12 +150,36 @@ export default function TradingPlatformPage() {
         </dl>
 
         <section
+          className="case-core-contribution"
+          aria-labelledby="case-core-contribution-title"
+        >
+          <p>제가 직접 구현한 핵심</p>
+          <h2 id="case-core-contribution-title">
+            차트 라이브러리를 붙이는 대신, 틱 데이터 엔진부터 만들었습니다.
+          </h2>
+          <div>
+            <p>
+              기존 차트 API는 프로젝트에 필요한 틱 단위 데이터와 분석선을 같은
+              화면에 오버레이하는 방식을 지원하지 않았습니다. 그래서 데이터
+              조회·병합, 시간축과 가격축 계산, 캔들·거래량·분석선 렌더링까지
+              TypeScript로 직접 구현했습니다.
+            </p>
+            <p>
+              전체 데이터는 약 9천만 건 규모입니다. 전부 브라우저에 적재하지
+              않고 보이는 구간만 가져온 뒤 실시간 이벤트를 이어 붙였고,
+              Canvas와 WebSocket은 이 구조를 동작시키기 위한 수단으로
+              사용했습니다.
+            </p>
+          </div>
+        </section>
+
+        <section
           className="case-study-overview"
           aria-labelledby="case-study-overview-title"
         >
           <div className="case-study-overview-head">
             <div>
-              <p className="case-kicker">PRODUCT FLOW · MY SCOPE</p>
+              <p className="case-kicker">서비스 흐름과 담당 범위</p>
               <h2 id="case-study-overview-title">
                 탐색부터 복기까지, 하나의 작업 공간으로
               </h2>
@@ -179,7 +204,7 @@ export default function TradingPlatformPage() {
 
           <figure className="case-hero-visual">
             <Image
-              src="/gops/case-panel-portfolio.png"
+              src={publicAssetPath("/gops/case-panel-portfolio.png")}
               alt="계좌 자산, 수익률, 보유 종목, 시장 히트맵과 최근 거래 복기를 한 화면에 배치한 투자 정보 플랫폼"
               width={1704}
               height={1000}
@@ -339,14 +364,16 @@ export default function TradingPlatformPage() {
 
         <ArticleSection number="03" title="실시간 주식차트">
           <p>
-            약 9천만 건 규모의 주식 틱 이벤트를 한 번에 브라우저로 옮기는 대신,
-            현재 화면에 필요한 구간과 이후 변화만 연결했습니다. 조회 범위, 차트
-            상태, 그리기 단위를 나눠 실시간 화면의 갱신 범위를 제한했습니다.
+            이 프로젝트에서 가장 많이 파고든 문제는 차트였습니다. 기존 API로는
+            필요한 틱 데이터를 분석선과 함께 오버레이할 수 없어서 데이터
+            조회부터 좌표 계산, 병합, 렌더링까지 직접 구현했습니다. 약 9천만 건
+            규모의 전체 데이터를 한 번에 브라우저로 옮기는 대신 현재 화면에
+            필요한 구간과 이후 변화만 연결했습니다.
           </p>
 
           <figure className="project-visual project-visual--case">
             <Image
-              src="/gops/case-chart-logic.png"
+              src={publicAssetPath("/gops/case-chart-logic.png")}
               alt="캔들 차트와 거래량, 지지 저항선, 추세선, 패턴 근거 탭이 함께 표시된 TypeScript 주식차트"
               width={1704}
               height={1000}
@@ -444,7 +471,7 @@ export default function TradingPlatformPage() {
 
           <figure className="project-visual project-visual--case">
             <Image
-              src="/gops/case-chart-evidence.png"
+              src={publicAssetPath("/gops/case-chart-evidence.png")}
               alt="지지 저항 후보선과 접촉 횟수, 가격 반응, 허용 오차, 돌파 여부 등 선정 근거가 함께 표시된 차트"
               width={1704}
               height={1000}

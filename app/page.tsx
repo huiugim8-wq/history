@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import PrintButton from "./print-button";
 import SelectableTags from "./selectable-tags";
+import { publicAssetPath } from "./site-paths";
 
 const experienceItems = [
   {
@@ -114,10 +116,15 @@ export default function Home() {
             </address>
           </div>
 
-          <img
+          <Image
             className="profile-photo"
-            src="/profile-id.png"
+            src={publicAssetPath("/profile-id.png")}
             alt="정장을 입은 김희준의 증명사진"
+            width={1086}
+            height={1448}
+            sizes="(max-width: 680px) 82px, 112px"
+            unoptimized
+            priority
           />
         </div>
       </header>

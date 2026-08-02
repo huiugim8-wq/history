@@ -38,6 +38,7 @@ jobs:
         run: npm run build:pages
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/history"
           NEXT_PUBLIC_SITE_URL: "https://huiugim8-wq.github.io/history"
 
       - name: Upload Pages artifact

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function TwoLayerCanvasPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · DEEP DIVE 03"
+      eyebrow="실시간 투자 정보 플랫폼 · 구현 기록 03"
       title="2-Layer Canvas 차트 엔진"
       description="정적 차트와 고빈도 포인터 UI를 두 개의 Canvas로 분리해 필요한 레이어만 다시 그리도록 설계했습니다."
       actions={

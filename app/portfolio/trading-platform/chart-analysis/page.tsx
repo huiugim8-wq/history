@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ChartAnalysisPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · DEEP DIVE 04"
+      eyebrow="실시간 투자 정보 플랫폼 · 구현 기록 04"
       title="TypeScript 피벗 군집 · 선형회귀 알고리즘"
       description="피벗 군집과 선형회귀로 후보선을 만들고, 접촉·가격 반응·오차·돌파를 평가해 지지·저항선을 선별했습니다."
       actions={

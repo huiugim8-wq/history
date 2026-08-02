@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ReactPanelRegistryPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · DEEP DIVE 01"
+      eyebrow="실시간 투자 정보 플랫폼 · 구현 기록 01"
       title="React 공통 프레임 · 43종 기능 패널 설계"
       description="43종의 기능 패널을 하나의 공통 프레임에서 일관되게 확장할 수 있도록 설계했습니다."
       actions={

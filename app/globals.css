@@ -2356,6 +2356,48 @@ footer p {
   line-height: 1.55;
 }
 
+.case-core-contribution {
+  padding: 64px 0;
+  display: grid;
+  grid-template-columns: 150px minmax(260px, 0.85fr) minmax(320px, 1fr);
+  gap: 34px;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-core-contribution > p {
+  margin: 5px 0 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.case-core-contribution h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 30px;
+  font-weight: 820;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.case-core-contribution div {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.78;
+}
+
+.case-core-contribution div p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.case-core-contribution div p + p {
+  margin-top: 16px;
+}
+
 .case-study-overview {
   padding: 72px 0;
   border-bottom: 1px solid var(--line);
@@ -3098,6 +3140,43 @@ footer p {
   gap: 22px;
 }
 
+.portfolio-page .content-hero {
+  padding: 46px 0 34px;
+}
+
+.portfolio-page .content-eyebrow {
+  margin-bottom: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.portfolio-page .content-hero h1 {
+  font-size: 25px;
+  font-weight: 820;
+  line-height: 1.3;
+  letter-spacing: -0.045em;
+}
+
+.portfolio-page .content-description {
+  max-width: 650px;
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.portfolio-page .content-text-link {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+}
+
+.portfolio-page .article-section-heading > span {
+  display: none;
+}
+
 .portfolio-hub {
   max-width: 1080px;
 }
@@ -3115,7 +3194,9 @@ footer p {
 
 .portfolio-profile-photo {
   width: 148px;
+  height: auto;
   aspect-ratio: 3 / 4;
+  display: block;
   object-fit: cover;
   border: 1px solid var(--line);
   background: var(--surface);
@@ -3132,18 +3213,17 @@ footer p {
 
 .portfolio-contact-facts {
   margin: 32px 0 0;
-  padding: 0;
+  padding: 18px 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .portfolio-contact-facts div {
   min-width: 0;
-  padding: 17px 18px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  padding: 0;
 }
 
 .portfolio-contact-facts dt,
@@ -3166,8 +3246,6 @@ footer p {
 
 .portfolio-contact-facts a:hover,
 .portfolio-contact-facts a:focus-visible,
-.portfolio-role-actions a:hover,
-.portfolio-role-actions a:focus-visible,
 .portfolio-contact-links a:hover,
 .portfolio-contact-links a:focus-visible {
   color: var(--accent);
@@ -3177,39 +3255,85 @@ footer p {
   margin-bottom: 24px !important;
 }
 
-.portfolio-hub .content-index {
+.portfolio-entry-list {
   margin-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
-.portfolio-hub .content-card {
-  min-height: 310px;
-  padding: 30px;
+.portfolio-entry {
+  position: relative;
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 164px minmax(0, 1fr) 24px;
+  gap: 28px;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
 }
 
-.portfolio-hub .content-card h2 {
-  font-size: 23px;
+.portfolio-entry-kicker {
+  padding-top: 4px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 780;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
-.portfolio-hub .content-card > p {
+.portfolio-entry-body {
+  min-width: 0;
+}
+
+.portfolio-entry-body h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 21px;
+  font-weight: 820;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.portfolio-entry-body > p {
+  max-width: 680px;
+  margin: 10px 0 0;
+  color: var(--text-secondary);
   font-size: 14px;
+  line-height: 1.72;
 }
 
-.portfolio-deep-dive-index .content-card {
-  min-height: 300px;
+.portfolio-entry-meta {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.55;
 }
 
-.portfolio-experience-stack .article-subsection:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
+.portfolio-entry-arrow {
+  color: var(--subtle);
+  font-size: 18px;
+  line-height: 1.35;
+  transition:
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.portfolio-entry:hover .portfolio-entry-arrow,
+.portfolio-entry:focus-visible .portfolio-entry-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.portfolio-entry:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
 }
 
 .portfolio-role-heading {
   margin-bottom: 18px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
 }
 
 .portfolio-role-heading h3 {
@@ -3221,68 +3345,48 @@ footer p {
   letter-spacing: -0.03em;
 }
 
-.portfolio-role-heading p {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.portfolio-role-actions {
-  display: flex;
-  flex: 0 0 auto;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px 14px;
-}
-
-.portfolio-role-actions a,
-.portfolio-role-heading > a {
-  flex: 0 0 auto;
-  color: var(--foreground);
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.portfolio-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.portfolio-skill-list {
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
 }
 
-.portfolio-skills-grid section {
-  min-width: 0;
-  padding: 22px;
-  border-right: 1px solid var(--line);
+.portfolio-skill-list section {
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 28px;
+  align-items: baseline;
   border-bottom: 1px solid var(--line);
 }
 
-.portfolio-skills-grid h3 {
+.portfolio-skill-list h3 {
   margin: 0;
   color: var(--foreground);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
+  line-height: 1.5;
 }
 
-.portfolio-skills-grid .article-tags {
-  margin-top: 15px;
+.portfolio-skill-list p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .portfolio-contact-links {
-  margin-top: 26px;
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px 24px;
 }
 
 .portfolio-contact-links a {
-  padding: 10px 13px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
   color: var(--foreground);
   font-size: 13px;
   font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
 }
 
 @media (max-width: 760px) {
@@ -3358,18 +3462,34 @@ footer p {
     width: 124px;
   }
 
-  .portfolio-contact-facts,
-  .portfolio-skills-grid {
+  .portfolio-contact-facts {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .portfolio-role-heading {
-    flex-direction: column;
-    gap: 10px;
+  .portfolio-entry {
+    padding: 24px 0;
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 12px 18px;
   }
 
-  .portfolio-role-actions {
-    justify-content: flex-start;
+  .portfolio-entry-kicker {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+
+  .portfolio-entry-body {
+    grid-column: 1;
+  }
+
+  .portfolio-entry-arrow {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .portfolio-skill-list section {
+    grid-template-columns: 1fr;
+    gap: 5px;
   }
 
   .project-facts {
@@ -3378,6 +3498,20 @@ footer p {
 
   .case-study-overview {
     padding: 50px 0;
+  }
+
+  .case-core-contribution {
+    padding: 48px 0;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .case-core-contribution > p {
+    margin: 0;
+  }
+
+  .case-core-contribution h2 {
+    font-size: 27px;
   }
 
   .case-study-overview-head {
@@ -3757,6 +3891,7 @@ footer p {
   .article-table tr,
   .project-visual,
   .case-study-overview-head,
+  .case-core-contribution,
   .case-product-flow,
   .case-metric-grid,
   .case-architecture-grid,

@@ -6,6 +6,7 @@ type ContentShellProps = {
   eyebrow: string;
   title: string;
   description: string;
+  className?: string;
   actions?: ReactNode;
   children: ReactNode;
 };
@@ -14,11 +15,15 @@ export default function ContentShell({
   eyebrow,
   title,
   description,
+  className,
   actions,
   children,
 }: ContentShellProps) {
   return (
-    <div className="content-site" id="top">
+    <div
+      className={["content-site", className].filter(Boolean).join(" ")}
+      id="top"
+    >
       <SiteHeader />
       <main className="content-main">
         <header className="content-hero">

@@ -39,6 +39,10 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /<html lang="ko">/);
   assert.match(html, /<title>김희준 \| Front-End Engineer<\/title>/);
   assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
+  assert.match(
+    html,
+    /<img(?=[^>]*class="profile-photo")(?=[^>]*src="\/profile-id\.png")(?=[^>]*width="1086")(?=[^>]*height="1448")[^>]*>/,
+  );
   assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
   assert.match(html, /크래프톤 정글[\s\S]*12기 졸업/);
   assert.match(html, /㈜나현[\s\S]*OTOS[\s\S]*대구대학교/);
@@ -110,12 +114,16 @@ test("renders the cover letter as a standalone printable page", async () => {
   assert.match(html, /PDF로 저장/);
 });
 
-test("renders one integrated portfolio with every resume section", async () => {
+test("renders a focused portfolio without work-history or card grids", async () => {
   const portfolio = await htmlFor("/portfolio/");
   const project = await htmlFor("/portfolio/trading-platform/");
   const runtime = await htmlFor("/portfolio/react-runtime/");
 
-  assert.match(portfolio, /김희준의 통합 포트폴리오/);
+  assert.match(portfolio, /<h1>Portfolio<\/h1>/);
+  assert.match(
+    portfolio,
+    /<img(?=[^>]*class="portfolio-profile-photo")(?=[^>]*src="\/profile-id\.png")(?=[^>]*width="1086")(?=[^>]*height="1448")[^>]*>/,
+  );
   assert.match(portfolio, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
   assert.match(portfolio, /010 8201 6811/);
   assert.match(portfolio, /huiugim8@gmail\.com/);
@@ -125,25 +133,34 @@ test("renders one integrated portfolio with every resume section", async () => {
   assert.match(portfolio, /REST API · WebSocket 실시간 데이터 흐름/);
   assert.match(portfolio, /2-Layer Canvas 차트 엔진/);
   assert.match(portfolio, /TypeScript 피벗 군집 · 선형회귀 알고리즘/);
-  assert.match(
+  assert.doesNotMatch(portfolio, /Work &amp; Experience/);
+  assert.doesNotMatch(portfolio, /㈜나현|OTOS/);
+  assert.match(portfolio, /class="portfolio-entry-list"/);
+  assert.match(portfolio, /class="portfolio-skill-list"/);
+  assert.doesNotMatch(
     portfolio,
-    /크래프톤 정글 12기 졸업[\s\S]*㈜나현[\s\S]*OTOS/,
+    /class="[^"]*(?:content-card|content-card-tags|portfolio-skills-grid)/,
   );
-  assert.match(portfolio, /약 20명의 현장 인력을 관리/);
-  assert.match(portfolio, /연 매출 약 1억 원/);
   assert.match(portfolio, /대구대학교 · 실내건축디자인학과/);
-  assert.match(
-    portfolio,
-    /github\.com\/huiugim8-wq\/gops-stock-trading-platform/,
-  );
-  assert.match(portfolio, /youtube\.com\/watch\?v=8P4wiwDrvxs/);
   assert.match(
     portfolio,
     /인테리어앤데코 공모전 수상[\s\S]*DGID 공모전 수상[\s\S]*학과 공로상 수상/,
   );
-  assert.match(portfolio, /Skills &amp; Libraries/);
+  assert.match(portfolio, />Skills</);
+  assert.match(
+    portfolio,
+    /약 9천만 건 규모의 데이터를 다루는 TypeScript 차트 엔진/,
+  );
   assert.doesNotMatch(portfolio, />블로그</);
   assert.match(project, /약 9천만 건 규모의 주식 틱 이벤트/);
+  assert.match(
+    project,
+    /차트 라이브러리를 붙이는 대신, 틱 데이터 엔진부터 만들었습니다/,
+  );
+  assert.match(
+    project,
+    /틱 단위 데이터와 분석선을 같은 화면에 오버레이/,
+  );
   assert.match(project, /5주 프로젝트/);
   assert.match(project, /5인 팀 프로젝트/);
   assert.match(project, /탐색부터 복기까지, 하나의 작업 공간으로/);
@@ -201,6 +218,21 @@ test("removes the standalone blog index", async () => {
   assert.equal(response.status, 404);
 });
 
+test("keeps public images under the GitHub Pages base path", async () => {
+  const workflow = await readFile(
+    new URL("../.github/workflows/deploy-pages.yml", import.meta.url),
+    "utf8",
+  );
+  const sitePaths = await readFile(
+    new URL("../app/site-paths.ts", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(workflow, /NEXT_PUBLIC_BASE_PATH:\s*"\/history"/);
+  assert.match(sitePaths, /NEXT_PUBLIC_BASE_PATH/);
+  assert.match(sitePaths, /`\$\{basePath\}\$\{path\}`/);
+});
+
 test("keeps PDF and responsive presentation rules", async () => {
   const css = await readFile(
     new URL("../app/globals.css", import.meta.url),
@@ -213,5 +245,14 @@ test("keeps PDF and responsive presentation rules", async () => {
   assert.match(css, /\.page-site-header/);
   assert.match(css, /\.content-index/);
   assert.match(css, /\.article-section/);
+  assert.match(css, /--max-width:\s*1040px/);
+  assert.match(
+    css,
+    /\.portfolio-profile-photo\s*\{[^}]*aspect-ratio:\s*3\s*\/\s*4/s,
+  );
+  assert.match(
+    css,
+    /\.portfolio-page \.content-hero h1\s*\{[^}]*font-size:\s*25px/s,
+  );
   assert.match(css, /break-inside:\s*avoid/);
 });
