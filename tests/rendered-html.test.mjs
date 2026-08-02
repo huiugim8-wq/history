@@ -56,9 +56,16 @@ test("renders the resume with page navigation and internal detail links", async 
     /대량의 실시간 데이터를 위한 커스텀 주식 차트 구현[\s\S]*평균 초당 약 1,080건[\s\S]*팀원이 사용할 수 있도록 43종의 React 공용 컴포넌트를 설계·구현[\s\S]*지지·저항선을 위한 알고리즘 개발 및 시각화/,
   );
   assert.match(html, /과거 데이터도 REST API로 지원/);
-  assert.match(html, /차트 라이브러리를 사용하지 않고 주식 차트를 직접 구현/);
-  assert.match(html, /멀티 레이어 Canvas를 사용/);
+  assert.match(
+    html,
+    /차트 API에서 지원하지 않는 틱 데이터[\s\S]*주식 차트를 직접 구현/,
+  );
+  assert.match(html, /멀티 레이어 Canvas[\s\S]*를 사용/);
   assert.match(html, /머신러닝\(선형회귀, 피벗\) 모델을 학습/);
+  assert.match(
+    html,
+    /크래프톤 정글[\s\S]*팀 프로젝트[\s\S]*팀원[\s\S]*5인[\s\S]*기간[\s\S]*2026\.03 — 2026\.07[\s\S]*담당[\s\S]*프론트엔드/,
+  );
   assert.match(html, /PDF로 저장/);
   assert.doesNotMatch(html, /app\.notion\.com|>Notion</);
   assert.doesNotMatch(html, /<dialog|aria-haspopup="dialog"/);

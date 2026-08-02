@@ -550,6 +550,48 @@ footer a:focus-visible {
   font-weight: 700;
 }
 
+.resume-side .project-side-kicker {
+  margin-top: 18px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.project-side-meta {
+  margin: 9px 0 0;
+  display: grid;
+  gap: 6px;
+}
+
+.project-side-meta > div {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 8px;
+  align-items: baseline;
+}
+
+.project-side-meta dt {
+  color: var(--subtle);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.project-side-meta dd {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.project-side-meta time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
 .resume-list .summary-box {
   width: 100%;
   margin: 0;

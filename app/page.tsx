@@ -173,7 +173,23 @@ export default function Home() {
                   <h3>크래프톤 정글</h3>
                   <p>12기 졸업</p>
                 </div>
-                <time className="experience-period">2026.03 — 2026.07</time>
+                <p className="project-side-kicker">팀 프로젝트</p>
+                <dl className="project-side-meta">
+                  <div>
+                    <dt>팀원</dt>
+                    <dd>5인</dd>
+                  </div>
+                  <div>
+                    <dt>기간</dt>
+                    <dd>
+                      <time>2026.03 — 2026.07</time>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>담당</dt>
+                    <dd>프론트엔드</dd>
+                  </div>
+                </dl>
               </div>
 
               <div className="resume-detail jungle-detail">
@@ -219,25 +235,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                <section className="project-team" aria-labelledby="team-title">
-                  <div className="project-team-heading">
-                    <span aria-hidden="true">•</span>
-                    <h5 id="team-title">팀 프로젝트 5인</h5>
-                  </div>
-                  <div className="project-role-tags" aria-label="프로젝트 역할 구성">
-                    {["Frontend", "Infrastructure", "Backend", "AI"].map(
-                      (role) => (
-                        <span
-                          className={role === "Frontend" ? "is-primary" : ""}
-                          key={role}
-                        >
-                          {role}
-                        </span>
-                      ),
-                    )}
-                  </div>
-                </section>
-
                 <div
                   className="project-highlights"
                   aria-label="프로젝트 핵심 역량"
@@ -262,9 +259,10 @@ export default function Home() {
                           데이터도 REST API로 지원합니다.
                         </p>
                         <p>
-                          틱 데이터를 다양한 차트 형태로 오버레이해 시각화하기
-                          위해 차트 라이브러리를 사용하지 않고 주식 차트를 직접
-                          구현했으며, 멀티 레이어 Canvas를 사용했습니다.
+                          <strong>차트 API에서 지원하지 않는 틱 데이터</strong>를
+                          다양한 차트 형태로 오버레이해 시각화하기 위해{" "}
+                          <strong>주식 차트를 직접 구현</strong>했으며,{" "}
+                          <strong>멀티 레이어 Canvas</strong>를 사용했습니다.
                         </p>
                       </div>
                       <SelectableTags
