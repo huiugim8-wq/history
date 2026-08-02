@@ -49,9 +49,15 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /href="\/portfolio\/trading-platform"/);
   assert.match(html, /href="\/portfolio\/react-runtime"/);
   assert.match(html, /href="\/blog\/react-panel-registry"/);
-  assert.match(html, /href="\/blog\/rest-websocket"/);
   assert.match(html, /href="\/blog\/two-layer-canvas"/);
   assert.match(html, /href="\/blog\/chart-analysis"/);
+  assert.match(
+    html,
+    /차트 라이브러리 없이 직접 구현한 커스텀 주식차트[\s\S]*평균 초당 약 1,080건[\s\S]*43종의 React 공용 컴포넌트 설계·구현[\s\S]*지지·저항선 분석 알고리즘 개발 및 시각화/,
+  );
+  assert.match(html, /과거 데이터는 REST API로 조회/);
+  assert.match(html, /Base Canvas와 Overlay Canvas를 분리/);
+  assert.doesNotMatch(html, /머신러닝 모델을 학습/);
   assert.match(html, /PDF로 저장/);
   assert.doesNotMatch(html, /app\.notion\.com|>Notion</);
   assert.doesNotMatch(html, /<dialog|aria-haspopup="dialog"/);

@@ -246,24 +246,59 @@ export default function Home() {
                     <span aria-hidden="true">•</span>
                     <div>
                       <h5>
-                        공통 프레임과 기능 패널을 분리한{" "}
                         <Link
                           className="project-inline-link"
-                          href="/blog/react-panel-registry"
+                          href="/blog/two-layer-canvas"
                         >
-                          React 컴포넌트 설계 <ExternalArrow />
+                          차트 라이브러리 없이 직접 구현한 커스텀 주식차트{" "}
+                          <ExternalArrow />
                         </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          43종의 패널이 공통 프레임을 재사용하도록 설계하고,
-                          크기·배치·우선순위를 TypeScript Registry 한곳에서
-                          관리하여 Layout Agent 명령도 등록된 패널로만 변환되게
-                          했습니다.
+                          차트 라이브러리를 사용하지 않고 TypeScript와 Canvas
+                          2D로 주식 차트를 직접 구현했습니다. WebSocket으로{" "}
+                          <strong>평균 초당 약 1,080건</strong>의 실시간 이벤트를
+                          반영하고, 과거 데이터는 REST API로 조회했습니다. 틱
+                          데이터를 캔들·거래량·지지·저항선으로 겹쳐 표시하기 위해
+                          Base Canvas와 Overlay Canvas를 분리했습니다.
                         </p>
                       </div>
                       <SelectableTags
-                        ariaLabel="React 패널 구조 키워드"
+                        ariaLabel="커스텀 주식차트 키워드"
+                        labels={[
+                          "TypeScript",
+                          "Canvas 2D",
+                          "WebSocket",
+                          "REST API",
+                          "requestAnimationFrame",
+                        ]}
+                      />
+                    </div>
+                  </section>
+
+                  <section className="project-highlight">
+                    <span aria-hidden="true">•</span>
+                    <div>
+                      <h5>
+                        <Link
+                          className="project-inline-link"
+                          href="/blog/react-panel-registry"
+                        >
+                          43종의 React 공용 컴포넌트 설계·구현{" "}
+                          <ExternalArrow />
+                        </Link>
+                      </h5>
+                      <div className="project-achievements">
+                        <p>
+                          팀원이 시장 탐색·차트·뉴스·주문 패널을 같은 방식으로
+                          조합할 수 있도록 공통 프레임과 기능 패널을
+                          분리했습니다. 43종 패널의 컴포넌트·최소 크기·기본
+                          배치·우선순위를 TypeScript Registry에서 관리했습니다.
+                        </p>
+                      </div>
+                      <SelectableTags
+                        ariaLabel="React 공용 컴포넌트 키워드"
                         labels={[
                           "React",
                           "TypeScript",
@@ -281,59 +316,18 @@ export default function Home() {
                       <h5>
                         <Link
                           className="project-inline-link"
-                          href="/blog/rest-websocket"
-                        >
-                          REST API·WebSocket <ExternalArrow />
-                        </Link>
-                        {" "}과{" "}
-                        <Link
-                          className="project-inline-link"
-                          href="/blog/two-layer-canvas"
-                        >
-                          2-Layer Canvas를 적용한 주식차트 <ExternalArrow />
-                        </Link>
-                      </h5>
-                      <div className="project-achievements">
-                        <p>
-                          24시간 9,327만 건(평균 초당 약 1,080건)을 REST
-                          API·WebSocket으로 구간 조회·실시간 반영했습니다.{" "}
-                          정적 차트와 포인터 UI를 2-Layer Canvas로 분리해 이동
-                          시 <strong>오버레이만 갱신</strong>했습니다.
-                        </p>
-                      </div>
-                      <SelectableTags
-                        ariaLabel="차트 엔진 키워드"
-                        labels={[
-                          "TypeScript CSR",
-                          "REST API",
-                          "WebSocket",
-                          "Canvas 2D",
-                          "requestAnimationFrame",
-                        ]}
-                      />
-                    </div>
-                  </section>
-
-                  <section className="project-highlight">
-                    <span aria-hidden="true">•</span>
-                    <div>
-                      <h5>
-                        피벗 군집·선형회귀로 지지·저항선을 생성한{" "}
-                        <Link
-                          className="project-inline-link"
                           href="/blog/chart-analysis"
                         >
-                          TypeScript 알고리즘 <ExternalArrow />
+                          지지·저항선 분석 알고리즘 개발 및 시각화{" "}
+                          <ExternalArrow />
                         </Link>
                       </h5>
                       <div className="project-achievements">
                         <p>
-                          피벗 군집·선형회귀로 지지·저항 후보선을 생성하고,
-                          접촉·반응·오차·돌파 점수로{" "}
-                          <strong>유효한 선만 선별</strong>했습니다.{" "}
-                          선택된 선과 검증 근거를 별도 차트 레이어에 표시해{" "}
-                          <strong>동일 조건의 결과와 선정 이유를 재현</strong>
-                          했습니다.
+                          피벗 군집과 선형회귀 모델로 지지·저항 후보선을
+                          계산하고, 접촉·가격 반응·오차·돌파 점수로{" "}
+                          <strong>유효한 선만 선택</strong>했습니다. 선택된 선과
+                          판단 근거를 별도 차트 레이어에 함께 표시했습니다.
                         </p>
                       </div>
                       <SelectableTags
@@ -344,6 +338,7 @@ export default function Home() {
                           "Clustering",
                           "Linear Regression",
                           "Candidate Scoring",
+                          "Canvas 2D",
                         ]}
                       />
                     </div>
