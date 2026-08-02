@@ -97,8 +97,16 @@ test("renders portfolio and blog indexes with migrated Notion content", async ()
   assert.match(blog, /2-Layer Canvas 차트 엔진/);
   assert.match(blog, /TypeScript 피벗 군집 · 선형회귀 알고리즘/);
   assert.match(project, /24시간 9,327만 건의 시장 이벤트/);
-  assert.match(project, /Architecture at a Glance/);
-  assert.match(project, /Technical Deep Dive/);
+  assert.match(project, /5주 프로젝트/);
+  assert.match(project, /시스템 아키텍처/);
+  assert.match(project, /TypeScript 차트 엔진/);
+  assert.match(project, /후보 생성과 검증을 분리한 분석 알고리즘/);
+  assert.match(project, /\/gops\/figma-panel\.png/);
+  assert.match(project, /\/gops\/system-architecture\.png/);
+  assert.match(project, /\/gops\/architecture\.png/);
+  assert.match(project, /\/gops\/chart-engine\.jpg/);
+  assert.match(project, /\/gops\/chart-analysis\.jpg/);
+  assert.match(project, /구현 상세 보기/);
   assert.match(runtime, /Virtual DOM · Diff &amp; Patch/);
   assert.match(runtime, /78개의 테스트/);
 

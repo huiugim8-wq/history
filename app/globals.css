@@ -1715,6 +1715,98 @@ footer p {
   margin-top: 12px;
 }
 
+.project-visual {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.project-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-visual figcaption {
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.project-visual--poster {
+  width: min(100%, 720px);
+  margin-inline: auto;
+}
+
+.project-visual--wide {
+  width: min(100%, 980px);
+}
+
+.architecture-steps {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.architecture-steps span {
+  min-height: 92px;
+  padding: 16px 13px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.55;
+}
+
+.architecture-steps span:not(:last-child)::after {
+  margin-left: auto;
+  padding-left: 8px;
+  color: var(--accent);
+  content: "→";
+}
+
+.chart-engine-flow {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.chart-engine-flow div {
+  min-height: 104px;
+  padding: 17px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.chart-engine-flow strong {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.chart-engine-flow span {
+  margin-top: 5px;
+  color: #404852;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
 .architecture-flow,
 .article-code {
   margin: 26px 0 0;
@@ -1866,6 +1958,27 @@ footer p {
     margin-inline: -10px;
     padding: 20px 16px;
     font-size: 12px;
+  }
+
+  .project-visual {
+    margin-top: 22px;
+  }
+
+  .project-visual--poster {
+    width: 100%;
+  }
+
+  .architecture-steps,
+  .chart-engine-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-steps span {
+    min-height: 72px;
+  }
+
+  .architecture-steps span:not(:last-child)::after {
+    content: "↓";
   }
 }
 
@@ -2023,7 +2136,10 @@ footer p {
   .project-highlight,
   .content-card,
   .article-subsection,
-  .article-table tr {
+  .article-table tr,
+  .project-visual,
+  .architecture-steps,
+  .chart-engine-flow {
     break-inside: avoid;
   }
 

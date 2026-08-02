@@ -12,7 +12,7 @@ export const portfolioProjects = [
     title: "실시간 투자 정보 플랫폼",
     description:
       "AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래 복기까지 하나의 흐름으로 연결하는 주식 트레이딩 플랫폼입니다.",
-    meta: "2026.03 — 2026.07 · 5인 팀 프로젝트",
+    meta: "5주 · 5인 팀 프로젝트",
     tags: ["React", "TypeScript", "WebSocket", "Canvas 2D"],
   },
   {

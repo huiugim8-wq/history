@@ -56,7 +56,7 @@ export default function TradingPlatformPage() {
         <dl className="project-facts">
           <div>
             <dt>기간</dt>
-            <dd>2026.03 — 2026.07</dd>
+            <dd>5주 프로젝트</dd>
           </div>
           <div>
             <dt>팀</dt>
@@ -109,38 +109,77 @@ export default function TradingPlatformPage() {
               </li>
             </ul>
           </div>
+          <figure className="project-visual project-visual--poster">
+            <img
+              src="/gops/figma-panel.png"
+              alt="서비스 소개, 주요 기능, 기술적 도전과 시스템 구성을 정리한 GOPS 팀 프로젝트 패널"
+            />
+            <figcaption>
+              5주 동안 구현한 서비스 흐름과 기술적 과제를 정리한 팀 프로젝트
+              패널
+            </figcaption>
+          </figure>
         </ArticleSection>
 
-        <ArticleSection number="02" title="Architecture at a Glance">
+        <ArticleSection number="02" title="시스템 아키텍처">
           <p>
-            공통 프레임은 레이아웃과 정책을 담당하고, 기능 패널은 각 도메인의
-            조회·표현 로직에 집중하도록 경계를 나눴습니다.
+            프로젝트는 Docker·Kubernetes 기반의 배포 환경에서 운영했습니다.
+            인프라 구조는 인프라 담당자가 설계했으며, 프론트엔드에서는
+            Frontend Server와 Backend Server 사이의 데이터 경계, 차트 엔진으로
+            전달되는 REST·WebSocket 흐름을 구현했습니다.
           </p>
-          <pre className="architecture-flow">
-            <code>{`Layout Agent / User Action
-          ↓
-   Panel Command
-          ↓
- Runtime Validation
-          ↓
-   Panel Registry
-          ↓
- Common Frame + Feature Panel`}</code>
-          </pre>
+          <figure className="project-visual">
+            <img
+              src="/gops/system-architecture.png"
+              alt="AWS의 두 가용 영역에 프론트엔드, 백엔드, AI 서비스와 데이터 저장소가 배치된 GOPS 시스템 구성도"
+            />
+            <figcaption>
+              팀 공통 시스템 구성도 — 본인 담당 범위는 React UI와 차트 엔진,
+              프론트엔드 데이터 연결 지점입니다.
+            </figcaption>
+          </figure>
+          <div className="article-subsection">
+            <h3>Kafka 이벤트를 기능별로 나눠 처리</h3>
+            <p>
+              팀은 시장 이벤트를 Kafka에 기록하고 거래 분석·지표 계산·AI 참조가
+              각각 독립된 Consumer로 처리되도록 구성했습니다. 프론트엔드에서는
+              이 흐름이 제공하는 조회 API와 실시간 이벤트를 화면 상태에
+              연결했습니다. 한 기능의 지연이 전체 흐름을 막지 않으며, 실패한
+              작업은 Offset을 기준으로 다시 처리할 수 있습니다.
+            </p>
+            <figure className="project-visual">
+              <img
+                src="/gops/architecture.png"
+                alt="틱, 1분봉, 5분봉, 10분봉 시장 이벤트를 Kafka와 독립 Consumer로 처리하는 구조"
+              />
+              <figcaption>
+                대용량 시장 이벤트의 독립 처리와 재처리 구조
+              </figcaption>
+            </figure>
+          </div>
         </ArticleSection>
 
-        <ArticleSection number="03" title="Key Contributions">
+        <ArticleSection number="03" title="React 패널 구조">
           <div className="article-subsection">
-            <h3>1) 공통 프레임과 기능 패널을 분리한 React 컴포넌트 설계</h3>
+            <h3>공통 프레임과 기능 패널의 역할 분리</h3>
             <p>
               43종의 패널이 제목, 크기 제약, 배치, 공통 액션을 같은 프레임에서
               재사용하도록 구성했습니다. 컴포넌트·최소 크기·기본 배치·우선순위를
               TypeScript Registry 한곳에서 관리하고, Layout Agent 명령은 Runtime
               Validation을 거친 뒤 등록된 패널로만 변환되도록 제한했습니다.
             </p>
+            <div className="architecture-steps" aria-label="패널 생성 흐름">
+              <span>Layout Agent 또는 사용자 명령</span>
+              <span>Runtime Validation</span>
+              <span>Panel Registry</span>
+              <span>Common Frame + Feature Panel</span>
+            </div>
           </div>
+        </ArticleSection>
+
+        <ArticleSection number="04" title="TypeScript 차트 엔진">
           <div className="article-subsection">
-            <h3>2) REST API · WebSocket 데이터 흐름</h3>
+            <h3>과거 조회와 실시간 반영의 역할 분리</h3>
             <p>
               REST API로 현재 화면에 필요한 과거 구간을 조회하고, 이미 보유한
               범위를 기준으로 누락 구간만 추가 요청했습니다. 초기 데이터 이후의
@@ -149,25 +188,82 @@ export default function TradingPlatformPage() {
             </p>
           </div>
           <div className="article-subsection">
-            <h3>3) 2-Layer Canvas 차트 엔진</h3>
+            <h3>정적 차트와 포인터 UI를 두 Canvas로 분리</h3>
             <p>
               캔들·거래량·축·분석선과 크로스헤어·툴팁의 변경 빈도가 다르다는 점을
               기준으로 Base Canvas와 Overlay Canvas를 분리했습니다. 포인터가
               움직일 때는 오버레이만 다시 그리고, requestAnimationFrame으로 화면
               갱신을 브라우저 페인팅 주기에 맞췄습니다.
             </p>
+            <div className="chart-engine-flow" aria-label="차트 데이터와 렌더링 흐름">
+              <div>
+                <strong>REST</strong>
+                <span>화면에 없는 과거 구간만 조회</span>
+              </div>
+              <div>
+                <strong>WebSocket</strong>
+                <span>최신 시장 이벤트만 반영</span>
+              </div>
+              <div>
+                <strong>Base Canvas</strong>
+                <span>캔들·거래량·축·분석선</span>
+              </div>
+              <div>
+                <strong>Overlay Canvas</strong>
+                <span>크로스헤어·툴팁만 갱신</span>
+              </div>
+            </div>
+            <figure className="project-visual project-visual--wide">
+              <img
+                src="/gops/chart-engine.jpg"
+                alt="캔들 차트, 지지 저항선, 분석 근거, 호가와 주문 화면이 연결된 GOPS 차트 엔진"
+              />
+              <figcaption>
+                차트·분석 근거·호가·주문을 하나의 작업 화면에 연결한 실제 UI
+              </figcaption>
+            </figure>
           </div>
+        </ArticleSection>
+
+        <ArticleSection number="05" title="차트 분석">
           <div className="article-subsection">
-            <h3>4) 피벗 군집 · 선형회귀 기반 TypeScript 알고리즘</h3>
+            <h3>후보 생성과 검증을 분리한 분석 알고리즘</h3>
             <p>
               피벗 추출, 군집화, 선형회귀, 후보 평가를 단계별로 분리했습니다.
               후보선은 접촉·가격 반응·오차·돌파를 기준으로 평가하고, 기준을
               통과한 선과 선정 근거를 별도 차트 레이어에 표시했습니다.
             </p>
+            <ul>
+              <li>
+                <strong>후보 생성</strong> — 피벗 군집과 선형회귀로 지지·저항
+                후보선을 생성
+              </li>
+              <li>
+                <strong>후보 검증</strong> — 접촉·가격 반응·오차·돌파 점수로
+                유효한 선만 선택
+              </li>
+              <li>
+                <strong>결과 재현</strong> — 같은 데이터와 조건에서는 같은
+                후보가 선택되도록 단계와 정렬 기준을 고정
+              </li>
+              <li>
+                <strong>선정 이유 표시</strong> — 선택된 선과 검증 근거를 별도
+                차트 레이어에서 함께 확인
+              </li>
+            </ul>
+            <figure className="project-visual project-visual--wide">
+              <img
+                src="/gops/chart-analysis.jpg"
+                alt="여러 종목의 지지 저항 후보선과 거래 복기 근거가 표시된 GOPS 차트 분석 결과"
+              />
+              <figcaption>
+                여러 종목에 적용된 지지·저항 후보선과 거래 복기 근거
+              </figcaption>
+            </figure>
           </div>
         </ArticleSection>
 
-        <ArticleSection number="04" title="기술적 의사결정">
+        <ArticleSection number="06" title="기술적 의사결정">
           <div className="table-scroll">
             <table className="article-table">
               <thead>
@@ -203,7 +299,7 @@ export default function TradingPlatformPage() {
           </div>
         </ArticleSection>
 
-        <ArticleSection number="05" title="Technical Deep Dive">
+        <ArticleSection number="07" title="구현 상세 보기">
           <div className="deep-dive-grid">
             {deepDives.map((item) => (
               <Link href={item.href} key={item.href}>
@@ -214,7 +310,7 @@ export default function TradingPlatformPage() {
           </div>
         </ArticleSection>
 
-        <ArticleSection number="06" title="What I Learned">
+        <ArticleSection number="08" title="프로젝트에서 배운 점">
           <ul>
             <li>
               기능이 많아질수록 컴포넌트 자체보다 변경 이유와 책임의 경계를 먼저
