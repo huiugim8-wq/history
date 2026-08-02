@@ -150,8 +150,7 @@ code {
 }
 
 .cover-letter-page {
-  width: min(100%, 840px);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .cover-letter-intro {
@@ -167,6 +166,7 @@ code {
 }
 
 .cover-letter-section-heading {
+  max-width: 840px;
   margin-bottom: 16px;
 }
 
@@ -179,6 +179,7 @@ code {
 }
 
 .cover-letter-copy {
+  max-width: 840px;
   min-width: 0;
 }
 
