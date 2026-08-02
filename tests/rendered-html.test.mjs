@@ -96,6 +96,10 @@ test("renders the cover letter as a standalone printable page", async () => {
   assert.match(html, /APPLICATION ESSAY/);
   assert.match(
     html,
+    /Publishing Platform Div\. Junior Front-end Engineer[\s\S]*사용자 중심의 관점으로 문제를 정의하고[\s\S]*id="cover-letter-user"/,
+  );
+  assert.match(
+    html,
     /id="cover-letter-user">[\s\S]*실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의[\s\S]*밑바탕이 됐습니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-technology">[\s\S]*필요한 기술을 빠르게 익혀 구현합니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-collaboration">[\s\S]*소통을 통해 문제를 빠르게 파악하고 해결합니다[\s\S]*<\/h2>/,
   );
   assert.doesNotMatch(html, />결론<\/h2>/);

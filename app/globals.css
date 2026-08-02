@@ -154,6 +154,10 @@ code {
   margin: 0 auto;
 }
 
+.cover-letter-intro {
+  padding-top: 36px;
+}
+
 .cover-letter-section {
   padding: 36px 0 0;
 }
@@ -205,6 +209,10 @@ code {
 }
 
 @media (max-width: 720px) {
+  .cover-letter-intro {
+    padding-top: 30px;
+  }
+
   .cover-letter-section {
     padding: 30px 0 0;
   }

@@ -17,6 +17,22 @@ export default function CoverLetterPage() {
       actions={<PrintButton />}
     >
       <article className="cover-letter-page">
+        <div className="cover-letter-intro cover-letter-copy">
+          <p>
+            안녕하십니까. Publishing Platform Div. Junior Front-end Engineer
+            포지션에 지원한 김희준입니다.
+          </p>
+
+          <p className="cover-letter-key-message">
+            저는 비전공자이지만,{" "}
+            <strong>
+              사용자 중심의 관점으로 문제를 정의하고, 필요한 기술을 빠르게 익혀
+              구현하며, 팀원과 소통해 문제를 해결할 수 있는 개발자
+            </strong>
+            입니다.
+          </p>
+        </div>
+
         <section
           className="cover-letter-section"
           aria-labelledby="cover-letter-user"
@@ -29,20 +45,6 @@ export default function CoverLetterPage() {
           </div>
 
           <div className="cover-letter-copy">
-            <p>
-              안녕하십니까. Publishing Platform Div. Junior Front-end Engineer
-              포지션에 지원한 김희준입니다.
-            </p>
-
-            <p className="cover-letter-key-message">
-              저는 비전공자이지만,{" "}
-              <strong>
-                사용자 중심의 관점으로 문제를 정의하고, 필요한 기술을 빠르게
-                익혀 구현하며, 팀원과 소통해 문제를 해결할 수 있는 개발자
-              </strong>
-              입니다.
-            </p>
-
             <p>
               실내건축디자인을 전공하며 공간의 목적을 정의하고, 사용자가 무엇을
               보고 어떻게 이동하며 어떤 경험을 하게 될지를 설계했습니다. 이때
