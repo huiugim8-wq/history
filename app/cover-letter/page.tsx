@@ -22,7 +22,6 @@ export default function CoverLetterPage() {
           aria-labelledby="cover-letter-user"
         >
           <div className="cover-letter-section-heading">
-            <span>01</span>
             <h2 id="cover-letter-user">
               실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의
               밑바탕이 됐습니다
@@ -71,7 +70,6 @@ export default function CoverLetterPage() {
           aria-labelledby="cover-letter-technology"
         >
           <div className="cover-letter-section-heading">
-            <span>02</span>
             <h2 id="cover-letter-technology">
               필요한 기술을 빠르게 익혀 구현합니다
             </h2>
@@ -127,7 +125,6 @@ export default function CoverLetterPage() {
           aria-labelledby="cover-letter-collaboration"
         >
           <div className="cover-letter-section-heading">
-            <span>03</span>
             <h2 id="cover-letter-collaboration">
               소통을 통해 문제를 빠르게 파악하고 해결합니다
             </h2>
@@ -153,8 +150,6 @@ export default function CoverLetterPage() {
         </section>
 
         <section className="cover-letter-section" aria-label="지원 동기와 포부">
-          <div aria-hidden="true" />
-
           <div className="cover-letter-copy">
             <p>
               특히 ‘나만의 무기’ 프로젝트를 진행하며 프론트엔드를 진로로

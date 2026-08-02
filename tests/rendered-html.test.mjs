@@ -99,6 +99,7 @@ test("renders the cover letter as a standalone printable page", async () => {
     /id="cover-letter-user">[\s\S]*실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의[\s\S]*밑바탕이 됐습니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-technology">[\s\S]*필요한 기술을 빠르게 익혀 구현합니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-collaboration">[\s\S]*소통을 통해 문제를 빠르게 파악하고 해결합니다[\s\S]*<\/h2>/,
   );
   assert.doesNotMatch(html, />결론<\/h2>/);
+  assert.doesNotMatch(html, />0[123]</);
   assert.match(html, /9천만 건의 틱 데이터를 다루는 커스텀 주식 차트 엔진/);
   assert.match(html, /평균 초당 약 1,080건/);
   assert.match(html, /멀티 레이어 Canvas/);
