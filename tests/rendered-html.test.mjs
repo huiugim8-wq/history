@@ -94,6 +94,7 @@ test("renders the cover letter as a standalone printable page", async () => {
 
   assert.match(html, /<title>자기소개서 \| 김희준<\/title>/);
   assert.match(html, /APPLICATION ESSAY/);
+  assert.match(html, /class="content-site cover-letter-site"/);
   assert.match(
     html,
     /Publishing Platform Div\. Junior Front-end Engineer[\s\S]*사용자 중심의 관점으로 문제를 정의하고[\s\S]*id="cover-letter-user"/,
@@ -260,6 +261,14 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   assert.match(
     css,
     /--resume-content-width:\s*clamp\(860px,\s*68vw,\s*var\(--max-width\)\)/,
+  );
+  assert.match(
+    css,
+    /\.cover-letter-site \.content-hero,\s*\.cover-letter-page\s*\{[^}]*width:\s*min\(100%,\s*800px\)[^}]*margin-inline:\s*auto/s,
+  );
+  assert.match(
+    css,
+    /@media print\s*\{[\s\S]*\.cover-letter-site \.content-hero,\s*\.cover-letter-page\s*\{[^}]*width:\s*170mm[^}]*max-width:\s*100%[^}]*margin-inline:\s*auto/s,
   );
   assert.match(
     css,

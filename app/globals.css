@@ -149,8 +149,10 @@ code {
   outline-offset: 3px;
 }
 
+.cover-letter-site .content-hero,
 .cover-letter-page {
-  width: 100%;
+  width: min(100%, 800px);
+  margin-inline: auto;
 }
 
 .cover-letter-intro {
@@ -3859,6 +3861,13 @@ footer p {
 
   .cover-letter-section {
     padding: 9mm 0;
+  }
+
+  .cover-letter-site .content-hero,
+  .cover-letter-page {
+    width: 170mm;
+    max-width: 100%;
+    margin-inline: auto;
   }
 
   .cover-letter-section-heading {
