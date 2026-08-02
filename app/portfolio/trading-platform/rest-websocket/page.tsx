@@ -4,8 +4,8 @@ import {
   ExternalTextLink,
   InternalBackLink,
   TagList,
-} from "../../article-components";
-import ContentShell from "../../content-shell";
+} from "../../../article-components";
+import ContentShell from "../../../content-shell";
 
 export const metadata: Metadata = {
   title: "REST API · WebSocket 실시간 데이터 흐름 | 김희준",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RestWebSocketPage() {
   return (
     <ContentShell
-      eyebrow="TECHNICAL NOTE 02"
+      eyebrow="PROJECT 01 · DEEP DIVE 02"
       title="REST API · WebSocket 실시간 데이터 흐름"
       description="과거 데이터는 REST API로, 최신 시장 이벤트는 WebSocket으로 처리해 조회와 실시간 갱신의 책임을 분리했습니다."
       actions={
@@ -26,7 +26,9 @@ export default function RestWebSocketPage() {
       }
     >
       <article className="technical-article">
-        <InternalBackLink href="/blog">기술 글 목록으로 돌아가기</InternalBackLink>
+        <InternalBackLink href="/portfolio/trading-platform">
+          실시간 투자 정보 플랫폼으로 돌아가기
+        </InternalBackLink>
 
         <ArticleSection number="01" title="문제 정의">
           <p>

@@ -4,8 +4,8 @@ import {
   ExternalTextLink,
   InternalBackLink,
   TagList,
-} from "../../article-components";
-import ContentShell from "../../content-shell";
+} from "../../../article-components";
+import ContentShell from "../../../content-shell";
 
 export const metadata: Metadata = {
   title: "React 공통 프레임 · 43종 기능 패널 설계 | 김희준",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ReactPanelRegistryPage() {
   return (
     <ContentShell
-      eyebrow="TECHNICAL NOTE 01"
+      eyebrow="PROJECT 01 · DEEP DIVE 01"
       title="React 공통 프레임 · 43종 기능 패널 설계"
       description="43종의 기능 패널을 하나의 공통 프레임에서 일관되게 확장할 수 있도록 설계했습니다."
       actions={
@@ -26,7 +26,9 @@ export default function ReactPanelRegistryPage() {
       }
     >
       <article className="technical-article">
-        <InternalBackLink href="/blog">기술 글 목록으로 돌아가기</InternalBackLink>
+        <InternalBackLink href="/portfolio/trading-platform">
+          실시간 투자 정보 플랫폼으로 돌아가기
+        </InternalBackLink>
 
         <ArticleSection number="01" title="문제 정의">
           <p>

@@ -2,7 +2,6 @@ export const siteNavigation = [
   { href: "/", label: "이력서" },
   { href: "/cover-letter", label: "자기소개서" },
   { href: "/portfolio", label: "포트폴리오" },
-  { href: "/blog", label: "블로그" },
 ] as const;
 
 export const portfolioProjects = [
@@ -11,24 +10,24 @@ export const portfolioProjects = [
     eyebrow: "PROJECT 01 · TEAM",
     title: "실시간 투자 정보 플랫폼",
     description:
-      "AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래 복기까지 하나의 흐름으로 연결하는 주식 트레이딩 플랫폼입니다.",
-    meta: "5주 · 5인 팀 프로젝트",
-    tags: ["React", "TypeScript", "WebSocket", "Canvas 2D"],
+      "43종 React 패널과 TypeScript 주식차트 엔진으로 시장 탐색·분석·주문·거래 복기를 하나의 작업 공간에 연결했습니다.",
+    meta: "5주 · 5인 팀 · 프론트엔드",
+    tags: ["Panel Registry", "TypeScript", "WebSocket", "Canvas 2D"],
   },
   {
     href: "/portfolio/react-runtime",
-    eyebrow: "PROJECT 02 · INDIVIDUAL",
-    title: "미니 리액트(버추얼 돔) 구현",
+    eyebrow: "PROJECT 02 · INDIVIDUAL EXTENSION",
+    title: "Vanilla JS React Runtime",
     description:
-      "함수형 컴포넌트, Hooks, Virtual DOM과 Diff/Patch를 프레임워크 없이 구현하며 React의 렌더링 원리를 확인한 프로젝트입니다.",
-    meta: "JavaScript · 78 tests passed",
-    tags: ["Virtual DOM", "Diff & Patch", "Hooks", "Batching"],
+      "Virtual DOM과 Hooks를 직접 구현한 뒤 동기식 Diff 구조를 Fiber Reconciler와 협력형 스케줄러로 확장한 프로젝트입니다.",
+    meta: "JavaScript · 83 tests passed",
+    tags: ["Virtual DOM", "Fiber", "Keyed Reconciliation", "Scheduler"],
   },
 ] as const;
 
-export const blogPosts = [
+export const portfolioDeepDives = [
   {
-    href: "/blog/react-panel-registry",
+    href: "/portfolio/trading-platform/react-panel-registry",
     number: "01",
     title: "React 공통 프레임 · 43종 기능 패널 설계",
     description:
@@ -36,7 +35,7 @@ export const blogPosts = [
     tags: ["React", "TypeScript", "Panel Registry"],
   },
   {
-    href: "/blog/rest-websocket",
+    href: "/portfolio/trading-platform/rest-websocket",
     number: "02",
     title: "REST API · WebSocket 실시간 데이터 흐름",
     description:
@@ -44,7 +43,7 @@ export const blogPosts = [
     tags: ["REST API", "WebSocket", "Time Series"],
   },
   {
-    href: "/blog/two-layer-canvas",
+    href: "/portfolio/trading-platform/two-layer-canvas",
     number: "03",
     title: "2-Layer Canvas 차트 엔진",
     description:
@@ -52,7 +51,7 @@ export const blogPosts = [
     tags: ["Canvas 2D", "requestAnimationFrame", "Rendering"],
   },
   {
-    href: "/blog/chart-analysis",
+    href: "/portfolio/trading-platform/chart-analysis",
     number: "04",
     title: "TypeScript 피벗 군집 · 선형회귀 알고리즘",
     description:

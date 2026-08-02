@@ -45,13 +45,26 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /href="\/"[^>]*>이력서<\/a>/);
   assert.match(html, /href="\/cover-letter"[^>]*>자기소개서<\/a>/);
   assert.match(html, /href="\/portfolio"[^>]*>포트폴리오<\/a>/);
-  assert.match(html, /href="\/blog"[^>]*>블로그<\/a>/);
+  assert.doesNotMatch(html, /href="\/blog"[^>]*>블로그<\/a>/);
   assert.match(html, /href="\/portfolio\/trading-platform"/);
-  assert.doesNotMatch(html, /href="\/portfolio\/react-runtime"/);
-  assert.doesNotMatch(html, /미니 리액트\(버추얼 돔\) 구현/);
-  assert.match(html, /href="\/blog\/react-panel-registry"/);
-  assert.match(html, /href="\/blog\/two-layer-canvas"/);
-  assert.match(html, /href="\/blog\/chart-analysis"/);
+  assert.match(html, /href="\/portfolio\/react-runtime"/);
+  assert.match(html, /미니 리액트\(버추얼 돔\) 구현/);
+  assert.match(
+    html,
+    /미니 리액트\(버추얼 돔\) 구현[\s\S]*Fiber Reconciler[\s\S]*83개 테스트/,
+  );
+  assert.match(
+    html,
+    /href="\/portfolio\/trading-platform\/react-panel-registry"/,
+  );
+  assert.match(
+    html,
+    /href="\/portfolio\/trading-platform\/two-layer-canvas"/,
+  );
+  assert.match(
+    html,
+    /href="\/portfolio\/trading-platform\/chart-analysis"/,
+  );
   assert.match(
     html,
     /대량의 실시간 데이터를 위한 커스텀 주식 차트 구현[\s\S]*평균 초당 약 1,080건[\s\S]*팀원이 사용할 수 있도록 43종의 React 공용 컴포넌트를 설계·구현[\s\S]*지지·저항선을 위한 알고리즘 개발 및 시각화/,
@@ -97,45 +110,79 @@ test("renders the cover letter as a standalone printable page", async () => {
   assert.match(html, /PDF로 저장/);
 });
 
-test("renders portfolio and blog indexes with migrated Notion content", async () => {
+test("renders one integrated portfolio with every resume section", async () => {
   const portfolio = await htmlFor("/portfolio/");
-  const blog = await htmlFor("/blog/");
   const project = await htmlFor("/portfolio/trading-platform/");
   const runtime = await htmlFor("/portfolio/react-runtime/");
 
-  assert.match(portfolio, /문제를 구조로 바꾼 프로젝트/);
+  assert.match(portfolio, /김희준의 통합 포트폴리오/);
+  assert.match(portfolio, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
+  assert.match(portfolio, /010 8201 6811/);
+  assert.match(portfolio, /huiugim8@gmail\.com/);
   assert.match(portfolio, /실시간 투자 정보 플랫폼/);
-  assert.match(portfolio, /미니 리액트\(버추얼 돔\) 구현/);
-  assert.match(blog, /구현보다 먼저 고민한 것들/);
-  assert.match(blog, /React 공통 프레임 · 43종 기능 패널 설계/);
-  assert.match(blog, /REST API · WebSocket 실시간 데이터 흐름/);
-  assert.match(blog, /2-Layer Canvas 차트 엔진/);
-  assert.match(blog, /TypeScript 피벗 군집 · 선형회귀 알고리즘/);
-  assert.match(project, /24시간 9,327만 건의 시장 이벤트/);
+  assert.match(portfolio, /Vanilla JS React Runtime/);
+  assert.match(portfolio, /React 공통 프레임 · 43종 기능 패널 설계/);
+  assert.match(portfolio, /REST API · WebSocket 실시간 데이터 흐름/);
+  assert.match(portfolio, /2-Layer Canvas 차트 엔진/);
+  assert.match(portfolio, /TypeScript 피벗 군집 · 선형회귀 알고리즘/);
+  assert.match(
+    portfolio,
+    /크래프톤 정글 12기 졸업[\s\S]*㈜나현[\s\S]*OTOS/,
+  );
+  assert.match(portfolio, /약 20명의 현장 인력을 관리/);
+  assert.match(portfolio, /연 매출 약 1억 원/);
+  assert.match(portfolio, /대구대학교 · 실내건축디자인학과/);
+  assert.match(
+    portfolio,
+    /github\.com\/huiugim8-wq\/gops-stock-trading-platform/,
+  );
+  assert.match(portfolio, /youtube\.com\/watch\?v=8P4wiwDrvxs/);
+  assert.match(
+    portfolio,
+    /인테리어앤데코 공모전 수상[\s\S]*DGID 공모전 수상[\s\S]*학과 공로상 수상/,
+  );
+  assert.match(portfolio, /Skills &amp; Libraries/);
+  assert.doesNotMatch(portfolio, />블로그</);
+  assert.match(project, /약 9천만 건 규모의 주식 틱 이벤트/);
   assert.match(project, /5주 프로젝트/);
-  assert.match(project, /시스템 아키텍처/);
-  assert.match(project, /TypeScript 차트 엔진/);
-  assert.match(project, /후보 생성과 검증을 분리한 분석 알고리즘/);
-  assert.match(project, /\/gops\/figma-panel\.png/);
-  assert.match(project, /\/gops\/system-architecture\.png/);
-  assert.match(project, /\/gops\/architecture\.png/);
-  assert.match(project, /\/gops\/chart-engine\.jpg/);
-  assert.match(project, /\/gops\/chart-analysis\.jpg/);
+  assert.match(project, /5인 팀 프로젝트/);
+  assert.match(project, /탐색부터 복기까지, 하나의 작업 공간으로/);
+  assert.match(project, /43[\s\S]*Panel Types/);
+  assert.match(project, /25[\s\S]*Layout Commands/);
+  assert.match(project, /2[\s\S]*Canvas Layers/);
+  assert.match(project, /48[\s\S]*Test \/ Spec Files/);
+  assert.match(project, /React 패널 아키텍처/);
+  assert.match(project, /WorkspacePanelFrame/);
+  assert.match(project, /Reconnect/);
+  assert.match(project, /Base 재렌더링 0회/);
+  assert.match(project, /분석 결과를 설명하는 화면/);
+  assert.match(project, /백엔드와 협업한 경계/);
+  assert.match(project, /\/gops\/case-panel-portfolio\.png/);
+  assert.match(project, /\/gops\/case-recommendation\.png/);
+  assert.match(project, /\/gops\/case-panel-review\.png/);
+  assert.match(project, /\/gops\/case-chart-logic\.png/);
+  assert.match(project, /\/gops\/case-chart-evidence\.png/);
   assert.match(project, /구현 상세 보기/);
+  assert.doesNotMatch(
+    project,
+    /<dd>42<\/dd><dt>Panel Types<\/dt>|9,327만/,
+  );
   assert.match(runtime, /Virtual DOM · Diff &amp; Patch/);
-  assert.match(runtime, /78개의 테스트/);
+  assert.match(runtime, /83개의 테스트/);
+  assert.match(runtime, /Current · WIP Fiber/);
+  assert.match(runtime, /Keyed Reconciliation/);
 
-  for (const html of [portfolio, blog, project, runtime]) {
+  for (const html of [portfolio, project, runtime]) {
     assert.doesNotMatch(html, /app\.notion\.com/);
   }
 });
 
-test("renders every technical article as an internal route", async () => {
+test("renders every technical deep dive under the portfolio route", async () => {
   const routes = [
-    "/blog/react-panel-registry/",
-    "/blog/rest-websocket/",
-    "/blog/two-layer-canvas/",
-    "/blog/chart-analysis/",
+    "/portfolio/trading-platform/react-panel-registry/",
+    "/portfolio/trading-platform/rest-websocket/",
+    "/portfolio/trading-platform/two-layer-canvas/",
+    "/portfolio/trading-platform/chart-analysis/",
   ];
 
   const pages = await Promise.all(routes.map((route) => htmlFor(route)));
@@ -147,6 +194,11 @@ test("renders every technical article as an internal route", async () => {
   assert.match(combined, /Candidate Scoring/);
   assert.match(combined, /재현성과 설명 가능성/);
   assert.doesNotMatch(combined, /app\.notion\.com/);
+});
+
+test("removes the standalone blog index", async () => {
+  const response = await render("/blog/");
+  assert.equal(response.status, 404);
 });
 
 test("keeps PDF and responsive presentation rules", async () => {

@@ -4,8 +4,8 @@ import {
   ExternalTextLink,
   InternalBackLink,
   TagList,
-} from "../../article-components";
-import ContentShell from "../../content-shell";
+} from "../../../article-components";
+import ContentShell from "../../../content-shell";
 
 export const metadata: Metadata = {
   title: "TypeScript 피벗 군집 · 선형회귀 알고리즘 | 김희준",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ChartAnalysisPage() {
   return (
     <ContentShell
-      eyebrow="TECHNICAL NOTE 04"
+      eyebrow="PROJECT 01 · DEEP DIVE 04"
       title="TypeScript 피벗 군집 · 선형회귀 알고리즘"
       description="피벗 군집과 선형회귀로 후보선을 만들고, 접촉·가격 반응·오차·돌파를 평가해 지지·저항선을 선별했습니다."
       actions={
@@ -26,7 +26,9 @@ export default function ChartAnalysisPage() {
       }
     >
       <article className="technical-article">
-        <InternalBackLink href="/blog">기술 글 목록으로 돌아가기</InternalBackLink>
+        <InternalBackLink href="/portfolio/trading-platform">
+          실시간 투자 정보 플랫폼으로 돌아가기
+        </InternalBackLink>
 
         <ArticleSection number="01" title="문제 정의">
           <p>

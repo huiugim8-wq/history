@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArticleSection,
@@ -11,34 +12,109 @@ import ContentShell from "../../content-shell";
 export const metadata: Metadata = {
   title: "실시간 투자 정보 플랫폼 | 김희준",
   description:
-    "43종 기능 패널, REST API와 WebSocket, 2-Layer Canvas, TypeScript 분석 알고리즘을 구현한 실시간 투자 정보 플랫폼 프로젝트입니다.",
+    "43종 React 패널, REST API와 WebSocket, 2-Layer Canvas, TypeScript 분석 알고리즘을 구현하고 검증한 실시간 투자 정보 플랫폼 프론트엔드 사례입니다.",
 };
+
+const projectMetrics = [
+  { value: "43", label: "Panel Types" },
+  { value: "25", label: "Layout Commands" },
+  { value: "2", label: "Canvas Layers" },
+  { value: "48", label: "Test / Spec Files" },
+] as const;
+
+const productFlow = [
+  {
+    number: "01",
+    title: "탐색",
+    description: "시장과 종목 후보를 찾고",
+  },
+  {
+    number: "02",
+    title: "분석",
+    description: "차트와 선정 근거를 확인하고",
+  },
+  {
+    number: "03",
+    title: "주문",
+    description: "호가와 주문으로 연결하고",
+  },
+  {
+    number: "04",
+    title: "복기",
+    description: "진입 전후 판단을 비교합니다.",
+  },
+] as const;
+
+const workspaces = [
+  {
+    src: "/gops/case-panel-portfolio.png",
+    title: "자산 현황",
+    description: "계좌·보유 종목·손익을 한 화면에서 확인",
+  },
+  {
+    src: "/gops/case-recommendation.png",
+    title: "시장 탐색",
+    description: "추천 기준·차트·뉴스와 시장 지수를 함께 비교",
+  },
+  {
+    src: "/gops/case-panel-review.png",
+    title: "거래 복기",
+    description: "진입 전후 차트와 판단에 사용한 정보를 다시 확인",
+  },
+] as const;
 
 const deepDives = [
   {
-    href: "/blog/react-panel-registry",
+    href: "/portfolio/trading-platform/react-panel-registry",
     title: "React 공통 프레임 · 43종 기능 패널 설계",
   },
   {
-    href: "/blog/rest-websocket",
-    title: "REST API · WebSocket 실시간 데이터 흐름",
+    href: "/portfolio/trading-platform/rest-websocket",
+    title: "REST API · WebSocket 실시간 흐름",
   },
   {
-    href: "/blog/two-layer-canvas",
+    href: "/portfolio/trading-platform/two-layer-canvas",
     title: "2-Layer Canvas 차트 엔진",
   },
   {
-    href: "/blog/chart-analysis",
+    href: "/portfolio/trading-platform/chart-analysis",
     title: "TypeScript 피벗 군집 · 선형회귀 알고리즘",
+  },
+] as const;
+
+const validationRows = [
+  {
+    risk: "잘못된 Agent 패널 명령",
+    boundary: "Runtime Validation + Registry-only resolve",
+    verification: "미등록 kind, 범위 밖 span, 미지원 명령",
+    result: "검증된 React 컴포넌트만 화면 상태에 반영",
+  },
+  {
+    risk: "과거·실시간 시계열의 중복과 누락",
+    boundary: "REST Missing Range + WebSocket Merge",
+    verification: "종목·시각 병합, 재연결·backfill 시나리오",
+    result: "과거와 최신 이벤트를 하나의 차트 상태로 유지",
+  },
+  {
+    risk: "포인터 이동마다 전체 차트 갱신",
+    boundary: "Base / Overlay Canvas 분리",
+    verification: "포인터 이벤트에서 Base draw 호출 여부",
+    result: "Base 재렌더링 0회, Overlay만 rAF로 갱신",
+  },
+  {
+    risk: "분석 후보의 불투명한 선정 기준",
+    boundary: "후보 생성 / 검증 단계 분리",
+    verification: "동일 입력의 결정성과 평가 점수",
+    result: "선택된 선과 평가 근거를 같은 화면에 표시",
   },
 ] as const;
 
 export default function TradingPlatformPage() {
   return (
     <ContentShell
-      eyebrow="PROJECT 01 · TEAM"
+      eyebrow="PROJECT 01 · FRONTEND CASE STUDY"
       title="실시간 투자 정보 플랫폼"
-      description="AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래 복기까지 하나의 흐름으로 연결하는 실시간 주식 트레이딩 플랫폼입니다."
+      description="AI가 시장 탐색과 차트 분석을 지원하고, 주문부터 거래 복기까지 하나의 흐름으로 연결하는 주식 트레이딩 플랫폼입니다."
       actions={
         <>
           <ExternalTextLink href="https://github.com/huiugim8-wq/gops-stock-trading-platform">
@@ -50,10 +126,10 @@ export default function TradingPlatformPage() {
         </>
       }
     >
-      <article className="technical-article">
+      <article className="technical-article technical-article--case-study">
         <InternalBackLink href="/portfolio">포트폴리오로 돌아가기</InternalBackLink>
 
-        <dl className="project-facts">
+        <dl className="project-facts case-project-facts">
           <div>
             <dt>기간</dt>
             <dd>5주 프로젝트</dd>
@@ -67,235 +143,413 @@ export default function TradingPlatformPage() {
             <dd>React UI · TypeScript 차트 엔진</dd>
           </div>
           <div>
-            <dt>협업</dt>
-            <dd>Frontend · Infrastructure · Backend · AI</dd>
-          </div>
-          <div>
-            <dt>데이터</dt>
-            <dd>Kafka 기반 · 24시간 9,327만 건의 시장 이벤트</dd>
-          </div>
-          <div>
-            <dt>배포</dt>
-            <dd>Docker · Kubernetes</dd>
+            <dt>환경</dt>
+            <dd>약 9천만 건 규모의 주식 틱 이벤트</dd>
           </div>
         </dl>
 
-        <ArticleSection number="01" title="프로젝트 개요">
-          <p>
-            다양한 시장 정보를 한 화면에서 조합해 조회하고, AI가 사용자 의도에
-            맞춰 분석 화면을 구성하는 투자 정보 플랫폼입니다. 프론트엔드에서는
-            많은 기능을 일관된 방식으로 확장할 수 있는 패널 구조, 과거·실시간
-            데이터가 끊김 없이 이어지는 차트, 그리고 분석 결과를 설명 가능한
-            형태로 보여주는 데 집중했습니다.
-          </p>
-          <div className="article-callout">
-            <h3>핵심 과제</h3>
-            <ul>
-              <li>
-                <strong>확장성</strong> — 43종의 기능 패널을 중복 없이 동일한
-                프레임 안에서 운영하기
-              </li>
-              <li>
-                <strong>연속성</strong> — REST API의 과거 데이터와 WebSocket의
-                최신 이벤트를 자연스럽게 연결하기
-              </li>
-              <li>
-                <strong>렌더링 성능</strong> — 포인터 이동마다 전체 차트를 다시
-                그리지 않기
-              </li>
-              <li>
-                <strong>설명 가능성</strong> — 지지·저항선이 선택된 근거를
-                결과와 함께 확인할 수 있게 만들기
-              </li>
-            </ul>
+        <section
+          className="case-study-overview"
+          aria-labelledby="case-study-overview-title"
+        >
+          <div className="case-study-overview-head">
+            <div>
+              <p className="case-kicker">PRODUCT FLOW · MY SCOPE</p>
+              <h2 id="case-study-overview-title">
+                탐색부터 복기까지, 하나의 작업 공간으로
+              </h2>
+            </div>
+            <p>
+              사용자가 종목을 찾고 판단한 뒤 거래를 다시 확인하는 흐름을
+              패널형 작업 공간으로 연결했습니다. 저는 이 흐름에서{" "}
+              <strong>React 조회 패널과 TypeScript 주식차트 엔진</strong>을
+              맡았습니다.
+            </p>
           </div>
-          <figure className="project-visual project-visual--poster">
-            <img
-              src="/gops/figma-panel.png"
-              alt="서비스 소개, 주요 기능, 기술적 도전과 시스템 구성을 정리한 GOPS 팀 프로젝트 패널"
+
+          <ol className="case-product-flow" aria-label="서비스 이용 흐름">
+            {productFlow.map((step) => (
+              <li key={step.number}>
+                <span>{step.number}</span>
+                <strong>{step.title}</strong>
+                <p>{step.description}</p>
+              </li>
+            ))}
+          </ol>
+
+          <figure className="case-hero-visual">
+            <Image
+              src="/gops/case-panel-portfolio.png"
+              alt="계좌 자산, 수익률, 보유 종목, 시장 히트맵과 최근 거래 복기를 한 화면에 배치한 투자 정보 플랫폼"
+              width={1704}
+              height={1000}
+              sizes="(max-width: 760px) calc(100vw - 40px), 1040px"
+              unoptimized
+              priority
             />
             <figcaption>
-              5주 동안 구현한 서비스 흐름과 기술적 과제를 정리한 팀 프로젝트
-              패널
+              자산 현황과 시장 정보, 거래 복기를 기능 패널로 조합한 실제 작업 화면
             </figcaption>
           </figure>
+
+          <dl className="case-metric-grid" aria-label="프론트엔드 구현 범위">
+            {projectMetrics.map((metric) => (
+              <div key={metric.label}>
+                <dd>{metric.value}</dd>
+                <dt>{metric.label}</dt>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <ArticleSection number="01" title="React 패널 아키텍처">
+          <p>
+            43종의 패널이 늘어나도 이동·크기 조절·닫기·오류 처리를 반복 구현하지
+            않도록 공통 프레임과 기능 콘텐츠의 책임을 분리했습니다. 패널 종류와
+            크기 제약은 TypeScript Registry에서 관리하고, Agent 명령은 계약을
+            통과한 경우에만 화면 상태로 변환했습니다.
+          </p>
+
+          <div className="case-architecture-grid">
+            <section className="case-structure-card" aria-labelledby="component-tree-title">
+              <p className="case-card-label">REACT COMPONENT TREE</p>
+              <h3 id="component-tree-title">공통 상호작용과 기능 로직의 분리</h3>
+              <div className="case-panel-tree" aria-label="패널 컴포넌트 구조">
+                <div className="case-tree-node case-tree-node--root">
+                  <strong>WorkspacePanelFrame</strong>
+                  <span>focus · drag · resize · close · error boundary</span>
+                </div>
+                <div className="case-tree-branch" aria-hidden="true" />
+                <div className="case-tree-children">
+                  <div className="case-tree-node">
+                    <strong>PanelHeader</strong>
+                    <span>title · action</span>
+                  </div>
+                  <div className="case-tree-node">
+                    <strong>Content Slot</strong>
+                    <span>feature panel</span>
+                  </div>
+                  <div className="case-tree-node">
+                    <strong>Panel State</strong>
+                    <span>loading · error</span>
+                  </div>
+                </div>
+              </div>
+              <p className="case-structure-note">
+                SearchPanel · ChartPanel · OrderPanel은 도메인 로직만 유지합니다.
+              </p>
+            </section>
+
+            <section
+              className="case-structure-card case-structure-card--dark"
+              aria-labelledby="contract-title"
+            >
+              <p className="case-card-label">TYPESCRIPT CONTRACTS</p>
+              <h3 id="contract-title">등록 가능한 패널과 명령의 범위</h3>
+              <div className="case-contract">
+                <div>
+                  <strong>PanelRegistryEntry</strong>
+                  <code>
+                    kind · component · min/default/maxSpan · layoutWeight ·
+                    insertable
+                  </code>
+                </div>
+                <div>
+                  <strong>AgentLayoutCommand</strong>
+                  <code>
+                    create · close · move · resize · replace · focus ·
+                    setPriority
+                  </code>
+                </div>
+              </div>
+              <p className="case-structure-note">
+                25개 명령 타입을 Runtime Validation으로 확인합니다.
+              </p>
+            </section>
+          </div>
+
+          <div className="case-command-block">
+            <p className="case-card-label">AGENT COMMAND PIPELINE</p>
+            <ol className="case-command-pipeline" aria-label="Agent 명령 처리 흐름">
+              {[
+                "Agent Output",
+                "Schema Parse",
+                "Normalize",
+                "Registry Resolve",
+                "Workspace State",
+              ].map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <p>
+              Agent가 React 컴포넌트를 직접 생성하지 않고, 검증된 명령만 상태
+              변경으로 변환하도록 경계를 두었습니다.
+            </p>
+          </div>
+
+          <dl className="case-policy-list" aria-label="잘못된 패널 명령 처리 정책">
+            <div>
+              <dt>Unknown panel kind</dt>
+              <dd>Registry에 없는 컴포넌트 생성 거부</dd>
+            </div>
+            <div>
+              <dt>Invalid span / position</dt>
+              <dd>등록된 최소·최대 범위로 보정</dd>
+            </div>
+            <div>
+              <dt>Unsupported command</dt>
+              <dd>상태를 바꾸지 않고 기록 후 무시</dd>
+            </div>
+          </dl>
+
+          <Link
+            className="case-inline-link"
+            href="/portfolio/trading-platform/react-panel-registry"
+          >
+            43종 패널과 Registry 설계 자세히 보기 <span aria-hidden="true">→</span>
+          </Link>
         </ArticleSection>
 
-        <ArticleSection number="02" title="시스템 아키텍처">
+        <ArticleSection number="02" title="하나의 구조, 세 작업 화면">
           <p>
-            프로젝트는 Docker·Kubernetes 기반의 배포 환경에서 운영했습니다.
-            인프라 구조는 인프라 담당자가 설계했으며, 프론트엔드에서는
-            Frontend Server와 Backend Server 사이의 데이터 경계, 차트 엔진으로
-            전달되는 REST·WebSocket 흐름을 구현했습니다.
+            같은 패널 구조를 사용하되, 사용자의 목적에 따라 필요한 정보와
+            우선순위가 달라지도록 작업 화면을 구성했습니다. 자산 현황에서는
+            손익을, 시장 탐색에서는 판단 재료를, 거래 복기에서는 진입 전후의
+            근거를 먼저 보여줍니다.
           </p>
-          <figure className="project-visual">
-            <img
-              src="/gops/system-architecture.png"
-              alt="AWS의 두 가용 영역에 프론트엔드, 백엔드, AI 서비스와 데이터 저장소가 배치된 GOPS 시스템 구성도"
+          <div className="case-screen-gallery">
+            {workspaces.map((workspace) => (
+              <figure key={workspace.src}>
+                <Image
+                  src={workspace.src}
+                  alt={workspace.description}
+                  width={1704}
+                  height={1000}
+                  sizes="(max-width: 760px) calc(100vw - 40px), 260px"
+                  unoptimized
+                />
+                <figcaption>
+                  <strong>{workspace.title}</strong>
+                  <span>{workspace.description}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </ArticleSection>
+
+        <ArticleSection number="03" title="실시간 주식차트">
+          <p>
+            약 9천만 건 규모의 주식 틱 이벤트를 한 번에 브라우저로 옮기는 대신,
+            현재 화면에 필요한 구간과 이후 변화만 연결했습니다. 조회 범위, 차트
+            상태, 그리기 단위를 나눠 실시간 화면의 갱신 범위를 제한했습니다.
+          </p>
+
+          <figure className="project-visual project-visual--case">
+            <Image
+              src="/gops/case-chart-logic.png"
+              alt="캔들 차트와 거래량, 지지 저항선, 추세선, 패턴 근거 탭이 함께 표시된 TypeScript 주식차트"
+              width={1704}
+              height={1000}
+              sizes="(max-width: 760px) calc(100vw - 40px), 812px"
+              unoptimized
             />
             <figcaption>
-              팀 공통 시스템 구성도 — 본인 담당 범위는 React UI와 차트 엔진,
-              프론트엔드 데이터 연결 지점입니다.
+              캔들·거래량·분석선과 근거 패널을 연결한 TypeScript 주식차트
             </figcaption>
           </figure>
-          <div className="article-subsection">
-            <h3>Kafka 이벤트를 기능별로 나눠 처리</h3>
-            <p>
-              팀은 시장 이벤트를 Kafka에 기록하고 거래 분석·지표 계산·AI 참조가
-              각각 독립된 Consumer로 처리되도록 구성했습니다. 프론트엔드에서는
-              이 흐름이 제공하는 조회 API와 실시간 이벤트를 화면 상태에
-              연결했습니다. 한 기능의 지연이 전체 흐름을 막지 않으며, 실패한
-              작업은 Offset을 기준으로 다시 처리할 수 있습니다.
-            </p>
-            <figure className="project-visual">
-              <img
-                src="/gops/architecture.png"
-                alt="틱, 1분봉, 5분봉, 10분봉 시장 이벤트를 Kafka와 독립 Consumer로 처리하는 구조"
-              />
-              <figcaption>
-                대용량 시장 이벤트의 독립 처리와 재처리 구조
-              </figcaption>
-            </figure>
-          </div>
-        </ArticleSection>
 
-        <ArticleSection number="03" title="React 패널 구조">
-          <div className="article-subsection">
-            <h3>공통 프레임과 기능 패널의 역할 분리</h3>
-            <p>
-              43종의 패널이 제목, 크기 제약, 배치, 공통 액션을 같은 프레임에서
-              재사용하도록 구성했습니다. 컴포넌트·최소 크기·기본 배치·우선순위를
-              TypeScript Registry 한곳에서 관리하고, Layout Agent 명령은 Runtime
-              Validation을 거친 뒤 등록된 패널로만 변환되도록 제한했습니다.
-            </p>
-            <div className="architecture-steps" aria-label="패널 생성 흐름">
-              <span>Layout Agent 또는 사용자 명령</span>
-              <span>Runtime Validation</span>
-              <span>Panel Registry</span>
-              <span>Common Frame + Feature Panel</span>
+          <div className="case-data-flow" aria-label="실시간 차트 데이터 흐름">
+            <div>
+              <span>01 · REST</span>
+              <strong>Visible Range</strong>
+              <p>초기·과거·누락 구간 중 화면에 필요한 범위만 조회</p>
+            </div>
+            <div>
+              <span>02 · STORE</span>
+              <strong>Candle Store</strong>
+              <p>종목과 시각을 기준으로 과거 데이터와 최신 이벤트를 병합</p>
+            </div>
+            <div>
+              <span>03 · WEBSOCKET</span>
+              <strong>Live Update</strong>
+              <p>초기 조회 이후의 변동만 기존 차트 상태에 반영</p>
             </div>
           </div>
+
+          <p className="case-reconnect-note">
+            <strong>Reconnect</strong>
+            마지막 수신 시각 이후의 누락 구간만 REST로 보완한 뒤 WebSocket
+            이벤트를 다시 이어 붙입니다.
+          </p>
+
+          <div className="case-canvas-grid" aria-label="2-Layer Canvas 렌더링 경계">
+            <section>
+              <span>BASE CANVAS</span>
+              <h3>데이터가 바뀔 때만</h3>
+              <p>캔들 · 거래량 · 축 · 분석선</p>
+            </section>
+            <section>
+              <span>OVERLAY CANVAS</span>
+              <h3>포인터가 움직일 때</h3>
+              <p>크로스헤어 · 툴팁 · 선택 상태 · requestAnimationFrame</p>
+            </section>
+          </div>
+
+          <div className="case-inline-links" aria-label="실시간 차트 상세 글">
+            <Link
+              className="case-inline-link"
+              href="/portfolio/trading-platform/rest-websocket"
+            >
+              REST·WebSocket 연결 자세히 보기 <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              className="case-inline-link"
+              href="/portfolio/trading-platform/two-layer-canvas"
+            >
+              2-Layer Canvas 자세히 보기 <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </ArticleSection>
 
-        <ArticleSection number="04" title="TypeScript 차트 엔진">
-          <div className="article-subsection">
-            <h3>과거 조회와 실시간 반영의 역할 분리</h3>
-            <p>
-              REST API로 현재 화면에 필요한 과거 구간을 조회하고, 이미 보유한
-              범위를 기준으로 누락 구간만 추가 요청했습니다. 초기 데이터 이후의
-              시장 이벤트는 WebSocket으로 반영하고, 정규화된 시계열을 차트 엔진에
-              전달해 증분 렌더링했습니다.
-            </p>
-          </div>
-          <div className="article-subsection">
-            <h3>정적 차트와 포인터 UI를 두 Canvas로 분리</h3>
-            <p>
-              캔들·거래량·축·분석선과 크로스헤어·툴팁의 변경 빈도가 다르다는 점을
-              기준으로 Base Canvas와 Overlay Canvas를 분리했습니다. 포인터가
-              움직일 때는 오버레이만 다시 그리고, requestAnimationFrame으로 화면
-              갱신을 브라우저 페인팅 주기에 맞췄습니다.
-            </p>
-            <div className="chart-engine-flow" aria-label="차트 데이터와 렌더링 흐름">
-              <div>
-                <strong>REST</strong>
-                <span>화면에 없는 과거 구간만 조회</span>
-              </div>
-              <div>
-                <strong>WebSocket</strong>
-                <span>최신 시장 이벤트만 반영</span>
-              </div>
-              <div>
-                <strong>Base Canvas</strong>
-                <span>캔들·거래량·축·분석선</span>
-              </div>
-              <div>
-                <strong>Overlay Canvas</strong>
-                <span>크로스헤어·툴팁만 갱신</span>
-              </div>
+        <ArticleSection number="04" title="분석 결과를 설명하는 화면">
+          <p>
+            지지·저항선을 그리는 데서 끝내지 않고, 어떤 후보가 어떤 기준을
+            통과했는지 같은 화면에서 확인할 수 있게 했습니다. 알고리즘의 결과를
+            사용자가 다시 판단할 수 있는 정보로 바꾸는 부분을 프론트엔드의
+            책임으로 두었습니다.
+          </p>
+
+          <ol className="case-analysis-pipeline" aria-label="차트 분석 알고리즘 흐름">
+            <li>
+              <span>01</span>
+              <strong>Candle Data</strong>
+              <p>가격 · 거래량</p>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>Pivot</strong>
+              <p>반전 지점 추출</p>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>Candidate</strong>
+              <p>군집 · 선형회귀</p>
+            </li>
+            <li>
+              <span>04</span>
+              <strong>Validation</strong>
+              <p>접촉 · 반응 · 오차 · 돌파</p>
+            </li>
+          </ol>
+
+          <figure className="project-visual project-visual--case">
+            <Image
+              src="/gops/case-chart-evidence.png"
+              alt="지지 저항 후보선과 접촉 횟수, 가격 반응, 허용 오차, 돌파 여부 등 선정 근거가 함께 표시된 차트"
+              width={1704}
+              height={1000}
+              sizes="(max-width: 760px) calc(100vw - 40px), 812px"
+              unoptimized
+            />
+            <figcaption>
+              선택된 지지·저항선과 평가 근거를 같은 차트 레이어에서 확인
+            </figcaption>
+          </figure>
+
+          <div className="case-analysis-evidence">
+            <div>
+              <p className="case-card-label">WHY THIS LINE</p>
+              <h3>결과와 선정 이유를 함께 표시</h3>
             </div>
-            <figure className="project-visual project-visual--wide">
-              <img
-                src="/gops/chart-engine.jpg"
-                alt="캔들 차트, 지지 저항선, 분석 근거, 호가와 주문 화면이 연결된 GOPS 차트 엔진"
-              />
-              <figcaption>
-                차트·분석 근거·호가·주문을 하나의 작업 화면에 연결한 실제 UI
-              </figcaption>
-            </figure>
-          </div>
-        </ArticleSection>
-
-        <ArticleSection number="05" title="차트 분석">
-          <div className="article-subsection">
-            <h3>후보 생성과 검증을 분리한 분석 알고리즘</h3>
-            <p>
-              피벗 추출, 군집화, 선형회귀, 후보 평가를 단계별로 분리했습니다.
-              후보선은 접촉·가격 반응·오차·돌파를 기준으로 평가하고, 기준을
-              통과한 선과 선정 근거를 별도 차트 레이어에 표시했습니다.
-            </p>
             <ul>
-              <li>
-                <strong>후보 생성</strong> — 피벗 군집과 선형회귀로 지지·저항
-                후보선을 생성
-              </li>
-              <li>
-                <strong>후보 검증</strong> — 접촉·가격 반응·오차·돌파 점수로
-                유효한 선만 선택
-              </li>
-              <li>
-                <strong>결과 재현</strong> — 같은 데이터와 조건에서는 같은
-                후보가 선택되도록 단계와 정렬 기준을 고정
-              </li>
-              <li>
-                <strong>선정 이유 표시</strong> — 선택된 선과 검증 근거를 별도
-                차트 레이어에서 함께 확인
-              </li>
+              <li>Contact count</li>
+              <li>Price reaction</li>
+              <li>Allowed error</li>
+              <li>Breakout status</li>
             </ul>
-            <figure className="project-visual project-visual--wide">
-              <img
-                src="/gops/chart-analysis.jpg"
-                alt="여러 종목의 지지 저항 후보선과 거래 복기 근거가 표시된 GOPS 차트 분석 결과"
-              />
-              <figcaption>
-                여러 종목에 적용된 지지·저항 후보선과 거래 복기 근거
-              </figcaption>
-            </figure>
+            <p>
+              후보 생성과 검증을 분리해 같은 입력과 조건에서는 같은 결과를
+              재현하고, 통과한 선만 근거와 함께 표시했습니다.
+            </p>
           </div>
         </ArticleSection>
 
-        <ArticleSection number="06" title="기술적 의사결정">
-          <div className="table-scroll">
-            <table className="article-table">
+        <ArticleSection number="05" title="검증으로 확인한 경계">
+          <p>
+            구현 수치만 나열하지 않고, 오류가 발생할 수 있는 지점마다 경계를
+            두고 명령·재연결·렌더링·알고리즘 결과를 검증했습니다.
+          </p>
+
+          <div className="table-scroll case-validation-scroll">
+            <table className="article-table case-validation-table">
               <thead>
                 <tr>
-                  <th>문제</th>
-                  <th>선택</th>
-                  <th>이유</th>
+                  <th>위험</th>
+                  <th>경계와 선택</th>
+                  <th>검증</th>
+                  <th>결과</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>패널 수 증가에 따른 중복</td>
-                  <td>Common Frame + Panel Registry</td>
-                  <td>공통 정책을 한곳에서 유지하고 기능 추가 범위를 제한</td>
-                </tr>
-                <tr>
-                  <td>과거·실시간 데이터의 경계</td>
-                  <td>REST + WebSocket 역할 분리</td>
-                  <td>누락 구간만 조회하고 최신 이벤트는 증분 반영</td>
-                </tr>
-                <tr>
-                  <td>포인터 이동 시 전체 재렌더링</td>
-                  <td>2-Layer Canvas</td>
-                  <td>정적 차트와 고빈도 UI의 갱신 주기를 분리</td>
-                </tr>
-                <tr>
-                  <td>분석 결과의 신뢰성</td>
-                  <td>후보 생성 / 검증 단계 분리</td>
-                  <td>같은 입력에서 재현 가능한 결과와 선정 근거 제공</td>
-                </tr>
+                {validationRows.map((row) => (
+                  <tr key={row.risk}>
+                    <td>{row.risk}</td>
+                    <td>{row.boundary}</td>
+                    <td>{row.verification}</td>
+                    <td>{row.result}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
+          </div>
+
+          <div className="case-evidence-grid">
+            <section>
+              <span>CONTRACT</span>
+              <h3>상태에 들어오기 전 검증</h3>
+              <p>Panel Registry와 명령 Schema로 허용 범위를 고정했습니다.</p>
+            </section>
+            <section>
+              <span>RENDERING</span>
+              <h3>그리기 경계 확인</h3>
+              <p>Base와 Overlay의 draw 호출을 나눠 포인터 갱신을 확인했습니다.</p>
+            </section>
+            <section>
+              <span>TEST SURFACE</span>
+              <h3>48개 Test / Spec 파일</h3>
+              <p>계약, 재연결, 결정성, 렌더링 경계의 실패 조건을 확인했습니다.</p>
+            </section>
+          </div>
+
+          <p className="case-limit-note">
+            <strong>다음 검증</strong>
+            Core Web Vitals와 고빈도 렌더링 처리량은 배포 환경에서 별도로
+            측정해야 할 범위로 남겼습니다.
+          </p>
+        </ArticleSection>
+
+        <ArticleSection number="06" title="백엔드와 협업한 경계">
+          <p>
+            프론트엔드와 백엔드의 책임을 섞지 않고, 과거 조회 범위와 실시간
+            이벤트 형식, 재연결 시 복구 기준을 함께 맞췄습니다. 이를 통해 화면
+            요구만 전달하는 것이 아니라 각 영역의 구조를 이해하며 협업했습니다.
+          </p>
+          <div className="case-responsibility-grid">
+            <section>
+              <span>BACKEND CONTRACT</span>
+              <h3>제공 범위</h3>
+              <p>과거 구간 REST 응답 · 최신 WebSocket 이벤트 · 재연결 기준</p>
+            </section>
+            <section>
+              <span>FRONTEND STATE</span>
+              <h3>연결 범위</h3>
+              <p>Missing Range 조회 · 종목/시각 병합 · 오류와 연결 상태</p>
+            </section>
+            <section>
+              <span>RENDERING</span>
+              <h3>사용자에게 보이는 범위</h3>
+              <p>조회 범위 · 실시간 변화 · 분석 결과와 선정 근거</p>
+            </section>
           </div>
         </ArticleSection>
 
@@ -308,40 +562,18 @@ export default function TradingPlatformPage() {
               </Link>
             ))}
           </div>
-        </ArticleSection>
-
-        <ArticleSection number="08" title="프로젝트에서 배운 점">
-          <ul>
-            <li>
-              기능이 많아질수록 컴포넌트 자체보다 변경 이유와 책임의 경계를 먼저
-              설계해야 한다는 점을 배웠습니다.
-            </li>
-            <li>
-              실시간 데이터는 연결 여부만이 아니라 초기 스냅샷과 최신 이벤트가
-              만나는 데이터 경계가 중요했습니다.
-            </li>
-            <li>
-              Canvas 성능 최적화는 무조건 덜 그리는 것보다 변경 빈도에 따라
-              렌더링 레이어를 나누는 것에서 시작했습니다.
-            </li>
-            <li>
-              알고리즘 결과와 함께 선정 근거까지 보여줄 때 사용자가 결과를
-              검증할 수 있었습니다.
-            </li>
-          </ul>
           <TagList
             tags={[
               "React",
               "TypeScript",
+              "Panel Registry",
+              "Runtime Validation",
               "REST API",
               "WebSocket",
               "Canvas 2D",
-              "Component Composition",
-              "Runtime Validation",
+              "requestAnimationFrame",
               "Clustering",
               "Linear Regression",
-              "Docker",
-              "Kubernetes",
             ]}
           />
         </ArticleSection>

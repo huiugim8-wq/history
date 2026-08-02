@@ -4,8 +4,8 @@ import {
   ExternalTextLink,
   InternalBackLink,
   TagList,
-} from "../../article-components";
-import ContentShell from "../../content-shell";
+} from "../../../article-components";
+import ContentShell from "../../../content-shell";
 
 export const metadata: Metadata = {
   title: "2-Layer Canvas 차트 엔진 | 김희준",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function TwoLayerCanvasPage() {
   return (
     <ContentShell
-      eyebrow="TECHNICAL NOTE 03"
+      eyebrow="PROJECT 01 · DEEP DIVE 03"
       title="2-Layer Canvas 차트 엔진"
       description="정적 차트와 고빈도 포인터 UI를 두 개의 Canvas로 분리해 필요한 레이어만 다시 그리도록 설계했습니다."
       actions={
@@ -26,7 +26,9 @@ export default function TwoLayerCanvasPage() {
       }
     >
       <article className="technical-article">
-        <InternalBackLink href="/blog">기술 글 목록으로 돌아가기</InternalBackLink>
+        <InternalBackLink href="/portfolio/trading-platform">
+          실시간 투자 정보 플랫폼으로 돌아가기
+        </InternalBackLink>
 
         <ArticleSection number="01" title="문제 정의">
           <p>

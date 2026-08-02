@@ -87,9 +87,6 @@ export default function Home() {
             <Link className="site-nav-link" href="/portfolio">
               포트폴리오
             </Link>
-            <Link className="site-nav-link" href="/blog">
-              블로그
-            </Link>
             <a
               className="site-nav-link"
               href="https://github.com/huiugim8-wq"
@@ -249,7 +246,7 @@ export default function Home() {
                       <h5>
                         <Link
                           className="project-inline-link"
-                          href="/blog/two-layer-canvas"
+                          href="/portfolio/trading-platform/two-layer-canvas"
                         >
                           대량의 실시간 데이터를 위한 커스텀 주식 차트 구현{" "}
                           <ExternalArrow />
@@ -288,7 +285,7 @@ export default function Home() {
                       <h5>
                         <Link
                           className="project-inline-link"
-                          href="/blog/react-panel-registry"
+                          href="/portfolio/trading-platform/react-panel-registry"
                         >
                           팀원이 사용할 수 있도록 43종의 React 공용 컴포넌트를
                           설계·구현{" "}
@@ -314,7 +311,7 @@ export default function Home() {
                       <h5>
                         <Link
                           className="project-inline-link"
-                          href="/blog/chart-analysis"
+                          href="/portfolio/trading-platform/chart-analysis"
                         >
                           지지·저항선을 위한 알고리즘 개발 및 시각화{" "}
                           <ExternalArrow />
@@ -338,6 +335,115 @@ export default function Home() {
                         ]}
                       />
                     </div>
+                  </section>
+
+                  <section
+                    className="supporting-project"
+                    aria-labelledby="mini-react-title"
+                  >
+                    <div className="project-header">
+                      <div className="project-title">
+                        <span>PROJECT 2</span>
+                        <h4 id="mini-react-title">
+                          미니 리액트(버추얼 돔) 구현
+                        </h4>
+                      </div>
+                      <nav
+                        className="project-links"
+                        aria-label="미니 리액트(버추얼 돔) 구현 관련 링크"
+                      >
+                        <a
+                          className="side-link"
+                          href="https://github.com/huiugim8-wq/react-virtual-dom"
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="미니 리액트(버추얼 돔) 구현 GitHub 저장소 열기"
+                        >
+                          Github <ExternalArrow />
+                        </a>
+                        <Link
+                          className="side-link"
+                          href="/portfolio/react-runtime"
+                          aria-label="미니 리액트(버추얼 돔) 구현 상세 페이지 열기"
+                        >
+                          프로젝트 상세 <ExternalArrow />
+                        </Link>
+                      </nav>
+                    </div>
+                    <div className="project-introduction">
+                      <p>
+                        함수형 컴포넌트·Hooks·Virtual DOM·Diff/Patch를
+                        프레임워크 없이 구현하고, Fiber Reconciler로 확장한
+                        React 실행 환경입니다.
+                      </p>
+                    </div>
+                    <div
+                      className="project-highlights"
+                      aria-label="미니 리액트(버추얼 돔) 구현 핵심 구현"
+                    >
+                      <section className="project-highlight">
+                        <span aria-hidden="true">•</span>
+                        <div>
+                          <h5>Diff &amp; Patch · 변경된 DOM만 갱신</h5>
+                          <div className="project-achievements">
+                            <p>
+                              이전·다음 VDOM을 비교하고 속성·텍스트·자식 노드의
+                              변경만 실제 DOM에 반영했습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                      <section className="project-highlight">
+                        <span aria-hidden="true">•</span>
+                        <div>
+                          <h5>Keyed Reconciliation · 목록 상태 유지</h5>
+                          <div className="project-achievements">
+                            <p>
+                              key 기반 동일성과 이동 Patch로 1,025개 카드의
+                              정렬·필터·가상 스크롤에서도 상태가 섞이지 않게
+                              했습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                      <section className="project-highlight">
+                        <span aria-hidden="true">•</span>
+                        <div>
+                          <h5>Hooks &amp; Batching · 상태 보존과 업데이트 병합</h5>
+                          <div className="project-achievements">
+                            <p>
+                              useState·useEffect·useMemo의 값과 생명주기를
+                              유지하고, 연속 상태 변경을 microtask 단위로
+                              묶었습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                      <section className="project-highlight">
+                        <span aria-hidden="true">•</span>
+                        <div>
+                          <h5>Fiber Reconciler · 중단 가능한 렌더링 구조</h5>
+                          <div className="project-achievements">
+                            <p>
+                              작업 단위와 Render·Commit 단계를 분리하고,
+                              스케줄링·회귀 검증을 포함한 83개 테스트를
+                              통과했습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <SelectableTags
+                      ariaLabel="미니 리액트(버추얼 돔) 구현 키워드"
+                      labels={[
+                        "JavaScript",
+                        "Virtual DOM",
+                        "Diff & Patch",
+                        "Fiber",
+                        "Hooks",
+                        "Microtask Batching",
+                      ]}
+                    />
                   </section>
 
                 </div>
