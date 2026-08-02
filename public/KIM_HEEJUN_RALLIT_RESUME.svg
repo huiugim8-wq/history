@@ -132,7 +132,7 @@
       <text x="311" y="679" class="project-title" >실시간 투자 정보 플랫폼</text>
       <line x1="311" y1="689" x2="521" y2="689" class="accent-rule"/>
       <a href="https://github.com/huiugim8-wq/gops-stock-trading-platform" target="_blank"><text x="900" y="677" class="link" >Github  ↗</text></a>
-      <a href="https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link" target="_blank"><text x="974" y="677" class="link" >Notion  ↗</text></a>
+      <a href="https://huiugim8-wq.github.io/history/portfolio/trading-platform/" target="_blank"><text x="974" y="677" class="link" >프로젝트 상세  ↗</text></a>
       <a href="https://www.youtube.com/watch?v=8P4wiwDrvxs" target="_blank"><text x="1053" y="677" class="link" >YouTube  ↗</text></a>
 
       <text x="311" y="744" class="lead" >사용자가 시장을 탐색하고, 차트를 분석하고, 주문한 뒤 거래를 복기하는 과정을 하나의 작업 화면에서 수행할 수 있도록 만든</text>
@@ -145,7 +145,7 @@
       <g id="highlight-react-panels">
         <line x1="311" y1="939" x2="1115" y2="939" class="rule"/>
         <text x="311" y="976" class="number" >01</text>
-        <a href="https://app.notion.com/p/React-3af0463ff9f080a3a00ce7a70d0bb221" target="_blank"><text x="387" y="976" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-copy">공통 프레임과 기능 패널을 분리한 </tspan><tspan class="highlight-link-accent">React 컴포넌트</tspan><tspan class="highlight-link-copy"> 설계  ↗</tspan></text></a>
+        <a href="https://huiugim8-wq.github.io/history/blog/react-panel-registry/" target="_blank"><text x="387" y="976" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-copy">공통 프레임과 기능 패널을 분리한 </tspan><tspan class="highlight-link-accent">React 컴포넌트</tspan><tspan class="highlight-link-copy"> 설계  ↗</tspan></text></a>
         <text x="387" y="1018" class="body" >사용자가 시장 탐색·차트 분석·주문·거래 복기에 필요한 패널을 선택·이동·크기 조절해 작업 화면을 구성할 수 있도록,</text>
 <text x="387" y="1045" class="body" >43종의 패널이 공통 프레임을 재사용하게 설계했습니다.</text>
 <text x="387" y="1072" class="body" >컴포넌트·최소 크기·기본 배치·우선순위를 TypeScript Registry 한곳에서 관리하고, Layout Agent 명령을 검증한 뒤</text>
@@ -180,9 +180,9 @@
       <g id="highlight-chart-engine">
         <line x1="311" y1="1178" x2="1115" y2="1178" class="rule"/>
         <text x="311" y="1215" class="number" >02</text>
-        <a href="https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link" target="_blank"><text x="387" y="1215" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-accent">REST API·WebSocket  ↗</tspan></text></a>
+        <a href="https://huiugim8-wq.github.io/history/blog/rest-websocket/" target="_blank"><text x="387" y="1215" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-accent">REST API·WebSocket  ↗</tspan></text></a>
         <text x="574" y="1215" class="highlight-title" >과</text>
-        <a href="https://app.notion.com/p/3aa0463ff9f08065b16bd4cbbc87d321?source=copy_link" target="_blank"><text x="595" y="1215" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-accent">2-Layer Canvas를 적용한 주식차트  ↗</tspan></text></a>
+        <a href="https://huiugim8-wq.github.io/history/blog/two-layer-canvas/" target="_blank"><text x="595" y="1215" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-accent">2-Layer Canvas를 적용한 주식차트  ↗</tspan></text></a>
         <text x="387" y="1257" class="body" >기존 데이터 범위 밖의 누락 구간만 REST로 조회하고 이후 시장 이벤트는 WebSocket으로 반영해,</text>
 <text x="387" y="1284" class="body" >전체 구간을 다시 요청하지 않고 실시간 차트를 유지했습니다.</text>
 <text x="387" y="1311" class="body" >정적 차트와 포인터·가이드 UI를 2개의 Canvas로 분리해, 포인터 이동 시</text>
@@ -217,7 +217,7 @@
       <g id="highlight-analysis-algorithm">
         <line x1="311" y1="1417" x2="1115" y2="1417" class="rule"/>
         <text x="311" y="1454" class="number" >03</text>
-        <a href="https://app.notion.com/p/TypeScript-3af0463ff9f0808486bae010a67275f7" target="_blank"><text x="387" y="1454" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-copy">피벗 군집·선형회귀로 지지·저항선을 생성한 </tspan><tspan class="highlight-link-accent">TypeScript 알고리즘</tspan><tspan class="highlight-link-copy">  ↗</tspan></text></a>
+        <a href="https://huiugim8-wq.github.io/history/blog/chart-analysis/" target="_blank"><text x="387" y="1454" class="highlight-title highlight-link" xml:space="preserve"><tspan class="highlight-link-copy">피벗 군집·선형회귀로 지지·저항선을 생성한 </tspan><tspan class="highlight-link-accent">TypeScript 알고리즘</tspan><tspan class="highlight-link-copy">  ↗</tspan></text></a>
         <text x="387" y="1496" class="body" >피벗 군집과 선형회귀로 후보선을 생성하고 접촉·가격 반응·오차·돌파를 평가해,</text>
 <text x="387" y="1523" class="body" >기준을 통과한 후보만 차트에 표시했습니다.</text>
 <text x="387" y="1550" class="body" >후보 생성과 검증을 분리해 동일한 데이터와 조건에서 같은 분석 결과를 재현하고, 선택된 선과 평가 근거를</text>

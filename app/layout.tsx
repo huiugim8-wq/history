@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://huiugim8-wq.github.io/history";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://huiugim8-wq.github.io"),
+  metadataBase: new URL(siteUrl),
   title: "김희준 | Front-End Engineer",
   description:
     "서비스의 의도와 데이터의 상태 변화를 사용자 경험으로 연결하는 프론트엔드 개발자 김희준의 이력서입니다.",
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
       "크래프톤 정글 12기 졸업 · 사용자 경험을 기술 구조로 구현하는 프론트엔드 개발자 김희준",
     type: "website",
     locale: "ko_KR",
-    url: "/",
+    url: siteUrl,
     images: [
       {
         url: "/og.png",
