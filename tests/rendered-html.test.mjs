@@ -100,7 +100,7 @@ test("renders the cover letter as a standalone printable page", async () => {
   assert.match(html, /class="content-site cover-letter-site"/);
   assert.match(
     html,
-    /Publishing Platform Div\. Junior Front-end Engineer[\s\S]*사용자 중심의 관점으로 문제를 정의하고[\s\S]*id="cover-letter-user"/,
+    /사용자 경험과 기술 구조를 함께 고민하는 프론트엔드[\s\S]*개발자 김희준입니다[\s\S]*사용자 중심의 관점으로 문제를 정의하고[\s\S]*id="cover-letter-user"/,
   );
   assert.match(
     html,
@@ -125,7 +125,11 @@ test("renders the cover letter as a standalone printable page", async () => {
   );
   assert.match(
     html,
-    /6개월이 끝났을 때 단순히 많은 것을 배운 인턴이 아니라[\s\S]*해결책까지 남긴/,
+    /문제가 생겼을 때 포기하지 않고 원인을 끝까지 찾아[\s\S]*다시 활용할 수 있는 해결책을[\s\S]*프론트엔드 개발자가 되겠습니다/,
+  );
+  assert.doesNotMatch(
+    html,
+    /Publishing Platform Div|Junior Front-end Engineer 포지션|6개월이 끝났을 때|인턴이 아니라/,
   );
   assert.match(html, /PDF로 저장/);
 });
