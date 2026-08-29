@@ -283,6 +283,10 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   );
   assert.match(
     css,
+    /\.cover-letter-copy p\s*\{[^}]*text-align:\s*justify[^}]*text-align-last:\s*left[^}]*text-justify:\s*inter-character[^}]*word-break:\s*keep-all/s,
+  );
+  assert.match(
+    css,
     /\.portfolio-profile-photo\s*\{[^}]*aspect-ratio:\s*3\s*\/\s*4/s,
   );
   assert.match(
