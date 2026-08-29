@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "김희준 | Front-End Engineer",
     description:
-      "크래프톤 정글 12기 졸업 · 사용자 경험을 기술 구조로 구현하는 프론트엔드 개발자 김희준",
+      "사용자 중심의 관점과 TypeScript 기반 구현 경험을 갖춘 프론트엔드 개발자 김희준",
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "김희준 | Front-End Engineer",
     description:
-      "크래프톤 정글 12기 졸업 · 사용자 경험을 기술 구조로 구현하는 프론트엔드 개발자 김희준",
+      "사용자 중심의 관점과 TypeScript 기반 구현 경험을 갖춘 프론트엔드 개발자 김희준",
     images: [ogImageUrl],
   },
 };

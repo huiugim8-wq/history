@@ -18,8 +18,8 @@ export default function CoverLetterPage() {
       <article className="cover-letter-page">
         <div className="cover-letter-intro cover-letter-copy">
           <p>
-            안녕하십니까. Publishing Platform Div. Junior Front-end Engineer
-            포지션에 지원한 김희준입니다.
+            안녕하십니까. 사용자 경험과 기술 구조를 함께 고민하는 프론트엔드
+            개발자 김희준입니다.
           </p>
 
           <p className="cover-letter-key-message">
@@ -150,7 +150,10 @@ export default function CoverLetterPage() {
           </div>
         </section>
 
-        <section className="cover-letter-section" aria-label="지원 동기와 포부">
+        <section
+          className="cover-letter-section"
+          aria-label="프론트엔드 개발자로서의 방향"
+        >
           <div className="cover-letter-copy">
             <p>
               특히 ‘나만의 무기’ 프로젝트를 진행하며 프론트엔드를 진로로
@@ -172,16 +175,17 @@ export default function CoverLetterPage() {
             </p>
 
             <p>
-              합류 후에는 요구사항을 곧바로 화면에 옮기기보다 사용자의 목적과
-              데이터 상태를 먼저 정리하겠습니다. 문제가 발생하면 원인을 재현하고,
-              해결 과정은 코드와 문서에 남기겠습니다.
+              업무에서는 요구사항을 곧바로 화면에 옮기기보다 서비스가 해결하려는
+              문제와 사용자의 목적, 데이터 상태를 먼저 정리하겠습니다. 문제가
+              발생하면 재현 조건과 원인을 확인하고, 해결 과정은 코드와 문서에
+              남겨 같은 문제가 반복되지 않도록 하겠습니다.
             </p>
 
             <p className="cover-letter-closing">
               <strong>
-                6개월이 끝났을 때 단순히 많은 것을 배운 인턴이 아니라, 문제가
-                생겼을 때 포기하지 않고 원인을 찾아 해결책까지 남긴 개발자로
-                기억되겠습니다.
+                문제가 생겼을 때 포기하지 않고 원인을 끝까지 찾아, 사용자에게는
+                더 나은 경험을 제공하고 팀에는 다시 활용할 수 있는 해결책을
+                남기는 프론트엔드 개발자가 되겠습니다.
               </strong>
             </p>
 
