@@ -201,7 +201,11 @@ code {
   font-weight: 450;
   line-height: 1.82;
   letter-spacing: -0.018em;
-  text-wrap: pretty;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-character;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .cover-letter-intro > p:first-child {
