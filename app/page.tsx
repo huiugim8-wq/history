@@ -88,6 +88,9 @@ export default function Home() {
             <Link className="site-nav-link" href="/portfolio">
               포트폴리오
             </Link>
+            <Link className="site-nav-link" href="/documents">
+              PDF
+            </Link>
             <a
               className="site-nav-link"
               href="https://github.com/huiugim8-wq"

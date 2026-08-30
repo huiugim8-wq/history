@@ -2,6 +2,7 @@ export const siteNavigation = [
   { href: "/", label: "이력서" },
   { href: "/cover-letter", label: "자기소개서" },
   { href: "/portfolio", label: "포트폴리오" },
+  { href: "/documents", label: "PDF" },
 ] as const;
 
 export const portfolioProjects = [

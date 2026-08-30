@@ -49,6 +49,7 @@ test("renders the resume with page navigation and internal detail links", async 
   assert.match(html, /href="\/"[^>]*>이력서<\/a>/);
   assert.match(html, /href="\/cover-letter"[^>]*>자기소개서<\/a>/);
   assert.match(html, /href="\/portfolio"[^>]*>포트폴리오<\/a>/);
+  assert.match(html, /href="\/documents"[^>]*>PDF<\/a>/);
   assert.doesNotMatch(html, /href="\/blog"[^>]*>블로그<\/a>/);
   assert.match(html, /href="\/portfolio\/trading-platform"/);
   assert.match(html, /href="\/portfolio\/react-runtime"/);
@@ -131,7 +132,23 @@ test("renders the cover letter as a standalone printable page", async () => {
     html,
     /Publishing Platform Div|Junior Front-end Engineer 포지션|6개월이 끝났을 때|인턴이 아니라/,
   );
-  assert.match(html, /PDF로 저장/);
+  assert.match(
+    html,
+    /href="\/documents\/kim-heejun-cover-letter\.pdf"[^>]*download="김희준_자기소개서\.pdf"[^>]*>[^<]*PDF 다운로드/,
+  );
+});
+
+test("renders three A4 PDF downloads", async () => {
+  const html = await htmlFor("/documents/");
+
+  assert.match(html, /<title>지원 문서 PDF \| 김희준<\/title>/);
+  assert.match(html, /세 문서 모두 A4 세로 비율과 2페이지 구성을 유지했습니다/);
+  assert.match(html, /kim-heejun-resume\.pdf/);
+  assert.match(html, /kim-heejun-cover-letter\.pdf/);
+  assert.match(html, /kim-heejun-portfolio\.pdf/);
+  assert.match(html, /download="김희준_이력서\.pdf"/);
+  assert.match(html, /download="김희준_자기소개서\.pdf"/);
+  assert.match(html, /download="김희준_포트폴리오\.pdf"/);
 });
 
 test("renders a focused portfolio without work-history or card grids", async () => {
