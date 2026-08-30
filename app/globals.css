@@ -1516,6 +1516,107 @@ footer p {
   gap: 10px;
 }
 
+.document-library {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: 0 0 40px;
+}
+
+.document-item {
+  min-width: 0;
+}
+
+.document-paper {
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgb(31 35 40 / 8%);
+  transition:
+    border-color 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.document-paper:hover,
+.document-paper:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 22px 48px rgb(31 35 40 / 12%);
+  transform: translateY(-3px);
+}
+
+.document-paper:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.document-paper > span {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.document-paper strong {
+  margin-top: auto;
+  font-size: 27px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.document-paper small {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.document-item-copy {
+  padding-top: 20px;
+}
+
+.document-item-copy h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+.document-item-copy p {
+  min-height: 48px;
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.document-item-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.document-item-actions a {
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+}
+
+.document-item-actions a:hover,
+.document-item-actions a:focus-visible {
+  color: var(--accent);
+}
+
 .content-text-link,
 .content-back-link {
   width: fit-content;
@@ -3441,6 +3542,19 @@ footer p {
 
   .content-actions {
     justify-content: flex-start;
+  }
+
+  .document-library {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .document-paper {
+    max-width: 320px;
+  }
+
+  .document-item-copy p {
+    min-height: 0;
   }
 
   .content-index {

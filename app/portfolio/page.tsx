@@ -60,6 +60,13 @@ export default function PortfolioPage() {
       description="프론트엔드 개발자로 전환한 뒤 만든 것과, 그 과정에서 직접 부딪히며 배운 내용을 정리했습니다."
       actions={
         <>
+          <a
+            className="content-text-link"
+            href={publicAssetPath("/documents/kim-heejun-portfolio.pdf")}
+            download="김희준_포트폴리오.pdf"
+          >
+            PDF 다운로드 <span aria-hidden="true">↓</span>
+          </a>
           <ExternalTextLink href="mailto:huiugim8@gmail.com">
             Email
           </ExternalTextLink>

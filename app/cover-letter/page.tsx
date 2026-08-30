@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ContentShell from "../content-shell";
-import PrintButton from "../print-button";
+import { publicAssetPath } from "../site-paths";
 
 export const metadata: Metadata = {
   title: "자기소개서 | 김희준",
@@ -13,7 +13,15 @@ export default function CoverLetterPage() {
     <ContentShell
       title="자기소개서"
       className="cover-letter-site"
-      actions={<PrintButton />}
+      actions={
+        <a
+          className="content-text-link"
+          href={publicAssetPath("/documents/kim-heejun-cover-letter.pdf")}
+          download="김희준_자기소개서.pdf"
+        >
+          PDF 다운로드 <span aria-hidden="true">↓</span>
+        </a>
+      }
     >
       <article className="cover-letter-page">
         <div className="cover-letter-intro cover-letter-copy">
