@@ -1,0 +1,218 @@
+export type LearningJavascriptChapter = {
+  number: string;
+  title: string;
+  summary: string;
+  keywords: string[];
+  topics: Array<[string, string]>;
+  modernNote: string;
+  resources: Array<[string, string]>;
+};
+
+export const learningJavascriptChapters: LearningJavascriptChapter[] = [
+  {
+    number: "01",
+    title: "첫 번째 애플리케이션",
+    summary: "브라우저 콘솔에서 시작해 그래픽과 사용자 입력이 있는 첫 애플리케이션을 완성합니다.",
+    keywords: ["브라우저", "개발 도구", "주석", "콘솔", "jQuery", "Paper.js", "사용자 입력"],
+    topics: [["1.1", "시작은 브라우저에서"], ["1.2", "사용할 프로그램"], ["1.3", "주석에 관해"], ["1.4", "시작하기"], ["1.5", "자바스크립트 콘솔"], ["1.6", "제이쿼리"], ["1.7", "단순한 그래픽 그리기"], ["1.8", "반복적인 작업 자동화하기"], ["1.9", "사용자 입력 처리하기"], ["1.10", "Hello, World"]],
+    modernNote: "jQuery와 Paper.js는 학습 예제를 위한 선택지입니다. 오늘날에는 브라우저 기본 DOM API와 Canvas API만으로도 같은 원리를 연습할 수 있습니다.",
+    resources: [["MDN JavaScript 시작하기", "https://developer.mozilla.org/ko/docs/Learn_web_development/Core/Scripting/A_first_splash"], ["Chrome DevTools 콘솔", "https://developer.chrome.com/docs/devtools/console"]],
+  },
+  {
+    number: "02",
+    title: "자바스크립트 개발 도구",
+    summary: "Git, 터미널, npm, 빌드 도구, Babel과 린터가 개발 과정에서 맡는 역할을 구분합니다.",
+    keywords: ["ES6", "Git", "터미널", "프로젝트 루트", "npm", "Gulp", "Grunt", "Babel", "lint"],
+    topics: [["2.1", "ES6 사용하기"], ["2.2", "ES6 기능"], ["2.2.1", "깃 설치"], ["2.2.2", "터미널"], ["2.2.3", "프로젝트 루트"], ["2.2.4", "깃과 버전 컨트롤"], ["2.2.5", "npm 패키지 관리"], ["2.2.6", "빌드 도구: 걸프와 그런트"], ["2.2.7", "프로젝트 구조"], ["2.3", "트랜스컴파일러"], ["2.3.1", "바벨을 걸프와 함께 사용하기"], ["2.4", "린트"], ["2.5", "요약"]],
+    modernNote: "책의 Gulp·Grunt·Babel 조합은 당시의 대표 방식입니다. 현재는 npm scripts와 Vite 같은 도구가 변환·번들링·개발 서버를 함께 담당하는 경우가 많습니다.",
+    resources: [["npm 공식 문서", "https://docs.npmjs.com/"], ["Vite 공식 가이드", "https://vite.dev/guide/"], ["ESLint 시작하기", "https://eslint.org/docs/latest/use/getting-started"]],
+  },
+  {
+    number: "03",
+    title: "리터럴과 변수, 상수, 데이터 타입",
+    summary: "값을 표현하고 이름을 붙이는 방법과 자바스크립트 데이터 타입의 차이를 익힙니다.",
+    keywords: ["let", "const", "리터럴", "원시 타입", "객체", "문자열", "불리언", "Symbol", "null", "undefined", "형 변환"],
+    topics: [["3.1", "변수와 상수"], ["3.2", "변수와 상수 중 어떤 것을 써야 할까요?"], ["3.3", "식별자 이름"], ["3.4", "리터럴"], ["3.5", "원시 타입과 객체"], ["3.6", "숫자"], ["3.7", "문자열"], ["3.7.1", "이스케이프"], ["3.8", "특수문자"], ["3.8.1", "템플릿 문자열"], ["3.8.2", "여러 줄 문자열"], ["3.8.3", "숫자와 문자열"], ["3.9", "불리언"], ["3.10", "심볼"], ["3.11", "null과 undefined"], ["3.12", "객체"], ["3.13", "Number, String, Boolean 객체"], ["3.14", "배열"], ["3.15", "객체와 배열 마지막의 쉼표"], ["3.16", "날짜"], ["3.17", "정규 표현식"], ["3.18", "맵과 셋"], ["3.19", "데이터 타입 변환"], ["3.19.1", "숫자로 바꾸기"], ["3.19.2", "문자열로 변환"], ["3.19.3", "불리언으로 변환"], ["3.20", "요약"]],
+    modernNote: "기본 선언은 const로 시작하고 재할당이 필요할 때만 let을 사용하는 습관이 좋습니다. 타입 변환은 암시적 결과를 추측하기보다 명시적으로 확인합니다.",
+    resources: [["MDN JavaScript 데이터 구조", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Data_structures"], ["MDN 문법과 타입", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types"]],
+  },
+  {
+    number: "04",
+    title: "제어문",
+    summary: "조건과 반복을 사용해 프로그램이 실행되는 순서를 설계합니다.",
+    keywords: ["if", "else", "while", "do...while", "for", "switch", "for...in", "for...of", "break", "continue", "return"],
+    topics: [["4.1", "제어문의 기초"], ["4.1.1", "while 루프"], ["4.1.2", "블록 문"], ["4.1.3", "공백"], ["4.1.4", "보조 함수"], ["4.1.5", "if...else"], ["4.1.6", "do...while 루프"], ["4.1.7", "for 루프"], ["4.1.8", "if 문"], ["4.1.9", "하나로 합치기"], ["4.2", "자바스크립트의 제어문"], ["4.2.1", "제어문의 예외"], ["4.2.2", "if...else 연결"], ["4.2.3", "메타 문법"], ["4.2.4", "for 루프의 다른 패턴"], ["4.2.5", "switch 문"], ["4.2.6", "for...in 루프"], ["4.2.7", "for...of 루프"], ["4.3", "유용한 제어문 패턴"], ["4.3.1", "continue로 조건 중첩 줄이기"], ["4.3.2", "break나 return으로 불필요한 연산 줄이기"], ["4.3.3", "루프 완료 뒤 인덱스 값 사용하기"], ["4.3.4", "배열 수정 시 감소 인덱스 사용하기"], ["4.4", "요약"]],
+    modernNote: "객체의 키에는 for...in, 반복 가능한 값에는 for...of를 사용합니다. 배열 변환은 map, filter, reduce가 의도를 더 잘 드러낼 때가 많습니다.",
+    resources: [["MDN 제어 흐름과 오류 처리", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"], ["MDN 루프와 반복", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration"]],
+  },
+  {
+    number: "05",
+    title: "표현식과 연산자",
+    summary: "표현식이 값을 만드는 과정과 연산자의 평가 순서·반환값·부수 효과를 구분해 코드를 읽습니다.",
+    keywords: ["표현식", "연산자", "피연산자", "평가", "부수 효과", "우선순위", "비교", "NaN", "double", "단축 평가", "truthy", "falsy", "조건 연산자", "쉼표 연산자", "typeof", "할당", "구조 분해"],
+    topics: [["5.1", "연산자"], ["5.2", "산술 연산자"], ["5.3", "연산자 우선순위"], ["5.4", "비교 연산자"], ["5.5", "숫자 비교"], ["5.6", "문자열 병합"], ["5.7", "논리 연산자"], ["5.7.1", "참 같은 값과 거짓 같은 값"], ["5.8", "AND, OR, NOT"], ["5.8.1", "단축 평가"], ["5.8.2", "불리언이 아닌 피연산자"], ["5.8.3", "조건 연산자"], ["5.8.4", "쉼표 연산자"], ["5.9", "연산자 그룹"], ["5.9.1", "비트 연산자"], ["5.9.2", "typeof 연산자"], ["5.9.3", "void 연산자"], ["5.9.4", "할당 연산자"], ["5.10", "해체 할당"], ["5.11", "객체와 배열 연산자"], ["5.12", "템플릿 문자열과 표현식"], ["5.13", "표현식과 흐름 제어 패턴"], ["5.13.1", "if를 조건 연산자로 바꾸기"], ["5.13.2", "if를 단축 평가 OR로 바꾸기"], ["5.14", "요약"]],
+    modernNote: "일반적인 값 비교에는 ===와 !==를 우선합니다. 기본값에는 ||와 함께 null 병합 연산자(??)의 차이도 학습해야 합니다.",
+    resources: [["MDN 표현식과 연산자", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Expressions_and_operators"], ["MDN 연산자 우선순위", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Operator_precedence"]],
+  },
+  {
+    number: "06",
+    title: "함수",
+    summary: "함수의 선언·호출·참조와 매개변수, this, 화살표 함수의 차이를 이해합니다.",
+    keywords: ["함수", "반환 값", "매개변수", "기본값", "메서드", "this", "익명 함수", "화살표 함수", "call", "apply", "bind"],
+    topics: [["6.1", "반환 값"], ["6.2", "호출과 참조"], ["6.3", "함수와 매개변수"], ["6.3.1", "매개변수가 함수를 결정하는가?"], ["6.3.2", "매개변수 해체"], ["6.3.3", "매개변수 기본 값"], ["6.4", "객체의 프로퍼티인 함수"], ["6.5", "this 키워드"], ["6.6", "함수 표현식과 익명 함수"], ["6.7", "화살표 표기법"], ["6.8", "call과 apply, bind"], ["6.9", "요약"]],
+    modernNote: "화살표 함수는 자신만의 this를 만들지 않습니다. 짧다는 이유만으로 메서드에 사용하지 말고 this가 어디서 결정되어야 하는지 먼저 판단합니다.",
+    resources: [["MDN 함수", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions"], ["MDN this", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this"]],
+  },
+  {
+    number: "07",
+    title: "스코프",
+    summary: "이름을 찾을 수 있는 범위와 클로저, 호이스팅, TDZ가 생기는 이유를 추적합니다.",
+    keywords: ["스코프", "렉시컬 스코프", "전역", "블록 스코프", "클로저", "IIFE", "호이스팅", "TDZ", "strict mode"],
+    topics: [["7.1", "스코프와 존재"], ["7.2", "정적 스코프와 동적 스코프"], ["7.3", "전역 스코프"], ["7.4", "블록 스코프"], ["7.5", "변수 숨기기"], ["7.6", "함수, 클로저, 정적 스코프"], ["7.7", "즉시 호출하는 함수 표현식"], ["7.8", "함수 스코프와 호이스팅"], ["7.9", "함수 호이스팅"], ["7.10", "사각지대"], ["7.11", "스트릭트 모드"], ["7.12", "요약"]],
+    modernNote: "ES 모듈과 클래스는 엄격 모드로 실행됩니다. let과 const는 블록 스코프이며 선언 전 접근은 TDZ 오류를 일으킵니다.",
+    resources: [["MDN 스코프", "https://developer.mozilla.org/ko/docs/Glossary/Scope"], ["MDN 클로저", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures"]],
+  },
+  {
+    number: "08",
+    title: "배열과 배열 처리",
+    summary: "배열의 추가·삭제·검색·변환·집계를 목적에 맞는 메서드로 수행합니다.",
+    keywords: ["Array", "push", "pop", "slice", "splice", "copyWithin", "fill", "sort", "find", "map", "filter", "reduce", "join"],
+    topics: [["8.1", "배열의 기초"], ["8.2", "배열 요소 조작"], ["8.2.1", "처음이나 끝에서 요소 추가·제거"], ["8.2.2", "배열 끝에 여러 요소 추가"], ["8.2.3", "배열 일부 가져오기"], ["8.2.4", "임의 위치에 요소 추가·제거"], ["8.2.5", "배열 안에서 요소 교체"], ["8.2.6", "특정 값으로 배열 채우기"], ["8.2.7", "배열 정렬과 역순 정렬"], ["8.3", "배열 검색"], ["8.4", "map과 filter"], ["8.5", "배열의 마법 reduce"], ["8.6", "삭제되거나 정의되지 않은 요소"], ["8.7", "문자열 병합"], ["8.8", "요약"]],
+    modernNote: "sort는 기본적으로 원본 배열을 변경합니다. 불변성이 필요하면 최신 메서드인 toSorted, toReversed, toSpliced도 함께 비교합니다.",
+    resources: [["MDN Array", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array"], ["MDN 인덱스 컬렉션", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Indexed_collections"]],
+  },
+  {
+    number: "09",
+    title: "객체와 객체 지향 프로그래밍",
+    summary: "객체의 프로퍼티와 프로토타입을 바탕으로 클래스, 상속, 다형성을 이해합니다.",
+    keywords: ["객체", "프로퍼티", "Object.keys", "class", "instance", "prototype", "static", "상속", "다형성", "mixin"],
+    topics: [["9.1", "프로퍼티 나열"], ["9.1.1", "for...in"], ["9.1.2", "Object.keys"], ["9.2", "객체 지향 프로그래밍"], ["9.2.1", "클래스와 인스턴스 생성"], ["9.2.2", "클래스는 함수다"], ["9.2.3", "프로토타입"], ["9.2.4", "정적 메서드"], ["9.2.5", "상속"], ["9.2.6", "다형성"], ["9.2.7", "객체 프로퍼티 나열 다시 보기"], ["9.2.8", "문자열 표현"], ["9.3", "다중 상속, 믹스인, 인터페이스"], ["9.4", "요약"]],
+    modernNote: "class 문법도 내부적으로 프로토타입 연결을 사용합니다. 상속을 기본 선택으로 삼기보다 작은 객체와 함수의 조합이 더 단순한지 비교합니다.",
+    resources: [["MDN 객체로 작업하기", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Working_with_objects"], ["MDN 클래스", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes"]],
+  },
+  {
+    number: "10",
+    title: "맵과 셋",
+    summary: "키-값 저장과 중복 없는 값 모음에 적합한 컬렉션을 선택합니다.",
+    keywords: ["Map", "WeakMap", "Set", "WeakSet", "키-값", "중복 제거", "가비지 컬렉션"],
+    topics: [["10.1", "맵"], ["10.2", "위크맵"], ["10.3", "셋"], ["10.4", "위크셋"], ["10.5", "요약"]],
+    modernNote: "WeakMap과 WeakSet은 키를 열거할 수 없으며 객체의 수명에 영향을 주지 않는 부가 정보를 저장할 때 유용합니다.",
+    resources: [["MDN 키 기반 컬렉션", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Keyed_collections"]],
+  },
+  {
+    number: "11",
+    title: "예외와 에러 처리",
+    summary: "실패를 Error 객체로 표현하고 호출자에게 전달하거나 적절한 위치에서 복구합니다.",
+    keywords: ["Error", "throw", "try", "catch", "finally", "호출 스택", "예외 처리"],
+    topics: [["11.1", "Error 객체"], ["11.2", "try/catch와 예외 처리"], ["11.3", "에러 일으키기"], ["11.4", "예외 처리와 호출 스택"], ["11.5", "try/catch/finally"], ["11.6", "요약: 예외는 예외여야 한다"]],
+    modernNote: "잡은 오류를 조용히 무시하지 않습니다. 복구할 수 있는 위치에서만 catch하고, 문맥을 보존해 다시 던질 때는 Error의 cause도 검토합니다.",
+    resources: [["MDN 제어 흐름과 오류 처리", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"], ["MDN Error", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Error"]],
+  },
+  {
+    number: "12",
+    title: "이터레이터와 제너레이터",
+    summary: "값의 순회를 표준화하는 이터레이션 프로토콜과 실행을 중단·재개하는 제너레이터를 익힙니다.",
+    keywords: ["iterator", "iterable", "Symbol.iterator", "generator", "function*", "yield", "return"],
+    topics: [["12.1", "이터레이션 프로토콜"], ["12.2", "제너레이터"], ["12.2.1", "yield 표현식과 양방향 통신"], ["12.2.2", "제너레이터와 return"], ["12.3", "요약"]],
+    modernNote: "for...of, 전개 문법, Array.from은 이터러블 프로토콜을 소비합니다. 비동기 값의 흐름에는 async iterator도 이어서 학습합니다.",
+    resources: [["MDN 이터레이터와 제너레이터", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Iterators_and_generators"], ["MDN 반복 프로토콜", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols"]],
+  },
+  {
+    number: "13",
+    title: "함수와 추상적 사고",
+    summary: "함수를 값으로 전달하고 반환하면서 반복되는 생각과 동작을 추상화합니다.",
+    keywords: ["추상화", "서브루틴", "일급 함수", "고차 함수", "IIFE", "함수 배열", "함수 반환", "재귀"],
+    topics: [["13.1", "서브루틴으로서의 함수"], ["13.2", "값을 반환하는 서브루틴으로서의 함수"], ["13.3", "함수로서의 함수"], ["13.4", "그래서?"], ["13.4.1", "함수도 객체다"], ["13.5", "IIFE와 비동기적 코드"], ["13.6", "변수로서의 함수"], ["13.6.1", "배열 안의 함수"], ["13.6.2", "함수에 함수 전달"], ["13.6.3", "함수를 반환하는 함수"], ["13.7", "재귀"], ["13.8", "요약"]],
+    modernNote: "함수형 스타일의 목표는 짧은 코드가 아니라 데이터 변환의 의도와 부수 효과의 경계를 분명하게 만드는 것입니다.",
+    resources: [["MDN 함수", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions"]],
+  },
+  {
+    number: "14",
+    title: "비동기적 프로그래밍",
+    summary: "지금 끝나지 않는 작업의 완료·실패·순서를 콜백과 Promise로 다룹니다.",
+    keywords: ["비동기", "callback", "setInterval", "error-first callback", "callback hell", "Promise", "체이닝", "이벤트", "generator"],
+    topics: [["14.1", "비유"], ["14.2", "콜백"], ["14.2.1", "setInterval과 clearInterval"], ["14.2.2", "스코프와 비동기적 실행"], ["14.2.3", "오류 우선 콜백"], ["14.2.4", "콜백 헬"], ["14.3", "프라미스"], ["14.3.1", "프라미스 만들기"], ["14.3.2", "프라미스 사용"], ["14.3.3", "이벤트"], ["14.3.4", "프라미스 체인"], ["14.3.5", "결정되지 않는 프라미스 방지하기"], ["14.4", "제너레이터"], ["14.4.1", "1보 전진과 2보 후퇴?"], ["14.4.2", "제너레이터 실행기를 직접 만들지 마세요"], ["14.4.3", "제너레이터 실행기와 예외 처리"], ["14.5", "요약"]],
+    modernNote: "현재는 Promise 위에 async/await를 사용하는 방식이 일반적입니다. 이벤트 루프, 마이크로태스크, AbortController를 함께 알아야 실행 순서와 취소를 설명할 수 있습니다.",
+    resources: [["MDN 비동기 JavaScript", "https://developer.mozilla.org/ko/docs/Learn_web_development/Extensions/Async_JS"], ["MDN Promise", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise"], ["MDN async function", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function"]],
+  },
+  {
+    number: "15",
+    title: "날짜와 시간",
+    summary: "타임스탬프와 시간대, 표현 형식을 분리해 날짜 데이터를 안전하게 주고받습니다.",
+    keywords: ["Date", "timezone", "timestamp", "Unix time", "ISO 8601", "Intl.DateTimeFormat", "Moment.js", "날짜 연산"],
+    topics: [["15.1", "날짜, 타임존, 타임스탬프, 유닉스 시간"], ["15.2", "Date 객체 만들기"], ["15.3", "Moment.js"], ["15.4", "현실적인 자바스크립트 날짜 접근법"], ["15.5", "날짜 데이터 만들기"], ["15.5.1", "서버에서 날짜 생성하기"], ["15.5.2", "브라우저에서 날짜 생성하기"], ["15.6", "날짜 데이터 전송하기"], ["15.7", "날짜 형식"], ["15.8", "날짜 구성 요소"], ["15.9", "날짜 비교"], ["15.10", "날짜 연산"], ["15.11", "사용자가 알기 쉬운 상대적 날짜"], ["15.12", "요약"]],
+    modernNote: "Moment.js는 유지보수 모드입니다. 새 코드에서는 Intl API와 프로젝트 요구에 맞는 현대 라이브러리를 검토하고, Temporal 지원 상태도 확인합니다.",
+    resources: [["MDN Date", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date"], ["MDN Intl.DateTimeFormat", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat"], ["Moment.js 프로젝트 상태", "https://momentjs.com/docs/#/-project-status/"]],
+  },
+  {
+    number: "16",
+    title: "Math",
+    summary: "숫자를 원하는 형식으로 표현하고 Math가 제공하는 수학 함수를 사용합니다.",
+    keywords: ["Number", "toFixed", "toExponential", "toPrecision", "진수", "Math", "로그", "random", "삼각함수"],
+    topics: [["16.1", "숫자 형식"], ["16.1.1", "고정 소수점"], ["16.1.2", "지수 표기법"], ["16.1.3", "고정 전체 자리수"], ["16.1.4", "다른 진수"], ["16.1.5", "고급 숫자 형식"], ["16.2", "상수"], ["16.3", "대수 함수"], ["16.3.1", "거듭제곱"], ["16.3.2", "로그 함수"], ["16.3.3", "기타 함수"], ["16.3.4", "의사 난수 생성"], ["16.4", "삼각함수"], ["16.5", "쌍곡선함수"]],
+    modernNote: "Math.random은 보안 목적의 난수가 아닙니다. 토큰이나 암호학적 값에는 Web Crypto의 crypto.getRandomValues를 사용합니다.",
+    resources: [["MDN Math", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math"], ["MDN Number", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number"]],
+  },
+  {
+    number: "17",
+    title: "정규 표현식",
+    summary: "문자열의 패턴을 검색·검증·치환하는 정규 표현식을 작은 규칙부터 조립합니다.",
+    keywords: ["RegExp", "검색", "replace", "문자셋", "수량자", "그룹", "greedy", "lazy", "역참조", "경계", "lookahead"],
+    topics: [["17.1", "부분 문자열 검색과 대체"], ["17.2", "정규식 만들기"], ["17.3", "정규식 검색"], ["17.4", "정규식을 사용한 문자열 교체"], ["17.5", "입력 소비"], ["17.6", "대체"], ["17.7", "HTML 찾기"], ["17.8", "문자셋"], ["17.9", "자주 쓰는 문자셋"], ["17.10", "반복"], ["17.11", "마침표와 이스케이프"], ["17.11.1", "진정한 와일드카드"], ["17.12", "그룹"], ["17.13", "소극적 일치, 적극적 일치"], ["17.14", "역참조"], ["17.15", "그룹 교체"], ["17.16", "함수를 이용한 교체"], ["17.17", "위치 지정"], ["17.18", "단어 경계 일치"], ["17.19", "룩어헤드"], ["17.20", "동적으로 정규식 만들기"], ["17.21", "요약"]],
+    modernNote: "HTML 전체 구조를 정규식으로 파싱하지 않습니다. 구조화된 문서는 DOMParser 같은 파서를 사용하고 정규식은 제한된 문자열 패턴에 적용합니다.",
+    resources: [["MDN 정규 표현식", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Regular_expressions"], ["MDN RegExp", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/RegExp"]],
+  },
+  {
+    number: "18",
+    title: "브라우저의 자바스크립트",
+    summary: "DOM을 찾고 변경하며 이벤트와 네트워크 요청으로 사용자 인터페이스를 연결합니다.",
+    keywords: ["DOM", "querySelector", "요소 조작", "createElement", "style", "data attribute", "event", "bubbling", "capturing", "Ajax", "fetch"],
+    topics: [["18.1", "ES5와 ES6"], ["18.2", "문서 객체 모델"], ["18.3", "트리 용어"], ["18.4", "get 메서드"], ["18.5", "DOM 요소 쿼리"], ["18.6", "DOM 요소 조작"], ["18.7", "새 DOM 요소 만들기"], ["18.8", "요소 스타일링"], ["18.9", "데이터 속성"], ["18.10", "이벤트"], ["18.10.1", "이벤트 버블링과 캡처링"], ["18.10.2", "이벤트 카테고리"], ["18.11", "Ajax"], ["18.12", "요약"]],
+    modernNote: "Ajax는 기술 이름이라기보다 비동기 HTTP 통신을 가리키는 역사적 표현으로 남았습니다. 현재는 fetch, async/await, AbortController를 함께 사용하는 경우가 많습니다.",
+    resources: [["MDN DOM 소개", "https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model/Introduction"], ["MDN 이벤트", "https://developer.mozilla.org/ko/docs/Learn_web_development/Core/Scripting/Events"], ["MDN Fetch API", "https://developer.mozilla.org/ko/docs/Web/API/Fetch_API"]],
+  },
+  {
+    number: "19",
+    title: "제이쿼리",
+    summary: "jQuery의 선택·조작·이벤트·Ajax API와 브라우저 기본 API의 관계를 이해합니다.",
+    keywords: ["jQuery", "$", "selector", "DOM ready", "wrapped set", "DOM 조작", "Ajax"],
+    topics: [["19.1", "맥가이버 나이프, 달러 기호"], ["19.2", "제이쿼리 불러오기"], ["19.3", "DOM 기다리기"], ["19.4", "제이쿼리로 감싼 DOM 요소"], ["19.5", "요소 조작"], ["19.6", "제이쿼리 취소"], ["19.7", "Ajax"], ["19.8", "요약"]],
+    modernNote: "기존 서비스 유지보수에는 jQuery 지식이 유용하지만 새 프로젝트에서는 querySelector, addEventListener, fetch 같은 표준 API만으로 충분한지 먼저 검토합니다.",
+    resources: [["jQuery 공식 API", "https://api.jquery.com/"], ["MDN DOM 소개", "https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model/Introduction"]],
+  },
+  {
+    number: "20",
+    title: "노드",
+    summary: "브라우저 밖에서 자바스크립트를 실행하고 모듈·파일·프로세스·스트림·서버를 다룹니다.",
+    keywords: ["Node.js", "module", "CommonJS", "ESM", "npm", "fs", "process", "os", "child_process", "stream", "HTTP server"],
+    topics: [["20.1", "노드의 기초"], ["20.2", "모듈"], ["20.3", "코어 모듈, 파일 모듈, npm 모듈"], ["20.4", "함수 모듈을 통한 모듈 커스터마이징"], ["20.5", "파일시스템 접근"], ["20.6", "process"], ["20.7", "운영체제"], ["20.8", "자식 프로세스"], ["20.9", "스트림"], ["20.10", "웹 서버"], ["20.11", "요약"]],
+    modernNote: "책은 CommonJS 중심 예제가 포함될 수 있습니다. 현재 Node.js에서는 package.json의 type과 파일 확장자에 따라 ES modules와 CommonJS를 명확히 구분해야 합니다.",
+    resources: [["Node.js 학습 문서", "https://nodejs.org/en/learn"], ["Node.js 모듈", "https://nodejs.org/api/modules.html"], ["Node.js ESM", "https://nodejs.org/api/esm.html"]],
+  },
+  {
+    number: "21",
+    title: "객체 프로퍼티 설정과 프락시",
+    summary: "프로퍼티의 읽기·쓰기 규칙과 객체 보호, 동작을 가로채는 Proxy를 이해합니다.",
+    keywords: ["getter", "setter", "descriptor", "writable", "enumerable", "configurable", "freeze", "seal", "preventExtensions", "Proxy", "Reflect"],
+    topics: [["21.1", "접근자 프로퍼티 getter와 setter"], ["21.2", "객체 프로퍼티 속성"], ["21.3", "객체 보호: 동결, 봉인, 확장 금지"], ["21.4", "프락시"], ["21.5", "요약"]],
+    modernNote: "Proxy는 강력하지만 동작을 숨기기 쉬우므로 명확한 목적이 있을 때 사용합니다. Proxy의 기본 동작을 위임할 때 Reflect API를 함께 검토합니다.",
+    resources: [["MDN 프로퍼티 접근자", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Property_accessors"], ["MDN Proxy", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy"], ["MDN Reflect", "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect"]],
+  },
+  {
+    number: "22",
+    title: "추가 자원",
+    summary: "신뢰할 수 있는 문서를 찾고 질문하고 오픈 소스에 참여하는 지속적인 학습 방법을 정리합니다.",
+    keywords: ["MDN", "공식 문서", "기술 문서", "Stack Overflow", "오픈 소스", "GitHub", "리서치"],
+    topics: [["22.1", "온라인 문서"], ["22.2", "주기적 발행물"], ["22.3", "블로그와 가이드"], ["22.4", "스택 오버플로"], ["22.5", "오픈 소스 프로젝트에 참가하기"], ["22.6", "요약"]],
+    modernNote: "검색 결과보다 표준 문서와 프로젝트 공식 문서를 먼저 확인하고, 작성·갱신 날짜와 대상 버전을 함께 기록합니다.",
+    resources: [["MDN JavaScript", "https://developer.mozilla.org/ko/docs/Web/JavaScript"], ["ECMAScript 명세", "https://tc39.es/ecma262/"], ["Node.js 공식 문서", "https://nodejs.org/docs/latest/api/"]],
+  },
+];
+
+export function learningJavascriptArticleId(number: string) {
+  return `learning-js-${number}` as const;
+}
+
+export function learningJavascriptTopicId(chapter: string, topic: string) {
+  return `learning-js-${chapter}-${topic.replaceAll(".", "-")}`;
+}

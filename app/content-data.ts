@@ -25,7 +25,7 @@ export const portfolioProjects = [
     tags: ["Virtual DOM", "Fiber", "Keyed Reconciliation", "Scheduler"],
   },
   {
-    href: "http://localhost:3000/",
+    href: "/portfolio/frontend-library",
     eyebrow: "개인 프로젝트 · 프론트엔드 학습 아카이브",
     title: "Frontend Library",
     description:

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArticleSection, ExternalTextLink } from "../article-components";
@@ -82,7 +82,7 @@ type PortfolioProject = {
   meta: string;
   tags: readonly string[];
   image?: {
-    src: string;
+    src: `/${string}`;
     alt: string;
     width: number;
     height: number;
@@ -137,7 +137,7 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
         <span className="portfolio-entry-kicker">{project.eyebrow}</span>
         <div className="portfolio-entry-body">
           <h2>
-            <Link href={project.href}>{project.title}</Link>
+            <Link href={project.href as Route}>{project.title}</Link>
           </h2>
           <p>{project.description}</p>
           <div className="portfolio-entry-meta">
@@ -147,7 +147,7 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
         </div>
         <Link
           className="portfolio-entry-arrow"
-          href={project.href}
+          href={project.href as Route}
           aria-label={`${project.title} 상세 보기`}
         >
           ↗
@@ -201,7 +201,7 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
   return (
     <Link
       className={`portfolio-entry${project.image ? " portfolio-entry--visual" : ""}`}
-      href={project.href}
+      href={project.href as Route}
     >
       {content}
     </Link>

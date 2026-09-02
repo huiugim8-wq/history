@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import ContentShell from "../../content-shell";
 
 export const metadata: Metadata = {
-  title: "SIR UI/UX 디자이너 자기소개서 | 김희준",
+  title: "UI/UX 디자이너 자기소개서 | 김희준",
   description:
-    "사용자 반응으로 디자인을 검증하고 프론트엔드로 직접 구현하는 UI/UX 디자이너 김희준의 SIR 지원 자기소개서입니다.",
+    "사용자 반응으로 디자인을 검증하고 프론트엔드로 직접 구현하는 UI/UX 디자이너 김희준의 자기소개서입니다.",
 };
 
 export default function SirUiuxCoverLetterPage() {
   return (
     <ContentShell
       title="자기소개서"
-      description="SIR UI/UX 디자이너 지원"
+      description="UI/UX 디자이너 김희준"
       className="cover-letter-site cover-letter-site--sir"
       mode="uiux"
     >
       <article className="cover-letter-page">
         <div className="cover-letter-intro cover-letter-copy">
           <p>
-            안녕하십니까. (주)에스아이알소프트의 UI/UX 디자이너 직무에 지원한
-            김희준입니다.
+            안녕하십니까. 사용자의 선택을 설계하고 이를 실제 화면으로 구현하는
+            UI/UX 디자이너 김희준입니다.
           </p>
 
           <p className="cover-letter-key-message">
@@ -152,8 +152,8 @@ export default function SirUiuxCoverLetterPage() {
             <p className="cover-letter-closing">
               <strong>
                 사용자의 선택을 이끌어낸 디자인 경험과 이를 직접 구현할 수 있는
-                개발 역량으로, SIR의 서비스를 더 이해하기 쉽고 사용하기 편한
-                경험으로 개선하겠습니다.
+                개발 역량으로, 서비스의 목적을 사용자가 이해하기 쉽고 편리한
+                경험으로 구체화하겠습니다.
               </strong>
             </p>
 
