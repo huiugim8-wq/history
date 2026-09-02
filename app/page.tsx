@@ -74,18 +74,37 @@ function ExternalArrow() {
 }
 
 export default function Home() {
+  return <ResumePage variant="frontend" />;
+}
+
+export function ResumePage({
+  variant,
+}: {
+  variant: "frontend" | "uiux";
+}) {
+  const isUiux = variant === "uiux";
+
   return (
     <div className="resume-sheet">
       <header className="top-banner" id="top">
         <div className="top-banner-inner">
           <nav className="site-nav" aria-label="주요 메뉴">
-            <Link className="site-nav-link" href="/">
+            <Link
+              className="site-nav-link"
+              href={isUiux ? "/uiux" : "/"}
+            >
               이력서
             </Link>
-            <Link className="site-nav-link" href="/cover-letter">
+            <Link
+              className="site-nav-link"
+              href={isUiux ? "/uiux/cover-letter" : "/cover-letter"}
+            >
               자기소개서
             </Link>
-            <Link className="site-nav-link" href="/portfolio">
+            <Link
+              className="site-nav-link"
+              href={isUiux ? "/uiux/portfolio" : "/portfolio"}
+            >
               포트폴리오
             </Link>
             <Link className="site-nav-link" href="/documents">
@@ -102,7 +121,7 @@ export default function Home() {
           </nav>
 
           <div className="top-banner-copy">
-            <p>프론트엔드 개발자</p>
+            <p>{isUiux ? "UI/UX 디자이너" : "프론트엔드 개발자"}</p>
             <h1 id="profile-title">김희준</h1>
 
             <address className="profile-contact" aria-label="연락처">
@@ -140,35 +159,68 @@ export default function Home() {
             <h2 className="profile-statement">
               <span aria-hidden="true">“</span>{" "}
               <span className="profile-statement-text">
-                소통을 바탕으로 구현하는 프론트엔드 개발자
+                {isUiux
+                  ? "사용자의 선택을 설계하고 구현 가능성까지 고려하는 UI/UX 디자이너"
+                  : "소통을 바탕으로 구현하는 프론트엔드 개발자"}
               </span>{" "}
               <span aria-hidden="true">”</span>
             </h2>
-            <p className="profile-context">
-              <strong>
-                창업 과정에서 체험단의 피드백을 구체적인 개선으로 발전시킨
-                경험과 실내건축디자인에서 익힌 사용자 중심의 관점
-              </strong>
-              {"은 "}프론트엔드에서도 문제의 원인을 찾고 해결 방향을 정하는
-              기준으로 이어집니다.
-            </p>
-            <p className="profile-context">
-              비전공자로 개발을 시작했지만,{" "}
-              <strong>
-                5주 안에 필요한 기술을 익혀 9천만 건의 틱 데이터를 다루는 주식
-                차트를 구현
-              </strong>
-              {"했습니다. "}학습한 내용을 실제 기능으로 연결하며 빠르게 성장하는
-              중입니다.
-            </p>
-            <p className="profile-context">
-              현재는{" "}
-              <strong>
-                프론트엔드 역량을 깊게 쌓는 동시에 백엔드까지 이해하는 풀스택
-                개발자
-              </strong>
-              {"를 "}목표로, 매일 배운 내용을 구현으로 옮기고 있습니다.
-            </p>
+            {isUiux ? (
+              <>
+                <p className="profile-context">
+                  <strong>
+                    실내건축디자인에서 익힌 사용자 중심의 관점과 창업 과정에서
+                    체험단의 피드백을 구체적인 개선으로 발전시킨 경험
+                  </strong>
+                  {"을 바탕으로, "}사용자의 목적과 행동을 정보 구조와 화면
+                  흐름으로 설계합니다.
+                </p>
+                <p className="profile-context">
+                  상품의 콘셉트와 상세페이지를 직접 설계해{" "}
+                  <strong>와디즈 펀딩 1,206%와 연 매출 약 1억 원</strong>
+                  {"이라는 결과를 만들었습니다. "}디자인의 결과를 감각이나
+                  취향이 아니라 실제 사용자의 선택과 성과로 확인했습니다.
+                </p>
+                <p className="profile-context">
+                  프론트엔드 개발 경험은 디자인의 구현 가능성을 판단하는
+                  강점입니다.{" "}
+                  <strong>
+                    5주 안에 React와 TypeScript로 9천만 건의 틱 데이터를 다루는
+                    주식 차트를 구현
+                  </strong>
+                  했으며, 이를 바탕으로 기술적 제약을 고려해 설계하고 개발자와
+                  구체적인 기준으로 소통할 수 있습니다.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="profile-context">
+                  <strong>
+                    창업 과정에서 체험단의 피드백을 구체적인 개선으로 발전시킨
+                    경험과 실내건축디자인에서 익힌 사용자 중심의 관점
+                  </strong>
+                  {"은 "}프론트엔드에서도 문제의 원인을 찾고 해결 방향을 정하는
+                  기준으로 이어집니다.
+                </p>
+                <p className="profile-context">
+                  비전공자로 개발을 시작했지만,{" "}
+                  <strong>
+                    5주 안에 필요한 기술을 익혀 9천만 건의 틱 데이터를 다루는
+                    주식 차트를 구현
+                  </strong>
+                  {"했습니다. "}학습한 내용을 실제 기능으로 연결하며 빠르게
+                  성장하는 중입니다.
+                </p>
+                <p className="profile-context">
+                  현재는{" "}
+                  <strong>
+                    프론트엔드 역량을 깊게 쌓는 동시에 백엔드까지 이해하는 풀스택
+                    개발자
+                  </strong>
+                  {"를 "}목표로, 매일 배운 내용을 구현으로 옮기고 있습니다.
+                </p>
+              </>
+            )}
           </div>
         </section>
 
@@ -556,7 +608,17 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>© 2026 KIM HEEJUN</p>
+        <Link
+          className="secret-mode-link"
+          href={isUiux ? "/" : "/uiux"}
+          aria-label={
+            isUiux
+              ? "프론트엔드 개발자 이력서로 전환"
+              : "UI/UX 디자이너 이력서로 전환"
+          }
+        >
+          © 2026 KIM HEEJUN
+        </Link>
         <a href="#top">Back to top ↑</a>
       </footer>
     </div>

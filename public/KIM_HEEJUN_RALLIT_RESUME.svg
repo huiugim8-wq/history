@@ -46,7 +46,7 @@
       .highlight-title { font-size: 17px; font-weight: 700; letter-spacing: -.7px; }
       .highlight-link { fill: #1f2328; cursor: pointer; }
       .highlight-link-accent {
-        fill: #008f5a;
+        fill: #860cff;
         stroke: #e1f7ed;
         stroke-width: 7px;
         stroke-linejoin: round;
@@ -64,19 +64,19 @@
       .tag-box,
       .tag-text { transition: fill 140ms ease, stroke 140ms ease; }
       .tag:hover .tag-box,
-      .tag:focus .tag-box { fill: #e7f8f0; stroke: #00c887; }
+      .tag:focus .tag-box { fill: #f5edff; stroke: #a64cff; }
       .tag:hover .tag-text,
-      .tag:focus .tag-text { fill: #008f5a; }
-      .tag:active .tag-box { fill: #d8f5e9; stroke: #008f5a; }
-      .tag:active .tag-text { fill: #007a4d; }
+      .tag:focus .tag-text { fill: #860cff; }
+      .tag:active .tag-box { fill: #ead7ff; stroke: #860cff; }
+      .tag:active .tag-text { fill: #7111d4; }
       a:hover .link,
       a:focus .link { fill: #1f2328; text-decoration: underline; }
       a:hover .highlight-link-accent,
       a:focus .highlight-link-accent {
-        fill: #008f5a;
+        fill: #860cff;
         stroke: #e1f7ed;
         text-decoration-line: underline;
-        text-decoration-color: #00a86b;
+        text-decoration-color: #860cff;
         text-decoration-thickness: 2px;
         text-underline-offset: 4px;
       }

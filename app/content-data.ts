@@ -24,6 +24,15 @@ export const portfolioProjects = [
     meta: "JavaScript · 83 tests passed",
     tags: ["Virtual DOM", "Fiber", "Keyed Reconciliation", "Scheduler"],
   },
+  {
+    href: "http://localhost:3000/",
+    eyebrow: "개인 프로젝트 · 프론트엔드 학습 아카이브",
+    title: "Frontend Library",
+    description:
+      "HTML, CSS, JavaScript, TypeScript, React부터 브라우저와 성능까지, 직접 확인한 실험과 질문을 주제별 참고서로 구조화했습니다.",
+    meta: "개인 프로젝트 · 지속 업데이트",
+    tags: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Browser", "Performance"],
+  },
 ] as const;
 
 export const portfolioDeepDives = [

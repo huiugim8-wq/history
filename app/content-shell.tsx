@@ -8,6 +8,7 @@ type ContentShellProps = {
   description?: string;
   className?: string;
   actions?: ReactNode;
+  mode?: "frontend" | "uiux";
   children: ReactNode;
 };
 
@@ -17,6 +18,7 @@ export default function ContentShell({
   description,
   className,
   actions,
+  mode = "frontend",
   children,
 }: ContentShellProps) {
   return (
@@ -24,7 +26,7 @@ export default function ContentShell({
       className={["content-site", className].filter(Boolean).join(" ")}
       id="top"
     >
-      <SiteHeader />
+      <SiteHeader mode={mode} />
       <main className="content-main">
         <header className="content-hero">
           <div>
@@ -38,7 +40,7 @@ export default function ContentShell({
         </header>
         {children}
       </main>
-      <SiteFooter />
+      <SiteFooter mode={mode} />
     </div>
   );
 }
