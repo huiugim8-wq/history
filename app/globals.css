@@ -4880,6 +4880,21 @@ footer p {
     padding-top: 0;
   }
 
+  .cover-letter-site .content-hero,
+  .cover-letter-page {
+    width: 170mm;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .cover-letter-site .content-hero {
+    padding: 0 0 5mm;
+  }
+
+  .cover-letter-intro {
+    padding-top: 0;
+  }
+
   .cover-letter-section-heading {
     position: static;
     margin-bottom: 4mm;
