@@ -16,8 +16,10 @@ export default function CoverLetterPage() {
       actions={
         <a
           className="content-text-link"
-          href={publicAssetPath("/documents/kim-heejun-cover-letter.pdf")}
-          download="김희준_자기소개서.pdf"
+          href={publicAssetPath(
+            "/documents/kim-heejun-frontend-cover-letter.pdf",
+          )}
+          download="김희준_프론트엔드_자기소개서.pdf"
         >
           PDF 다운로드 <span aria-hidden="true">↓</span>
         </a>

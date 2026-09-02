@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContentShell from "../../content-shell";
+import { publicAssetPath } from "../../site-paths";
 
 export const metadata: Metadata = {
   title: "UI/UX 디자이너 자기소개서 | 김희준",
@@ -14,6 +15,17 @@ export default function SirUiuxCoverLetterPage() {
       description="UI/UX 디자이너 김희준"
       className="cover-letter-site cover-letter-site--sir"
       mode="uiux"
+      actions={
+        <a
+          className="content-text-link"
+          href={publicAssetPath(
+            "/documents/kim-heejun-uiux-cover-letter.pdf",
+          )}
+          download="김희준_UIUX_자기소개서.pdf"
+        >
+          PDF 다운로드 <span aria-hidden="true">↓</span>
+        </a>
+      }
     >
       <article className="cover-letter-page">
         <div className="cover-letter-intro cover-letter-copy">

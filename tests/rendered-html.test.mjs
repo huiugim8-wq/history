@@ -134,21 +134,23 @@ test("renders the cover letter as a standalone printable page", async () => {
   );
   assert.match(
     html,
-    /href="\/documents\/kim-heejun-cover-letter\.pdf"[^>]*download="김희준_자기소개서\.pdf"[^>]*>[^<]*PDF 다운로드/,
+    /href="\/documents\/kim-heejun-frontend-cover-letter\.pdf"[^>]*download="김희준_프론트엔드_자기소개서\.pdf"[^>]*>[^<]*PDF 다운로드/,
   );
 });
 
-test("renders three A4 PDF downloads", async () => {
+test("renders separate frontend and UI UX PDF downloads", async () => {
   const html = await htmlFor("/documents/");
 
   assert.match(html, /<title>지원 문서 PDF \| 김희준<\/title>/);
-  assert.match(html, /세 문서 모두 A4 세로 비율과 2페이지 구성을 유지했습니다/);
-  assert.match(html, /kim-heejun-resume\.pdf/);
-  assert.match(html, /kim-heejun-cover-letter\.pdf/);
-  assert.match(html, /kim-heejun-portfolio\.pdf/);
-  assert.match(html, /download="김희준_이력서\.pdf"/);
-  assert.match(html, /download="김희준_자기소개서\.pdf"/);
-  assert.match(html, /download="김희준_포트폴리오\.pdf"/);
+  assert.match(html, /프론트엔드 개발자용과 UI\/UX 디자이너용 문서를 각각 구분했습니다/);
+  assert.match(html, /kim-heejun-frontend-resume\.pdf/);
+  assert.match(html, /kim-heejun-frontend-cover-letter\.pdf/);
+  assert.match(html, /kim-heejun-frontend-portfolio\.pdf/);
+  assert.match(html, /kim-heejun-uiux-resume\.pdf/);
+  assert.match(html, /kim-heejun-uiux-cover-letter\.pdf/);
+  assert.match(html, /kim-heejun-uiux-portfolio\.pdf/);
+  assert.match(html, /download="김희준_프론트엔드_이력서\.pdf"/);
+  assert.match(html, /download="김희준_UIUX_자기소개서\.pdf"/);
 });
 
 test("renders a focused portfolio without work-history or card grids", async () => {
@@ -281,12 +283,12 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   assert.match(css, /\.page-site-header/);
   assert.match(css, /\.content-index/);
   assert.match(css, /\.article-section/);
-  assert.match(css, /--max-width:\s*1040px/);
+  assert.match(css, /--max-width:\s*840px/);
   assert.match(
     css,
-    /--page-content-width:\s*clamp\(860px,\s*68vw,\s*var\(--max-width\)\)/,
+    /--page-content-width:\s*clamp\(700px,\s*55vw,\s*var\(--max-width\)\)/,
   );
-  assert.match(css, /--page-inline-space:\s*64px/);
+  assert.match(css, /--page-inline-space:\s*48px/);
   assert.match(css, /--page-inline-space:\s*40px/);
   assert.match(
     css,
@@ -311,10 +313,6 @@ test("removes the resume PDF control and keeps responsive presentation rules", a
   assert.match(
     css,
     /\.technical-article\s*\{[^}]*width:\s*100%[^}]*max-width:\s*none[^}]*margin-inline:\s*0/s,
-  );
-  assert.match(
-    css,
-    /\.cover-letter-site \.content-hero,\s*\.cover-letter-page\s*\{[^}]*width:\s*min\(100%,\s*800px\)[^}]*margin-inline:\s*auto/s,
   );
   assert.match(
     css,

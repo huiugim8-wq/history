@@ -133,6 +133,14 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
+          <Image
+            className="portfolio-entry-video-print"
+            src={publicAssetPath("/gops-workspace.png")}
+            alt="실시간 투자정보 플랫폼의 포트폴리오 작업 화면"
+            width={1705}
+            height={999}
+            unoptimized
+          />
         </div>
         <span className="portfolio-entry-kicker">{project.eyebrow}</span>
         <div className="portfolio-entry-body">
@@ -238,8 +246,16 @@ export function PortfolioContent({
         <>
           <a
             className="content-text-link"
-            href={publicAssetPath("/documents/kim-heejun-portfolio.pdf")}
-            download="김희준_포트폴리오.pdf"
+            href={publicAssetPath(
+              isUiux
+                ? "/documents/kim-heejun-uiux-portfolio.pdf"
+                : "/documents/kim-heejun-frontend-portfolio.pdf",
+            )}
+            download={
+              isUiux
+                ? "김희준_UIUX_포트폴리오.pdf"
+                : "김희준_프론트엔드_포트폴리오.pdf"
+            }
           >
             PDF 다운로드 <span aria-hidden="true">↓</span>
           </a>

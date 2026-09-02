@@ -1613,6 +1613,21 @@ footer p {
   gap: 10px;
 }
 
+.document-group + .document-group {
+  margin-top: 34px;
+  padding-top: 46px;
+  border-top: 1px solid var(--line);
+}
+
+.document-group > h2 {
+  margin: 0 0 24px;
+  color: var(--foreground);
+  font-size: 24px;
+  font-weight: 820;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+}
+
 .document-library {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1678,7 +1693,7 @@ footer p {
   padding-top: 20px;
 }
 
-.document-item-copy h2 {
+.document-item-copy h3 {
   margin: 0;
   font-size: 20px;
   line-height: 1.35;
@@ -3527,6 +3542,10 @@ footer p {
   border: 0;
 }
 
+.portfolio-entry-video-print {
+  display: none !important;
+}
+
 .portfolio-entry--visual:hover .portfolio-entry-visual img,
 .portfolio-entry--visual:focus-visible .portfolio-entry-visual img {
   transform: scale(1.012);
@@ -4853,6 +4872,14 @@ footer p {
     display: none;
   }
 
+  .portfolio-entry-video iframe {
+    display: none;
+  }
+
+  .portfolio-entry-video .portfolio-entry-video-print {
+    display: block !important;
+  }
+
   .cover-letter-section,
   .article-section {
     grid-template-columns: 34mm minmax(0, 1fr);
@@ -4922,41 +4949,41 @@ footer p {
   }
 
   .cover-letter-site--sir .content-hero {
-    padding-bottom: 3mm;
+    padding-bottom: 4mm;
   }
 
   .cover-letter-site--sir .content-description {
-    margin-top: 2mm;
-    font-size: 9pt;
+    margin-top: 2.5mm;
+    font-size: 9.5pt;
   }
 
   .cover-letter-site--sir .cover-letter-intro > p:first-child {
-    font-size: 9.4pt;
-    line-height: 1.48;
+    font-size: 10.4pt;
+    line-height: 1.56;
   }
 
   .cover-letter-site--sir .cover-letter-copy p {
-    font-size: 8pt;
-    line-height: 1.52;
+    font-size: 9.2pt;
+    line-height: 1.6;
   }
 
   .cover-letter-site--sir .cover-letter-copy p + p {
-    margin-top: 2.4mm;
+    margin-top: 3mm;
   }
 
   .cover-letter-site--sir .cover-letter-section {
-    padding-top: 3.5mm;
+    padding-top: 4.8mm;
     break-inside: auto;
     page-break-inside: auto;
   }
 
   .cover-letter-site--sir .cover-letter-section-heading {
-    margin-bottom: 2.2mm;
+    margin-bottom: 2.8mm;
   }
 
   .cover-letter-site--sir .cover-letter-section-heading h2 {
-    font-size: 12.5pt;
-    line-height: 1.3;
+    font-size: 14pt;
+    line-height: 1.35;
     white-space: normal;
   }
 
