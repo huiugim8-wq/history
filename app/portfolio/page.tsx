@@ -135,10 +135,11 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
           />
           <Image
             className="portfolio-entry-video-print"
-            src={publicAssetPath("/gops-workspace.png")}
-            alt="실시간 투자정보 플랫폼의 포트폴리오 작업 화면"
-            width={1705}
-            height={999}
+            src={publicAssetPath("/gops/case-panel-portfolio.png")}
+            alt="시장 탐색부터 포트폴리오 판단까지 구성한 투자 작업 화면"
+            width={1704}
+            height={1000}
+            loading="eager"
             unoptimized
           />
         </div>
