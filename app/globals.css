@@ -679,6 +679,26 @@ footer a:focus-visible {
   content: "";
 }
 
+.education-award-link {
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 140ms ease;
+}
+
+.education-award-link:hover,
+.education-award-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.education-award-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .experience-header {
   display: flex;
   align-items: flex-start;

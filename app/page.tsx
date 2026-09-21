@@ -63,9 +63,12 @@ const educationItem = {
     },
   ],
   awards: [
-    "인테리어앤데코 공모전 수상",
-    "DGID 공모전 수상",
-    "학과 공로상 수상",
+    {
+      label: "14회 인테르니에 데코 공모전 장려상 수상",
+      href: publicAssetPath("/awards/interior-deco-14-encouragement.jpg"),
+    },
+    { label: "2023 DGID 공모전 수상" },
+    { label: "학과 공로상 수상" },
   ],
 };
 
@@ -591,7 +594,21 @@ export function ResumePage({
                 </div>
                 <ul className="education-awards" aria-label="수상 경력">
                   {educationItem.awards.map((award) => (
-                    <li key={award}>{award}</li>
+                    <li key={award.label}>
+                      {award.href ? (
+                        <a
+                          className="education-award-link"
+                          href={award.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${award.label} 작품 이미지 열기`}
+                        >
+                          {award.label} <ExternalArrow />
+                        </a>
+                      ) : (
+                        award.label
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
