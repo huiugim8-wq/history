@@ -1,7 +1,7 @@
 export default function MarketArchitecture() {
   return (
     <svg className="trading-architecture-svg" viewBox="0 0 840 318" role="img" aria-labelledby="market-architecture-title market-architecture-desc">
-      <title id="market-architecture-title">Kafka와 AWS EKS 기반 시장 데이터 아키텍처</title>
+      <title id="market-architecture-title">실시간 파이프라인의 데이터 전달 경로</title>
       <desc id="market-architecture-desc">외부 WebSocket에서 받은 이벤트를 Kafka 입력 토픽에 기록합니다. Market Processor가 가공한 실시간 상태는 Redis와 WebSocket을 통해 차트에 전달하고, 마감 봉과 이벤트는 별도 토픽으로 전달해 ClickHouse 저장, S3 기록과 AI 분석 Consumer가 독립적으로 처리합니다.</desc>
       <defs><marker id="market-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7" fill="#8994a3" /></marker></defs>
       <rect x="154" y="30" width="675" height="272" rx="4" fill="#fbfcfd" stroke="#d6dce3" strokeDasharray="4 4" />

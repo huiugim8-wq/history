@@ -214,7 +214,28 @@ test("renders a focused portfolio without work-history or card grids", async () 
   assert.match(project, /\/gops\/portfolio\/video-poster\.png/);
   assert.match(project, /href="https:\/\/www\.youtube\.com\/watch\?v=8P4wiwDrvxs"/);
   assert.match(project, /\/gops\/portfolio\/chart-comparison\.png/);
-  assert.match(project, /\/gops\/portfolio\/event-pipeline\.png/);
+  const architecture = project.match(
+    /<section\b[^>]*aria-labelledby="architecture"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  const pipeline = project.match(
+    /<section\b[^>]*aria-labelledby="event-pipeline"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  assert.ok(architecture, "architecture section should render");
+  assert.ok(pipeline, "event pipeline section should render");
+  assert.match(architecture, /<img\b[^>]*src="[^"]*\/gops\/portfolio\/aws-architecture\.png"/);
+  assert.match(architecture, /href="[^"]*\/gops\/portfolio\/aws-architecture\.png"/);
+  assert.doesNotMatch(architecture, /<svg\b[^>]*class="trading-architecture-svg"/);
+  assert.match(pipeline, /<svg\b[^>]*class="trading-architecture-svg"/);
+  assert.match(
+    pipeline,
+    /\/gops\/portfolio\/event-pipeline\.png[\s\S]*처리 경로 분리[\s\S]*실패 후 재처리[\s\S]*중복 수신 확인[\s\S]*실제 서비스의 데이터 전달 경로[\s\S]*<svg\b[^>]*class="trading-architecture-svg"/,
+  );
+  assert.doesNotMatch(project, /실제 활성 경로는 상단 아키텍처 기준/);
+  assert.equal(
+    [...project.matchAll(/<svg\b[^>]*class="trading-architecture-svg"/g)].length,
+    1,
+    "market data flow should render exactly once",
+  );
   assert.match(project, /\/gops\/portfolio\/ai-review-flow\.png/);
   assert.match(
     project,

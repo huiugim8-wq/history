@@ -54,10 +54,12 @@ export default function TradingPlatformPage() {
 
       <CaseSection id="architecture" title="아키텍처">
         <figure className="trading-architecture">
-          <MarketArchitecture />
-          <figcaption>실시간 화면 갱신과 저장·분석을 분리한 시장 데이터 흐름</figcaption>
+          <a href={publicAssetPath("/gops/portfolio/aws-architecture.png")} target="_blank" rel="noreferrer" aria-label="AWS 전체 서비스 아키텍처 원본 크게 보기">
+            <Image src={publicAssetPath("/gops/portfolio/aws-architecture.png")} alt="AWS Cloud의 VPC와 가용 영역, 프론트엔드·API 서버·시장 데이터 처리·AI 에이전트 및 저장소를 연결한 전체 서비스 아키텍처" width={1672} height={941} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
+          </a>
+          <figcaption>AWS 기반 전체 서비스 아키텍처 · 클릭하면 원본 크기로 볼 수 있습니다.</figcaption>
         </figure>
-        <p>대량의 시장 이벤트를 수집하면서도, 시간이 오래 걸리는 AI 분석과 과거 데이터 보충 작업이 실시간 차트 응답을 방해하지 않도록 구성했습니다. Kafka 기반 이벤트 드리븐 구조로 수집·가공·저장·분석을 분리하고, 각 서비스를 AWS EKS의 독립 워크로드로 배포했습니다.</p>
+        <p>프론트엔드와 API 서버, 시장 데이터 처리 서비스, AI 에이전트, 저장소를 연결한 전체 서비스 구성입니다.</p>
       </CaseSection>
 
       <CaseSection id="custom-chart" title="대량의 실시간 데이터를 위한 커스텀 주식 차트 구현">
@@ -86,7 +88,7 @@ export default function TradingPlatformPage() {
       <CaseSection id="event-pipeline" title="초당 평균 1,080건의 시장 데이터를 처리하는 실시간 파이프라인">
         <figure className="trading-pipeline-figure">
           <Image src={publicAssetPath("/gops/portfolio/event-pipeline.png")} alt="Kafka에 기록된 이벤트를 기능별 Consumer가 독립적으로 처리하고, 지연된 처리 경로는 복구하는 개념도" width={1470} height={565} sizes="(max-width: 760px) calc(100vw - 40px), 720px" unoptimized />
-          <figcaption>기능별 확장·변경·복구를 분리한 개념도 · 실제 활성 경로는 상단 아키텍처 기준</figcaption>
+          <figcaption>기능별 확장·변경·복구를 분리한 개념도 · 실제 데이터 전달 경로는 아래 흐름도 참고</figcaption>
         </figure>
         <p>시장 이벤트가 여러 기능으로 전달되는 과정에서 한 경로의 지연이 다른 기능의 진행을 막지 않도록 Kafka 기반 EDA를 적용했습니다. 기능별 Consumer Group이 독립적으로 처리하며, 가공·저장 작업은 처리와 출력이 완료된 뒤 Offset을 커밋해 실패 시 재처리하도록 했습니다.</p>
         <div className="trading-evidence-row">
@@ -95,6 +97,13 @@ export default function TradingPlatformPage() {
           <div><strong>중복 수신 확인</strong><p>최근 이벤트 ID를 추적해 같은 이벤트를 구분</p></div>
         </div>
         <p className="trading-note">실시간 상태는 Redis, 틱·과거 조회 데이터는 ClickHouse, 마감 봉과 이벤트 기록은 S3로 나눠 저장했습니다.</p>
+        <div className="trading-pipeline-detail">
+          <h3>실제 서비스의 데이터 전달 경로</h3>
+          <figure className="trading-architecture">
+            <MarketArchitecture />
+            <figcaption>가공한 이벤트를 실시간 화면 갱신과 저장·분석 경로로 나눠 전달합니다.</figcaption>
+          </figure>
+        </div>
       </CaseSection>
 
       <CaseSection id="ai-coach" title="거래 결과가 아니라 판단 과정을 복기하는 AI 투자 코치">
