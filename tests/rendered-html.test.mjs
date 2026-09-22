@@ -190,37 +190,45 @@ test("renders a focused portfolio without work-history or card grids", async () 
     /약 9천만 건 규모의 데이터를 다루는 TypeScript 차트 엔진/,
   );
   assert.doesNotMatch(portfolio, />블로그</);
-  assert.match(project, /약 9천만 건 규모의 주식 틱 이벤트/);
+  assert.match(project, /<h1>실시간 투자 정보 플랫폼<\/h1>/);
+  assert.match(project, /하루 약 9천만 건의 시장 이벤트/);
+  assert.match(project, /탐색부터 거래 복기까지의 서비스 흐름/);
+  assert.match(project, /<dt>팀원<\/dt><dd>5인<\/dd>/);
+  assert.match(project, /id="architecture">아키텍처<\/h2>/);
   assert.match(
     project,
-    /차트 라이브러리를 붙이는 대신, 틱 데이터 엔진부터 만들었습니다/,
+    /id="custom-chart">대량의 실시간 데이터를 위한 커스텀 주식 차트 구현<\/h2>/,
   );
   assert.match(
     project,
-    /틱 단위 데이터와 분석선을 같은 화면에 오버레이/,
+    /id="event-pipeline">초당 평균 1,080건의 시장 데이터를 처리하는 실시간 파이프라인<\/h2>/,
   );
-  assert.match(project, /5주 프로젝트/);
-  assert.match(project, /5인 팀 프로젝트/);
-  assert.match(project, /탐색부터 복기까지, 하나의 작업 공간으로/);
-  assert.match(project, /43[\s\S]*Panel Types/);
-  assert.match(project, /25[\s\S]*Layout Commands/);
-  assert.match(project, /2[\s\S]*Canvas Layers/);
-  assert.match(project, /48[\s\S]*Test \/ Spec Files/);
-  assert.match(project, /React 패널 아키텍처/);
-  assert.match(project, /WorkspacePanelFrame/);
-  assert.match(project, /Reconnect/);
-  assert.match(project, /Base 재렌더링 0회/);
-  assert.match(project, /분석 결과를 설명하는 화면/);
+  assert.match(
+    project,
+    /id="ai-coach">거래 결과가 아니라 판단 과정을 복기하는 AI 투자 코치<\/h2>/,
+  );
+  assert.match(
+    project,
+    /<button(?=[^>]*class="trading-video-poster")(?=[^>]*aria-label="실시간 투자 정보 플랫폼 시연 영상 재생")[^>]*>/,
+  );
+  assert.match(project, /\/gops\/portfolio\/video-poster\.png/);
+  assert.match(project, /href="https:\/\/www\.youtube\.com\/watch\?v=8P4wiwDrvxs"/);
+  assert.match(project, /\/gops\/portfolio\/chart-comparison\.png/);
+  assert.match(project, /\/gops\/portfolio\/event-pipeline\.png/);
+  assert.match(project, /\/gops\/portfolio\/ai-review-flow\.png/);
+  assert.match(
+    project,
+    /href="\/portfolio\/trading-platform\/rest-websocket\/?"[^>]*>REST·WebSocket 연결 자세히 보기/,
+  );
+  assert.match(
+    project,
+    /href="\/portfolio\/trading-platform\/two-layer-canvas\/?"[^>]*>2-Layer Canvas 자세히 보기/,
+  );
   assert.match(project, /백엔드와 협업한 경계/);
-  assert.match(project, /\/gops\/case-panel-portfolio\.png/);
-  assert.match(project, /\/gops\/case-recommendation\.png/);
-  assert.match(project, /\/gops\/case-panel-review\.png/);
-  assert.match(project, /\/gops\/case-chart-logic\.png/);
-  assert.match(project, /\/gops\/case-chart-evidence\.png/);
   assert.match(project, /구현 상세 보기/);
   assert.doesNotMatch(
     project,
-    /<dd>42<\/dd><dt>Panel Types<\/dt>|9,327만/,
+    /Panel Types|Layout Commands|Test \/ Spec Files|Base 재렌더링 0회|9,327만|무유실|Exactly-once/,
   );
   assert.match(runtime, /Virtual DOM · Diff &amp; Patch/);
   assert.match(runtime, /83개의 테스트/);
@@ -244,7 +252,7 @@ test("renders every technical deep dive under the portfolio route", async () => 
   const combined = pages.join("\n");
 
   assert.match(combined, /Panel Registry/);
-  assert.match(combined, /Missing Range Request/);
+  assert.match(combined, /REST · 필요한 과거 범위 추가/);
   assert.match(combined, /Overlay Canvas/);
   assert.match(combined, /Candidate Scoring/);
   assert.match(combined, /재현성과 설명 가능성/);

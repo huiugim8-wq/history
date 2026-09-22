@@ -1,188 +1,98 @@
 import type { Metadata } from "next";
-import {
-  ArticleSection,
-  ExternalTextLink,
-  InternalBackLink,
-  TagList,
-} from "../../../article-components";
-import ContentShell from "../../../content-shell";
+import Link from "next/link";
+import TradingCaseShell, { CaseDetailLink, CaseExternalLink, CaseSection, CaseTags } from "../case-shell";
 
 export const metadata: Metadata = {
   title: "2-Layer Canvas 차트 엔진 | 김희준",
-  description:
-    "정적 차트와 포인터 UI를 두 개의 Canvas로 분리해 필요한 레이어만 다시 그린 렌더링 구조입니다.",
+  description: "차트 데이터와 크로스헤어의 갱신을 분리하고, 프레임 단위로 렌더링 요청을 묶은 커스텀 차트 구현 기록입니다.",
 };
 
 export default function TwoLayerCanvasPage() {
   return (
-    <ContentShell
-      eyebrow="실시간 투자 정보 플랫폼 · 구현 기록 03"
-      title="2-Layer Canvas 차트 엔진"
-      description="정적 차트와 고빈도 포인터 UI를 두 개의 Canvas로 분리해 필요한 레이어만 다시 그리도록 설계했습니다."
-      actions={
-        <ExternalTextLink href="https://github.com/huiugim8-wq/gops-stock-trading-platform">
-          GitHub
-        </ExternalTextLink>
-      }
-    >
-      <article className="technical-article">
-        <InternalBackLink href="/portfolio/trading-platform">
-          실시간 투자 정보 플랫폼으로 돌아가기
-        </InternalBackLink>
-
-        <ArticleSection number="01" title="문제 정의">
-          <p>
-            캔들·거래량·축·분석선은 데이터나 화면 범위가 바뀔 때 갱신되지만,
-            크로스헤어와 툴팁은 포인터가 움직일 때마다 바뀝니다. 두 종류의 요소를
-            하나의 Canvas에 그리면 포인터 이동만으로도 전체 차트를 반복해서 다시
-            그리게 됩니다.
-          </p>
-          <ul>
-            <li>변경 빈도가 다른 요소가 같은 렌더링 루프에 묶여 있었습니다.</li>
-            <li>포인터 이동은 초당 많은 이벤트를 발생시킵니다.</li>
-            <li>
-              정적 차트까지 다시 그리면 불필요한 연산과 페인팅이 증가합니다.
-            </li>
-          </ul>
-        </ArticleSection>
-
-        <ArticleSection number="02" title="Layer Separation">
-          <div className="table-scroll">
-            <table className="article-table">
-              <thead>
-                <tr>
-                  <th>레이어</th>
-                  <th>표현 요소</th>
-                  <th>갱신 시점</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Base Canvas</td>
-                  <td>캔들, 거래량, 가격·시간 축, 지지·저항선</td>
-                  <td>데이터·범위·크기 변경</td>
-                </tr>
-                <tr>
-                  <td>Overlay Canvas</td>
-                  <td>크로스헤어, 포인터, 툴팁, 선택 상태</td>
-                  <td>포인터 이동·사용자 인터랙션</td>
-                </tr>
-              </tbody>
-            </table>
+    <TradingCaseShell>
+      <article>
+        <header className="trading-intro">
+          <Link className="trading-back" href="/portfolio/trading-platform/">← 실시간 투자 정보 플랫폼</Link>
+          <div className="trading-title-row">
+            <h1>2-Layer Canvas 차트 엔진</h1>
+            <div className="trading-links">
+              <CaseExternalLink href="https://github.com/huiugim8-wq/gops-stock-trading-platform">GitHub</CaseExternalLink>
+            </div>
           </div>
-          <pre className="architecture-flow">
-            <code>{`┌────────────────────────────┐
-│ Overlay Canvas             │  ← pointer / tooltip / hover
-├────────────────────────────┤
-│ Base Canvas                │  ← candle / volume / axis / line
-└────────────────────────────┘`}</code>
-          </pre>
-        </ArticleSection>
+          <p className="trading-lead">
+            실시간 데이터와 사용자의 포인터가 서로 다른 속도로 변한다는 점에 맞춰,
+            차트와 크로스헤어의 그리기 작업을 분리했습니다.
+          </p>
+          <CaseTags tags={["TypeScript", "Canvas 2D", "requestAnimationFrame", "Coordinate Transform"]} />
+        </header>
 
-        <ArticleSection number="03" title="Rendering Flow">
-          <pre className="architecture-flow">
-            <code>{`Data / Viewport Change ──→ drawBase()
-Pointer Move ─────────────→ drawOverlay()
-                              ↓
-                    requestAnimationFrame`}</code>
-          </pre>
-          <ol>
-            <li>데이터 또는 화면 범위가 바뀌면 Base Canvas를 갱신합니다.</li>
-            <li>포인터 좌표는 차트 좌표계로 변환합니다.</li>
-            <li>
-              크로스헤어·툴팁 상태를 Overlay Canvas에만 그립니다.
-            </li>
-            <li>
-              requestAnimationFrame 기준으로 여러 입력을 한 번의 화면 갱신에
-              묶습니다.
-            </li>
+        <CaseSection id="canvas-problem" title="포인터 이동만으로 전체 차트를 다시 그려야 할까">
+          <p className="trading-copy">
+            캔들·거래량·분석선은 데이터나 표시 범위가 바뀔 때 갱신되지만,
+            크로스헤어는 포인터를 움직일 때마다 바뀝니다. 이 작업을 같은 Canvas에
+            묶으면 가격을 확인하는 작은 움직임에도 차트 전체를 다시 그리게 됩니다.
+            변경 원인에 따라 두 레이어를 독립적으로 갱신하도록 구성했습니다.
+          </p>
+        </CaseSection>
+
+        <CaseSection id="canvas-layers" title="같은 좌표 위에, 다른 갱신 주기를 가진 두 레이어">
+          <div className="trading-layer-stack" aria-label="두 개의 Canvas 레이어 구성">
+            <section>
+              <h3>Overlay Canvas · 포인터 레이어</h3>
+              <p>크로스헤어와 포인터에 따라 바뀌는 일시적 표시를 그립니다.</p>
+              <p><strong>갱신 조건</strong> 포인터 이동 · 차트 좌표 변경</p>
+            </section>
+            <section>
+              <h3>Base Canvas · 차트 레이어</h3>
+              <p>캔들·거래량·축·분석선과 AI 분석 표시를 그립니다.</p>
+              <p><strong>갱신 조건</strong> 데이터 · 확대/이동 · 크기 · 분석 표시 변경</p>
+            </section>
+          </div>
+          <p className="trading-copy">
+            Base에서 만든 차트 좌표를 Overlay도 공유합니다. 렌더링 작업은 나누되,
+            포인터가 가리키는 시점과 가격은 같은 좌표 기준으로 맞췄습니다.
+          </p>
+        </CaseSection>
+
+        <CaseSection id="canvas-scheduling" title="연속된 입력을 한 프레임의 갱신으로 묶기">
+          <div className="trading-tech-grid">
+            <div className="trading-tech-block">
+              <h3>포인터 이동 → Overlay 갱신</h3>
+              <p>최신 포인터 좌표를 보관한 뒤 Overlay의 그리기 작업을 예약합니다. 프레임이 이미 예약돼 있으면 추가 예약 없이 좌표만 갱신합니다.</p>
+            </div>
+            <div className="trading-tech-block">
+              <h3>데이터·범위 변경 → Base 갱신</h3>
+              <p>실시간 데이터가 바뀌거나 차트를 이동·확대하면 Base를 다시 그립니다. 새 좌표를 만든 다음 Overlay도 갱신해 두 레이어의 위치를 맞춥니다.</p>
+            </div>
+          </div>
+          <ol className="trading-flow-strip" aria-label="프레임 단위 그리기 과정">
+            <li><strong>입력 수신</strong><small>최신 좌표와 차트 상태 보관</small></li>
+            <li><strong>프레임 예약</strong><small>중복 예약은 추가하지 않음</small></li>
+            <li><strong>해당 레이어 갱신</strong><small>requestAnimationFrame</small></li>
           </ol>
-        </ArticleSection>
+        </CaseSection>
 
-        <ArticleSection number="04" title="좌표와 인터랙션">
-          <div className="table-scroll">
-            <table className="article-table">
-              <thead>
-                <tr>
-                  <th>변환</th>
-                  <th>역할</th>
-                </tr>
-              </thead>
+        <CaseSection id="canvas-result" title="포인터 확인과 차트 데이터 갱신의 책임 분리">
+          <div className="trading-table-wrap">
+            <table className="trading-table">
+              <thead><tr><th>입력</th><th>갱신 범위</th></tr></thead>
               <tbody>
-                <tr>
-                  <td>Time → X</td>
-                  <td>시계열 인덱스 또는 시간을 화면 가로 좌표로 변환</td>
-                </tr>
-                <tr>
-                  <td>Price → Y</td>
-                  <td>가격 범위를 화면 세로 좌표로 변환</td>
-                </tr>
-                <tr>
-                  <td>Pointer → Data</td>
-                  <td>마우스 위치에서 가장 가까운 시점과 가격을 계산</td>
-                </tr>
+                <tr><td>크로스헤어만 이동</td><td>Overlay Canvas</td></tr>
+                <tr><td>실시간 데이터·분석 표시 변경</td><td>Base Canvas → Overlay Canvas</td></tr>
+                <tr><td>차트 이동·확대·크기 변경</td><td>좌표 재계산 → 두 레이어 갱신</td></tr>
               </tbody>
             </table>
           </div>
-          <p>
-            렌더링 레이어는 분리했지만 같은 좌표 변환 규칙을 사용해 Base
-            Canvas의 데이터와 Overlay Canvas의 포인터 UI가 정확히 일치하도록
-            구성했습니다.
+          <p className="trading-result">
+            포인터만 움직일 때는 차트 데이터를 다시 그리지 않도록 해,
+            사용자가 가격과 시점을 확인하는 과정의 불필요한 렌더링을 줄였습니다.
           </p>
-        </ArticleSection>
-
-        <ArticleSection number="05" title="Before / After">
-          <div className="table-scroll">
-            <table className="article-table">
-              <thead>
-                <tr>
-                  <th>구분</th>
-                  <th>단일 Canvas</th>
-                  <th>2-Layer Canvas</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>포인터 이동</td>
-                  <td>전체 차트 다시 그리기</td>
-                  <td>Overlay만 갱신</td>
-                </tr>
-                <tr>
-                  <td>렌더링 책임</td>
-                  <td>정적·동적 요소 혼합</td>
-                  <td>변경 빈도에 따라 분리</td>
-                </tr>
-                <tr>
-                  <td>성능 분석</td>
-                  <td>병목 범위가 넓음</td>
-                  <td>레이어별 갱신 조건 확인 가능</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="trading-links">
+            <CaseDetailLink href="/portfolio/trading-platform/rest-websocket/">REST · WebSocket 연결 자세히 보기</CaseDetailLink>
+            <CaseDetailLink href="/portfolio/trading-platform/">프로젝트 전체 보기</CaseDetailLink>
           </div>
-          <p className="article-emphasis">
-            무조건 덜 그리는 것보다, “무엇이 언제 변하는가”를 기준으로 렌더링
-            책임을 나누는 것이 핵심이었습니다.
-          </p>
-        </ArticleSection>
-
-        <ArticleSection number="06" title="결과">
-          <ul>
-            <li>포인터 이동 시 Overlay Canvas만 갱신합니다.</li>
-            <li>정적 차트와 고빈도 UI의 갱신 조건이 분리되었습니다.</li>
-            <li>차트 엔진의 렌더링 흐름과 디버깅 범위가 명확해졌습니다.</li>
-          </ul>
-          <TagList
-            tags={[
-              "TypeScript",
-              "Canvas 2D",
-              "requestAnimationFrame",
-              "Coordinate Transform",
-              "Interaction Rendering",
-            ]}
-          />
-        </ArticleSection>
+        </CaseSection>
       </article>
-    </ContentShell>
+    </TradingCaseShell>
   );
 }
