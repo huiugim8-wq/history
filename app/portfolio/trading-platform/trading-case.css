@@ -17,7 +17,6 @@
 .trading-skip { position: fixed; left: 20px; top: -100px; z-index: 10; padding: 10px 16px; background: white; }
 .trading-skip:focus { top: 20px; }
 .trading-masthead { padding-top: 90px; border-bottom: 1px solid var(--case-line); }
-.trading-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 24px; font-size: 12px; font-weight: 650; }
 .trading-wordmark { display: flex; width: fit-content; align-items: flex-end; gap: 12px; margin-top: 18px; margin-bottom: -3px; color: var(--case-ink); }
 .trading-wordmark > span:first-child { font-size: 80px; font-weight: 800; line-height: 1.02; letter-spacing: -.055em; }
 .trading-dot { color: var(--case-blue); }
@@ -124,7 +123,6 @@
 }
 @media (max-width: 520px) {
   .trading-case { font-size: 14px; }
-  .trading-nav { gap: 17px; font-size: 11px; }
   .trading-wordmark { margin-top: 25px; gap: 10px; }
   .trading-wordmark > span:first-child { font-size: 54px; }
   .trading-name { font-size: 12px; padding-bottom: 3px; }
@@ -158,7 +156,7 @@
   .trading-case { font-size: 10pt; }
   .trading-container { width: 100%; }
   .trading-masthead { padding-top: 0; }
-  .trading-nav, .trading-skip { display: none; }
+  .trading-case .site-nav, .trading-skip { display: none; }
   .trading-wordmark > span:first-child { font-size: 42pt; }
   .trading-main { padding-top: 22pt; }
   .trading-section { margin-top: 22pt; }
