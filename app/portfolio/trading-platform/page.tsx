@@ -87,7 +87,7 @@ export default function TradingPlatformPage() {
 
       <CaseSection id="event-pipeline" title="초당 평균 1,080건의 시장 데이터를 처리하는 실시간 파이프라인">
         <figure className="trading-pipeline-figure">
-          <Image src={publicAssetPath("/gops/portfolio/event-pipeline.png")} alt="Kafka에 기록된 이벤트를 기능별 Consumer가 독립적으로 처리하고, 지연된 처리 경로는 복구하는 개념도" width={1470} height={565} sizes="(max-width: 760px) calc(100vw - 40px), 720px" unoptimized />
+          <Image src={publicAssetPath("/gops/portfolio/event-pipeline.png?v=2")} alt="Kafka에 기록된 이벤트를 기능별 Consumer가 독립적으로 처리하고, 지연된 처리 경로는 복구하는 개념도" width={1891} height={832} sizes="(max-width: 760px) calc(100vw - 40px), 720px" unoptimized />
           <figcaption>기능별 확장·변경·복구를 분리한 개념도 · 실제 데이터 전달 경로는 아래 흐름도 참고</figcaption>
         </figure>
         <p>시장 이벤트가 여러 기능으로 전달되는 과정에서 한 경로의 지연이 다른 기능의 진행을 막지 않도록 Kafka 기반 EDA를 적용했습니다. 기능별 Consumer Group이 독립적으로 처리하며, 가공·저장 작업은 처리와 출력이 완료된 뒤 Offset을 커밋해 실패 시 재처리하도록 했습니다.</p>
@@ -109,8 +109,8 @@ export default function TradingPlatformPage() {
       <CaseSection id="ai-coach" title="거래 결과가 아니라 판단 과정을 복기하는 AI 투자 코치">
         <p><strong>거래 당시의 기록과 유사 사례를 근거로 AI가 놓친 조건을 설명하고, 다음 투자에서 확인할 기준을 제안하도록 했습니다.</strong></p>
         <figure className="trading-coach-figure">
-          <a href={publicAssetPath("/gops/portfolio/ai-review-flow.png")} target="_blank" rel="noreferrer" aria-label="AI 거래 복기 흐름 원본 크게 보기">
-            <Image src={publicAssetPath("/gops/portfolio/ai-review-flow.png")} alt="판단 데이터 수집, 복기 근거 구성, AI 주장 검증, 검증된 복기와 관찰 조건으로 이어지는 흐름. 새 이벤트가 발생하면 연결된 근거와 알림을 재검증합니다." width={1690} height={660} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
+          <a href={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} target="_blank" rel="noreferrer" aria-label="AI 거래 복기 흐름 원본 크게 보기">
+            <Image src={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} alt="거래 시점 근거 검증 및 이벤트 기반 재검증: 판단 데이터, 복기 근거 구성, AI 주장 검증과 관찰 조건으로 이어지는 흐름. 새 이벤트가 발생하면 연결된 판단과 알림을 재검증합니다." width={1945} height={808} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
           </a>
         </figure>
         <p>주문·체결 기록과 당시 차트, 확인한 정보들을 연결해 결과뿐 아니라 판단 과정에서 빠진 조건을 확인합니다. 비교·평가 수치는 코드로 계산하고, AI는 근거가 확인된 결과를 피드백으로 설명하도록 역할을 나눴습니다.</p>
