@@ -5,6 +5,7 @@ import { ArticleSection, ExternalTextLink } from "../article-components";
 import ContentShell from "../content-shell";
 import { portfolioDeepDives, portfolioProjects } from "../content-data";
 import { publicAssetPath } from "../site-paths";
+import FrontendPortfolio from "./frontend-portfolio";
 
 export const metadata: Metadata = {
   title: "Portfolio | 김희준",
@@ -218,7 +219,7 @@ function PortfolioEntry({ project }: { project: PortfolioProject }) {
 }
 
 export default function PortfolioPage() {
-  return <PortfolioContent mode="frontend" />;
+  return <FrontendPortfolio />;
 }
 
 export function PortfolioContent({

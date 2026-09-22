@@ -33,109 +33,51 @@ async function htmlFor(pathname = "/") {
   return response.text();
 }
 
-test("renders the resume with page navigation and internal detail links", async () => {
+test("renders the reference Product Engineer resume and working links", async () => {
   const html = await htmlFor("/");
-
   assert.match(html, /<html lang="ko">/);
-  assert.match(html, /<title>김희준 \| Front-End Engineer<\/title>/);
+  assert.match(html, /class="product-resume"/);
+  assert.match(html, /Product Engineer/);
   assert.match(html, /<h1 id="profile-title">김희준<\/h1>/);
-  assert.match(
-    html,
-    /<img(?=[^>]*class="profile-photo")(?=[^>]*src="\/profile-id\.png")(?=[^>]*width="1086")(?=[^>]*height="1448")[^>]*>/,
-  );
-  assert.match(html, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
-  assert.match(html, /크래프톤 정글[\s\S]*12기 졸업/);
-  assert.match(html, /㈜나현[\s\S]*OTOS[\s\S]*대구대학교/);
-  assert.match(html, /href="\/"[^>]*>이력서<\/a>/);
-  assert.match(html, /href="\/cover-letter"[^>]*>자기소개서<\/a>/);
-  assert.match(html, /href="\/portfolio"[^>]*>포트폴리오<\/a>/);
-  assert.match(html, /href="\/documents"[^>]*>PDF<\/a>/);
-  assert.doesNotMatch(html, /href="\/blog"[^>]*>블로그<\/a>/);
-  assert.match(html, /href="\/portfolio\/trading-platform"/);
-  assert.match(html, /href="\/portfolio\/react-runtime"/);
-  assert.match(html, /미니 리액트\(버추얼 돔\) 구현/);
-  assert.match(
-    html,
-    /미니 리액트\(버추얼 돔\) 구현[\s\S]*Fiber Reconciler[\s\S]*83개 테스트/,
-  );
-  assert.match(
-    html,
-    /href="\/portfolio\/trading-platform\/react-panel-registry"/,
-  );
-  assert.match(
-    html,
-    /href="\/portfolio\/trading-platform\/two-layer-canvas"/,
-  );
-  assert.match(
-    html,
-    /href="\/portfolio\/trading-platform\/chart-analysis"/,
-  );
-  assert.match(
-    html,
-    /대량의 실시간 데이터를 위한 커스텀 주식 차트 구현[\s\S]*평균 초당 약 1,080건[\s\S]*팀원이 사용할 수 있도록 43종의 React 공용 컴포넌트를 설계·구현[\s\S]*지지·저항선을 위한 알고리즘 개발 및 시각화/,
-  );
-  assert.match(html, /과거 데이터도 REST API로 지원/);
-  assert.match(
-    html,
-    /차트 API에서 지원하지 않는 틱 데이터[\s\S]*주식 차트를 직접 구현/,
-  );
-  assert.match(html, /멀티 레이어 Canvas[\s\S]*를 사용/);
-  assert.match(html, /머신러닝\(선형회귀, 피벗\) 모델을 학습/);
-  assert.match(
-    html,
-    /크래프톤 정글[\s\S]*팀 프로젝트[\s\S]*팀원[\s\S]*5인[\s\S]*기간[\s\S]*2026\.03 — 2026\.07[\s\S]*담당[\s\S]*프론트엔드/,
-  );
-  assert.doesNotMatch(html, /PDF로 저장|print-button/);
-  assert.doesNotMatch(html, /app\.notion\.com|>Notion</);
-  assert.doesNotMatch(html, /<dialog|aria-haspopup="dialog"/);
+  assert.match(html, /About Me/);
+  assert.match(html, /비즈니스 임팩트/);
+  assert.match(html, /Work &amp; Experience/);
+  assert.match(html, /크래프톤 정글[\s\S]*㈜나현[\s\S]*OTOS[\s\S]*대구대학교/);
+  assert.match(html, /href="\/cover-letter\/"/);
+  assert.match(html, /href="\/portfolio\/"/);
+  assert.match(html, /href="\/portfolio\/trading-platform\/"/);
+  assert.match(html, /href="\/portfolio\/trading-platform\/two-layer-canvas\/"/);
+  assert.match(html, /href="\/portfolio\/trading-platform\/#event-pipeline"/);
+  assert.match(html, /href="\/portfolio\/trading-platform\/#ai-coach"/);
+  assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=8P4wiwDrvxs"/);
+  assert.match(html, /href="tel:01082016811"/);
+  assert.match(html, /href="mailto:huiugim8@gmail\.com"/);
+  assert.match(html, /href="\/awards\/interior-deco-14-encouragement\.jpg"/);
+  assert.match(html, /aria-label="주요 기술"/);
+  for (const skill of ["TypeScript", "JavaScript", "React", "Next.js", "Node.js", "Python"]) {
+    assert.ok(html.includes(`title="${skill}"`), `${skill} icon should render`);
+  }
+  assert.match(html, /href="\/uiux\/"[^>]*aria-label="UI\/UX 디자이너 이력서로 전환"/);
+  assert.doesNotMatch(html, /localhost:|class="project-highlights"/);
 });
 
-test("renders the cover letter as a standalone printable page", async () => {
+test("renders the unbranded Product Engineer cover letter from the latest reference", async () => {
   const html = await htmlFor("/cover-letter/");
-
-  assert.match(html, /<title>자기소개서 \| 김희준<\/title>/);
-  assert.doesNotMatch(
-    html,
-    /APPLICATION ESSAY|사용자 중심의 관점으로 문제를 정의하고, 기술과 소통으로 해결하는 과정입니다\./,
-  );
-  assert.match(html, /class="content-site cover-letter-site"/);
-  assert.match(
-    html,
-    /사용자 경험과 기술 구조를 함께 고민하는 프론트엔드[\s\S]*개발자 김희준입니다[\s\S]*사용자 중심의 관점으로 문제를 정의하고[\s\S]*id="cover-letter-user"/,
-  );
-  assert.match(
-    html,
-    /id="cover-letter-user">[\s\S]*실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의[\s\S]*밑바탕이 됐습니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-technology">[\s\S]*필요한 기술을 빠르게 익혀 구현합니다[\s\S]*<\/h2>[\s\S]*id="cover-letter-collaboration">[\s\S]*소통을 통해 문제를 빠르게 파악하고 해결합니다[\s\S]*<\/h2>/,
-  );
-  assert.doesNotMatch(html, />결론<\/h2>/);
-  assert.doesNotMatch(html, />0[123]</);
-  assert.match(html, /9천만 건의 틱 데이터를 다루는 커스텀 주식 차트 엔진/);
-  assert.match(html, /평균 초당 약 1,080건/);
-  assert.match(html, /멀티 레이어 Canvas/);
-  assert.match(
-    html,
-    /생산 라인장으로 근무하며 20명의 현장 인력[\s\S]*외주업체[\s\S]*납품업체/,
-  );
-  assert.match(
-    html,
-    /프론트엔드는 데이터의 상태 변화와 사용자 상호작용을 연결해[\s\S]*사용자 경험으로 구체화하는 영역/,
-  );
-  assert.match(
-    html,
-    /Virtual DOM과[\s\S]*Diff\/Patch[\s\S]*Hooks[\s\S]*batching/,
-  );
-  assert.match(
-    html,
-    /문제가 생겼을 때 포기하지 않고 원인을 끝까지 찾아[\s\S]*다시 활용할 수 있는 해결책을[\s\S]*프론트엔드 개발자가 되겠습니다/,
-  );
-  assert.doesNotMatch(
-    html,
-    /Publishing Platform Div|Junior Front-end Engineer 포지션|6개월이 끝났을 때|인턴이 아니라/,
-  );
-  assert.match(
-    html,
-    /href="\/documents\/kim-heejun-frontend-cover-letter\.pdf"[^>]*download="김희준_프론트엔드_자기소개서\.pdf"[^>]*>[^<]*PDF 다운로드/,
-  );
+  assert.ok(html.includes("<title>자기소개서 | 김희준</title>"));
+  assert.match(html, /class="content-site cover-letter-site product-cover-letter"/);
+  for (const text of [
+    "기술을 통해 비즈니스 임팩트를 만드는 Product Engineer 김희준",
+    "소비자의 관점에서 문제를 다시 정의했습니다",
+    "개인의 경험에 의존하지 않는 반복 가능한 시스템",
+    "사용자 중심의 관점, 기술적 기본기, 소통",
+    "5주 동안 약 9천만 건의 틱 데이터를 다루는 실시간 투자 정보 플랫폼",
+    "평균 초당 약 1,080건", "백엔드 데이터 파이프라인까지 직접 다뤘습니다",
+    "Kafka 기반의 이벤트 드리븐 구조", "약 20명의 현장 인력을 관리",
+    "Product Engineer로서 귀사에서 비즈니스 임팩트를 만들어내겠습니다",
+    "긴 글 읽어 주셔서 감사합니다. 면접날 뵙겠습니다.",
+  ]) assert.ok(html.includes(text), text);
+  assert.doesNotMatch(html, /마이리얼트립|myrealtrip|id="cover-letter-user"|PDF 다운로드/);
+  assert.ok(html.includes('href="/documents/"'));
 });
 
 test("renders separate frontend and UI UX PDF downloads", async () => {
@@ -158,24 +100,24 @@ test("renders a focused portfolio without work-history or card grids", async () 
   const project = await htmlFor("/portfolio/trading-platform/");
   const runtime = await htmlFor("/portfolio/react-runtime/");
 
-  assert.match(portfolio, /<h1>Portfolio<\/h1>/);
+  assert.match(portfolio, /class="fp-wordmark-title">Portfolio/);
   assert.match(
     portfolio,
-    /<img(?=[^>]*class="portfolio-profile-photo")(?=[^>]*src="\/profile-id\.png")(?=[^>]*width="1086")(?=[^>]*height="1448")[^>]*>/,
+    /<img(?=[^>]*class="fp-profile-photo")(?=[^>]*src="\/profile-id\.png")(?=[^>]*width="1086")(?=[^>]*height="1448")[^>]*>/,
   );
-  assert.match(portfolio, /소통을 바탕으로 구현하는 프론트엔드 개발자/);
+  assert.match(portfolio, /기술로 <strong>비즈니스 임팩트<\/strong>를 만드는 개발자/);
   assert.match(portfolio, /010 8201 6811/);
   assert.match(portfolio, /huiugim8@gmail\.com/);
   assert.match(portfolio, /실시간 투자 정보 플랫폼/);
-  assert.match(portfolio, /Vanilla JS React Runtime/);
-  assert.match(portfolio, /React 공통 프레임 · 43종 기능 패널 설계/);
-  assert.match(portfolio, /REST API · WebSocket 실시간 데이터 흐름/);
-  assert.match(portfolio, /2-Layer Canvas 차트 엔진/);
-  assert.match(portfolio, /TypeScript 피벗 군집 · 선형회귀 알고리즘/);
+  assert.match(portfolio, /Mini React/);
+  assert.match(portfolio, /Amazon MSK 기반으로 처리하고/);
+  assert.match(portfolio, /JavaScript · 83 tests passed/);
   assert.doesNotMatch(portfolio, /Work &amp; Experience/);
   assert.doesNotMatch(portfolio, /㈜나현|OTOS/);
-  assert.match(portfolio, /class="portfolio-entry-list"/);
-  assert.match(portfolio, /class="portfolio-skill-list"/);
+  assert.match(portfolio, /class="fp-video-link"/);
+  assert.match(portfolio, /<button[^>]*aria-label="실시간 투자 정보 플랫폼 시연 영상 재생"/);
+  assert.doesNotMatch(portfolio, /<a[^>]*class="fp-project-card fp-project-summary"[^>]*>(?:(?!<\/a>)[\s\S])*<button/);
+  assert.match(portfolio, /class="fp-skill-list"/);
   assert.doesNotMatch(
     portfolio,
     /class="[^"]*(?:content-card|content-card-tags|portfolio-skills-grid)/,
@@ -185,10 +127,7 @@ test("renders a focused portfolio without work-history or card grids", async () 
     /Education &amp; Awards|대구대학교 · 실내건축디자인학과|인테리어앤데코 공모전 수상|DGID 공모전 수상|학과 공로상 수상/,
   );
   assert.match(portfolio, />Skills</);
-  assert.match(
-    portfolio,
-    /약 9천만 건 규모의 데이터를 다루는 TypeScript 차트 엔진/,
-  );
+  assert.match(portfolio, /하루 약 9천만 건의 시장 이벤트/);
   assert.doesNotMatch(portfolio, />블로그</);
   assert.match(project, /<h1>실시간 투자 정보 플랫폼<\/h1>/);
   assert.match(project, /하루 약 9천만 건의 시장 이벤트/);
@@ -237,6 +176,8 @@ test("renders a focused portfolio without work-history or card grids", async () 
     "market data flow should render exactly once",
   );
   assert.match(project, /\/gops\/portfolio\/ai-review-flow\.png/);
+  assert.ok(project.indexOf('id="custom-chart"') < project.indexOf('id="ai-coach"'));
+  assert.ok(project.indexOf('id="ai-coach"') < project.indexOf('id="event-pipeline"'));
   assert.match(
     project,
     /href="\/portfolio\/trading-platform\/rest-websocket\/?"[^>]*>REST·WebSocket 연결 자세히 보기/,
@@ -278,6 +219,10 @@ test("renders every technical deep dive under the portfolio route", async () => 
   assert.match(combined, /Candidate Scoring/);
   assert.match(combined, /재현성과 설명 가능성/);
   assert.doesNotMatch(combined, /app\.notion\.com/);
+  for (const html of pages.slice(1, 3)) {
+    assert.match(html, /class="trading-case trading-case--detail"/);
+    assert.doesNotMatch(html, /class="trading-wordmark"/);
+  }
 });
 
 test("removes the standalone blog index", async () => {

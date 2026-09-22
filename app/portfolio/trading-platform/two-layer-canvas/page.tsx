@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function TwoLayerCanvasPage() {
   return (
-    <TradingCaseShell>
+    <TradingCaseShell variant="detail">
       <article>
         <header className="trading-intro">
           <Link className="trading-back" href="/portfolio/trading-platform/">← 실시간 투자 정보 플랫폼</Link>

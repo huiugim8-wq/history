@@ -52,18 +52,38 @@ export default function TradingPlatformPage() {
         </dl>
       </div>
 
+      <section className="trading-overview trading-overview--stacked" aria-labelledby="project-overview-title">
+        <h2 id="project-overview-title">프로젝트 요약</h2>
+        <div className="trading-overview-grid">
+          <section>
+            <h3>담당 역할 및 기여</h3>
+            <ul>
+              <li>5인 팀의 풀스택 개발자로 데이터 흐름과 사용자 화면을 함께 구현</li>
+              <li>커스텀 차트 엔진, REST·WebSocket 데이터 병합, 실시간 처리 구조 개발</li>
+            </ul>
+          </section>
+          <section>
+            <h3>핵심 구현</h3>
+            <ul>
+              <li>평균 초당 약 1,080건의 틱 이벤트를 가공해 차트와 분석 서비스에 전달</li>
+              <li>과거 데이터는 REST, 최신 이벤트는 WebSocket으로 연결하고 거래 당시의 판단을 AI로 복기</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
       <CaseSection id="architecture" title="아키텍처">
+        <p>프론트엔드와 API 서버, 시장 데이터 처리 서비스, AI 에이전트, 저장소를 연결한 전체 서비스 구성입니다.</p>
         <figure className="trading-architecture">
           <a href={publicAssetPath("/gops/portfolio/aws-architecture.png")} target="_blank" rel="noreferrer" aria-label="AWS 전체 서비스 아키텍처 원본 크게 보기">
             <Image src={publicAssetPath("/gops/portfolio/aws-architecture.png")} alt="AWS Cloud의 VPC와 가용 영역, 프론트엔드·API 서버·시장 데이터 처리·AI 에이전트 및 저장소를 연결한 전체 서비스 아키텍처" width={1672} height={941} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
           </a>
           <figcaption>AWS 기반 전체 서비스 아키텍처 · 클릭하면 원본 크기로 볼 수 있습니다.</figcaption>
         </figure>
-        <p>프론트엔드와 API 서버, 시장 데이터 처리 서비스, AI 에이전트, 저장소를 연결한 전체 서비스 구성입니다.</p>
       </CaseSection>
 
       <CaseSection id="custom-chart" title="대량의 실시간 데이터를 위한 커스텀 주식 차트 구현">
-        <p>기존 라이브러리의 정해진 표현 방식에서 벗어나, 여러 차트의 조합과 AI 분석 결과를 서비스에 필요한 형태로 확장할 수 있는 맞춤형 차트 엔진을 구현했습니다. 데이터 조회·병합부터 좌표 계산, 캔들·거래량·분석선 렌더링까지 TypeScript로 직접 연결했습니다.</p>
+        <p>범용 라이브러리의 시각화 방식에서 벗어나, 여러 차트의 조합과 AI 분석 결과를 서비스에 필요한 형태로 확장할 수 있는 맞춤형 차트 엔진을 구현했습니다. 데이터 조회·병합부터 좌표 계산, 캔들·거래량·분석선 렌더링까지 TypeScript로 직접 연결했습니다.</p>
         <figure className="trading-chart-figure">
           <a href={publicAssetPath("/gops/portfolio/chart-comparison.png")} target="_blank" rel="noreferrer" aria-label="차트 비교와 거래 복기 화면 원본 크게 보기">
             <Image src={publicAssetPath("/gops/portfolio/chart-comparison.png")} alt="여러 종목의 캔들, 추세선과 지지·저항선을 비교하는 네 개의 차트 및 거래 당시 확인 항목을 보여주는 복기 화면" width={1686} height={670} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
@@ -83,6 +103,26 @@ export default function TradingPlatformPage() {
             <CaseDetailLink href="/portfolio/trading-platform/two-layer-canvas/">2-Layer Canvas 자세히 보기</CaseDetailLink>
           </section>
         </div>
+        <aside className="trading-decision-note" aria-label="차트 조회 방식의 선택과 검증">
+          <strong>선택과 검증</strong>
+          <div>
+            <p><b>문제</b> 전체 S3 백필을 먼저 수행하면 사용하지 않는 종목까지 처리해야 하고, 차트 표시가 데이터 적재 완료 시점에 의존했습니다.</p>
+            <p><b>선택</b> S3는 과거 데이터 저장소로 유지하되, 선택한 종목·주기·기간만 REST로 조회하고 활성 종목의 최신 변화만 WebSocket으로 연결했습니다.</p>
+            <p><b>확인</b> 전체 백필을 기다리지 않고 요청한 구간부터 차트를 구성하며, 이미 받은 범위는 재사용하고 부족한 과거 구간만 추가로 요청하도록 동작을 확인했습니다.</p>
+            <small>성능 검증 목표 · 측정 전: 1개 종목·1분봉·최근 1개월 기준 최초 표시 2초 이내 · 초기 응답 3MB 이하</small>
+          </div>
+        </aside>
+      </CaseSection>
+
+      <CaseSection id="ai-coach" title="거래 결과가 아니라 판단 과정을 복기하는 AI 투자 코치">
+        <p><strong>거래 당시의 기록과 유사 사례를 근거로 AI가 놓친 조건을 설명하고, 다음 투자에서 확인할 기준을 제안하도록 했습니다.</strong></p>
+        <figure className="trading-coach-figure">
+          <a href={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} target="_blank" rel="noreferrer" aria-label="AI 거래 복기 흐름 원본 크게 보기">
+            <Image src={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} alt="거래 시점 근거 검증 및 이벤트 기반 재검증: 판단 데이터, 복기 근거 구성, AI 주장 검증과 관찰 조건으로 이어지는 흐름. 새 이벤트가 발생하면 연결된 판단과 알림을 재검증합니다." width={1945} height={808} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
+          </a>
+        </figure>
+        <p>주문·체결 기록과 당시 차트, 확인한 정보들을 연결해 결과뿐 아니라 판단 과정에서 빠진 조건을 확인합니다. 비교·평가 수치는 코드로 계산하고, AI는 근거가 확인된 결과를 피드백으로 설명하도록 역할을 나눴습니다.</p>
+        <p className="trading-result">복기에서 발견한 개선점을 다음 거래의 확인 기준과 알림으로 연결했습니다.</p>
       </CaseSection>
 
       <CaseSection id="event-pipeline" title="초당 평균 1,080건의 시장 데이터를 처리하는 실시간 파이프라인">
@@ -91,6 +131,15 @@ export default function TradingPlatformPage() {
           <figcaption>기능별 확장·변경·복구를 분리한 개념도 · 실제 데이터 전달 경로는 아래 흐름도 참고</figcaption>
         </figure>
         <p>시장 이벤트가 여러 기능으로 전달되는 과정에서 한 경로의 지연이 다른 기능의 진행을 막지 않도록 Kafka 기반 EDA를 적용했습니다. 기능별 Consumer Group이 독립적으로 처리하며, 가공·저장 작업은 처리와 출력이 완료된 뒤 Offset을 커밋해 실패 시 재처리하도록 했습니다.</p>
+        <aside className="trading-decision-note" aria-label="실시간 처리 구조의 선택과 검증">
+          <strong>선택과 검증</strong>
+          <div>
+            <p><b>문제</b> Flink는 필요한 스트림 처리 기능을 제공하지만, 제한된 프로젝트 예산에서 별도 운영 환경과 관리 비용을 감당하기에는 범위가 컸습니다.</p>
+            <p><b>선택</b> Kafka를 소비하는 Python 처리기를 Kubernetes에 구성하고, 종목을 메시지 키로 사용해 같은 파티션의 데이터를 하나의 처리기가 담당하도록 했습니다.</p>
+            <p><b>확인</b> 도착 순서가 뒤섞인 틱을 입력한 테스트에서 수신 순서가 아닌 실제 거래 시각을 기준으로 시가·종가·거래량이 계산되는 것을 확인했습니다.</p>
+            <small>성능 검증 목표 · 측정 전: 초당 1,200건 · P95 처리 지연 500ms 이하 · 부하 종료 후 Consumer Lag 60초 이내 복구</small>
+          </div>
+        </aside>
         <div className="trading-evidence-row">
           <div><strong>처리 경로 분리</strong><p>Consumer Group마다 독립된 진행 위치를 관리</p></div>
           <div><strong>실패 후 재처리</strong><p>커밋된 Offset 이후부터 다시 읽어 처리</p></div>
@@ -104,17 +153,6 @@ export default function TradingPlatformPage() {
             <figcaption>가공한 이벤트를 실시간 화면 갱신과 저장·분석 경로로 나눠 전달합니다.</figcaption>
           </figure>
         </div>
-      </CaseSection>
-
-      <CaseSection id="ai-coach" title="거래 결과가 아니라 판단 과정을 복기하는 AI 투자 코치">
-        <p><strong>거래 당시의 기록과 유사 사례를 근거로 AI가 놓친 조건을 설명하고, 다음 투자에서 확인할 기준을 제안하도록 했습니다.</strong></p>
-        <figure className="trading-coach-figure">
-          <a href={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} target="_blank" rel="noreferrer" aria-label="AI 거래 복기 흐름 원본 크게 보기">
-            <Image src={publicAssetPath("/gops/portfolio/ai-review-flow.png?v=2")} alt="거래 시점 근거 검증 및 이벤트 기반 재검증: 판단 데이터, 복기 근거 구성, AI 주장 검증과 관찰 조건으로 이어지는 흐름. 새 이벤트가 발생하면 연결된 판단과 알림을 재검증합니다." width={1945} height={808} sizes="(max-width: 880px) calc(100vw - 40px), 840px" unoptimized />
-          </a>
-        </figure>
-        <p>주문·체결 기록과 당시 차트, 확인한 정보들을 연결해 결과뿐 아니라 판단 과정에서 빠진 조건을 확인합니다. 비교·평가 수치는 코드로 계산하고, AI는 근거가 확인된 결과를 피드백으로 설명하도록 역할을 나눴습니다.</p>
-        <p className="trading-result">복기에서 발견한 개선점을 다음 거래의 확인 기준과 알림으로 연결했습니다.</p>
       </CaseSection>
 
       <section className="trading-closing" aria-labelledby="collaboration-title">

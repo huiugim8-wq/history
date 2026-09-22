@@ -1,0 +1,124 @@
+.runtime-case {
+  --accent: var(--case-blue);
+  --accent-soft: #f0f8ff;
+  --line: var(--case-line);
+  --foreground: var(--case-ink);
+  --muted: var(--case-muted);
+  --text-secondary: var(--case-muted);
+  --surface: #fafbfd;
+  --background: #fff;
+  font-size: 15px;
+}
+.runtime-case code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .88em;
+  overflow-wrap: anywhere;
+}
+.runtime-case .runtime-journey-figure { margin: 30px 0 22px; }
+.runtime-case .runtime-journey { background: #fff; }
+.runtime-case .runtime-journey-step { min-height: 110px; padding: 18px; }
+.runtime-case .runtime-journey-step > span { font-family: inherit; font-size: 13px; letter-spacing: 0; }
+.runtime-case .runtime-journey-step strong { margin-top: 3px; font-size: 17px; }
+.runtime-case .runtime-journey-step small { margin-top: 8px; font-size: 14px; color: #4f5966; font-weight: 600; }
+.runtime-case figcaption { font-size: 13px; font-weight: 400; color: var(--case-muted); line-height: 1.65; }
+.runtime-case .runtime-meta {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr .7fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--case-line);
+  border-bottom: 1px solid var(--case-line);
+}
+.runtime-meta > div { min-width: 0; }
+.runtime-meta dt { margin-bottom: 4px; color: var(--case-muted); font-size: 14px; font-weight: 600; }
+.runtime-meta dd { margin: 0; font-size: 15px; font-weight: 650; }
+.runtime-case .trading-overview-grid ul { font-size: 15px; }
+.runtime-case .trading-section { margin-top: 44px; }
+.runtime-case .trading-section > p { line-height: 1.8; }
+.runtime-case .runtime-comparison-grid { margin-top: 22px; background: #fff; }
+.runtime-case .runtime-comparison-column { padding: 22px 24px; }
+.runtime-case .runtime-comparison-column > span { font-size: 12px; letter-spacing: .025em; }
+.runtime-case .runtime-comparison-column strong { font-size: 18px; }
+.runtime-case .runtime-comparison-column ul { margin-top: 12px; padding: 0; list-style: none; font-size: 15px; line-height: 1.7; }
+.runtime-subheading { margin: 28px 0 10px; font-size: 17px; line-height: 1.4; font-weight: 750; }
+.runtime-case .fiber-tree-figure,
+.runtime-case .scheduler-figure,
+.runtime-case .keyed-move-figure { margin: 22px 0; }
+.runtime-case .fiber-tree-board { padding: 24px; gap: 16px; }
+.runtime-case .fiber-tree-column-head > span { font-size: 11px; letter-spacing: .025em; }
+.runtime-case .fiber-tree-column-head strong { font-size: 17px; }
+.runtime-case .fiber-node { font-size: 13px; }
+.runtime-case .fiber-alternate-bridge span { font-size: 11px; letter-spacing: 0; }
+.runtime-case .fiber-pointer-legend span {
+  border-color: #c7e2f8;
+  background: #f5faff;
+  color: #256da3;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.runtime-case .scheduler-visual { padding: 24px; gap: 14px; }
+.runtime-case .scheduler-lane > strong { width: 78px; flex-shrink: 0; font-size: 12px; letter-spacing: 0; }
+.runtime-case .scheduler-lane > span { font-size: 13px; min-width: 0; padding: 12px 8px; }
+.runtime-case .scheduler-lane > .scheduler-yield { font-size: 11px; max-width: 60px; }
+.runtime-case .trading-result { font-size: 15px; }
+.runtime-boundaries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 24px; }
+.runtime-boundaries h3 { margin: 0 0 9px; font-size: 16px; font-weight: 750; line-height: 1.5; }
+.runtime-boundaries p { color: var(--case-muted); line-height: 1.8; }
+.runtime-case .keyed-state > span { font-size: 12px; }
+.runtime-case .keyed-state strong { min-height: 62px; font-size: 18px; }
+.runtime-case .keyed-move-arrow span { font-size: 11px; letter-spacing: 0; }
+.runtime-verification-table { margin-top: 22px; }
+.runtime-verification-table table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; line-height: 1.65; }
+.runtime-verification-table caption { padding-bottom: 10px; text-align: left; font-size: 16px; font-weight: 700; }
+.runtime-verification-table thead { background: #f7f9fb; }
+.runtime-verification-table th,
+.runtime-verification-table td { padding: 13px 16px; border-bottom: 1px solid var(--case-line); vertical-align: top; }
+.runtime-verification-table th { font-weight: 650; }
+.runtime-verification-table tbody th { width: 28%; }
+.runtime-verification-table td { color: var(--case-muted); }
+.runtime-scope { margin-top: 26px; padding: 20px 0; border-top: 1px solid var(--case-line); border-bottom: 1px solid var(--case-line); }
+.runtime-scope h3 { margin: 0 0 10px; font-size: 17px; font-weight: 750; }
+.runtime-scope p { color: var(--case-muted); line-height: 1.8; }
+.runtime-case .runtime-scope p + p { margin-top: 10px; }
+.runtime-case .trading-tags { font-size: 13px; }
+.runtime-resources { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--case-line); font-size: 14px; font-weight: 650; }
+.runtime-resources > div { display: flex; flex-wrap: wrap; gap: 12px 24px; color: var(--case-muted); }
+.runtime-resources a:hover { color: var(--case-blue); text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .runtime-case .runtime-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .runtime-case .runtime-journey { grid-template-columns: 1fr; }
+  .runtime-case .runtime-journey-step { min-height: 90px; }
+  .runtime-case .runtime-comparison-grid { grid-template-columns: 1fr; }
+  .runtime-case .fiber-tree-board { grid-template-columns: 1fr; padding: 18px; }
+  .runtime-case .scheduler-lane { flex-wrap: wrap; }
+  .runtime-case .scheduler-lane > strong { width: 100%; min-height: auto; }
+  .runtime-case .scheduler-lane > span { flex: 1 1 80px; }
+  .runtime-case .scheduler-lane > .scheduler-yield { flex-basis: 45px; }
+  .runtime-case .keyed-move-visual { grid-template-columns: 1fr; }
+  .runtime-boundaries { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 520px) {
+  .runtime-case .trading-intro .trading-lead { font-size: 17px; }
+  .runtime-case .runtime-meta { grid-template-columns: 1fr; gap: 12px; }
+  .runtime-meta > div { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 12px; }
+  .runtime-meta dt { margin: 0; }
+  .runtime-case .trading-section { margin-top: 34px; }
+  .runtime-case .runtime-comparison-column { padding: 20px; }
+  .runtime-case .fiber-tree-column { padding: 15px; }
+  .runtime-case .scheduler-visual { padding: 16px; }
+  .runtime-verification-table th,
+  .runtime-verification-table td { padding: 12px 8px; font-size: 14px; }
+  .runtime-verification-table tbody th { width: 32%; }
+}
+@media print {
+  .runtime-case { font-size: 10pt; }
+  .runtime-case .trading-section { margin-top: 24pt; }
+  .runtime-case .runtime-journey-step { min-height: 70pt; padding: 10pt; }
+  .runtime-case .runtime-journey-step strong { font-size: 11pt; }
+  .runtime-case .runtime-journey-step small,
+  .runtime-case figcaption { font-size: 9pt; }
+  .runtime-comparison-grid, .runtime-meta, .runtime-scope,
+  .runtime-boundaries, .runtime-verification-table tr { break-inside: avoid; }
+  .runtime-resources { display: none; }
+}

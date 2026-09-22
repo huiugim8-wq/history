@@ -1,207 +1,25 @@
 import type { Metadata } from "next";
 import ContentShell from "../content-shell";
-import { publicAssetPath } from "../site-paths";
+import "./cover-letter.css";
 
 export const metadata: Metadata = {
   title: "자기소개서 | 김희준",
-  description:
-    "사용자 중심의 관점으로 문제를 정의하고, 기술과 소통으로 해결하는 프론트엔드 개발자 김희준의 자기소개서입니다.",
+  description: "사용자 중심의 관점, 기술적 기본기, 소통으로 비즈니스 임팩트를 만드는 Product Engineer 김희준의 자기소개서입니다.",
 };
 
 export default function CoverLetterPage() {
   return (
-    <ContentShell
-      title="자기소개서"
-      className="cover-letter-site"
-      actions={
-        <a
-          className="content-text-link"
-          href={publicAssetPath(
-            "/documents/kim-heejun-frontend-cover-letter.pdf",
-          )}
-          download="김희준_프론트엔드_자기소개서.pdf"
-        >
-          PDF 다운로드 <span aria-hidden="true">↓</span>
-        </a>
-      }
-    >
-      <article className="cover-letter-page">
-        <div className="cover-letter-intro cover-letter-copy">
-          <p>
-            안녕하십니까. 사용자 경험과 기술 구조를 함께 고민하는 프론트엔드
-            개발자 김희준입니다.
-          </p>
-
-          <p className="cover-letter-key-message">
-            저는 비전공자이지만,{" "}
-            <strong>
-              사용자 중심의 관점으로 문제를 정의하고, 필요한 기술을 빠르게 익혀
-              구현하며, 팀원과 소통해 문제를 해결할 수 있는 개발자
-            </strong>
-            입니다.
-          </p>
-        </div>
-
-        <section
-          className="cover-letter-section"
-          aria-labelledby="cover-letter-user"
-        >
-          <div className="cover-letter-section-heading">
-            <h2 id="cover-letter-user">
-              실내건축디자인에서 익힌 사용자 중심의 관점은 프론트엔드 개발의
-              밑바탕이 됐습니다
-            </h2>
-          </div>
-
-          <div className="cover-letter-copy">
-            <p>
-              실내건축디자인을 전공하며 공간의 목적을 정의하고, 사용자가 무엇을
-              보고 어떻게 이동하며 어떤 경험을 하게 될지를 설계했습니다. 이때
-              익힌 관점은 프론트엔드에서도 기능을 배치하기 전에 사용자의 목적과
-              행동 흐름을 먼저 생각하는 기준으로 이어졌습니다.
-            </p>
-
-            <p>
-              창업 과정에서는 체험단의 반응을 관찰해 상품 구성과 설명 방식을
-              개선했습니다. 판매 성과는 냈지만, 고객 반응과 판매 정보를 축적해
-              다음 판단에 활용하는 구조가 없어 사업을 지속하지는 못했습니다.
-            </p>
-
-            <p>
-              이 실패를 통해 사용자의 문제를 발견하는 것과 이를 반복 가능한
-              시스템으로 해결하는 것은 다르다는 사실을 깨달았습니다. 직접
-              시스템을 만들기 위해 개발을 시작했고, 크래프톤 정글에
-              참여했습니다.
-            </p>
-          </div>
-        </section>
-
-        <section
-          className="cover-letter-section"
-          aria-labelledby="cover-letter-technology"
-        >
-          <div className="cover-letter-section-heading">
-            <h2 id="cover-letter-technology">
-              필요한 기술을 빠르게 익혀 구현합니다
-            </h2>
-          </div>
-
-          <div className="cover-letter-copy">
-            <p>
-              크래프톤 정글에서 자료구조와 알고리즘, 운영체제, 네트워크를
-              학습하며 서비스가 동작하는 기반을 익혔습니다.
-            </p>
-
-            <p>
-              <strong>
-                5주 안에 9천만 건의 틱 데이터를 다루는 커스텀 주식 차트 엔진을
-                구현했습니다.
-              </strong>{" "}
-              기존 차트 API에서 지원하지 않는 틱 데이터와 분석 결과를 다양한
-              형태로 오버레이해야 했기 때문에 TypeScript로 차트를 직접
-              개발했습니다. 과거 데이터는 REST API로 조회하고, 실시간 데이터는
-              WebSocket을 통해 <strong>평균 초당 약 1,080건</strong>씩
-              반영했습니다.
-            </p>
-
-            <p>
-              대량의 데이터가 갱신되는 상황에서도 사용자 상호작용이 끊기지
-              않도록 멀티 레이어 Canvas를 적용했습니다. 정적인 차트와 포인터 UI를
-              서로 다른 레이어로 분리해, 포인터가 움직일 때 전체 차트를 다시
-              그리지 않고 필요한 영역만 갱신했습니다.
-            </p>
-
-            <p>
-              43종의 기능 패널에는 공통 프레임을 적용하고, TypeScript Registry에서
-              크기와 배치, 우선순위와 동작 기준을 관리했습니다. 기능이 늘어나도
-              사용자가 같은 방식으로 서비스를 이해하고 조작할 수 있도록 코드
-              구조와 사용 경험을 함께 고려했습니다.
-            </p>
-
-            <p>
-              또한 React를 사용하는 데서 멈추지 않고{" "}
-              <strong>
-                Virtual DOM과 Diff/Patch, Hooks, batching을 직접 구현했습니다.
-              </strong>{" "}
-              상태가 저장되고 변경된 내용이 렌더링으로 이어지는 과정을 코드로
-              확인했습니다. 동작하지 않는 부분은 상태의 저장 위치와 갱신 순서를
-              추적하며 원인을 찾았고, 이를 통해 복잡한 렌더링 문제를 구조적으로
-              분석할 수 있는 기반을 쌓았습니다.
-            </p>
-          </div>
-        </section>
-
-        <section
-          className="cover-letter-section"
-          aria-labelledby="cover-letter-collaboration"
-        >
-          <div className="cover-letter-section-heading">
-            <h2 id="cover-letter-collaboration">
-              소통을 통해 문제를 빠르게 파악하고 해결합니다
-            </h2>
-          </div>
-
-          <div className="cover-letter-copy">
-            <p>
-              자동차 부품 제조 현장에서 생산 라인장으로 근무하며 20명의 현장
-              인력과 엔지니어, 외주업체, 납품업체 사이의 업무를 조율했습니다.
-              문제가 발생하면 혼자 판단하기보다 관련 담당자에게 상황을 확인해
-              원인이 발생한 지점을 찾고, 생산 일정과 품질 기준에 맞춰 대응
-              방안을 정했습니다. 필요한 정보를 빠르게 모으고 각 담당자의 업무를
-              연결하며 생산 차질을 줄였습니다.
-            </p>
-
-            <p>
-              개발 과정에서도 문제의 원인이 화면과 API, 데이터 등 여러 영역에
-              걸쳐 있을 수 있습니다. 문제가 생겼을 때 혼자 오래 붙잡고 있기보다
-              재현 조건과 확인한 내용을 팀원에게 정확히 공유하고, 필요한
-              담당자와 함께 원인을 찾아 빠르게 해결하겠습니다.
-            </p>
-          </div>
-        </section>
-
-        <section
-          className="cover-letter-section"
-          aria-label="프론트엔드 개발자로서의 방향"
-        >
-          <div className="cover-letter-copy">
-            <p>
-              특히 ‘나만의 무기’ 프로젝트를 진행하며 프론트엔드를 진로로
-              결정했습니다. 처음에는 UI를 완성된 기능을 화면에 배치하는 과정이라고
-              생각했습니다. 그러나 같은 데이터와 AI 기능도 무엇을 먼저 보여주고
-              다음 행동을 어떻게 유도하느냐에 따라 단순한 정보 조회 서비스가 될
-              수도, 사용자의 판단을 돕는 투자 작업 공간이 될 수도 있었습니다.
-            </p>
-
-            <p className="cover-letter-key-message">
-              이 과정에서{" "}
-              <strong>
-                프론트엔드는 데이터의 상태 변화와 사용자 상호작용을 연결해
-                프로젝트의 콘셉트와 역할을 사용자 경험으로 구체화하는 영역
-              </strong>
-              이라는 확신을 얻었습니다. 프론트엔드는 서비스 개발의 마지막 단계가
-              아니라, 기획과 데이터, 백엔드가 만든 결과가 사용자에게 어떤 의미로
-              전달될지를 결정하는 영역이었습니다.
-            </p>
-
-            <p>
-              업무에서는 요구사항을 곧바로 화면에 옮기기보다 서비스가 해결하려는
-              문제와 사용자의 목적, 데이터 상태를 먼저 정리하겠습니다. 문제가
-              발생하면 재현 조건과 원인을 확인하고, 해결 과정은 코드와 문서에
-              남겨 같은 문제가 반복되지 않도록 하겠습니다.
-            </p>
-
-            <p className="cover-letter-closing">
-              <strong>
-                문제가 생겼을 때 포기하지 않고 원인을 끝까지 찾아, 사용자에게는
-                더 나은 경험을 제공하고 팀에는 다시 활용할 수 있는 해결책을
-                남기는 프론트엔드 개발자가 되겠습니다.
-              </strong>
-            </p>
-
-            <p>감사합니다.</p>
-          </div>
-        </section>
+    <ContentShell title="자기소개서" className="cover-letter-site product-cover-letter">
+      <article className="cover-letter-page product-cover-copy">
+        <p className="product-cover-intro"><strong>안녕하십니까. 기술을 통해 비즈니스 임팩트를 만드는 Product Engineer 김희준입니다.</strong></p>
+        <p>저는 개발을 시작하기 전, ‘OTOS’라는 브랜드를 기획하고 제품을 직접 개발해 사업을 시작했습니다. 첫 제품의 시장 반응은 기대에 미치지 못했습니다. 이후 체험단을 운영하고 고객과 직접 소통하면서, 디자이너인 제 기준이 아니라 <strong>소비자의 관점에서 문제를 다시 정의했습니다.</strong> 이를 바탕으로 상품 구성과 설명 방식을 반복해서 개선했고, 실제 판매 성과로 연결했습니다.</p>
+        <p>반면 고객의 반응과 판매 데이터를 지속해서 축적하고 다음 의사결정에 활용하는 구조를 만들지 못해, 사업을 지속 가능한 형태로 확장하지 못했습니다. 이 성공과 실패는 저에게 두 가지 분명한 기준을 남겼습니다. 첫째, 프로덕트는 아이디어를 구현하는 것으로 완성되는 것이 아니라 <strong>사용자의 반응을 확인하고 개선을 반복하면서</strong> 만들어진다는 점입니다. 둘째, 사용자의 문제를 지속해서 해결하려면 <strong>개인의 경험에 의존하지 않는 반복 가능한 시스템</strong>이 필요하다는 점입니다. 이러한 문제를 기술로 해결하기 위해 개발을 시작했습니다.</p>
+        <p>저는 개발자로 성장하는 데 필요한 기준을 <strong>사용자 중심의 관점, 기술적 기본기, 소통</strong>으로 정의했습니다. 그중 기본기를 다지기 위해 크래프톤 정글 부트캠프에 참여해 자료구조와 알고리즘, 운영체제, 네트워크를 학습하며 서비스가 동작하는 기반을 익혔습니다.</p>
+        <p>필요한 기술을 빠르게 학습해 실제 결과물로 연결하는 성향은 ‘나만의 무기’ 프로젝트에서 발휘됐습니다. <strong>5주 동안 약 9천만 건의 틱 데이터를 다루는 실시간 투자 정보 플랫폼</strong>을 개발했습니다. 기존 차트 라이브러리로 구현하기 어려운 분석 기능을 제공하기 위해 TypeScript와 CSS/Canvas 스타일링을 활용해 맞춤형 차트 엔진 및 UI 반응형 레이아웃을 직접 구축했습니다. 과거 데이터는 REST API로 조회하고, 평균 초당 약 1,080건의 실시간 이벤트는 WebSocket으로 반영했습니다.</p>
+        <p>또한, 사용자가 체감하는 차트의 반응성과 AI 분석 기능의 완성도를 높이기 위해 프론트엔드 개발 영역에 선을 긋지 않고 <strong>백엔드 데이터 파이프라인까지 직접 다뤘습니다.</strong> Kafka 기반의 이벤트 드리븐 구조를 적용해 데이터의 수신·가공·저장·전달 과정을 분리함으로써, 특정 처리 경로의 지연이 차트 UI나 분석 기능으로 확산되지 않도록 구성했습니다. 사용자에게 최고의 차트 경험을 제공한다는 목적 아래, 화면 구현을 넘어 데이터 흐름 전체로 역할을 확장하며 Product Engineer로서 프로덕트의 핵심 문제를 End-to-End로 해결하는 과정을 경험했습니다.</p>
+        <p>마지막으로 <strong>소통은 창업과 생산 현장에서 검증한 저의 강점</strong>입니다. 개발 기술은 새로 빠르게 흡수해나가는 단계이지만, 조직에서 ‘일이 돌아가는 전체 사이클’을 이해하고 문제를 해결해 본 풍부한 현장 경험과 창업 과정에서 검증된 소통력을 갖추고 있습니다. 자동차 부품 제조 현장에서 생산 라인장으로 근무하며 약 20명의 현장 인력을 관리하고, 작업자·엔지니어·외주업체·납품업체 사이의 일정과 품질 기준을 조율했습니다. 문제가 생기면 현황을 명확히 정리해 원인을 바로 찾아내고, 관련 담당자들과 소통하여 해결책을 도출해 냈습니다. 이러한 경험들이 프로덕트와 조직 내에서 제 소통 역량을 입증해 주는 확실한 자산입니다.</p>
+        <p>이러한 경험은 개발 조직 내 프론트엔드, 백엔드, 데이터 영역의 상황을 빠르게 파악하고 원활하게 협업하는 자산이 될 것입니다. 이미 다양한 현장에서 소통 경험을 쌓은 만큼, 팀에 빠르게 적응하겠습니다. 요구사항 구현에 머무르지 않고 성과까지 끝까지 책임지는 <strong>Product Engineer로서 귀사에서 비즈니스 임팩트를 만들어내겠습니다.</strong></p>
+        <p><strong>긴 글 읽어 주셔서 감사합니다. 면접날 뵙겠습니다.</strong></p>
       </article>
     </ContentShell>
   );

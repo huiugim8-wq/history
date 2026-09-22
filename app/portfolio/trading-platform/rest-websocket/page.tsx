@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RestWebSocketPage() {
   return (
-    <TradingCaseShell>
+    <TradingCaseShell variant="detail">
       <article>
         <header className="trading-intro">
           <Link className="trading-back" href="/portfolio/trading-platform/">← 실시간 투자 정보 플랫폼</Link>
@@ -42,7 +42,7 @@ export default function RestWebSocketPage() {
             <li><strong>시계열 병합</strong><small>같은 시점은 하나의 데이터로</small></li>
             <li><strong>실시간 반영</strong><small>WebSocket 이벤트 연결</small></li>
           </ol>
-          <div className="trading-tech-grid">
+          <div className="trading-tech-grid trading-tech-grid--stacked">
             <div className="trading-tech-block">
               <h3>REST · 필요한 과거 범위 추가</h3>
               <p>보유한 데이터보다 이전 구간을 탐색하면 해당 범위만 요청합니다. 동일한 요청이 진행 중이면 추가 호출을 막고, 받아 온 데이터는 시점 기준으로 기존 데이터와 병합합니다.</p>

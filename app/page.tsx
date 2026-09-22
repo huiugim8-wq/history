@@ -1,7 +1,9 @@
 import Image from "next/image";
+import FrontendResume from "./frontend-resume";
 import Link from "next/link";
 import SelectableTags from "./selectable-tags";
 import { publicAssetPath } from "./site-paths";
+import SiteNavigation from "./site-navigation";
 
 const experienceItems = [
   {
@@ -77,7 +79,7 @@ function ExternalArrow() {
 }
 
 export default function Home() {
-  return <ResumePage variant="frontend" />;
+  return <FrontendResume />;
 }
 
 export function ResumePage({
@@ -91,37 +93,7 @@ export function ResumePage({
     <div className="resume-sheet">
       <header className="top-banner" id="top">
         <div className="top-banner-inner">
-          <nav className="site-nav" aria-label="주요 메뉴">
-            <Link
-              className="site-nav-link"
-              href={isUiux ? "/uiux" : "/"}
-            >
-              이력서
-            </Link>
-            <Link
-              className="site-nav-link"
-              href={isUiux ? "/uiux/cover-letter" : "/cover-letter"}
-            >
-              자기소개서
-            </Link>
-            <Link
-              className="site-nav-link"
-              href={isUiux ? "/uiux/portfolio" : "/portfolio"}
-            >
-              포트폴리오
-            </Link>
-            <Link className="site-nav-link" href="/documents">
-              PDF
-            </Link>
-            <a
-              className="site-nav-link"
-              href="https://github.com/huiugim8-wq"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </nav>
+          <SiteNavigation mode={isUiux ? "uiux" : "frontend"} />
 
           <div className="top-banner-copy">
             <p>{isUiux ? "UI/UX 디자이너" : "프론트엔드 개발자"}</p>
@@ -233,6 +205,127 @@ export function ResumePage({
           </div>
 
           <div className="resume-list">
+            {!isUiux && (
+              <article className="resume-item" id="glow-up-rizz">
+                <div className="resume-side">
+                  <div className="experience-heading">
+                    <h3>개인 프로젝트</h3>
+                    <p>기업 웹사이트·콘텐츠 관리</p>
+                  </div>
+                  <p className="project-side-kicker">글로우업리즈</p>
+                  <dl className="project-side-meta">
+                    <div>
+                      <dt>인원</dt>
+                      <dd>1인</dd>
+                    </div>
+                    <div>
+                      <dt>담당</dt>
+                      <dd>기획·UI·백엔드·배포</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div className="resume-detail jungle-detail">
+                  <div className="project-title">
+                    <span>PERSONAL PROJECT</span>
+                    <h4>글로우업리즈 기업 웹사이트·콘텐츠 관리 시스템</h4>
+                  </div>
+                  <nav
+                    className="project-links"
+                    aria-label="글로우업리즈 프로젝트 관련 링크"
+                  >
+                    <a
+                      className="side-link"
+                      href="https://54-180-95-162.nip.io/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      사이트 <ExternalArrow />
+                    </a>
+                    <Link
+                      className="side-link"
+                      href="/portfolio/glow-up-rizz"
+                    >
+                      프로젝트 상세 <ExternalArrow />
+                    </Link>
+                    <a
+                      className="side-link"
+                      href="https://github.com/huiugim8-wq/rizz"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      GitHub <ExternalArrow />
+                    </a>
+                  </nav>
+
+                  <div className="project-introduction">
+                    <p>
+                      기업 소개 홈페이지와 콘텐츠 관리자를 Next.js와
+                      PostgreSQL로 구현하고 AWS EC2에 배포했습니다. 기업의
+                      사업을 주제로 기획부터 배포까지 진행한 개인 프로젝트입니다.
+                    </p>
+                  </div>
+
+                  <div
+                    className="project-highlights"
+                    aria-label="글로우업리즈 핵심 구현"
+                  >
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>홈페이지와 관리자 CMS를 하나의 서비스로 구현</h5>
+                        <div className="project-achievements">
+                          <p>
+                            회사 소개와 사업 안내 화면을 구성하고, 관리자가
+                            뉴스·크리에이터 콘텐츠를 등록·수정·게시하거나
+                            휴지통에서 복원할 수 있도록 연결했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>사용자 권한과 콘텐츠 수정 충돌 처리</h5>
+                        <div className="project-achievements">
+                          <p>
+                            <strong>역할별 접근 권한과 직원 승인 절차</strong>를
+                            적용했습니다. 콘텐츠 버전을 확인해 동시에 수정한
+                            내용이 덮어써지는 것을 방지하고, 변경 이력을
+                            기록했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                    <section className="project-highlight">
+                      <span aria-hidden="true">•</span>
+                      <div>
+                        <h5>이미지 업로드 처리와 AWS 배포</h5>
+                        <div className="project-achievements">
+                          <p>
+                            업로드 이미지의 형식·용량·해상도를 검증하고 WebP로
+                            변환했습니다. AWS EC2에 Nginx·PM2·HTTPS 환경을
+                            구성하고, 배포 후 데이터베이스 연결까지 확인하는
+                            상태 점검을 추가했습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <SelectableTags
+                    ariaLabel="글로우업리즈 기술 키워드"
+                    labels={[
+                      "Next.js",
+                      "React",
+                      "TypeScript",
+                      "PostgreSQL",
+                      "Prisma",
+                      "AWS EC2",
+                    ]}
+                  />
+                </div>
+              </article>
+            )}
             <article className="resume-item jungle-item" id="project">
               <div className="resume-side jungle-side">
                 <div className="experience-heading">

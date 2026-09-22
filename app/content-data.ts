@@ -7,6 +7,15 @@ export const siteNavigation = [
 
 export const portfolioProjects = [
   {
+    href: "/portfolio/glow-up-rizz",
+    eyebrow: "개인 프로젝트 · Next.js 풀스택",
+    title: "글로우업리즈 기업 웹사이트·콘텐츠 관리 시스템",
+    description:
+      "회사의 사업 흐름을 담은 홈페이지와 콘텐츠 관리자를 설계하고, Next.js·PostgreSQL로 구현해 AWS EC2에 배포했습니다. 직원 권한, 콘텐츠 게시·복원, 동시 수정 충돌 처리와 이미지 업로드까지 연결했습니다.",
+    meta: "개인 프로젝트 · 기획 · UI 구현 · 백엔드 · 배포",
+    tags: ["Next.js", "React", "PostgreSQL", "Prisma", "AWS EC2"],
+  },
+  {
     href: "/portfolio/trading-platform",
     eyebrow: "크래프톤 정글 · 5인 팀 · 프론트엔드",
     title: "실시간 투자 정보 플랫폼",

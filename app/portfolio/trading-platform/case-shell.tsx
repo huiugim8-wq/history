@@ -4,17 +4,17 @@ import SiteFooter from "../../site-footer";
 import SiteNavigation from "../../site-navigation";
 import "./trading-case.css";
 
-export default function TradingCaseShell({ children }: { children: ReactNode }) {
+export default function TradingCaseShell({ children, variant = "project" }: { children: ReactNode; variant?: "project" | "detail" }) {
   return (
-    <div className="trading-case" id="top">
+    <div className={`trading-case${variant === "detail" ? " trading-case--detail" : ""}`} id="top">
       <a className="trading-skip" href="#project-content">본문으로 이동</a>
       <header className="trading-masthead">
         <div className="trading-container">
           <SiteNavigation />
-          <Link href="/portfolio/" className="trading-wordmark" aria-label="김희준 포트폴리오 목록">
+          {variant === "project" && <Link href="/portfolio/" className="trading-wordmark" aria-label="김희준 포트폴리오 목록">
             <span>Portfolio<span className="trading-dot">.</span></span>
             <span className="trading-name">KIM<br />HEEJUN</span>
-          </Link>
+          </Link>}
         </div>
       </header>
       <main className="trading-container trading-main" id="project-content">{children}</main>
