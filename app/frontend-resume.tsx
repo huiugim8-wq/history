@@ -73,6 +73,7 @@ export default function FrontendResume() {
               <div className="pr-entry-title">
                 <h3 id="workspace-title">리즈 AI · 공간 예약과 커피챗</h3>
                 <nav className="pr-project-links" aria-label="리즈 AI 프로젝트 관련 링크">
+                  <ExternalLink href="https://rizz-52-78-22-36.sslip.io/?persona=coach">사이트</ExternalLink>
                   <Link href="/portfolio/rizz-workspace/">프로젝트 상세 <span aria-hidden="true">↗</span></Link>
                 </nav>
               </div>

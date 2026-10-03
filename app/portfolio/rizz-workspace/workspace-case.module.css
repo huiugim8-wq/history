@@ -32,9 +32,10 @@
 .keepTogether { white-space: nowrap; }
 .hero .byline { font-size: 16px; line-height: 1.5; margin: 0; }
 .developmentStack { margin-top: 31px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
-.stackHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.stackHeading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.stackLinks { display: flex; align-items: center; gap: 18px; }
 .stackHeading h2 { margin: 0; font-size: 17px; font-weight: 750; letter-spacing: -.025em; }
-.stackHeading > a { display: inline-flex; min-height: 44px; align-items: center; font-size: 12px; font-weight: 600; }
+.stackLinks > a { display: inline-flex; min-height: 44px; align-items: center; font-size: 12px; font-weight: 600; }
 .developmentStack dl { display: grid; grid-template-columns: 1fr 1.15fr 1fr 1fr; gap: 12px 22px; margin: 12px 0 0; line-height: 1.7; }
 .developmentStack dt { color: var(--blue); font-size: 14px; font-weight: 700; }
 .developmentStack dd { font-size: 12px; margin: 4px 0 0; color: #505b68; }
@@ -146,7 +147,7 @@
   .hero .byline { font-size: 12px; }
   .developmentStack { margin-top: 21px; }
   .stackHeading h2 { font-size: 17px; }
-  .stackHeading > a { font-size: 11px; }
+  .stackLinks > a { font-size: 11px; }
   .developmentStack dl { display: block; }
   .developmentStack dl > div { display: grid; grid-template-columns: 82px 1fr; gap: 10px; margin-top: 9px; align-items: baseline; }
   .developmentStack dd { margin: 0; font-size: 11px; }
@@ -181,7 +182,7 @@
   .footer > span { order: 3; flex-basis: 100%; }
 }
 @media print {
-  .header, .footer, .stackHeading > a, .sourceLink { display: none; }
+  .header, .footer, .stackLinks > a, .sourceLink { display: none; }
   .diagram { width: 100%; margin-left: 0; transform: none; }
   .diagram img { min-width: 0; }
 }

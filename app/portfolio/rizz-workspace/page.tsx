@@ -40,7 +40,7 @@ export default function RizzWorkspacePage() {
           <p className={styles.byline}>김희준 · 개인 프로젝트 · 2026 · 1주 MVP</p>
         </header>
         <section className={styles.developmentStack} aria-labelledby="development-stack">
-          <div className={styles.stackHeading}><h2 id="development-stack">Development Stack</h2><a href="#application">아키텍처 ↓</a></div>
+          <div className={styles.stackHeading}><h2 id="development-stack">Development Stack</h2><nav className={styles.stackLinks} aria-label="리즈 AI 프로젝트 관련 링크"><a href="https://rizz-52-78-22-36.sslip.io/?persona=coach" target="_blank" rel="noreferrer">사이트 ↗</a><a href="#application">아키텍처 ↓</a></nav></div>
           <dl>{developmentStack.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl>
         </section>
         <figure className={styles.heroCapture}><a href={publicAssetPath('/workspace-project/workspace-calendar.jpg')} target="_blank" rel="noreferrer" aria-label="홈 캘린더와 리즈 AI 실제 화면 확대"><Image src={publicAssetPath('/workspace-project/workspace-calendar.jpg')} alt="홈의 중앙 캘린더에 공간 예약과 코치 이벤트가 보이고, 오른쪽 리즈 AI에서 예약·추천·참여를 요청하는 화면" width={1280} height={720} sizes="(max-width: 840px) 100vw, 796px" preload unoptimized /></a><figcaption>RIZZ AI · 홈 캘린더와 AI / 실제 MVP 화면 · 가상 데모 데이터</figcaption></figure>
