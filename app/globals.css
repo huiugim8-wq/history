@@ -265,6 +265,76 @@
 .fp-video-link .trading-video-poster:focus-visible { outline: 2px solid var(--fp-blue); outline-offset: 5px; }
 .fp-video-link .trading-video-print { display: none; }
 
+.fp-rizz-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.92fr);
+  gap: 28px;
+  padding: 28px 0;
+  border-top: 1px solid var(--fp-line);
+  border-bottom: 1px solid var(--fp-line);
+}
+
+.fp-rizz-preview {
+  min-width: 0;
+  overflow: hidden;
+  background: #050505;
+  color: #fff;
+}
+
+.fp-rizz-preview > strong {
+  display: block;
+  padding: 15px 16px 12px;
+  background: #fff;
+  color: #0a0a0a;
+  font-size: clamp(25px, 3.7vw, 36px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.fp-rizz-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.fp-rizz-preview > span {
+  display: block;
+  padding: 9px 12px 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.fp-rizz-summary {
+  min-width: 0;
+  align-self: center;
+}
+
+.fp-rizz-kicker {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--fp-blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.fp-rizz-project .fp-project-heading h3 {
+  font-size: 20px;
+}
+
+.fp-rizz-project .fp-project-meta {
+  display: grid;
+  gap: 5px;
+}
+
+.fp-rizz-project + .fp-compact-project {
+  border-top: 0;
+}
+
 .fp-compact-project {
   display: block;
   padding: 24px 0 28px;
@@ -382,6 +452,11 @@
   .fp-contact > div:last-child {
     padding: 9px 0 12px;
     border-right: 0;
+  }
+
+  .fp-rizz-project {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .fp-skills {

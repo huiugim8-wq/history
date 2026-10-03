@@ -80,6 +80,51 @@ export default function FrontendPortfolio() {
         <section className="fp-projects" aria-labelledby="fp-project-title">
           <h2 id="fp-project-title" className="fp-section-title">Project</h2>
 
+          <Link className="fp-project-card fp-rizz-project" href="/portfolio/rizz-workspace/" aria-label="리즈 AI 서비스 제안 상세 보기">
+            <div className="fp-rizz-preview" aria-hidden="true">
+              <Image src={publicAssetPath("/workspace-project/workspace-calendar.jpg")} alt="" width={1280} height={720} sizes="(max-width: 700px) calc(100vw - 40px), 390px" unoptimized />
+              <span>RIZZ AI · 1-WEEK MVP</span>
+            </div>
+            <div className="fp-rizz-summary">
+              <span className="fp-rizz-kicker">RIZZ AI · 서비스 도입 제안</span>
+              <div className="fp-project-heading"><h3>AI로 공간 예약과 커피챗을 연결한 1주 MVP</h3><span aria-hidden="true">↗</span></div>
+              <p className="fp-project-description">커피챗으로 공간을 찾을 이유를 만들고, 수강 진도를 참여 조건으로 연결합니다. 수강생과 코치의 예약·개설·소통을 AI와 카카오톡으로 처리하는 서비스 제안입니다.</p>
+              <div className="fp-project-meta"><span>개인 프로젝트 · 기획부터 AI 연동까지</span><span>Next.js · PostgreSQL · OpenAI · Kakao</span></div>
+            </div>
+          </Link>
+
+          <Link
+            className="fp-project-card fp-rizz-project"
+            href="/portfolio/glow-up-rizz/"
+            aria-label="글로우업리즈 브랜드 홈페이지 프로젝트 상세 보기"
+          >
+            <div className="fp-rizz-preview" aria-hidden="true">
+              <Image
+                src={publicAssetPath("/rizz-project/captures/home-hero.jpg")}
+                alt=""
+                width={1024}
+                height={576}
+                sizes="(max-width: 700px) calc(100vw - 40px), 390px"
+                unoptimized
+              />
+              <span>PUBLIC SITE · ADMIN CMS</span>
+            </div>
+            <div className="fp-rizz-summary">
+              <span className="fp-rizz-kicker">GLOW UP RIZZ · 지원을 위해 시작한 개인 프로젝트</span>
+              <div className="fp-project-heading">
+                <h3>리즈의 이야기를 담은 브랜드 홈페이지</h3>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <p className="fp-project-description">
+                관심을 가져온 브랜드의 성장 흐름을 영상과 스크롤 UI로 표현했습니다. 직원이 직접 콘텐츠를 수정하는 관리자부터 데이터베이스, AWS 배포까지 연결했습니다.
+              </p>
+              <div className="fp-project-meta">
+                <span>기획 · 프론트엔드 · 백엔드 · 배포</span>
+                <span>Next.js · PostgreSQL · AWS EC2</span>
+              </div>
+            </div>
+          </Link>
+
           <article className="fp-featured-project">
           <Link
             className="fp-project-card fp-project-summary"
@@ -101,6 +146,8 @@ export default function FrontendPortfolio() {
           </Link>
           <div className="fp-video-link"><TradingVideo /></div>
           </article>
+
+
 
           <Link
             className="fp-project-card fp-compact-project"

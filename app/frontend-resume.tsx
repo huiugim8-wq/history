@@ -59,6 +59,59 @@ export default function FrontendResume() {
 
         <section className="pr-work" id="experience" aria-labelledby="experience-title">
           <h2 className="pr-section-title" id="experience-title">Work &amp; Experience</h2>
+          <article className="pr-entry pr-project pr-rizz-project" id="rizz-workspace" aria-labelledby="workspace-title">
+            <div className="pr-side">
+              <h3>글로우업 리즈 취업 프로젝트</h3>
+              <p>RIZZ AI</p>
+              <dl className="pr-meta">
+                <div><dt>인원</dt><dd>1인</dd></div>
+                <div><dt>기간</dt><dd>1주 MVP</dd></div>
+                <div><dt>담당</dt><dd>기획·풀스택·AI 연동</dd></div>
+              </dl>
+            </div>
+            <div className="pr-detail">
+              <div className="pr-entry-title">
+                <h3 id="workspace-title">리즈 AI · 공간 예약과 커피챗</h3>
+                <nav className="pr-project-links" aria-label="리즈 AI 프로젝트 관련 링크">
+                  <Link href="/portfolio/rizz-workspace/">프로젝트 상세 <span aria-hidden="true">↗</span></Link>
+                </nav>
+              </div>
+              <p className="pr-rizz-intro"><strong>공간 이용률을 높이기 위한 서비스 제안을 1주 MVP로 구현했습니다.</strong> 코치와의 커피챗으로 공간을 찾을 이유를 만들고, 수강생과 코치의 예약·개설·참여를 AI 대화와 캘린더로 연결했습니다.</p>
+              <ul className="pr-rizz-highlights">
+                <li><strong>대화형 예약·참여</strong>AI가 빠진 조건을 질문하고 일정·수강 진도를 조회한 뒤, 사용자 확인을 거쳐 예약과 커피챗 신청을 실행하도록 구현했습니다.</li>
+                <li><strong>카카오톡 연동</strong>웹과 카카오톡이 같은 계정·예약 정보를 사용하고, 긴 AI 응답은 작업 큐와 워커로 비동기 전달하도록 구성했습니다.</li>
+              </ul>
+              <Tags values={["Next.js", "TypeScript", "PostgreSQL", "OpenAI", "Kakao"]} />
+            </div>
+          </article>
+
+          <article className="pr-entry pr-project pr-rizz-project" id="glow-up-rizz" aria-labelledby="rizz-title">
+            <div className="pr-side">
+              <h3>글로우업 리즈 취업 프로젝트</h3>
+              <p>GLOW UP RIZZ</p>
+              <dl className="pr-meta">
+                <div><dt>인원</dt><dd>1인</dd></div>
+                <div><dt>담당</dt><dd>기획·개발·배포</dd></div>
+              </dl>
+            </div>
+            <div className="pr-detail">
+              <div className="pr-entry-title">
+                <h3 id="rizz-title">글로우업리즈 브랜드 홈페이지</h3>
+                <nav className="pr-project-links" aria-label="글로우업리즈 프로젝트 관련 링크">
+                  <ExternalLink href="https://54-180-95-162.nip.io/">사이트</ExternalLink>
+                  <ExternalLink href="https://github.com/huiugim8-wq/rizz">GitHub</ExternalLink>
+                  <Link href="/portfolio/glow-up-rizz/">프로젝트 상세 <span aria-hidden="true">↗</span></Link>
+                </nav>
+              </div>
+              <p className="pr-rizz-intro"><strong className="pr-accent">글로우업리즈에 지원하기 위해 시작한 개인 프로젝트입니다.</strong> 관심을 가져온 브랜드의 성장 이야기를 UI로 풀어내고, 직원이 직접 정보를 바꿀 수 있는 홈페이지로 구현했습니다.</p>
+              <ul className="pr-rizz-highlights">
+                <li><strong>브랜드 경험 설계</strong>크리에이터·콘텐츠·사업의 연결 흐름을 영상과 스크롤 인터랙션으로 표현했습니다.</li>
+                <li><strong>운영 기능 구현</strong>뉴스·크리에이터 관리와 변경 이력을 구현하고, PostgreSQL과 AWS EC2로 저장·배포까지 연결했습니다.</li>
+              </ul>
+              <Tags values={["Next.js", "TypeScript", "PostgreSQL", "AWS EC2"]} />
+            </div>
+          </article>
+
           <article className="pr-entry pr-project" id="project">
             <div className="pr-side">
               <h3>크래프톤 정글</h3><p>12기 졸업</p>
@@ -75,17 +128,17 @@ export default function FrontendResume() {
 
           <article className="pr-entry pr-company">
             <div className="pr-side"><h3>㈜나현</h3><p>생산관리</p><p>과장 · 생산 라인장</p><time>2024 — 2025.08</time></div>
-            <div className="pr-detail"><h3>플라스틱사출 오퍼레이터/ 자동차 부품 생산 라인 운영</h3><p>현대·기아자동차 부품 제조 현장의 생산 운영과 약 <strong>20명의 현장 인력</strong>을 관리했습니다. 생산계획에 따라 공정을 운영하고 작업 인력을 배치했으며, 품질기준 준수와 안정적인 생산환경 유지를 담당했습니다.</p></div>
+            <div className="pr-detail"><h3>플라스틱사출 오퍼레이터/ 자동차 부품 생산 라인 책임자</h3><p>현대·기아자동차 부품 제조 현장의 생산 운영과 약 <strong>20명의 현장 인력</strong>을 관리했습니다. 생산계획에 따라 공정을 운영하고 작업 인력을 배치했으며, 품질기준 준수와 안정적인 생산환경 유지를 담당했습니다.</p></div>
           </article>
           <article className="pr-entry pr-company">
             <div className="pr-side"><h3>OTOS</h3><p>수건·목재 판매 창업</p><time>2023 — 2024</time></div>
-            <div className="pr-detail"><div className="pr-entry-title"><h3>와디즈 스피마코튼 <span>펀딩 1,206% 달성</span></h3><div className="pr-project-links"><ExternalLink href="https://www.wadiz.kr/web/campaign/detail/198814">와디즈 펀딩</ExternalLink></div></div><p>와디즈 펀딩과 쿠팡 목재 판매를 직접 기획·운영하며, <strong>‘무엇을 팔까’보다 고객의 어떤 문제를 풀어야 하는지</strong> 먼저 정의하고 시장 반응과 수익성으로 사업 가능성을 검증해 매출 약 1억 원을 달성했습니다.</p></div>
+            <div className="pr-detail"><div className="pr-entry-title"><h3>와디즈 수피마코튼 <span>펀딩 1,206% 달성</span></h3><div className="pr-project-links"><ExternalLink href="https://www.wadiz.kr/web/campaign/detail/198814">와디즈 펀딩</ExternalLink></div></div><p>와디즈 펀딩과 쿠팡 목재 판매를 직접 기획·운영하며, <strong>‘무엇을 팔까’보다 고객의 어떤 문제를 풀어야 하는지</strong> 먼저 정의하고 시장 반응과 수익성으로 사업 가능성을 검증해 매출 약 1억 원을 달성했습니다.</p></div>
           </article>
         </section>
 
         <section className="pr-education" id="education" aria-labelledby="education-title">
           <h2 className="pr-section-title" id="education-title">Education</h2>
-          <article className="pr-entry"><div className="pr-side"><h3>대구대학교</h3><p>실내건축디자인학과</p><time>2017.03 — 2023.08</time></div><div className="pr-detail"><p>공간 설계와 시각적 구성에 대한 체계적인 훈련을 통해 복잡한 정보를 효과적으로 구조화하고 명확하게 전달하는 역량을 길렀습니다.<br />실내인테리어 공모전 동아리 ‘러스틱’을 결성하고 <strong>동아리장을 맡아 프로젝트 기획과 구성원 간 협업을 주도했습니다.</strong></p><ul className="pr-awards" aria-label="수상 경력"><li><ExternalLink href={publicAssetPath("/awards/interior-deco-14-encouragement.jpg")}>14회 인테르니에 데코 공모전 장려상 수상</ExternalLink></li><li>2023 DGID 공모전 수상</li><li>학과 공로상 수상</li></ul></div></article>
+          <article className="pr-entry"><div className="pr-side"><h3>대구대학교</h3><p>실내건축디자인학과</p><time>2017.03 — 2023.08</time></div><div className="pr-detail"><p>공간 설계와 시각적 구성에 대한 체계적인 훈련을 통해 복잡한 정보를 효과적으로 구조화하고 명확하게 전달하는 역량을 길렀습니다.<br />실내인테리어 공모전 동아리 ‘러스틱’을 결성하고 <strong>동아리장을 맡아 프로젝트 기획과 구성원 간 협업을 주도했습니다.</strong></p><ul className="pr-awards" aria-label="수상 경력"><li className="pr-accent"><ExternalLink href={publicAssetPath("/awards/interior-deco-14-encouragement.jpg")}>14회 인테르니에 데코 공모전 장려상 수상</ExternalLink></li><li className="pr-accent">2023 DGID 공모전 수상</li><li>학과 공로상 수상</li></ul></div></article>
         </section>
       </main>
       <footer className="pr-container pr-footer"><Link href="/uiux/" aria-label="UI/UX 디자이너 이력서로 전환">© 2026 KIM HEEJUN</Link><a href="#top">Back to top ↑</a></footer>

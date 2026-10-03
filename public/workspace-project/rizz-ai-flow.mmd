@@ -1,0 +1,14 @@
+flowchart LR
+    request["수강생 · 코치"] --> intent["Rizz AI"]
+    intent --> tools["조회 · 추천 · 제안"]
+    database[("공간 · 일정 · 진도 DB")] <--> tools
+    tools --> confirmation{"사용자 확인"}
+    confirmation --> command["예약 · 개설 · 참여"]
+    command --> result["캘린더 · 대화"]
+
+    classDef default fill:#f7f9fc,stroke:#b6c9df,stroke-width:1.3px,color:#223247,font-size:18px;
+    classDef accent fill:#eaf3ff,stroke:#318bf5,stroke-width:1.7px,color:#145db7,font-weight:600;
+    classDef data fill:#f2f0fa,stroke:#b8a9d3,color:#6b5b85;
+    class intent,command accent;
+    class database data;
+    linkStyle default stroke:#498bd5,stroke-width:1.7px;

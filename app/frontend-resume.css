@@ -2,6 +2,7 @@
 .product-resume * { box-sizing: border-box; }
 .product-resume p, .product-resume h1, .product-resume h2, .product-resume h3, .product-resume h4, .product-resume ul, .product-resume dl, .product-resume dd { margin: 0; }
 .product-resume strong { font-weight: 700; }
+.product-resume .pr-accent { color: var(--pr-blue); }
 .product-resume a { text-underline-offset: 4px; }
 .product-resume a:hover { color: var(--pr-blue); }
 .product-resume a:focus-visible { outline: 2px solid var(--pr-blue); outline-offset: 5px; border-radius: 2px; }
@@ -28,7 +29,7 @@
 .product-resume .pr-section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 100vw; height: 1px; background: var(--pr-line); transform: translateX(-50%); }
 .product-resume .pr-statement { font-size: 30px; line-height: 1.4; font-weight: 750; letter-spacing: -.045em; margin: 18px 0 21px; }
 .product-resume .pr-statement span, .product-resume .pr-entry-title h3 > span { color: var(--pr-blue); }
-.product-resume .pr-about-copy { color: var(--pr-muted); font-size: 13px; line-height: 1.65; }
+.product-resume .pr-about-copy { color: #000000; font-size: 15px; line-height: 1.65; }
 .product-resume .pr-about-copy p + p { margin-top: 10px; }
 .product-resume .pr-work { margin-top: 40px; }
 .product-resume .pr-entry { display: grid; grid-template-columns: 142px minmax(0, 1fr); column-gap: 24px; margin-top: 18px; }
@@ -87,7 +88,7 @@
   .product-resume .pr-about { margin-top: 28px; }
   .product-resume .pr-section-title { font-size: 28px; }
   .product-resume .pr-statement { font-size: 25px; margin: 15px 0 18px; }
-  .product-resume .pr-about-copy { font-size: 14px; line-height: 1.7; }
+  .product-resume .pr-about-copy { line-height: 1.7; }
   .product-resume .pr-detail p { font-size: 14px; }
   .product-resume .pr-about-copy p + p { margin-top: 12px; }
   .product-resume .pr-entry { grid-template-columns: 1fr; row-gap: 17px; margin-top: 22px; }
@@ -102,6 +103,17 @@
   .product-resume .pr-company { margin-top: 32px; padding-top: 24px; border-top: 1px solid #edf0f3; }
   .product-resume .pr-company .pr-detail > p { margin-top: 8px; }
   .product-resume .pr-footer { margin-top: 90px; padding-bottom: 45px; }
+}
+.product-resume .pr-rizz-project { margin-bottom: 32px; }
+.product-resume .pr-rizz-project .pr-entry-title { flex-wrap: wrap; gap: 0 16px; }
+.product-resume .pr-rizz-intro { margin-top: 8px; }
+.product-resume .pr-rizz-highlights { display: grid; gap: 7px; padding: 0; margin: 12px 0 10px; list-style: none; color: #4c5665; font-size: 13px; font-weight: 500; line-height: 1.65; }
+.product-resume .pr-rizz-highlights li { position: relative; padding-left: 12px; }
+.product-resume .pr-rizz-highlights li::before { content: '·'; position: absolute; left: 0; color: var(--pr-blue); font-weight: 800; }
+.product-resume .pr-rizz-highlights strong { margin-right: 7px; color: var(--pr-blue); font-weight: 650; }
+@media (max-width: 560px) {
+  .product-resume .pr-rizz-project { padding-bottom: 26px; margin-bottom: 26px; border-bottom: 1px solid #edf0f3; }
+  .product-resume .pr-rizz-highlights { font-size: 14px; }
 }
 @media print {
   .product-resume { font-size: 9pt; }
